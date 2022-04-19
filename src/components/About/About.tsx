@@ -1,38 +1,47 @@
 import { Container } from "./styles";
 
-import profileImage from "../../assets/profile-image.jpg"
 import cssIcon from "../../assets/css-icon.svg";
 import htmlIcon from "../../assets/html-icon.svg";
 import jsIcon from "../../assets/js-icon.svg";
 import nodeIcon from "../../assets/node-icon.svg";
+import nextIcon from "../../assets/nextjs-icon.svg";
 import reactIcon from "../../assets/react-icon.svg";
 import typescriptIcon from "../../assets/typescript-icon.svg";
-import vueIcon from "../../assets/vue-icon.svg";
+import bootstrapIcon from "../../assets/bootstrap-icon.svg";
 import ScrollAnimation from "react-animate-on-scroll";
+import image from "../../assets/angel.jpg"
 
 
 export function About(){
   return(
     <Container id="sobre">
       <div className="about-text">
+
         <ScrollAnimation animateIn="fadeInLeft">
-          <h2>Sobre mim</h2>
+          <h2>About me</h2>
         </ScrollAnimation>
+
         <ScrollAnimation animateIn="fadeInLeft" delay={0.2 * 1000}>
-          <p>Me chamo João Túlio, sou técnico em informática com uma grande paixão por programação. Sou apaixonado por entregar soluções que agregam na vida das pessoas e ao mesmo tempo me desafiam. Aprimorei minhas habilidades como desenvolvedor Front-End e Back-End</p>
+          <p>Im Angel, Junior Software Engineer . I have experience working with computer systems, data structures, analysing system requirements, applications architecture and developing Android as well as Web-based applications.</p>
         </ScrollAnimation>
+
         <ScrollAnimation animateIn="fadeInLeft" delay={0.4 * 1000} style={{marginTop: "2rem", marginBottom: "2rem"}}>
-
-          <p>Desenvolvo sites e aplicações utilizando HTML, CSS, e JavaScript. Tenho familiaridade em desenvolver layouts que me fornecem. Estou sempre me aprimorando a cada projeto que colocam em minhas mãos.</p>
+          <p>My strengths lie in interpersonal, written communication, outstanding problem-solving skills, and creativity. I have superior organisation skills and experience working under pressure as part of a team.</p>
         </ScrollAnimation>
+
         <ScrollAnimation animateIn="fadeInLeft" delay={0.6 * 1000}>
-
-          <p>Sou uma pessoa dedicada que corre atrás para realizar seus sonhos, trabalhador e orientado a resultados, sempre busco alcançar minha melhor versão.</p>
+          <p>TECHNICAL SKILLS<br></br> - Advanced skills with a variety of Front-end technologies, such as JavaScript, TypeScript, React JS, a variety of mark-up and styling languages such as HTML5, XML and CSS.</p>
         </ScrollAnimation>
 
-        <ScrollAnimation animateIn="fadeInLeft" delay={0.7 * 1000}>
-          <h3>Aqui estão as minhas principais habilidades:</h3>
+         <ScrollAnimation animateIn="fadeInLeft" delay={0.8 * 1000}>
+           <br></br>
+          <p>- Advanced skills with a variety of Back-end technologies, such as JAVA, Python, Node JS, Express JS, a variety of SQL database technologies such as MySQL, as well as NoSQL databases like MongoDB.</p>
         </ScrollAnimation>
+
+        <ScrollAnimation animateIn="fadeInLeft" delay={0.8 * 1000}>
+          <h3>These are my main skills:</h3>
+        </ScrollAnimation>
+
         <div className="hard-skills">
 
           <div className="hability">
@@ -43,7 +52,7 @@ export function About(){
 
           <div className="hability">
           <ScrollAnimation animateIn="fadeInUp" delay={0.2 * 1000}>
-            <img src={vueIcon} alt="Vue" />
+            <img src={bootstrapIcon} alt="Vue" />
           </ScrollAnimation>
           </div>
 
@@ -69,19 +78,22 @@ export function About(){
             <img src={nodeIcon} alt="Node" />
           </ScrollAnimation>
           </div>
-
           <div className="hability">
-          <ScrollAnimation animateIn="fadeInUp" delay={0.7 * 1000}>
-            <img src={typescriptIcon} alt="Typescript" />
+          <ScrollAnimation animateIn="fadeInUp" delay={0.7 * 1000}> 
+            <img src={nextIcon} alt="Node" />
           </ScrollAnimation>
           </div>
 
-
+          <div className="hability">
+          <ScrollAnimation animateIn="fadeInUp" delay={0.8 * 1000}>
+            <img src={typescriptIcon} alt="Typescript" />
+          </ScrollAnimation>
+          </div>
         </div>
       </div>
       <div className="about-image">
         <ScrollAnimation animateIn="fadeInRight" delay={0.6 * 1000}>
-          <img src="https://portfolio-joaotulio.vercel.app/img/foto_antiga.jpg" alt="Imagem de perfil" />
+          <img src={image} height="600px" alt="Profile pic" />
         </ScrollAnimation>
       </div>
     </Container>
