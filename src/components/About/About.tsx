@@ -40,7 +40,7 @@ export function About(){
 
          <ScrollAnimation animateIn="fadeInLeft" delay={0.6 * 1000}>
            <br></br>
-          <p>- Advanced skills with a variety of Back-end technologies, such as JAVA, Python, Node JS, Express JS, a variety of SQL database technologies such as MySQL, as well as NoSQL databases like MongoDB.</p>
+          <p>- Advanced skills with a wide range of Frameworks, such as Next JS, Node JS, Express JS, Jest and Cypress testing, a variety of SQL database technologies such as MySQL, as well as NoSQL databases like MongoDB.</p>
         </ScrollAnimation>
 
         <ScrollAnimation animateIn="fadeInLeft" delay={0.7 * 1000}>
