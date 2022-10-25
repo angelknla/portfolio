@@ -52,7 +52,7 @@ export const Container = styled.section`
 
     img {
       margin-top: 2rem;
-      width: 60%;
+      max-width: 60%;
       border-radius: 5%;
       filter: grayscale(0);
       transition: filter 0.5s;
