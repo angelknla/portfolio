@@ -25,8 +25,11 @@ export const GlobalStyle = createGlobalStyle`
         }
       }
       .about-text {
-        h2, h3 {
+        h2 {
           border-bottom: 0.2rem solid var(--blue);
+        }
+        h3 {
+          color: var(--blue)
         }
       }
       .contacts {

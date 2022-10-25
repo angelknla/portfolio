@@ -1,6 +1,6 @@
 import Particles from "react-tsparticles"
 import {Container} from "./styles"
-import {Hero} from "../Hero/Hero"
+import { Hero } from "../Hero/Hero"
 import { About } from "../About/About";
 import { Contact } from "../Contact/Contact";
 import { Portfolio } from "../Portfolio/Portfolio";
@@ -16,6 +16,7 @@ import sassIcon from "../../assets/sass-icon.svg";
 import typescriptIcon from "../../assets/typescript-icon.svg";
 import vscodeIcon from "../../assets/vscode-icon.svg";
 import vueIcon from "../../assets/vue-icon.svg";
+import { data } from "../../data/portfolioData";
 
 
 export function Main(){
@@ -249,7 +250,7 @@ export function Main(){
     />
       <Hero></Hero>
       <About></About>
-      <Portfolio></Portfolio>
+      <Portfolio data={data}></Portfolio>
       <Contact></Contact>
     </Container>
   );

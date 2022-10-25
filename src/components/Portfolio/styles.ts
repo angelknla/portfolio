@@ -4,13 +4,13 @@ import styled from "styled-components";
 export const Container = styled.section`
   margin-top: 10rem;
 
-  h2{
+  h2 {
     text-align: center;
     font-size: 4rem;
     margin-bottom: 10rem;
   }
 
-  .projects{
+  .projects {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: auto;
@@ -18,7 +18,7 @@ export const Container = styled.section`
     padding: 1rem;
     overflow: hidden;
 
-    .project{
+    .project {
       padding: 2rem 1.8rem;
       background-color: #2b2b2b;
       border-radius: 1.2rem;
@@ -32,7 +32,7 @@ export const Container = styled.section`
         background-color: #ebe534;
       }
 
-      header{
+      header {
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -67,7 +67,7 @@ export const Container = styled.section`
 
       footer{
         margin-top: auto;
-        .tech-list{
+        .tech-list {
           display: flex;
           align-items: center;
           gap: 2rem;
