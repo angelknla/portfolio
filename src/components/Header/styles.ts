@@ -116,6 +116,7 @@ export const Container = styled.header`
   @media only screen and (max-width: 800px) {
     label {
     position: relative;
+    margin-right: 0.5rem;
    }
   }
 
@@ -147,7 +148,7 @@ export const Container = styled.header`
   }
 
   @media (max-width: 960px){
-    padding: 1.8rem 3rem;
+    padding: 1.8rem 2rem;
 
     .menu{
       display: block;
@@ -181,5 +182,4 @@ export const Container = styled.header`
       }
     }
   }
-  
-`
+`;

@@ -17,7 +17,7 @@ export const Container = styled.section`
     }
 
     h3{
-      color:var(--blue);
+      color: #ebe534;
       margin: 1rem 0;
     }
 

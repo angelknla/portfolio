@@ -30,7 +30,7 @@ export const Container = styled.section`
       width: 50%;
       max-width: 40rem;
       gap: 2rem;
-      background-color: var(--blue);
+      background-color: #ebe534;
       border-radius: 1.4rem;
       padding: 1.6rem 2.8rem;
       transition: background-color 0.25s;

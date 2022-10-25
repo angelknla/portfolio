@@ -21,6 +21,32 @@ export const GlobalStyle = createGlobalStyle`
 
       .logo{
         color: var(--black);
+        &::first-letter {
+          color: var(--blue);
+        }
+      }
+       
+      .contacts {
+        div {
+          background-color: var(--blue);
+          &:hover{
+            background-color: #ebe534;
+            a {
+              color: #FFF;
+            }
+          }
+        }
+      }
+
+
+       .hero-text {
+        h3 {
+          color: var(--blue);
+        }
+      }
+
+      button, .button {
+      background-color: var(--blue);
       }
 
       header.header-fixed{
@@ -59,8 +85,6 @@ export const GlobalStyle = createGlobalStyle`
     }
   }
 
-
-
   ul, li {
     text-decoration: none;
     list-style: none;
@@ -94,10 +118,12 @@ export const GlobalStyle = createGlobalStyle`
     text-decoration: none;
   }
 
+
+
   button, .button{
     border: none;
     cursor: pointer;
-    background-color: var(--blue);
+    background-color: #ebe534;
     color: #FFFF;
     border-radius: 2rem;
     font-weight: 500;
@@ -108,16 +134,15 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   button:disabled, .button:disabled{
-    filter: brightness(0.8);
+    filter: brightness(1.0);
     cursor: not-allowed;
   }
-
 
   .logo{
     font-size: 3rem;
     color: #FFFF;
     &::first-letter{
-      color: var(--blue);
+      color: #ebe534;;
     }
   }
   
