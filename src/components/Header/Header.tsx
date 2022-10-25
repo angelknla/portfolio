@@ -3,14 +3,15 @@ import { BrowserRouter as Router } from 'react-router-dom'
 import { NavHashLink, HashLink } from 'react-router-hash-link'
 import { useState } from 'react'
 
-import Curriculo from '../../assets/Angel_CV_2021.pdf'
-export function Header() {
-  const [isActive, setActive] = useState(false)
+import CV from '../../assets/Angel_CV_2022New.pdf'
 
-  function toggleTheme() {
+export function toggleTheme() {
     let html = document.getElementsByTagName('html')[0]
     html.classList.toggle('light')
   }
+
+export function Header() {
+  const [isActive, setActive] = useState(false)
 
   function closeMenu() {
     setActive(false)
@@ -46,7 +47,7 @@ export function Header() {
           <NavHashLink smooth to="#contact" onClick={closeMenu}>
             Contact
           </NavHashLink>
-          <a href={Curriculo} download className="button">
+          <a href={CV} download className="button">
             CV
           </a>
         </nav>
@@ -54,7 +55,7 @@ export function Header() {
         <div
           aria-expanded={isActive ? 'true' : 'false'}
           aria-haspopup="true"
-          aria-label={isActive ? 'Fechar menu' : 'Abrir menu'}
+          aria-label={isActive ? 'Close menu' : 'Open Menu'}
           className={isActive ? 'menu active' : 'menu'}
           onClick={() => {
             setActive(!isActive)
