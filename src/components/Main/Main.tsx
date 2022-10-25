@@ -20,7 +20,6 @@ import vueIcon from "../../assets/vue-icon.svg";
 
 export function Main(){
   return(
-
     <Container>
       <Particles
       id="tsparticles"

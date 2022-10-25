@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 
 export const Container = styled.section`
-  padding-top: 15%;
+  padding-top: 13%;
   display: flex;
   justify-content: space-between;
   gap: 8rem;
