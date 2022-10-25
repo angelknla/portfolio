@@ -8,7 +8,7 @@ export const Container = styled.section`
   justify-content: space-between;
   gap: 8rem;
   background: rgba(0,0,0,0);
-  .hero-text{
+  .hero-text {
     & > p{
       font-size: 1.8rem;
     }
@@ -16,7 +16,7 @@ export const Container = styled.section`
       font-size: 7rem;
     }
 
-    h3{
+    h3 {
       color: #ebe534;
       margin: 1rem 0;
     }
@@ -27,13 +27,14 @@ export const Container = styled.section`
     }
   }
 
-  .button{
+  .button {
     margin-top: 5rem;
     padding: 1.4rem 6rem;
+    color: var(--black);
   }
 
-  .hero-image{
-    img{
+  .hero-image {
+    img {
       max-width: 500px;
     }
   }

@@ -18,17 +18,23 @@ export const GlobalStyle = createGlobalStyle`
         background-color: #f5f5f5;
         color: var(--black);
       }
-
       .logo{
         color: var(--black);
         &::first-letter {
           color: var(--blue);
         }
       }
-       
+      .about-text {
+        h2, h3 {
+          border-bottom: 0.2rem solid var(--blue);
+        }
+      }
       .contacts {
         div {
           background-color: var(--blue);
+          a {
+            color: #FFF;
+          }
           &:hover{
             background-color: #ebe534;
             a {
@@ -37,22 +43,30 @@ export const GlobalStyle = createGlobalStyle`
           }
         }
       }
-
-
-       .hero-text {
+      #contact {
+        p {
+          color: var(--blue);
+        }
+      }
+      .hero-text {
+        .button {
+          color: #fff;
+        }
         h3 {
           color: var(--blue);
         }
       }
-
       button, .button {
-      background-color: var(--blue);
+        background-color: var(--blue);
       }
 
       header.header-fixed{
         transition: 0.5s;
         background-color: #f5f5f550;
-        a{
+        a.button {
+          color: #FFFF;
+        }
+        a {
           transition: 0.5s;
           color: black;
         }
@@ -70,8 +84,13 @@ export const GlobalStyle = createGlobalStyle`
         color: var(--black);
       }
 
-      form{
-        input,textarea{
+      form {
+        button {
+          a {
+            color: #FFF;
+          }
+        }
+        input,textarea {
           transition: 0.5s;
           border: solid 1px var(--black);
           color: var(--black);
@@ -79,6 +98,12 @@ export const GlobalStyle = createGlobalStyle`
             transition: 0.5s;
             color: var(--black);
           }
+        }
+      }
+
+      @media (max-width: 960px){
+        nav {
+          background-color: #fff;
         }
       }
 
@@ -142,7 +167,7 @@ export const GlobalStyle = createGlobalStyle`
     font-size: 3rem;
     color: #FFFF;
     &::first-letter{
-      color: #ebe534;;
+      color: #ebe534;
     }
   }
   

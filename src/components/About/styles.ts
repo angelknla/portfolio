@@ -10,14 +10,14 @@ export const Container = styled.section`
     font-weight: 200;
   }
 
-  .hard-skills{
+  .hard-skills {
     margin-top: 1.6rem;
     display: flex;
     align-items: center;
     flex-wrap: wrap;
     gap: 1.8rem;
   }
-  .hability{
+  .hability {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -27,18 +27,18 @@ export const Container = styled.section`
     }
   }
 
-  h2{
+  h2 {
     display: inline-block;
     margin-bottom: 2rem;
-    border-bottom: 0.2rem solid var(--blue);
+    border-bottom: 0.2rem solid #ebe534;
   }
 
-  h3{
+  h3 {
     margin-top: 2rem;
-    color: var(--blue);
+    color: #ebe534;
   }
 
-  p{
+  p {
     font-size: 1.8rem;
     letter-spacing: 0.1rem;
     font-weight: 500;
@@ -46,7 +46,7 @@ export const Container = styled.section`
   
   
 
-  .about-image{
+  .about-image {
     text-align: center;
     margin-left: 11rem;
 
@@ -87,7 +87,5 @@ export const Container = styled.section`
     .hard-skills{
       justify-content: center;
     }
-    
   }
-
 `

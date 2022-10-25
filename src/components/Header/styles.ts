@@ -17,11 +17,14 @@ export const Container = styled.header`
   width: 100vw;
   z-index: 1000;
 
-  nav{
+  nav {
     display: flex;
     align-items: center;
     gap: 1.8rem;
-    a{
+    a.button {
+      color: var(--black);
+    }
+    a {
       color: #FFFF;
       padding: 0.6rem;
       font-family: 'Roboto Slab', sans-serif;
@@ -170,7 +173,7 @@ export const Container = styled.header`
       top: 0;
       left: 0;
       transition: opacity 0.25s;
-      background-color: var(--blue);
+      background-color: var(--black);
 
       a.button{
         background-color: #ebe534;

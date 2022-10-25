@@ -5,11 +5,11 @@ export const Container = styled.div`
   margin-top: 10rem;
   display: grid;
   place-items: center;
-  h2{
+  h2 {
     text-align: center;
     margin-bottom: 2rem;
   }
-  form{
+  form {
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -31,7 +31,7 @@ export const Container = styled.div`
       }
     }
 
-    textarea{
+    textarea {
       height: 20rem;
       overflow-y: auto;
       resize: none;
@@ -40,6 +40,10 @@ export const Container = styled.div`
     button {
       padding: 1rem 6rem;
       text-transform: uppercase;
+      a {
+        background-color: transparent;
+        color: var(--black);
+      }
     }
   
   }
@@ -60,7 +64,7 @@ export const ContainerSucces = styled.div`
   margin-top: 10rem;
   text-align: center;
 
-  button{
+  button {
     border-radius: 0.6rem;
     padding: 1rem;
     margin-top: 0.8rem;

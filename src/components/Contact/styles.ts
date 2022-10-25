@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 
 export const Container = styled.section`
-  margin-top: 20rem;
+  margin-top: 13rem;
 
   header{
     text-align: center;
@@ -10,8 +10,8 @@ export const Container = styled.section`
       text-align: center;
       font-size: 4rem;
     }
-    p{
-      color: var(--blue);
+    p {
+      color: #ebe534;
       font-weight: 500;
     }
   }
