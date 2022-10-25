@@ -49,14 +49,15 @@ export const Container = styled.section`
   .about-image{
     text-align: center;
     margin-left: 11rem;
-   img{
-     margin-top: 2rem;
-     width: 55%
-     border-radius: 15%;
-     filter: grayscale(0);
-     transition: filter 0.5s;
-     &:hover{
-       filter: grayscale(5);
+
+    img {
+      margin-top: 2rem;
+      width: 60%;
+      border-radius: 5%;
+      filter: grayscale(0);
+      transition: filter 0.5s;
+      &:hover{
+        filter: grayscale(1);
      }
    }
   }
@@ -69,8 +70,9 @@ export const Container = styled.section`
       margin-left: 0rem;
 
       img {
-        max-width: 90%;
-        height: 96%;
+        max-width: 100%;
+        width: 90%;
+        height: 95%;
       }
     }
   }
