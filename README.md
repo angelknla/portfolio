@@ -1,12 +1,7 @@
-# Portfólio João Túlio
+# Angel Canelas Portfolio
+This project was created using CRA (Create React App).
 
-Este projeto foi criado com CRA (Create React App).
-
-Este é meu site para me apresentar, aqui coloco minhas habilidades, portfólio, e formas de contato.
-
-
-## Tecnologias usadas:
+## Teck stack:
 - React
 - Typescript
 - Styled Components
-
