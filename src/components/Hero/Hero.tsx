@@ -13,21 +13,21 @@ export function Hero(){
         <ScrollAnimation animateIn="fadeInUp" delay={0.2*1000}>
           <h1>Angel Canela</h1>
         </ScrollAnimation>
-        <ScrollAnimation animateIn="fadeInUp" delay={0.4 * 1000}>
+        <ScrollAnimation animateIn="fadeInUp" delay={0.3 * 1000}>
           <h3>Junior Front-end Software Engineer</h3>
         </ScrollAnimation>
-        <ScrollAnimation animateIn="fadeInUp" delay={0.6 * 1000}>
+        <ScrollAnimation animateIn="fadeInUp" delay={0.4 * 1000}>
           <p className="small-resume">I am a Junior Software Engineer with experience developing web-based systems.</p>
         </ScrollAnimation>
 
-          <ScrollAnimation animateIn="fadeInUp" delay={0.8*1000}>
-            <BrowserRouter>
-              <NavHashLink smooth to="#contato" className="button">Contact</NavHashLink>
+        <ScrollAnimation animateIn="fadeInUp" delay={0.5*1000}>
+          <BrowserRouter>
+            <NavHashLink smooth to="#contact" className="button">Contact</NavHashLink>
             </BrowserRouter>
-          </ScrollAnimation>
+        </ScrollAnimation>
       </div>
       <div className="hero-image">
-        <ScrollAnimation animateIn="fadeInRight" delay={1*1000}>
+        <ScrollAnimation animateIn="fadeInRight" delay={0.2*1000}>
           <img src={Illustration} alt="Ilustration"/>
         </ScrollAnimation>
       </div>

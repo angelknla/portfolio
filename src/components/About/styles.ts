@@ -48,7 +48,7 @@ export const Container = styled.section`
 
   .about-image{
     text-align: center;
-    margin-left: 10rem;
+    margin-left: 11rem;
    img{
      margin-top: 2rem;
      width: 55%
@@ -62,7 +62,7 @@ export const Container = styled.section`
   }
 
   @media only screen and (max-width: 480px) {
-    margin-top: 9srem;
+    margin-top: 9rem;
     .about-image {
       max-width: 100%;
       margin-top: 4rem;

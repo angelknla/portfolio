@@ -23,23 +23,27 @@ export function About(){
         </ScrollAnimation>
 
         <ScrollAnimation animateIn="fadeInLeft" delay={0.2 * 1000}>
-          <p>Im Angel, Junior Software Engineer . I have experience working with computer systems, data structures, analysing system requirements, applications architecture and developing Android as well as Web-based applications.</p>
-        </ScrollAnimation>
+          <p>Im Angel, Junior Software Engineer. I am an innovative thinker and problem solver that likes to test and experiment with thorough analysis and evaluation, confirming ideas and creating step-by-step plans.</p>
+          </ScrollAnimation>
+
+          <ScrollAnimation animateIn="fadeInLeft" delay={0.3 * 1000} style={{marginTop: "2rem", marginBottom: "2rem"}}>
+          <p>Familiar working with Agile ways of working such as Scrum and Kanban, experience working with computer systems, data structures, analysing system requirements, applications architecture and developing Android as well as Web-based applications.</p>
+          </ScrollAnimation>
 
         <ScrollAnimation animateIn="fadeInLeft" delay={0.4 * 1000} style={{marginTop: "2rem", marginBottom: "2rem"}}>
           <p>My strengths lie in interpersonal, written communication, outstanding problem-solving skills, and creativity. I have superior organisation skills and experience working under pressure as part of a team.</p>
         </ScrollAnimation>
 
-        <ScrollAnimation animateIn="fadeInLeft" delay={0.6 * 1000}>
+        <ScrollAnimation animateIn="fadeInLeft" delay={0.5 * 1000}>
           <p>TECHNICAL SKILLS<br></br> - Advanced skills with a variety of Front-end technologies, such as JavaScript, TypeScript, React JS, Redux, a variety of mark-up and styling languages such as HTML5, XML and CSS.</p>
         </ScrollAnimation>
 
-         <ScrollAnimation animateIn="fadeInLeft" delay={0.8 * 1000}>
+         <ScrollAnimation animateIn="fadeInLeft" delay={0.6 * 1000}>
            <br></br>
           <p>- Advanced skills with a variety of Back-end technologies, such as JAVA, Python, Node JS, Express JS, a variety of SQL database technologies such as MySQL, as well as NoSQL databases like MongoDB.</p>
         </ScrollAnimation>
 
-        <ScrollAnimation animateIn="fadeInLeft" delay={0.8 * 1000}>
+        <ScrollAnimation animateIn="fadeInLeft" delay={0.7 * 1000}>
           <h3>These are my main skills:</h3>
         </ScrollAnimation>
 
@@ -52,47 +56,47 @@ export function About(){
           </div>
 
           <div className="hability">
-            <ScrollAnimation animateIn="fadeInUp" delay={0.1 * 1000}>
+            <ScrollAnimation animateIn="fadeInUp" delay={0.2 * 1000}>
               <img src={reduxIcon} alt="Redux" />
             </ScrollAnimation>
           </div>
 
           <div className="hability">
-          <ScrollAnimation animateIn="fadeInUp" delay={0.2 * 1000}>
+          <ScrollAnimation animateIn="fadeInUp" delay={0.3 * 1000}>
             <img src={bootstrapIcon} alt="Vue" />
           </ScrollAnimation>
           </div>
 
           <div className="hability">
-          <ScrollAnimation animateIn="fadeInUp" delay={0.3 * 1000}> 
+          <ScrollAnimation animateIn="fadeInUp" delay={0.4 * 1000}> 
             <img src={jsIcon} alt="JavaScript" />
           </ScrollAnimation>
           </div>
 
           <div className="hability">
-          <ScrollAnimation animateIn="fadeInUp" delay={0.8 * 1000}>
+          <ScrollAnimation animateIn="fadeInUp" delay={0.5 * 1000}>
             <img src={typescriptIcon} alt="Typescript" />
           </ScrollAnimation>
           </div>
 
           <div className="hability">
-          <ScrollAnimation animateIn="fadeInUp" delay={0.4 * 1000}> 
+          <ScrollAnimation animateIn="fadeInUp" delay={0.6 * 1000}> 
             <img src={htmlIcon} alt="Html" />
           </ScrollAnimation>
           </div>
 
           <div className="hability">
-          <ScrollAnimation animateIn="fadeInUp" delay={0.5 * 1000}> 
+          <ScrollAnimation animateIn="fadeInUp" delay={0.7 * 1000}> 
             <img src={cssIcon} alt="Css" />
           </ScrollAnimation>
           </div>
           <div className="hability">
-          <ScrollAnimation animateIn="fadeInUp" delay={0.6 * 1000}> 
+          <ScrollAnimation animateIn="fadeInUp" delay={0.8 * 1000}> 
             <img src={nodeIcon} alt="Node" />
           </ScrollAnimation>
           </div>
           <div className="hability">
-          <ScrollAnimation animateIn="fadeInUp" delay={0.7 * 1000}> 
+          <ScrollAnimation animateIn="fadeInUp" delay={0.9 * 1000}> 
             <img src={nextIcon} alt="Node" />
           </ScrollAnimation>
           </div>
@@ -100,7 +104,7 @@ export function About(){
         </div>
       </div>
       <div className="about-image">
-        <ScrollAnimation animateIn="fadeInRight" delay={0.6 * 1000}>
+        <ScrollAnimation animateIn="fadeInRight" delay={0.5 * 1000}>
           <img src={image} height="600px" alt="Profile pic" />
         </ScrollAnimation>
       </div>
