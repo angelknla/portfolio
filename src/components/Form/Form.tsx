@@ -71,15 +71,17 @@ export function Form() {
             setMessage(e.target.value)
           }}
         />
-        <a href = "mailto: angel.canela@kurtgeiger.com">
+        
         <button 
           type="submit"
-          onSubmit={() => {setState({succeeded: true})}}
+          onClick={() => {setState({succeeded: true})}}
           disabled={ !validEmail || !message }
         >
+          <a type='submit' href = "mailto: angel.canela@kurtgeiger.com">
           Send
+          </a>
         </button>
-        </a>
+        
       </form>
       <ToastContainer />
     </Container>
