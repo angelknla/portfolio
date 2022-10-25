@@ -37,7 +37,7 @@ export const Container = styled.div`
       resize: none;
     }
 
-    button{
+    button {
       padding: 1rem 6rem;
       text-transform: uppercase;
     }

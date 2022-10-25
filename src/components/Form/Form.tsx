@@ -1,11 +1,13 @@
 import { Container, ContainerSucces } from './styles'
-import { useForm, ValidationError } from '@formspree/react'
 import { toast, ToastContainer } from 'react-toastify'
 import { useEffect, useState } from 'react'
 import validator from 'validator'
 
 export function Form() {
-  const [state, handleSubmit] = useForm('myyozglw')
+  const formState = {
+    succeeded: false
+  }
+  const [state, setState] = useState(formState)
 
   const [validEmail, setValidEmail] = useState(false)
   const [message, setMessage] = useState('')
@@ -20,7 +22,7 @@ export function Form() {
 
   useEffect(() => {
     if (state.succeeded) {
-      toast.success('Email enviado com sucesso!', {
+      toast.success('Message sent succesfully!', {
         position: toast.POSITION.BOTTOM_LEFT,
         pauseOnFocusLoss: false,
         closeOnClick: true,
@@ -28,7 +30,8 @@ export function Form() {
         toastId: 'succeeded',
       })
     }
-  })
+  }, [state])
+
   if (state.succeeded) {
     return (
       <ContainerSucces>
@@ -48,7 +51,7 @@ export function Form() {
   return (
     <Container>
       <h2>Use the form below to get in touch</h2>
-      <form onSubmit={handleSubmit}>
+      <form>
         <input
           placeholder="Email"
           id="email"
@@ -59,7 +62,6 @@ export function Form() {
           }}
           required
         />
-        <ValidationError prefix="Email" field="email" errors={state.errors} />
         <textarea
           required
           placeholder="Type here your message"
@@ -69,17 +71,15 @@ export function Form() {
             setMessage(e.target.value)
           }}
         />
-        <ValidationError
-          prefix="Message"
-          field="message"
-          errors={state.errors}
-        />
-        <button
+        <a href = "mailto: angel.canela@kurtgeiger.com">
+        <button 
           type="submit"
-          disabled={state.submitting || !validEmail || !message }
+          onSubmit={() => {setState({succeeded: true})}}
+          disabled={ !validEmail || !message }
         >
           Send
         </button>
+        </a>
       </form>
       <ToastContainer />
     </Container>

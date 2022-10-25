@@ -11,7 +11,7 @@ export function toggleTheme() {
   }
 
 export function Header() {
-  const [isActive, setActive] = useState(false)
+  const [active, setActive] = useState(false)
 
   function closeMenu() {
     setActive(false)
@@ -34,7 +34,7 @@ export function Header() {
         />
         <label htmlFor="switch">Toggle</label>
 
-        <nav className={isActive ? 'active' : ''}>
+        <nav className={active ? 'active' : ''}>
           <NavHashLink smooth to="#home" onClick={closeMenu}>
             Home
           </NavHashLink>
@@ -53,12 +53,12 @@ export function Header() {
         </nav>
 
         <div
-          aria-expanded={isActive ? 'true' : 'false'}
+          aria-expanded={active ? 'true' : 'false'}
           aria-haspopup="true"
-          aria-label={isActive ? 'Close menu' : 'Open Menu'}
-          className={isActive ? 'menu active' : 'menu'}
+          aria-label={active ? 'Close menu' : 'Open Menu'}
+          className={active ? 'menu active' : 'menu'}
           onClick={() => {
-            setActive(!isActive)
+            setActive(!active)
           }}
         ></div>
       </Router>
