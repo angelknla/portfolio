@@ -67,6 +67,11 @@ export const Container = styled.section`
       max-width: 100%;
       margin-top: 4rem;
       margin-left: 0rem;
+
+      img {
+        max-width: 90%;
+        height: 96%;
+      }
     }
   }
 
