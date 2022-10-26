@@ -254,7 +254,7 @@ export const Main: FC<MainProps> = ({language}) => {
       }}
     />
       <Hero language={language}></Hero>
-      <About></About>
+      <About language={language}></About>
       <Portfolio data={data}></Portfolio>
       <Contact></Contact>
     </Container>

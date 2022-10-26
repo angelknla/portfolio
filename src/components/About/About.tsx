@@ -11,40 +11,48 @@ import typescriptIcon from "../../assets/typescript-icon.svg";
 import bootstrapIcon from "../../assets/bootstrap-icon.svg";
 import ScrollAnimation from "react-animate-on-scroll";
 import image from "../../assets/angel_new.jpg"
+import { FC } from "react";
+import { aboutData } from "../../data/aboutData";
 
+interface AboutProps {
+  language: string;
+}
 
-export function About(){
+export const About:FC<AboutProps> = ({language}) => {
+
+  const personalData = language === "eng" ? aboutData.english : aboutData.spanish;
+
   return(
     <Container id="about">
       <div className="about-text">
 
         <ScrollAnimation animateIn="fadeInLeft">
-          <h2>About me</h2>
+          <h2>{personalData.title}</h2>
         </ScrollAnimation>
 
         <ScrollAnimation animateIn="fadeInLeft" delay={0.2 * 1000}>
-          <p>I am an innovative problem solver that likes to test and experiment with thorough analysis and evaluation, confirming ideas and creating step-by-step plans.</p>
+          <p>{personalData.p1}</p>
           </ScrollAnimation>
 
           <ScrollAnimation animateIn="fadeInLeft" delay={0.3 * 1000} style={{marginTop: "2rem", marginBottom: "2rem"}}>
-          <p>Familiar working with Agile ways of working such as Scrum and Kanban, experience working with computer systems, data structures, analysing system requirements and developing Web-based applications.</p>
+          <p>{personalData.p2}</p>
           </ScrollAnimation>
 
         <ScrollAnimation animateIn="fadeInLeft" delay={0.4 * 1000} style={{marginTop: "2rem", marginBottom: "2rem"}}>
-          <p>My strengths lie in interpersonal, written communication, outstanding problem-solving skills, and creativity. I have superior organisation skills and experience working under pressure as part of a team.</p>
+          <p>{personalData.p3}</p>
         </ScrollAnimation>
 
         <ScrollAnimation animateIn="fadeInLeft" delay={0.5 * 1000}>
-          <p>TECHNICAL SKILLS<br></br> - Front-end technologies, such as JavaScript, TypeScript, React JS, Redux,  mark-up/styling languages such as HTML5, XML and CSS.</p>
+          <p>{personalData.p4.title}<br></br>{personalData.p4.content}</p>
         </ScrollAnimation>
 
          <ScrollAnimation animateIn="fadeInLeft" delay={0.6 * 1000}>
            <br></br>
-          <p>- Frameworks, such as Next JS, Node JS, Express JS, Jest and Cypress testing, database technologies such as MySQL or MongoDB.</p>
+          <p>{personalData.p5}</p>
         </ScrollAnimation>
 
         <ScrollAnimation animateIn="fadeInLeft" delay={0.7 * 1000}>
-          <h3>These are my main skills:</h3>
+          <h3>{personalData.h3}</h3>
         </ScrollAnimation>
 
         <div className="hard-skills">
