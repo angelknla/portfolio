@@ -7,6 +7,7 @@ export const StyledContainer = styled.div`
 export const StyledButton = styled.a`
   cursor: pointer;
   img {
-   width: 3rem;
+    width: 3rem;
+    border-radius: 50%;
   }
 `;
