@@ -1,4 +1,4 @@
-import { Container } from "./styles";
+import { StyledContainer, StyledProjectsWrapper, StyledTitle } from "./styles";
 import ProjectCard, { ProjectCardProps } from "./ProjectCard";
 import { FC } from "react";
 
@@ -8,19 +8,13 @@ interface PortfolioProps {
 
 export const Portfolio: FC<PortfolioProps> = ({data}) => {
   return(
-    <Container id="portfolio">
-      <h2>My Portfolio</h2>
-      <div className="projects">
-      {data.map((card) => 
-      <ProjectCard 
-        title={card.title} 
-        description={card.description} 
-        techStack={card.techStack} 
-        iconSvg={card?.iconSvg}
-        iconAlt={card?.iconAlt}
-       /> 
+    <StyledContainer id="portfolio">
+      <StyledTitle>My Portfolio</StyledTitle>
+      <StyledProjectsWrapper className="projects">
+      {data.map((cardInfo) => 
+      <ProjectCard {...cardInfo}/> 
       )}
-      </div>
-    </Container>
+      </StyledProjectsWrapper>
+    </StyledContainer>
   );
 }

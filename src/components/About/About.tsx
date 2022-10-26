@@ -23,11 +23,11 @@ export function About(){
         </ScrollAnimation>
 
         <ScrollAnimation animateIn="fadeInLeft" delay={0.2 * 1000}>
-          <p>Im Angel, Junior Software Engineer. I am an innovative thinker and problem solver that likes to test and experiment with thorough analysis and evaluation, confirming ideas and creating step-by-step plans.</p>
+          <p>I am an innovative problem solver that likes to test and experiment with thorough analysis and evaluation, confirming ideas and creating step-by-step plans.</p>
           </ScrollAnimation>
 
           <ScrollAnimation animateIn="fadeInLeft" delay={0.3 * 1000} style={{marginTop: "2rem", marginBottom: "2rem"}}>
-          <p>Familiar working with Agile ways of working such as Scrum and Kanban, experience working with computer systems, data structures, analysing system requirements, applications architecture and developing Android as well as Web-based applications.</p>
+          <p>Familiar working with Agile ways of working such as Scrum and Kanban, experience working with computer systems, data structures, analysing system requirements and developing Web-based applications.</p>
           </ScrollAnimation>
 
         <ScrollAnimation animateIn="fadeInLeft" delay={0.4 * 1000} style={{marginTop: "2rem", marginBottom: "2rem"}}>
@@ -35,12 +35,12 @@ export function About(){
         </ScrollAnimation>
 
         <ScrollAnimation animateIn="fadeInLeft" delay={0.5 * 1000}>
-          <p>TECHNICAL SKILLS<br></br> - Advanced skills with a variety of Front-end technologies, such as JavaScript, TypeScript, React JS, Redux, a variety of mark-up and styling languages such as HTML5, XML and CSS.</p>
+          <p>TECHNICAL SKILLS<br></br> - Front-end technologies, such as JavaScript, TypeScript, React JS, Redux,  mark-up/styling languages such as HTML5, XML and CSS.</p>
         </ScrollAnimation>
 
          <ScrollAnimation animateIn="fadeInLeft" delay={0.6 * 1000}>
            <br></br>
-          <p>- Advanced skills with a wide range of Frameworks, such as Next JS, Node JS, Express JS, Jest and Cypress testing, a variety of SQL database technologies such as MySQL, as well as NoSQL databases like MongoDB.</p>
+          <p>- Frameworks, such as Next JS, Node JS, Express JS, Jest and Cypress testing, database technologies such as MySQL or MongoDB.</p>
         </ScrollAnimation>
 
         <ScrollAnimation animateIn="fadeInLeft" delay={0.7 * 1000}>
