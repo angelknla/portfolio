@@ -17,9 +17,14 @@ import typescriptIcon from "../../assets/typescript-icon.svg";
 import vscodeIcon from "../../assets/vscode-icon.svg";
 import vueIcon from "../../assets/vue-icon.svg";
 import { data } from "../../data/portfolioData";
+import { FC } from "react";
 
+interface MainProps {
+  language: string;
+}
 
-export function Main(){
+export const Main: FC<MainProps> = ({language}) => {
+  
   return(
     <Container>
       <Particles
@@ -248,7 +253,7 @@ export function Main(){
         }
       }}
     />
-      <Hero></Hero>
+      <Hero language={language}></Hero>
       <About></About>
       <Portfolio data={data}></Portfolio>
       <Contact></Contact>
