@@ -186,3 +186,9 @@ export const Container = styled.header`
     }
   }
 `;
+
+export const StyledLinkedIn = styled.a`
+  img {
+    width: 25px;
+  }
+`

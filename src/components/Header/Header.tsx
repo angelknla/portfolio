@@ -1,5 +1,6 @@
-import { Container } from './styles'
+import { Container, StyledLinkedIn } from './styles'
 import { BrowserRouter as Router } from 'react-router-dom'
+import linkedinIcon from '../../assets/linkedin.png'
 import { NavHashLink, HashLink } from 'react-router-hash-link'
 import { useState } from 'react'
 
@@ -50,6 +51,13 @@ export function Header() {
           <a href={CV} download className="button">
             CV
           </a>
+          <StyledLinkedIn 
+            href="https://www.linkedin.com/in/angel-canela/"
+            target="_blank"
+            rel="noreferrer"
+           >
+          <img src={linkedinIcon} alt="Linkedin" />
+        </StyledLinkedIn>
         </nav>
 
         <div
