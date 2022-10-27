@@ -30,12 +30,17 @@ switch(language) {
   return(
     <Container id="home">
       <div className="hero-text">
-        <ScrollAnimation animateIn="fadeInUp">
+        <ScrollAnimation animateIn="fadeInLeft">
           <p>{personalData.greeting}</p>
         </ScrollAnimation>
         <ScrollAnimation animateIn="fadeInUp" delay={0.2*1000}>
           <h1>{personalData.name}</h1>
         </ScrollAnimation>
+        {language === "japanese" && 
+        <ScrollAnimation animateIn="fadeInLeft">
+          <p className="japanese">です</p>
+        </ScrollAnimation>
+        }
         <ScrollAnimation animateIn="fadeInUp" delay={0.3 * 1000}>
           <h3>{personalData.job}</h3>
         </ScrollAnimation>
