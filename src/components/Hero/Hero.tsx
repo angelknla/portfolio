@@ -12,7 +12,20 @@ interface HeroProps {
 
 export const Hero: FC<HeroProps> = ({language}) => {
 
-  const personalData = language === "eng" ? heroData.english : heroData.spanish;
+var personalData;
+switch(language) {
+  case 'english':
+    personalData = heroData.english;
+    break;
+  case 'spanish':
+    personalData = heroData.spanish;
+    break;
+  case 'japanese':
+    personalData = heroData.japanese;
+    break;
+  default:
+    personalData = heroData.english
+}
 
   return(
     <Container id="home">

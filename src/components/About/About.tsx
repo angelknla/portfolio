@@ -20,7 +20,20 @@ interface AboutProps {
 
 export const About:FC<AboutProps> = ({language}) => {
 
-  const personalData = language === "eng" ? aboutData.english : aboutData.spanish;
+  var personalData;
+  switch(language) {
+   case 'english':
+    personalData = aboutData.english;
+    break;
+   case 'spanish':
+    personalData = aboutData.spanish;
+    break;
+  case 'japanese':
+    personalData = aboutData.japanese;
+    break;
+   default:
+    personalData = aboutData.english;
+}
 
   return(
     <Container id="about">

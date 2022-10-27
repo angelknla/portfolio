@@ -22,5 +22,17 @@ export const aboutData = {
     },
     p5: "- Frameworks, como Next JS, Node JS, Express JS, Jest y Cypress testing, tecnologías de bases de datos como MySQL o MongoDB.",
     h3: "Estas son mis habilidades principales:",
+  },
+   japanese: {
+    title: "私について",
+    p1: "私は革新的な問題解決者であり、徹底的な分析と評価をテストして実験し、アイデアを確認し、段階的な計画を作成するのが好きです.",
+    p2: "スクラムやかんばんなどのアジャイルな作業方法に精通していること、コンピューター システム、データ構造、システム要件の分析、Web ベースのアプリケーションの開発を行った経験がある.",
+    p3: "私の強みは、対人関係、書面によるコミュニケーション、優れた問題解決能力、および創造性にあります。私はチームの一員としてプレッシャーの下で働いた優れた組織力と経験を持っています.",
+    p4: { 
+      title: "技術的なスキル",
+      content: "- JavaScript、TypeScript、React JS、Redux などのフロントエンド技術、HTML5、XML、CSS などのマークアップ/スタイリング言語."
+    },
+    p5: "- Next JS、Node JS、Express JS、Jest、Cypress テストなどの rameworks、MySQL や MongoDB などのデータベース技術.",
+    h3: "これらは私のメインスキルです:",
   }
 }

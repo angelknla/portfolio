@@ -1,18 +1,19 @@
 import { FC } from "react";
+import { FlagsData } from "../../data/dropdownData";
 import { DropdownContainer, DropdownContent, StyledButton } from "./DropdownStyles";
 
 interface DropdownStructureProps {
-  data: Array<string>;
-  handleClick: () => void;
+  data: Array<FlagsData>;
+  handleClick: (flagsData: FlagsData) => void;
 }
 
 const DropdownStructure: FC<DropdownStructureProps> = ({data, handleClick}) => {
     return (
         <DropdownContainer>
             <DropdownContent>
-            {data.map((flag) => (
-              <StyledButton onClick={() => handleClick()} >
-                <img src={flag} alt="language" />
+            {data.map((flag, i) => (
+              <StyledButton key={i} onClick={() => handleClick(flag)} >
+                <img src={flag.flag} alt="language" />
              </StyledButton>
             ))}
             </DropdownContent>

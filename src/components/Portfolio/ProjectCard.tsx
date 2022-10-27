@@ -38,8 +38,8 @@ const ProjectCard: FC<ProjectCardProps> = ({
           </div>
           <footer>
             <ul id="techList" className="tech-list">
-             {techStack?.map((tech) => 
-                <li>{tech}</li>
+             {techStack?.map((tech, i) => 
+                <li key={i}>{tech}</li>
              )}
             </ul>
           </footer>

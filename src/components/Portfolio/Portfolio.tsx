@@ -11,8 +11,8 @@ export const Portfolio: FC<PortfolioProps> = ({data}) => {
     <StyledContainer id="portfolio">
       <StyledTitle>My Portfolio</StyledTitle>
       <StyledProjectsWrapper className="projects">
-      {data.map((cardInfo) => 
-      <ProjectCard {...cardInfo}/> 
+      {data.map((cardInfo, i) => 
+      <ProjectCard key={i} {...cardInfo}/> 
       )}
       </StyledProjectsWrapper>
     </StyledContainer>

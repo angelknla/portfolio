@@ -7,7 +7,7 @@ import 'react-toastify/dist/ReactToastify.css'
 
 function App() {
   toggleTheme()
-  const [language, setLanguage] = useState('eng');
+  const [language, setLanguage] = useState('english');
 
   const props = {
     language,

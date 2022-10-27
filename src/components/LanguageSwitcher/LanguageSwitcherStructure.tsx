@@ -1,17 +1,23 @@
 import { FC } from "react";
+import { FlagsData } from "../../data/dropdownData";
 import Dropdown from "../Dropdown";
 import { StyledButton, StyledContainer } from "./LanguageSwitcherStyles";
 
 interface LanguageSwictherStructureProps {
    flag: string;
-   handleClick: () => void;
+   handleClick: (flagsData: FlagsData) => void;
    handleClickSwicther: () => void;
    toggleDropdown: boolean;
-   flagsData: Array<string>
+   flagsData: Array<FlagsData>
 }
 
 const LanguageSwitcherStructure: FC<LanguageSwictherStructureProps> = ({flag, handleClick, handleClickSwicther, toggleDropdown, flagsData}) => {
-    return (
+    
+  const dropdownProps = {
+    data: flagsData,
+    handleClick,
+  }
+  return (
       <StyledContainer>
        {!toggleDropdown &&
         <StyledButton onClick={() => handleClickSwicther()}>
@@ -19,9 +25,7 @@ const LanguageSwitcherStructure: FC<LanguageSwictherStructureProps> = ({flag, ha
         </StyledButton>
         }
         {toggleDropdown && 
-          <Dropdown 
-            data={flagsData}
-            handleClick={handleClick} 
+          <Dropdown {...dropdownProps}
           />
         }
       </StyledContainer>

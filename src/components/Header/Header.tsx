@@ -6,6 +6,7 @@ import { Dispatch, FC, SetStateAction, useState } from 'react'
 
 import CV from '../../assets/Angel_CV_2022New.pdf'
 import LanguageSwitcher from '../LanguageSwitcher'
+import { headerData } from '../../data/headerData'
 
 export const toggleTheme = () => {
     let html = document.getElementsByTagName('html')[0]
@@ -20,6 +21,20 @@ interface HeaderProps {
 export const Header: FC<HeaderProps>  = ({language, setLanguage}) => {
   const [active, setActive] = useState(false)
 
+  var header;
+  switch(language) {
+   case 'english':
+     header = headerData.english;
+     break;
+   case 'spanish':
+     header = headerData.spanish;
+     break;
+   case 'japanese':
+     header = headerData.japanese;
+     break;
+   default:
+     header = headerData.english;
+}
   function closeMenu() {
     setActive(false)
   }
@@ -49,16 +64,16 @@ export const Header: FC<HeaderProps>  = ({language, setLanguage}) => {
 
         <nav className={active ? 'active' : ''}>
           <NavHashLink smooth to="#home" onClick={closeMenu}>
-            {language === 'eng' ? 'Home' : 'Inicio'}
+            {header.home}
           </NavHashLink>
           <NavHashLink smooth to="#about" onClick={closeMenu}>
-            {language === 'eng' ? 'About me' : 'Sobre mi'}
+            {header.about}
           </NavHashLink>
           <NavHashLink smooth to="#portfolio" onClick={closeMenu}>
-            {language === 'eng' ? 'Portfolio' : 'Porfolio'}
+            {header.portfolio}
           </NavHashLink>
           <NavHashLink smooth to="#contact" onClick={closeMenu}>
-            {language === 'eng' ? 'Contact' : 'Contacto'}
+            {header.contact}
           </NavHashLink>
           <a href={CV} download className="button">
             CV
