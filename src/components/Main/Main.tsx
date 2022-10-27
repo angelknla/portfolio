@@ -16,7 +16,7 @@ import sassIcon from "../../assets/sass-icon.svg";
 import typescriptIcon from "../../assets/typescript-icon.svg";
 import vscodeIcon from "../../assets/vscode-icon.svg";
 import vueIcon from "../../assets/vue-icon.svg";
-import { data } from "../../data/portfolioData";
+import { data as portfolioData } from "../../data/portfolioData";
 import { FC } from "react";
 
 interface MainProps {
@@ -255,7 +255,7 @@ export const Main: FC<MainProps> = ({language}) => {
     />
       <Hero language={language}></Hero>
       <About language={language}></About>
-      <Portfolio data={data}></Portfolio>
+      <Portfolio data={portfolioData}></Portfolio>
       <Contact></Contact>
     </Container>
   );

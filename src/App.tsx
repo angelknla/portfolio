@@ -15,7 +15,7 @@ function App() {
   };
 
    useEffect(() => {
-    setLanguage(language === 'eng' ? 'eng' : 'esp')
+    setLanguage(language)
   }, [language, setLanguage])
 
   return (

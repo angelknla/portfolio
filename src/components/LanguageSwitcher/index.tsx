@@ -1,7 +1,6 @@
 import { Dispatch, FC, SetStateAction, useState } from "react";
-import ukFlag from '../../assets/UK.png'
-import spainFlag from '../../assets/Spain.png'
 import LanguageSwitcherStructure from "./LanguageSwitcherStructure";
+import { flagsData } from "../../data/dropdownData";
 
 interface LanguageSwitcherProps {
   language: string;
@@ -10,16 +9,26 @@ interface LanguageSwitcherProps {
 
 const LanguageSwitcher: FC<LanguageSwitcherProps> = ({language, setLanguage}) => {
 
-  const [flag, setFlag] = useState(language === 'eng' ? ukFlag : spainFlag);
+  const [flag, setFlag] = useState(flagsData[0]);
+  const [toggleDropdown, setToggleDropdown] = useState(false);
+
+  const handleClickSwicther = () => {
+    setToggleDropdown(!toggleDropdown);
+  }
 
   const handleClick = () => {
-    setFlag(flag === ukFlag ? spainFlag : ukFlag)
+    setFlag(language === 'eng' ? flagsData[1] : flagsData[0])
     setLanguage(language === 'eng' ? 'esp' : 'eng')
+    setToggleDropdown(!toggleDropdown);
   }
+
 
   const props = {
     flag,
     handleClick,
+    toggleDropdown,
+    flagsData,
+    handleClickSwicther,
   }
   return (
     <LanguageSwitcherStructure {...props} />
