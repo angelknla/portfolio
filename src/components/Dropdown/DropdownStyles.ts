@@ -3,7 +3,6 @@ import styled from "styled-components";
 export const StyledButton = styled.a`
   position: relative;
   cursor: pointer;
-  border: none;
   :hover, :focus {
     background-color: grey;
   }
@@ -15,7 +14,6 @@ export const StyledButton = styled.a`
 
 export const DropdownContainer = styled.div`
   position: relative;
-  background: white;
   height: 4.6rem;
 `;
 
@@ -23,5 +21,9 @@ export const DropdownContent = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  box-shadow: 1px 1px 16px 0px rgba(0,0,0,0.2);
+
+  @media only screen and (max-width: 800px) {
+    display: inline-block;
+  }
 `;
