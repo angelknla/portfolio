@@ -19,6 +19,10 @@ export const Container = styled.section`
       margin: 1rem 0;
     }
 
+    .japanese {
+      text-align: end;
+      width: 44rem;
+    }
     
     p.small-resume {
       margin-bottom: 5rem;
