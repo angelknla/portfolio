@@ -22,8 +22,4 @@ export const DropdownContent = styled.div`
   display: flex;
   flex-direction: column;
   box-shadow: 1px 1px 16px 0px rgba(0,0,0,0.2);
-
-  @media only screen and (max-width: 800px) {
-    display: inline-block;
-  }
 `;
