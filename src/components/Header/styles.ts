@@ -156,13 +156,17 @@ export const Container = styled.header`
     transform: translateX(-100%);
   }
 
-  @media (max-width: 960px){
+  @media(max-width: 360px){
+    padding: 1.8rem 2rem;
+  }
+
+  @media (max-width: 960px) {
     padding: 1.8rem 2rem;
 
     .menu {
       display: block;
     }
-    .menu,.menu:before, .menu:after{
+    .menu,.menu:before, .menu:after {
           background-color: var(--black); 
         }
         .menu.active{
@@ -187,11 +191,11 @@ export const Container = styled.header`
       transition: opacity 0.25s;
       background-color: #fff;
 
-      a.button{
+      a.button {
         background-color: #016fb9;
       }
 
-      &.active{
+      &.active {
         opacity: 1;
         visibility: visible;
       }

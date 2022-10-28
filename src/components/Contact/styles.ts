@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 
 export const Container = styled.section`
-  margin-top: 13rem;
+  margin-top: 7rem;
 
   header{
     text-align: center;
@@ -17,7 +17,7 @@ export const Container = styled.section`
     }
   }
 
-  .contacts{
+  .contacts {
     display: flex;
     align-items: center;
     justify-content: center;

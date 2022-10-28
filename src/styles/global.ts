@@ -113,10 +113,10 @@ export const GlobalStyle = createGlobalStyle`
         input,textarea {
           transition: 0.5s;
           border: solid 1px #fff;
-          color: var(--black);
+          color: #fff;
           &::placeholder{
             transition: 0.5s;
-            color: #fff;
+            color: grey;
           }
         }
       }

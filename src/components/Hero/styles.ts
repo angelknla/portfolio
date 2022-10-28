@@ -69,9 +69,13 @@ export const Container = styled.section`
   }
 
   @media(max-width: 600px){
-    margin-top: 25%;
+    margin-top: 20%;
   }
   @media(max-width: 480px){
-    margin-top: 35%;
+    margin-top: 30%;
+
+    .button {
+      padding: 1rem 4rem;
+  }
   }
 `

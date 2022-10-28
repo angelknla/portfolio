@@ -17,7 +17,7 @@ export const Container = styled.div`
     align-items: center;
     gap: 1rem;
     width: 100%;
-    input, textarea{
+    input, textarea {
       width: 60rem;
       padding: 1rem 2rem;
       border-radius: 1.6rem;
@@ -25,10 +25,10 @@ export const Container = styled.div`
       border: none;
       background:none;
       border: 1px solid var(--black);
-      color: white;
+      color: var(--black);
       font-weight: 600;
       &::placeholder{
-        color: var(--black);
+        color: grey;
       }
     }
 
