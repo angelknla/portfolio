@@ -73,7 +73,7 @@ export const Container = styled.section`
 
       img {
         max-width: 100%;
-        width: 90%;
+        width: 95%;
         height: 95%;
       }
     }
