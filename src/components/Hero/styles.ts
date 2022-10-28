@@ -57,10 +57,15 @@ export const Container = styled.section`
         font-size: 5rem;
       }
     }
+    .japanese {
+      width: 31rem !important;
+    }
     
     .hero-image{
       display: none;
     }
+
+    
   }
 
   @media(max-width: 600px){
