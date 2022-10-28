@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 
 export const Container = styled.div`
-  margin-top: 10rem;
+  margin-top: 8rem;
   display: grid;
   place-items: center;
   h2 {

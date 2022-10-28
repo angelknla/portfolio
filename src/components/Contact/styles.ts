@@ -12,6 +12,7 @@ export const Container = styled.section`
       color: var(--black);
     }
     p {
+      margin-top: 1rem;
       color: var(--blue);
       font-weight: 500;
     }
@@ -23,8 +24,8 @@ export const Container = styled.section`
     justify-content: center;
     gap: 2rem;
     place-items: center;
-    margin-top: 8rem;
-    div{
+    margin-top: 7rem;
+    div {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -35,10 +36,10 @@ export const Container = styled.section`
       border-radius: 1.4rem;
       padding: 1.6rem 2.8rem;
       transition: background-color 0.25s;
-      img{
-        width: 4rem;
+      img {
+        width: 3.5rem;
       }
-      a{
+      a {
         color: #fff;
         font-weight: 500;
       }
@@ -52,12 +53,16 @@ export const Container = styled.section`
   }
 
 
-  @media(max-width: 960px){
-    .contacts{
+  @media(max-width: 960px) {
+    .contacts {
       flex-direction: column;
-      div{
-        width: 100%;
+      div {
+        width: 95%;
+        gap: 0.5rem;
         flex-direction: column;
+        img {
+          width: 3rem;
+        }
       }
     }
   }

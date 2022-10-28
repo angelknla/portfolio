@@ -74,8 +74,13 @@ export const Container = styled.section`
   @media(max-width: 480px){
     margin-top: 30%;
 
+    .hero-text {
+      p.small-resume {
+        margin-bottom: 4rem;
+      }
+    }
     .button {
-      padding: 1rem 4rem;
-  }
+      padding: 1.2rem 4rem;
+    }
   }
 `
