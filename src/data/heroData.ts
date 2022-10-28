@@ -1,6 +1,6 @@
 export const heroData = {
     english: {
-      greeting: 'Hello, thi is',
+      greeting: 'Hello, this is',
       name: "Angel Canela",
       job: 'Front-end Software Engineer',
       intro: "I am a Junior Software Engineer with experience developing web-based systems.",
