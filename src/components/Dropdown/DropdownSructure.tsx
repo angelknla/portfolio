@@ -5,12 +5,13 @@ import { DropdownContainer, DropdownContent, StyledButton } from "./DropdownStyl
 interface DropdownStructureProps {
   data: Array<FlagsData>;
   handleClick: (flagsData: FlagsData) => void;
+  handleClickSwicther: () => void;
 }
 
-const DropdownStructure: FC<DropdownStructureProps> = ({data, handleClick}) => {
+const DropdownStructure: FC<DropdownStructureProps> = ({data, handleClick, handleClickSwicther}) => {
     return (
         <DropdownContainer>
-            <DropdownContent>
+            <DropdownContent onMouseLeave={() => handleClickSwicther()}>
             {data.map((flag, i) => (
               <StyledButton key={i} onClick={() => handleClick(flag)} >
                 <img src={flag.flag} alt="language" />

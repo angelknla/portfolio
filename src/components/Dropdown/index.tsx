@@ -5,13 +5,15 @@ import DropdownStructure from "./DropdownSructure";
 export interface DropdownProps {
   data: Array<FlagsData>;
   handleClick: (flagsData: FlagsData) => void;
+  handleClickSwicther: () => void;
 }
 
-const Dropdown: FC<DropdownProps> = ({data, handleClick}) => {
+const Dropdown: FC<DropdownProps> = ({data, handleClick, handleClickSwicther}) => {
 
     const dropdownProps = {
        data,
        handleClick,
+       handleClickSwicther,
     }
     return (
         <DropdownStructure {...dropdownProps} />

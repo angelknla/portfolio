@@ -16,6 +16,7 @@ const LanguageSwitcherStructure: FC<LanguageSwictherStructureProps> = ({flag, ha
   const dropdownProps = {
     data: flagsData,
     handleClick,
+    handleClickSwicther,
   }
   return (
       <StyledContainer>
