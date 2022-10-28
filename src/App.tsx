@@ -4,10 +4,10 @@ import { Header, HeaderProps } from './components/Header/Header'
 import { Main } from './components/Main/Main'
 import { GlobalStyle } from './styles/global'
 import 'react-toastify/dist/ReactToastify.css'
-import { flagsData } from './data/dropdownData'
+import { flagsData, staticflagsData } from './data/dropdownData'
 
 function App() {
-  const [language, setLanguage] = useState(flagsData[0].flag);
+  const [language, setLanguage] = useState(flagsData[0]);
 
    useEffect(() => {
     setLanguage(language)
@@ -16,13 +16,13 @@ function App() {
   const setData = (data: any): any =>  {
     var personalData;
     switch(language) {
-      case flagsData[0].flag:
+      case flagsData[flagsData.indexOf(staticflagsData[0])]:
       personalData = data.english;
       break;
-    case flagsData[1].flag:
+    case flagsData[flagsData.indexOf(staticflagsData[1])]:
       personalData = data.spanish;
       break;
-    case flagsData[2].flag:
+    case flagsData[flagsData.indexOf(staticflagsData[2])]:
       personalData = data.japanese;
       break;
     default:

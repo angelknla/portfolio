@@ -1,10 +1,9 @@
 import { FC, RefObject } from "react";
-import { FlagsData } from "../../data/dropdownData";
 import { DropdownContainer, DropdownContent, StyledButton } from "./DropdownStyles";
 
 interface DropdownStructureProps {
-  data: Array<FlagsData>;
-  handleClick: (flagsData: FlagsData) => void;
+  data: Array<string>;
+  handleClick: (string: string) => void;
   handleClickSwitcher: () => void;
   ref: RefObject<HTMLDivElement> | null ;
 }
@@ -15,7 +14,7 @@ const DropdownStructure: FC<DropdownStructureProps> = ({data, handleClick, handl
             <DropdownContent onMouseLeave={() => handleClickSwitcher()}>
             {data.map((flag, i) => (
               <StyledButton id="flagButton" key={i} onClick={() => handleClick(flag)} >
-                <img src={flag.flag} alt="language" />
+                <img src={flag} alt="language" />
              </StyledButton>
             ))}
             </DropdownContent>

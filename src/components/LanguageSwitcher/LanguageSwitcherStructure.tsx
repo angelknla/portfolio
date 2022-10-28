@@ -1,14 +1,13 @@
 import { FC } from "react";
-import { FlagsData } from "../../data/dropdownData";
 import Dropdown from "../Dropdown";
 import { StyledButton, StyledContainer } from "./LanguageSwitcherStyles";
 
 interface LanguageSwictherStructureProps {
    flag: string;
-   handleClick: (flagsData: FlagsData) => void;
+   handleClick: (flagsData: string) => void;
    handleClickSwitcher: () => void;
    toggleDropdown: boolean;
-   flagsData: Array<FlagsData>
+   flagsData: Array<string>
 }
 
 const LanguageSwitcherStructure: FC<LanguageSwictherStructureProps> = ({flag, handleClick, handleClickSwitcher, toggleDropdown, flagsData}) => {

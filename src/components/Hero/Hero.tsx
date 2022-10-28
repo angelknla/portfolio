@@ -5,6 +5,7 @@ import Illustration from "../../assets/illustration.svg";
 import { NavHashLink } from "react-router-hash-link";
 import { FC } from "react";
 import { heroData } from "../../data/heroData";
+import { flagsData } from "../../data/dropdownData";
 
 interface HeroProps {
   language: string;
@@ -23,7 +24,7 @@ export const Hero: FC<HeroProps> = ({language, setData}) => {
         <ScrollAnimation animateIn="fadeInUp" delay={0.2*1000}>
           <h1>{personalData.name}</h1>
         </ScrollAnimation>
-        {language === "japanese" && 
+        {language === flagsData[2] && 
         <ScrollAnimation animateIn="fadeInLeft">
           <p className="japanese">です</p>
         </ScrollAnimation>

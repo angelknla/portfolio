@@ -1,10 +1,9 @@
 import { FC, useEffect, useRef } from "react";
-import { FlagsData } from "../../data/dropdownData";
 import DropdownStructure from "./DropdownSructure";
 
 export interface DropdownProps {
-  data: Array<FlagsData>;
-  handleClick: (flagsData: FlagsData) => void;
+  data: Array<string>;
+  handleClick: (flagsData: string) => void;
   handleClickSwitcher: () => void;
 }
 

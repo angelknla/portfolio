@@ -1,6 +1,6 @@
-import { Dispatch, FC, SetStateAction, useState } from "react";
+import { Dispatch, FC, SetStateAction, useEffect, useState } from "react";
 import LanguageSwitcherStructure from "./LanguageSwitcherStructure";
-import { FlagsData, flagsData } from "../../data/dropdownData";
+import { flagsData } from "../../data/dropdownData";
 
 interface LanguageSwitcherProps {
   language: string;
@@ -10,21 +10,32 @@ interface LanguageSwitcherProps {
 const LanguageSwitcher: FC<LanguageSwitcherProps> = ({language, setLanguage}) => {
 
   const [toggleDropdown, setToggleDropdown] = useState(false);
+  const [finalFlags, setFinalFlags] = useState(flagsData);
 
   const handleClickSwitcher = () => {
     setToggleDropdown(!toggleDropdown);
   };
 
-  const handleClick = (data: FlagsData ) => {
-    setLanguage(data.flag)
+  const updateFlagsData = (arr: Array<string>, a: number, b: number) => {
+    [arr[a], arr[b]] = [arr[b], arr[a]]
+  }
+
+  const handleClick = (data: string ) => {
+    setLanguage(data)
     setToggleDropdown(!toggleDropdown);
   };
+
+  useEffect(() => {
+   const newIndex = flagsData.indexOf(language);
+   updateFlagsData(flagsData, 0, newIndex)
+   setFinalFlags(flagsData);
+  }, [language])
 
   const props = {
     flag: language,
     handleClick,
     toggleDropdown,
-    flagsData,
+    flagsData: finalFlags,
     handleClickSwitcher,
   }
   return (
