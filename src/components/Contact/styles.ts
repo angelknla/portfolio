@@ -9,9 +9,10 @@ export const Container = styled.section`
     h2{
       text-align: center;
       font-size: 4rem;
+      color: var(--black);
     }
     p {
-      color: #ebe534;
+      color: var(--blue);
       font-weight: 500;
     }
   }
@@ -30,7 +31,7 @@ export const Container = styled.section`
       width: 50%;
       max-width: 40rem;
       gap: 2rem;
-      background-color: #ebe534;
+      background-color: #016fb9;
       border-radius: 1.4rem;
       padding: 1.6rem 2.8rem;
       transition: background-color 0.25s;
@@ -38,7 +39,7 @@ export const Container = styled.section`
         width: 4rem;
       }
       a{
-        color: var(--black);
+        color: #fff;
         font-weight: 500;
       }
       &:hover{

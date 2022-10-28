@@ -4,6 +4,7 @@ export const StyledTitle = styled.h2`
   text-align: center;
   font-size: 4rem;
   margin-bottom: 10rem;
+  color: var(--black);
 `;
 
 export const StyledProjectsWrapper = styled.div`
@@ -56,7 +57,7 @@ export const StyledProjectsWrapper = styled.div`
         border-bottom: 1px solid var(--blue);
         transition: color 0.25s;
         &:hover {
-          color: var(--blue);
+          color: #ebe534;
         }
       }
     }

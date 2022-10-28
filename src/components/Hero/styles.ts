@@ -7,32 +7,38 @@ export const Container = styled.section`
   gap: 8rem;
   background: rgba(0,0,0,0);
   .hero-text {
+    p {
+      color: var(--black);
+    }
     & > p{
       font-size: 1.8rem;
     }
     h1{
       font-size: 7rem;
+      color: var(--black);
     }
 
     h3 {
-      color: #ebe534;
+      color: #016fb9;
       margin: 1rem 0;
     }
 
     .japanese {
       text-align: end;
       width: 44rem;
+      color: var(--black);
     }
     
     p.small-resume {
       margin-bottom: 5rem;
+      color: var(--black);
     }
   }
 
   .button {
     margin-top: 5rem;
     padding: 1.4rem 6rem;
-    color: var(--black);
+    color: #fff;
   }
 
   .hero-image {

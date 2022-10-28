@@ -8,6 +8,7 @@ export const Container = styled.section`
 
   .about-text {
     font-weight: 200;
+    color: var(--black)
   }
 
   .hard-skills {
@@ -30,12 +31,12 @@ export const Container = styled.section`
   h2 {
     display: inline-block;
     margin-bottom: 2rem;
-    border-bottom: 0.2rem solid #ebe534;
+    border-bottom: 0.2rem solid var(--blue);
   }
 
   h3 {
     margin-top: 2rem;
-    color: #ebe534;
+    color: var(--blue);
   }
 
   p {

@@ -15,66 +15,81 @@ export const GlobalStyle = createGlobalStyle`
 
       body{
         transition: 0.5s;
-        background-color: #f5f5f5;
-        color: var(--black);
+        background-color: var(--black);
+        color: #fff;
       }
       .logo{
-        color: var(--black);
+        color: #fff;
         &::first-letter {
-          color: var(--blue);
+          color: #ebe534;
         }
       }
       .about-text {
+        color: #fff;
         h2 {
-          border-bottom: 0.2rem solid var(--blue);
+          border-bottom: 0.2rem solid #ebe534;
         }
         h3 {
-          color: var(--blue)
+          color: #ebe534
         }
       }
       .contacts {
         div {
-          background-color: var(--blue);
+          background-color: #ebe534;
           a {
-            color: #FFF;
+            color: var(--black);
           }
           &:hover{
-            background-color: #ebe534;
+            background-color: #016fb9;
             a {
-              color: #FFF;
+              color: var(--black);
             }
           }
         }
       }
       #contact {
+        h2 {
+          color: #fff;
+        }
         p {
-          color: var(--blue);
+          color: #ebe534;
         }
       }
       .hero-text {
-        .button {
+        p, h1{
           color: #fff;
         }
+        .button {
+          color: var(--black);
+        }
         h3 {
-          color: var(--blue);
+          color: #ebe534;
         }
       }
       button, .button {
-        background-color: var(--blue);
+        background-color: #ebe534;
+      }
+      #portfolio {
+        h2 {
+          color: #fff;
+        }
       }
 
       header.header-fixed{
         transition: 0.5s;
-        background-color: #f5f5f550;
+        background-color: rgba(33, 33, 33, 0.314);
         a.button {
-          color: #FFFF;
+          color: var(--black);
+        }
+        label {
+          background: #ebe534;
         }
         a {
           transition: 0.5s;
-          color: black;
+          color: #fff;
         }
         .menu,.menu:before, .menu:after{
-          background-color: var(--black); 
+          background-color: #f5f5f5; 
         }
         .menu.active{
           background-color: rgba(555,555,555,0);
@@ -84,29 +99,29 @@ export const GlobalStyle = createGlobalStyle`
       footer.footer{
         transition: 0.5s;
         background-color: rgba(0,0,0,0.1);
-        color: var(--black);
+        color: #fff;
       }
 
       form {
         button {
           a {
-            color: #FFF;
+            color: var(--black);
           }
         }
         input,textarea {
           transition: 0.5s;
-          border: solid 1px var(--black);
+          border: solid 1px #fff;
           color: var(--black);
           &::placeholder{
             transition: 0.5s;
-            color: var(--black);
+            color: #fff;
           }
         }
       }
 
       @media (max-width: 960px){
         nav {
-          background-color: #fff;
+          background-color: var(--black);
         }
       }
 
@@ -133,7 +148,7 @@ export const GlobalStyle = createGlobalStyle`
   body {
     font-size: 1.6rem;
     -webkit-font-smoothing: antialiased;
-    background-color: var(--black);
+    background-color: #f5f5f5;
     color: #FFFF;
   }
 
@@ -151,7 +166,7 @@ export const GlobalStyle = createGlobalStyle`
   button, .button{
     border: none;
     cursor: pointer;
-    background-color: #ebe534;
+    background-color: #016fb9;
     color: #FFFF;
     border-radius: 2rem;
     font-weight: 500;
@@ -170,7 +185,7 @@ export const GlobalStyle = createGlobalStyle`
     font-size: 3rem;
     color: #FFFF;
     &::first-letter{
-      color: #ebe534;
+      color: #016fb9;
     }
   }
   

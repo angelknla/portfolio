@@ -2,21 +2,23 @@ import styled from "styled-components";
 
 
 export const Container = styled.footer`
-  background-color: #2b2b2b;
+  background-color: rgba(0, 0, 0, 0.1);
   padding: 3rem 15rem;
   margin-top: 8rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-
+  
 
   .logo{
     font-size: 2.8rem;
+    color: var(--black)
   }
 
   p{
     letter-spacing: 0.2rem;
     display: flex;
+    color: var(--black);
     align-items: center;
     gap: 0.5rem;
     img{

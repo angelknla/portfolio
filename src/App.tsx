@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { Footer } from './components/Footer/Footer'
-import { Header, toggleTheme } from './components/Header/Header'
+import { Header } from './components/Header/Header'
 import { Main } from './components/Main/Main'
 import { GlobalStyle } from './styles/global'
 import 'react-toastify/dist/ReactToastify.css'
 
 function App() {
-  toggleTheme()
   const [language, setLanguage] = useState('english');
 
   const props = {

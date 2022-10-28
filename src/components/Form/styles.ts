@@ -8,6 +8,7 @@ export const Container = styled.div`
   h2 {
     text-align: center;
     margin-bottom: 2rem;
+    color: var(--black);
   }
   form {
     display: flex;
@@ -23,11 +24,11 @@ export const Container = styled.div`
       outline: none;
       border: none;
       background:none;
-      border: 1px solid #FFF;
+      border: 1px solid var(--black);
       color: white;
       font-weight: 600;
       &::placeholder{
-        color: #FFF;
+        color: var(--black);
       }
     }
 
@@ -42,7 +43,7 @@ export const Container = styled.div`
       text-transform: uppercase;
       a {
         background-color: transparent;
-        color: var(--black);
+        color: #fff;
       }
     }
   

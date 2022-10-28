@@ -7,7 +7,7 @@ export const Container = styled.header`
   align-items: center;
   padding: 1.8rem 17rem;
   
-  background-color: #21212150;
+  background-color: rgba(245, 245, 245, 0.314);
   
   backdrop-filter: blur(6px);
 
@@ -17,6 +17,10 @@ export const Container = styled.header`
   width: 100vw;
   z-index: 1000;
 
+  .logo {
+      color: var(--black);
+    }
+
   nav {
     display: flex;
     align-items: center;
@@ -25,7 +29,7 @@ export const Container = styled.header`
       color: var(--black);
     }
     a {
-      color: #FFFF;
+      color: var(--black);
       padding: 0.6rem;
       font-family: 'Roboto Slab', sans-serif;
       font-weight: 300;
@@ -34,6 +38,7 @@ export const Container = styled.header`
 
       &.button{
         padding: 0.6rem 5rem;
+        color: #fff;
       }
 
       &:hover{
@@ -48,7 +53,7 @@ export const Container = styled.header`
     padding: 0.6rem 0;
   }
 
-  .menu{
+  .menu {
     width: 2rem;
     height: 0.2rem;
     background: #FFFF;
@@ -63,6 +68,7 @@ export const Container = styled.header`
       top: 0.5rem;
     }
 
+    
 
     &.active:before{
       bottom: 0;
@@ -138,7 +144,7 @@ export const Container = styled.header`
   }
 
   input:checked + label {
-    background: #ebe534;
+    background: #016fb9;
   }
 
   input:checked + label:after {
@@ -153,9 +159,15 @@ export const Container = styled.header`
   @media (max-width: 960px){
     padding: 1.8rem 2rem;
 
-    .menu{
+    .menu {
       display: block;
     }
+    .menu,.menu:before, .menu:after{
+          background-color: var(--black); 
+        }
+        .menu.active{
+          background-color: #fff
+        }
 
     nav {
       -ms-overflow-style: none;
@@ -169,14 +181,14 @@ export const Container = styled.header`
       position: fixed;
       width: 100vw;
       height: 100vh;
-      background: var(--blue);
+      background: #ebe534;
       top: 0;
       left: 0;
       transition: opacity 0.25s;
-      background-color: var(--black);
+      background-color: #fff;
 
       a.button{
-        background-color: #ebe534;
+        background-color: #016fb9;
       }
 
       &.active{
