@@ -10,4 +10,7 @@ export const StyledButton = styled.a`
     width: 3rem;
     border-radius: 50%;
   }
+  .arrow {
+    width: 1rem;
+  }
 `;

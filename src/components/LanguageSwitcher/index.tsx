@@ -15,8 +15,8 @@ const LanguageSwitcher: FC<LanguageSwitcherProps> = ({language, setLanguage}) =>
     setToggleDropdown(!toggleDropdown);
   };
 
-  const handleClick = (flagsData: FlagsData ) => {
-    setLanguage(flagsData.flag)
+  const handleClick = (data: FlagsData ) => {
+    setLanguage(data.flag)
     setToggleDropdown(!toggleDropdown);
   };
 

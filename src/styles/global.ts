@@ -69,6 +69,11 @@ export const GlobalStyle = createGlobalStyle`
       button, .button {
         background-color: #ebe534;
       }
+      #flagButton {
+        :hover, :focus {
+          background-color: #F7FBD8;
+  }
+      }
       #portfolio {
         h2 {
           color: #fff;

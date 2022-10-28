@@ -11,10 +11,10 @@ interface DropdownStructureProps {
 
 const DropdownStructure: FC<DropdownStructureProps> = ({data, handleClick, handleClickSwitcher, ref}) => {
     return (
-        <DropdownContainer ref={ref} >
-            <DropdownContent ref={ref} onMouseLeave={() => handleClickSwitcher()}>
+        <DropdownContainer >
+            <DropdownContent onMouseLeave={() => handleClickSwitcher()}>
             {data.map((flag, i) => (
-              <StyledButton key={i} onClick={() => handleClick(flag)} >
+              <StyledButton id="flagButton" key={i} onClick={() => handleClick(flag)} >
                 <img src={flag.flag} alt="language" />
              </StyledButton>
             ))}

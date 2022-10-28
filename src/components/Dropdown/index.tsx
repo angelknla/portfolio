@@ -12,9 +12,9 @@ const Dropdown: FC<DropdownProps> = ({data, handleClick, handleClickSwitcher}) =
 
   useEffect(() => {
     document.addEventListener('click', handleClickOutside);
-  }, []);
+  });
 
-  const ref = useRef<HTMLDivElement | null>(null);
+  const ref = useRef<HTMLDivElement>(null);
 
   const handleClickOutside = (e: { target: any; }) => {
     if (ref.current && !ref.current.contains(e.target)) {
@@ -22,15 +22,15 @@ const Dropdown: FC<DropdownProps> = ({data, handleClick, handleClickSwitcher}) =
     }
   };
 
-    const dropdownProps = {
-       data,
-       handleClick,
-       handleClickSwitcher,
-       ref,
-    }
-    return (
-        <DropdownStructure {...dropdownProps} />
-    )
+  const dropdownProps = {
+    data,
+    handleClick,
+    handleClickSwitcher,
+    ref,
+  }
+  return (
+    <DropdownStructure {...dropdownProps} />
+  )
 }
 
 export default Dropdown;

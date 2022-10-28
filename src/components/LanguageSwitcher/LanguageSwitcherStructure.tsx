@@ -16,20 +16,17 @@ const LanguageSwitcherStructure: FC<LanguageSwictherStructureProps> = ({flag, ha
   const dropdownProps = {
     data: flagsData,
     handleClick,
-    handleClickSwitcher,
+    handleClickSwitcher
   }
   return (
       <StyledContainer>
-       {!toggleDropdown &&
-        <StyledButton onClick={() => handleClickSwitcher()}>
-         <img src={flag} alt="Linkedin" />
-        </StyledButton>
-        }
-        {toggleDropdown && 
-          <Dropdown {...dropdownProps}
-          />
-        }
-      </StyledContainer>
+      {!toggleDropdown &&
+        <StyledButton onMouseEnter={() => handleClickSwitcher()} onClick={() => handleClickSwitcher()}>
+          <img src={flag} alt="Linkedin" />
+        </StyledButton>}
+      {toggleDropdown &&
+        <Dropdown {...dropdownProps} />}
+    </StyledContainer>
     )
 } 
 
