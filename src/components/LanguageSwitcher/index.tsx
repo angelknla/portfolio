@@ -11,7 +11,7 @@ const LanguageSwitcher: FC<LanguageSwitcherProps> = ({language, setLanguage}) =>
 
   const [toggleDropdown, setToggleDropdown] = useState(false);
 
-  const handleClickSwicther = () => {
+  const handleClickSwitcher = () => {
     setToggleDropdown(!toggleDropdown);
   };
 
@@ -25,7 +25,7 @@ const LanguageSwitcher: FC<LanguageSwitcherProps> = ({language, setLanguage}) =>
     handleClick,
     toggleDropdown,
     flagsData,
-    handleClickSwicther,
+    handleClickSwitcher,
   }
   return (
     <LanguageSwitcherStructure {...props} />

@@ -6,22 +6,22 @@ import { StyledButton, StyledContainer } from "./LanguageSwitcherStyles";
 interface LanguageSwictherStructureProps {
    flag: string;
    handleClick: (flagsData: FlagsData) => void;
-   handleClickSwicther: () => void;
+   handleClickSwitcher: () => void;
    toggleDropdown: boolean;
    flagsData: Array<FlagsData>
 }
 
-const LanguageSwitcherStructure: FC<LanguageSwictherStructureProps> = ({flag, handleClick, handleClickSwicther, toggleDropdown, flagsData}) => {
+const LanguageSwitcherStructure: FC<LanguageSwictherStructureProps> = ({flag, handleClick, handleClickSwitcher, toggleDropdown, flagsData}) => {
     
   const dropdownProps = {
     data: flagsData,
     handleClick,
-    handleClickSwicther,
+    handleClickSwitcher,
   }
   return (
       <StyledContainer>
        {!toggleDropdown &&
-        <StyledButton onClick={() => handleClickSwicther()}>
+        <StyledButton onClick={() => handleClickSwitcher()}>
          <img src={flag} alt="Linkedin" />
         </StyledButton>
         }
