@@ -49,11 +49,12 @@ export const Container = styled.section`
 
   .about-image {
     text-align: center;
-    margin-left: 11rem;
+    place-self: center;
+    margin-left: 12rem;
 
     img {
-      margin-top: 2rem;
-      max-width: 60%;
+      max-width: 80%;
+      height: 80%;
       border-radius: 5%;
       filter: grayscale(0);
       transition: filter 0.5s;
