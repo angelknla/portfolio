@@ -16,25 +16,13 @@ import { aboutData } from "../../data/aboutData";
 
 interface AboutProps {
   language: string;
+  setData: (data: any) => any;
 }
 
-export const About:FC<AboutProps> = ({language}) => {
+export const About:FC<AboutProps> = ({language, setData}) => {
 
-  var personalData;
-  switch(language) {
-   case 'english':
-    personalData = aboutData.english;
-    break;
-   case 'spanish':
-    personalData = aboutData.spanish;
-    break;
-  case 'japanese':
-    personalData = aboutData.japanese;
-    break;
-   default:
-    personalData = aboutData.english;
-}
-
+  const personalData = setData(aboutData);
+  
   return(
     <Container id="about">
       <div className="about-text">

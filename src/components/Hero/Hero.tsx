@@ -1,32 +1,19 @@
-import { BrowserRouter } from "react-router-dom"
-import { Container } from "./styles"
-import ScrollAnimation from "react-animate-on-scroll"
-import Illustration from "../../assets/illustration.svg"
-import { NavHashLink } from "react-router-hash-link"
-import { FC } from "react"
-import { heroData } from "../../data/heroData"
+import { BrowserRouter } from "react-router-dom";
+import { Container } from "./styles";
+import ScrollAnimation from "react-animate-on-scroll";
+import Illustration from "../../assets/illustration.svg";
+import { NavHashLink } from "react-router-hash-link";
+import { FC } from "react";
+import { heroData } from "../../data/heroData";
 
 interface HeroProps {
   language: string;
+  setData: (data: any) => any;
 }
 
-export const Hero: FC<HeroProps> = ({language}) => {
-
-var personalData;
-switch(language) {
-  case 'english':
-    personalData = heroData.english;
-    break;
-  case 'spanish':
-    personalData = heroData.spanish;
-    break;
-  case 'japanese':
-    personalData = heroData.japanese;
-    break;
-  default:
-    personalData = heroData.english
-}
-
+export const Hero: FC<HeroProps> = ({language, setData}) => {
+  const personalData = setData(heroData)
+  
   return(
     <Container id="home">
       <div className="hero-text">

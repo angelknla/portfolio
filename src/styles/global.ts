@@ -11,7 +11,7 @@ export const GlobalStyle = createGlobalStyle`
     --blue: #016fb9;
     scroll-padding-top: 10rem;
 
-    &.light{
+    &.dark {
 
       body{
         transition: 0.5s;

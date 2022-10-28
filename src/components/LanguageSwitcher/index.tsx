@@ -9,7 +9,6 @@ interface LanguageSwitcherProps {
 
 const LanguageSwitcher: FC<LanguageSwitcherProps> = ({language, setLanguage}) => {
 
-  const [flag, setFlag] = useState(flagsData[0].flag);
   const [toggleDropdown, setToggleDropdown] = useState(false);
 
   const handleClickSwicther = () => {
@@ -17,14 +16,12 @@ const LanguageSwitcher: FC<LanguageSwitcherProps> = ({language, setLanguage}) =>
   };
 
   const handleClick = (flagsData: FlagsData ) => {
-    setFlag(flagsData.flag)
-    setLanguage(flagsData.code)
+    setLanguage(flagsData.flag)
     setToggleDropdown(!toggleDropdown);
   };
 
-
   const props = {
-    flag,
+    flag: language,
     handleClick,
     toggleDropdown,
     flagsData,

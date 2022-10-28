@@ -21,9 +21,15 @@ import { FC } from "react";
 
 interface MainProps {
   language: string;
+  setData: (data: any) => any;
 }
 
-export const Main: FC<MainProps> = ({language}) => {
+export const Main: FC<MainProps> = ({language, setData}) => {
+
+  const componentProps = {
+    language,
+    setData,
+  }
   
   return(
     <Container>
@@ -253,8 +259,8 @@ export const Main: FC<MainProps> = ({language}) => {
         }
       }}
     />
-      <Hero language={language}></Hero>
-      <About language={language}></About>
+      <Hero {...componentProps}></Hero>
+      <About {...componentProps}></About>
       <Portfolio data={portfolioData}></Portfolio>
       <Contact></Contact>
     </Container>

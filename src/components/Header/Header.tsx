@@ -10,31 +10,19 @@ import { headerData } from '../../data/headerData'
 
 export const toggleTheme = () => {
     let html = document.getElementsByTagName('html')[0]
-    html.classList.toggle('light')
+    html.classList.toggle('dark')
   }
 
-interface HeaderProps {
+export interface HeaderProps {
   language: string;
   setLanguage: Dispatch<SetStateAction<string>>;
+  setData: (data: any) => any;
 }
 
-export const Header: FC<HeaderProps>  = ({language, setLanguage}) => {
+export const Header: FC<HeaderProps>  = ({language, setLanguage, setData}) => {
   const [active, setActive] = useState(false)
-
-  var header;
-  switch(language) {
-   case 'english':
-     header = headerData.english;
-     break;
-   case 'spanish':
-     header = headerData.spanish;
-     break;
-   case 'japanese':
-     header = headerData.japanese;
-     break;
-   default:
-     header = headerData.english;
-}
+  const headerLanguage = setData(headerData)
+    
   function closeMenu() {
     setActive(false)
   }
@@ -64,16 +52,16 @@ export const Header: FC<HeaderProps>  = ({language, setLanguage}) => {
 
         <nav className={active ? 'active' : ''}>
           <NavHashLink smooth to="#home" onClick={closeMenu}>
-            {header.home}
+            {headerLanguage.home}
           </NavHashLink>
           <NavHashLink smooth to="#about" onClick={closeMenu}>
-            {header.about}
+            {headerLanguage.about}
           </NavHashLink>
           <NavHashLink smooth to="#portfolio" onClick={closeMenu}>
-            {header.portfolio}
+            {headerLanguage.portfolio}
           </NavHashLink>
           <NavHashLink smooth to="#contact" onClick={closeMenu}>
-            {header.contact}
+            {headerLanguage.contact}
           </NavHashLink>
           <a href={CV} download className="button">
             CV
