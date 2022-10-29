@@ -12,17 +12,17 @@ const LanguageSwitcher: FC<LanguageSwitcherProps> = ({language, setLanguage}) =>
   const [toggleDropdown, setToggleDropdown] = useState(false);
   const [finalFlags, setFinalFlags] = useState(flagsData);
 
-  const handleClickSwitcher = () => {
-    setToggleDropdown(!toggleDropdown);
+  const handleClickSwitcher = (value?: boolean) => {
+    setToggleDropdown(value ?? !toggleDropdown);
   };
 
   const updateFlagsData = (arr: Array<string>, a: number, b: number) => {
     [arr[a], arr[b]] = [arr[b], arr[a]]
   }
 
-  const handleClick = (data: string ) => {
+  const handleClick = (data: string, value?: boolean ) => {
     setLanguage(data)
-    setToggleDropdown(!toggleDropdown);
+    setToggleDropdown(value ?? !toggleDropdown);
   };
 
   useEffect(() => {
