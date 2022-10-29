@@ -8,28 +8,28 @@ interface LanguageSwictherStructureProps {
    handleClick: (flagsData: string, value?: boolean) => void;
    handleClickSwitcher: (value?: boolean) => void;
    toggleDropdown: boolean;
-   flagsData: Array<string>
+   flagsData: Array<string>;
+   isMobile: RegExpMatchArray | null;
 }
 
-const LanguageSwitcherStructure: FC<LanguageSwictherStructureProps> = ({flag, handleClick, handleClickSwitcher, toggleDropdown, flagsData}) => {
+const LanguageSwitcherStructure: FC<LanguageSwictherStructureProps> = ({flag, handleClick, handleClickSwitcher, toggleDropdown, flagsData, isMobile}) => {
     
   const dropdownProps = {
     data: flagsData,
     handleClick,
     handleClickSwitcher
   }
-  console.log(toggleDropdown)
   return (
-    <CheckClickOutside onClickOutside={() => handleClickSwitcher(false)}>
       <StyledContainer>
       {!toggleDropdown &&
-        <StyledButton onMouseEnter={() => handleClickSwitcher()} onClick={() => handleClickSwitcher(true)}>
+        <StyledButton onMouseEnter={() => !isMobile && handleClickSwitcher()} onClick={() => handleClickSwitcher()}>
           <img src={flag} alt="Linkedin" />
         </StyledButton>}
-      {toggleDropdown &&
-        <Dropdown {...dropdownProps} />}
+      {toggleDropdown && 
+      <CheckClickOutside onClickOutside={() => handleClickSwitcher(false)}>
+        <Dropdown {...dropdownProps} />
+        </CheckClickOutside>}
     </StyledContainer>
-    </CheckClickOutside>
     )
 } 
 

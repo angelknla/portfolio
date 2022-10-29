@@ -12,7 +12,7 @@ const DropdownStructure: FC<DropdownStructureProps> = ({data, handleClick, handl
         <DropdownContainer >
             <DropdownContent onMouseLeave={() => handleClickSwitcher()}>
             {data.map((flag, i) => (
-              <StyledButton id="flagButton" key={i} onClick={() => handleClick(flag, false)} >
+              <StyledButton id="flagButton" key={i} onClick={() => handleClick(flag)} >
                 <img src={flag} alt="language" />
              </StyledButton>
             ))}

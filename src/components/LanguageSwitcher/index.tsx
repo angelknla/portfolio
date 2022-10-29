@@ -11,6 +11,7 @@ const LanguageSwitcher: FC<LanguageSwitcherProps> = ({language, setLanguage}) =>
 
   const [toggleDropdown, setToggleDropdown] = useState(false);
   const [finalFlags, setFinalFlags] = useState(flagsData);
+  var isMobile = navigator.userAgent.match(/(iPad)|(iPhone)|(iPod)|(android)|(webOS)/i);
 
   const handleClickSwitcher = (value?: boolean) => {
     setToggleDropdown(value ?? !toggleDropdown);
@@ -37,6 +38,7 @@ const LanguageSwitcher: FC<LanguageSwitcherProps> = ({language, setLanguage}) =>
     toggleDropdown,
     flagsData: finalFlags,
     handleClickSwitcher,
+    isMobile,
   }
   return (
     <LanguageSwitcherStructure {...props} />
