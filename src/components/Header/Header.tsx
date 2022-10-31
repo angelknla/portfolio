@@ -58,7 +58,7 @@ export const Header: FC<HeaderProps>  = ({language, setLanguage, setData}) => {
           name="mode" />
         <label htmlFor="switch">Toggle</label>
 
-        <nav onTouchMove={closeMenu}  className={active ? 'active' : (open ? 'inactive' : '')}>
+        <nav  className={active ? 'active' : (open ? 'inactive' : '')}>
           <NavHashLink smooth to="#home" onClick={closeMenu}>
             {headerLanguage.home}
           </NavHashLink>
