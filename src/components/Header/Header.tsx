@@ -32,9 +32,15 @@ export const Header: FC<HeaderProps>  = ({language, setLanguage, setData}) => {
     setLanguage,
   }
 
+  const handleClick = () => {
+    setActive(!active);
+  }
+
+  const classFinal = (active) ? 'menu active' : 'menu inactive';
+
   return (
     <>
-    <Container className="header-fixed">
+    <Container active={active} className="header-fixed">
      
       <Router>
         <HashLink id="headerName" smooth to="#home" className="logo">
@@ -50,7 +56,7 @@ export const Header: FC<HeaderProps>  = ({language, setLanguage, setData}) => {
           name="mode" />
         <label htmlFor="switch">Toggle</label>
 
-        <nav className={active ? 'active' : ''}>
+        <nav className={active ? 'active' : 'inactive'}>
           <NavHashLink smooth to="#home" onClick={closeMenu}>
             {headerLanguage.home}
           </NavHashLink>
@@ -80,10 +86,8 @@ export const Header: FC<HeaderProps>  = ({language, setLanguage, setData}) => {
           aria-expanded={active ? 'true' : 'false'}
           aria-haspopup="true"
           aria-label={active ? 'Close menu' : 'Open Menu'}
-          className={active ? 'menu active' : 'menu'}
-          onClick={() => {
-            setActive(!active)
-          } }
+          className={classFinal}
+          onClick={() => handleClick() }
         ></div>
       </Router>
     </Container></>

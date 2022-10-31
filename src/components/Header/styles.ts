@@ -1,7 +1,10 @@
 import styled from "styled-components";
 
+interface props {
+  active: boolean
+}
 
-export const Container = styled.header`
+export const Container = styled.header<props>`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -184,20 +187,71 @@ export const Container = styled.header`
       align-items: center;
       position: fixed;
       width: 100vw;
-      height: 100vh;
+      height: ${({ active }) => (active ? '90vh' : '0vh')};;
       background: #ebe534;
       top: 0;
       left: 0;
       transition: opacity 0.25s;
       background-color: #fff;
+      box-shadow: 1px 1px 20px 0px rgba(0,0,0,0.2);
+      border-radius: 0px 0px 25px 25px;
 
       a.button {
         background-color: #016fb9;
       }
 
+      @keyframes expandLeft {
+      from {
+        width: 10vw;
+        height: 100vh
+        }
+      to {
+        width: 40vw;
+        height: 100vh;
+        }
+      }
+
+       @keyframes expandRight {
+      from {
+        width: 40vw;
+        height: 100vh
+        }
+      to {
+        width: 0vw;
+        height: 100vh;
+        }
+      }
+
+      @keyframes expandDown {
+      from {
+        height: 10vw;
+        }
+      to {
+        height: 90vh;
+        }
+      }
+
+       @keyframes expandUp {
+      from {
+        height: 100vh;
+        }
+      to {
+        height: 0vh;
+        }
+      }
+
       &.active {
         opacity: 1;
         visibility: visible;
+        animation-name: expandDown;
+        animation-duration: 0.8s;
+      }
+
+       &.inactive {
+        opacity: 1;
+        visibility: visible;
+        animation-name: expandUp;
+        animation-duration: 0.6s;
       }
     }
   }
