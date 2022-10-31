@@ -9,11 +9,8 @@ export const Container = styled.header<props>`
   justify-content: space-between;
   align-items: center;
   padding: 1.8rem 17rem;
-  
   background-color: rgba(245, 245, 245, 0.314);
-  
   backdrop-filter: blur(6px);
-
   position: fixed;
   top: 0;
   left: 0;
@@ -127,9 +124,9 @@ export const Container = styled.header<props>`
 
   @media only screen and (max-width: 800px) {
     label {
-    position: relative;
-    margin-right: 0.5rem;
-   }
+      position: relative;
+      margin-right: 0.5rem;
+    }
   }
 
   label:after {
@@ -143,7 +140,7 @@ export const Container = styled.header<props>`
     position: absolute;
     top: 5px;
     left: 4px;
-   transition: cubic-bezier(0.68, -0.55, 0.27, 01.55) 320ms;
+    transition: cubic-bezier(0.68, -0.55, 0.27, 01.55) 320ms;
   }
 
   input:checked + label {
@@ -181,20 +178,20 @@ export const Container = styled.header<props>`
       scrollbar-width: none;
       overflow: hidden;
       opacity: 0;
+      font-size: 14px;
       visibility: hidden;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       position: fixed;
       width: 100vw;
-      height: ${({ active }) => (active ? '100vh' : '0vh')};;
       background: #ebe534;
       top: 0;
       left: 0;
       transition: opacity 0.25s;
       background-color: #fff;
       box-shadow: 1px 1px 20px 0px rgba(0,0,0,0.2);
-      border-radius: 0px 0px 10px 10px;
+      border-radius: 0px 0px 15px 15px;
 
       a.button {
         background-color: #016fb9;
@@ -227,13 +224,13 @@ export const Container = styled.header<props>`
         height: 10vw;
         }
       to {
-        height: 100vh;
+        height: 75vh;
         }
       }
 
        @keyframes expandUp {
       from {
-        height: 100vh;
+        height: 75vh;
         }
       to {
         height: 0vh;
@@ -243,15 +240,13 @@ export const Container = styled.header<props>`
       &.active {
         opacity: 1;
         visibility: visible;
-        animation-name: expandDown;
-        animation-duration: 0.65s;
+        animation: expandDown 0.65s ease-in-out forwards;
       }
 
        &.inactive {
         opacity: 1;
         visibility: visible;
-        animation-name: expandUp;
-        animation-duration: 0.6s;
+        animation: expandUp 0.65s ease-in-out forwards;
       }
     }
   }

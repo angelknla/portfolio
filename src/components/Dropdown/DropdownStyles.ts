@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const DropdownContainer = styled.div`
   position: relative;
   height: 4.6rem;
-  border-radius: 25px;s
+  border-radius: 25px;
 `;
 
 export const DropdownContent = styled.div`
@@ -34,13 +34,12 @@ export const StyledButton = styled.a`
       height: 15px;
     }
   }
-
   position: relative;
   cursor: pointer;
   border-radius: 20px;
   animation-name: scale;
   animation-duration: 0.3s;
-  
+
   img {
     width: 3rem;
     border-radius: 50%;
