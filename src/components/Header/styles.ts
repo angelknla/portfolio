@@ -224,13 +224,13 @@ export const Container = styled.header<props>`
         height: 10vw;
         }
       to {
-        height: 75vh;
+        height: 80vh;
         }
       }
 
        @keyframes expandUp {
       from {
-        height: 75vh;
+        height: 80vh;
         }
       to {
         height: 0vh;
