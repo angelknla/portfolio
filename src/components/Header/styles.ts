@@ -244,7 +244,7 @@ export const Container = styled.header<props>`
         opacity: 1;
         visibility: visible;
         animation-name: expandDown;
-        animation-duration: 0.8s;
+        animation-duration: 0.65s;
       }
 
        &.inactive {
