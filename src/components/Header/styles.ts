@@ -192,6 +192,7 @@ export const Container = styled.header<props>`
       background-color: #fff;
       box-shadow: 1px 1px 20px 0px rgba(0,0,0,0.2);
       border-radius: 0px 0px 15px 15px;
+      z-index: 5;
 
       a.button {
         background-color: #016fb9;
@@ -241,12 +242,18 @@ export const Container = styled.header<props>`
         opacity: 1;
         visibility: visible;
         animation: expandDown 0.65s ease-in-out forwards;
+        -webkit-animation: expandDown 0.65s ease-in-out forwards;
+        -moz-animation: expandDown 0.65s ease-in-out forwards;
+        -o-animation: expandDown 0.65s ease-in-out forwards;
       }
 
        &.inactive {
         opacity: 1;
         visibility: visible;
         animation: expandUp 0.75s ease-in-out forwards;
+        -webkit-animation: expandUp 0.75s ease-in-out forwards;
+        -moz-animation: expandUp 0.75s ease-in-out forwards;
+        -o-animation: expandUp 0.75s ease-in-out forwards;
       }
     }
   }
