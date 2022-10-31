@@ -21,8 +21,9 @@ export interface HeaderProps {
 
 export const Header: FC<HeaderProps>  = ({language, setLanguage, setData}) => {
   const [active, setActive] = useState(false)
+  const [open, setOpen] = useState(false)
   const headerLanguage = setData(headerData)
-    
+
   function closeMenu() {
     setActive(false)
   }
@@ -34,9 +35,10 @@ export const Header: FC<HeaderProps>  = ({language, setLanguage, setData}) => {
 
   const handleClick = () => {
     setActive(!active);
+    setOpen(true)
   }
 
-  const classFinal = (active) ? 'menu active' : 'menu inactive';
+  const classFinal = (active) ? 'menu active' : 'menu';
 
   return (
     <>
@@ -56,7 +58,7 @@ export const Header: FC<HeaderProps>  = ({language, setLanguage, setData}) => {
           name="mode" />
         <label htmlFor="switch">Toggle</label>
 
-        <nav className={active ? 'active' : 'inactive'}>
+        <nav className={active ? 'active' : (open ? 'inactive' : '')}>
           <NavHashLink smooth to="#home" onClick={closeMenu}>
             {headerLanguage.home}
           </NavHashLink>
@@ -82,7 +84,7 @@ export const Header: FC<HeaderProps>  = ({language, setLanguage, setData}) => {
           <LanguageSwitcher {...props}/>
         </nav>
 
-        <div
+        <div id="closeButton"
           aria-expanded={active ? 'true' : 'false'}
           aria-haspopup="true"
           aria-label={active ? 'Close menu' : 'Open Menu'}

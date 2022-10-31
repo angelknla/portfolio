@@ -187,14 +187,14 @@ export const Container = styled.header<props>`
       align-items: center;
       position: fixed;
       width: 100vw;
-      height: ${({ active }) => (active ? '90vh' : '0vh')};;
+      height: ${({ active }) => (active ? '100vh' : '0vh')};;
       background: #ebe534;
       top: 0;
       left: 0;
       transition: opacity 0.25s;
       background-color: #fff;
       box-shadow: 1px 1px 20px 0px rgba(0,0,0,0.2);
-      border-radius: 0px 0px 25px 25px;
+      border-radius: 0px 0px 10px 10px;
 
       a.button {
         background-color: #016fb9;
@@ -227,7 +227,7 @@ export const Container = styled.header<props>`
         height: 10vw;
         }
       to {
-        height: 90vh;
+        height: 100vh;
         }
       }
 

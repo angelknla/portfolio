@@ -9,11 +9,13 @@ export interface DropdownProps {
 
 const Dropdown: FC<DropdownProps> = ({data, handleClick, handleClickSwitcher}) => {
 
+
   const dropdownProps = {
     data,
     handleClick,
     handleClickSwitcher,
   }
+
   return (
     <DropdownStructure {...dropdownProps} />
   )

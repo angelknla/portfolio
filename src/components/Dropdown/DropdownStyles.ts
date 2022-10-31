@@ -25,6 +25,16 @@ export const StyledButton = styled.a`
       height: 45px;
     }
   }
+
+  @keyframes scaleUp {
+    from {
+      height: 45px;
+    }
+    to {
+      height: 15px;
+    }
+  }
+
   position: relative;
   cursor: pointer;
   border-radius: 20px;
