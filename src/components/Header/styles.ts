@@ -240,19 +240,19 @@ export const Container = styled.header<props>`
       &.active {
         opacity: 1;
         visibility: visible;
-        animation: expandDown 0.65s ease-in-out forwards;
-        -webkit-animation: expandDown 0.65s ease-in-out forwards;
-        -moz-animation: expandDown 0.65s ease-in-out forwards;
-        -o-animation: expandDown 0.65s ease-in-out forwards;
+        animation: expandDown 0.4s ease-in-out forwards;
+        -webkit-animation: expandDown 0.4s ease-in-out forwards;
+        -moz-animation: expandDown 0.4s ease-in-out forwards;
+        -o-animation: expandDown 0.4s ease-in-out forwards;
       }
 
        &.inactive {
         opacity: 1;
         visibility: visible;
-        animation: expandUp 0.75s ease-in-out forwards;
-        -webkit-animation: expandUp 0.75s ease-in-out forwards;
-        -moz-animation: expandUp 0.75s ease-in-out forwards;
-        -o-animation: expandUp 0.75s ease-in-out forwards;
+        animation: expandUp 0.4s ease-in-out forwards;
+        -webkit-animation: expandUp 0.4s ease-in-out forwards;
+        -moz-animation: expandUp 0.4s ease-in-out forwards;
+        -o-animation: expandUp 0.4s ease-in-out forwards;
       }
     }
   }
