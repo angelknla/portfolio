@@ -9,7 +9,7 @@ interface DropdownStructureProps {
 
 const DropdownStructure: FC<DropdownStructureProps> = ({data, handleClick, handleClickSwitcher }) => {
     return (
-        <DropdownContainer >
+        <DropdownContainer draggable={true} onDrag={() => handleClickSwitcher()}>
             <DropdownContent onMouseLeave={() => handleClickSwitcher()}>
             {data.map((flag, i) => (
               <StyledButton id="flagButton" key={i} onClick={() => handleClick(flag)} >

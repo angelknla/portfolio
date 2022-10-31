@@ -246,7 +246,7 @@ export const Container = styled.header<props>`
        &.inactive {
         opacity: 1;
         visibility: visible;
-        animation: expandUp 0.65s ease-in-out forwards;
+        animation: expandUp 0.75s ease-in-out forwards;
       }
     }
   }

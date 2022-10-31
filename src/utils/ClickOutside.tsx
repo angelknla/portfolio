@@ -24,5 +24,5 @@ export const CheckClickOutside: FC<ClickOutsideProps> = ({onClickOutside, childr
   if (!children) {
     return null;
   }
-  return <div ref={ref}>{children}</div> 
+  return <div draggable={true} ref={ref}>{children}</div> 
 }

@@ -58,7 +58,7 @@ export const Header: FC<HeaderProps>  = ({language, setLanguage, setData}) => {
           name="mode" />
         <label htmlFor="switch">Toggle</label>
 
-        <nav className={active ? 'active' : (open ? 'inactive' : '')}>
+        <nav draggable={true} onTouchMove={closeMenu}  className={active ? 'active' : (open ? 'inactive' : '')}>
           <NavHashLink smooth to="#home" onClick={closeMenu}>
             {headerLanguage.home}
           </NavHashLink>
@@ -89,7 +89,7 @@ export const Header: FC<HeaderProps>  = ({language, setLanguage, setData}) => {
           aria-haspopup="true"
           aria-label={active ? 'Close menu' : 'Open Menu'}
           className={classFinal}
-          onClick={() => handleClick() }
+          onClick={handleClick}
         ></div>
       </Router>
     </Container></>
