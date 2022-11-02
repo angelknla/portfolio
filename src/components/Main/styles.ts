@@ -3,10 +3,10 @@ import styled from "styled-components";
 
 export const Container = styled.main`
   position: relative;
-  z-index: -1;
+  z-index: 0;
   padding: 0 17rem;
   overflow-x: hidden;
-  #tsparticles{
+  #tsparticles {
     position: absolute;
     left: 0;
     top: 0;
