@@ -1,17 +1,21 @@
 import { StyledContainer, StyledProjectsWrapper, StyledTitle } from "./styles";
 import ProjectCard, { ProjectCardProps } from "./ProjectCard";
+import { data } from "../../data/portfolioData";
 import { FC } from "react";
 
 interface PortfolioProps {
-  data: Array<ProjectCardProps>
+  setData: (data: any) => any;
 }
 
-export const Portfolio: FC<PortfolioProps> = ({data}) => {
+export const Portfolio: FC<PortfolioProps> = ({setData}) => {
+
+  const portfolioData = setData(data)
+  
   return(
     <StyledContainer id="portfolio">
-      <StyledTitle>My Portfolio</StyledTitle>
+      <StyledTitle>{portfolioData.title}</StyledTitle>
       <StyledProjectsWrapper className="projects">
-      {data.map((cardInfo, i) => 
+      {portfolioData.cards?.map((cardInfo: ProjectCardProps, i: number) => 
       <ProjectCard key={i} {...cardInfo}/> 
       )}
       </StyledProjectsWrapper>

@@ -1,6 +1,6 @@
 import Particles from "react-tsparticles"
 import {Container} from "./styles"
-import { Hero } from "../Hero/Hero"
+import { Hero, HeroProps } from "../Hero/Hero"
 import { About } from "../About/About";
 import { Contact } from "../Contact/Contact";
 import { Portfolio } from "../Portfolio/Portfolio";
@@ -16,7 +16,6 @@ import sassIcon from "../../assets/sass-icon.svg";
 import typescriptIcon from "../../assets/typescript-icon.svg";
 import vscodeIcon from "../../assets/vscode-icon.svg";
 import vueIcon from "../../assets/vue-icon.svg";
-import { data as portfolioData } from "../../data/portfolioData";
 import { FC } from "react";
 
 interface MainProps {
@@ -26,7 +25,7 @@ interface MainProps {
 
 export const Main: FC<MainProps> = ({language, setData}) => {
 
-  const componentProps = {
+  const componentProps: HeroProps = {
     language,
     setData,
   }
@@ -260,9 +259,9 @@ export const Main: FC<MainProps> = ({language, setData}) => {
       }}
     />
       <Hero {...componentProps}></Hero>
-      <About {...componentProps}></About>
-      <Portfolio data={portfolioData}></Portfolio>
-      <Contact></Contact>
+      <About setData={setData}></About>
+      <Portfolio setData={setData}></Portfolio>
+      <Contact setData={setData}></Contact>
     </Container>
   );
 }

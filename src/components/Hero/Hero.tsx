@@ -7,7 +7,7 @@ import { FC } from "react";
 import { heroData } from "../../data/heroData";
 import { staticflagsData } from "../../data/dropdownData";
 
-interface HeroProps {
+export interface HeroProps {
   language: string;
   setData: (data: any) => any;
 }

@@ -41,14 +41,12 @@ function App() {
     setLanguage,
   };
 
-  
-
   return (
     <>
       <GlobalStyle></GlobalStyle>
       <Header {...headerProps}></Header>
       <Main {...generalProps}></Main>
-      <Footer></Footer>
+      <Footer setData={setData} ></Footer>
     </>
   )
 }

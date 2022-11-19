@@ -15,11 +15,10 @@ import { FC } from "react";
 import { aboutData } from "../../data/aboutData";
 
 interface AboutProps {
-  language: string;
   setData: (data: any) => any;
 }
 
-export const About:FC<AboutProps> = ({language, setData}) => {
+export const About:FC<AboutProps> = ({setData}) => {
 
   const personalData = setData(aboutData);
   

@@ -1,10 +1,18 @@
 import { Container } from './styles'
 
-import reactIcon from '../../assets/react-icon.svg'
 import linkedinIcon from '../../assets/linkedin.png'
 import githubIcon from '../../assets/github.png'
 import instagramIcon from '../../assets/instagram.png'
-export function Footer() {
+import { FC } from 'react'
+import { footerData } from '../../data/footerData'
+
+interface FooterProps {
+  setData: (data: any) => any;
+}
+
+export const Footer: FC<FooterProps> = ({setData}) => {
+
+  const data = setData(footerData)
   return (
     <Container className="footer">
       <a href="/" className="logo">
@@ -13,7 +21,7 @@ export function Footer() {
       </a>
       <div>
         <p>
-          This site was made using <img src={reactIcon} alt="React" />
+          {data.message}
         </p>
       </div>
 
