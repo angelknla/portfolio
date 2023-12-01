@@ -92,7 +92,7 @@ export const Form = ({setData}: FormProps) => {
           errors={state.errors}
         />
         <ReCAPTCHA
-          sitekey="6LfS1yIpAAAAAGopiBT-WGtAJVYnXY020c1XQ_bW"
+          sitekey="6Lf_2SIpAAAAAOJBFOnaBw9aaaGNJ5UbOGE9BTIu"
           onChange={(e) => {
             setIsHuman(true);
           }}
