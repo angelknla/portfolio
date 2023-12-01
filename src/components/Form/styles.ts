@@ -1,8 +1,55 @@
 import styled from "styled-components";
 
+export const StyledInput = styled.input`
+  width: 60rem;
+  padding: 1rem 2rem;
+  border-radius: 0.6rem;
+  outline: none;
+  border: none;
+  background: none;
+  border: 1px solid var(--black);
+  color: var(--black);
+  font-weight: 600;
+  &::placeholder {
+    color: grey;
+  }
+  @media (max-width: 740px) {
+    width: 100%;
+  }
+`;
+
+export const StyledArea = styled.textarea`
+  width: 60rem;
+  padding: 1rem 2rem;
+  border-radius: 0.6rem;
+  outline: none;
+  border: none;
+  background: none;
+  border: 1px solid var(--black);
+  color: var(--black);
+  font-weight: 600;
+  &::placeholder {
+    color: grey;
+  }
+  @media (max-width: 740px) {
+    width: 100%;
+  }
+`;
+
+export const StyledForm = styled.form`
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  @media (max-width: 740px) {
+    width: 100%;
+  }
+`;
 
 export const Container = styled.div`
-  margin-top: 8rem;
+  margin-top: 5rem;
   display: grid;
   place-items: center;
   h2 {
@@ -10,67 +57,40 @@ export const Container = styled.div`
     margin-bottom: 2rem;
     color: var(--black);
   }
-  form {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    align-items: center;
-    gap: 1rem;
-    width: 100%;
-    input, textarea {
-      width: 60rem;
-      padding: 1rem 2rem;
-      border-radius: 1.6rem;
-      outline: none;
-      border: none;
-      background:none;
-      border: 1px solid var(--black);
-      color: var(--black);
-      font-weight: 600;
-      &::placeholder{
-        color: grey;
-      }
-    }
 
-    textarea {
+    ${StyledArea} {
       height: 20rem;
       overflow-y: auto;
       resize: none;
     }
-
-    button {
-      padding: 1rem 6rem;
-      text-transform: uppercase;
-      a {
-        background-color: transparent;
-        color: #fff;
-      }
-    }
-  
   }
+`;
 
-  @media (max-width: 740px){
-    form{
-      width: 100%;
-      
-      input,textarea{
-        width: 100%;
-      }
-    }
+export const SubmitButton = styled.button`
+  padding: 1rem 6rem;
+  text-transform: uppercase;
+  a {
+    background-color: transparent;
+    color: #fff;
   }
-`
+`;
 
-
-export const ContainerSucces = styled.div`
-  margin-top: 10rem;
+export const ContainerSuccess = styled.div`
+  margin-top: 4rem;
   text-align: center;
 
-  button {
-    border-radius: 0.6rem;
-    padding: 1rem;
-    margin-top: 0.8rem;
-    text-transform: uppercase;
+  h3 {
     text-align: center;
-    color: #fbfbfb;
+    margin-bottom: 2rem;
+    color: var(--black);
   }
-`
+`;
+
+export const SuccessButton = styled.button`
+  border-radius: 0.6rem;
+  padding: 1rem;
+  margin-top: 0.8rem;
+  text-transform: uppercase;
+  text-align: center;
+  color: #fbfbfb;
+`;

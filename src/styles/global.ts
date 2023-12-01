@@ -184,6 +184,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   button:disabled, .button:disabled{
+    opacity: 0.6;
     filter: brightness(1.0);
     cursor: not-allowed;
   }

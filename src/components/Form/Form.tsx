@@ -1,89 +1,111 @@
-import { Container, ContainerSucces } from './styles'
-import { toast, ToastContainer } from 'react-toastify'
-import { useEffect, useState } from 'react'
-import validator from 'validator'
+import {
+  Container,
+  ContainerSuccess,
+  StyledArea,
+  StyledForm,
+  StyledInput,
+  SubmitButton,
+  SuccessButton,
+} from "./styles";
+import { formData as data } from "../../data/formData";
+import { useForm, ValidationError } from "@formspree/react";
+import { toast, ToastContainer } from "react-toastify";
+import ReCAPTCHA from "react-google-recaptcha";
+import { useEffect, useState } from "react";
+import validator from "validator";
 
-export function Form() {
-  const formState = {
-    succeeded: false
-  }
-  const [state, setState] = useState(formState)
+interface FormProps {
+  setData: (data: any) => any;
+}
 
-  const [validEmail, setValidEmail] = useState(false)
-  const [message, setMessage] = useState('')
+export const Form = ({setData}: FormProps) => {
+  const formData = setData(data);
+  const [state, handleSubmit] = useForm("mgejjdoq");
+  const [isHuman, setIsHuman] = useState(false);
+  const [validEmail, setValidEmail] = useState(false);
+  const [message, setMessage] = useState("");
 
-  function verifyEmail(email: string) {
+  const verifyEmail = (email: string) => {
     if (validator.isEmail(email)) {
-      setValidEmail(true)
+      setValidEmail(true);
     } else {
-      setValidEmail(false)
+      setValidEmail(false);
     }
-  }
+  };
 
   useEffect(() => {
     if (state.succeeded) {
-      toast.success('Message sent succesfully!', {
+      toast.success(`${formData.toastSuccess}`, {
         position: toast.POSITION.BOTTOM_LEFT,
         pauseOnFocusLoss: false,
         closeOnClick: true,
         hideProgressBar: false,
-        toastId: 'succeeded',
-      })
+        toastId: "succeeded",
+      });
     }
-  }, [state])
+  }, [formData.toastSuccess, state]);
+
+  const disabled = state.submitting || !validEmail || !message || !isHuman;
 
   if (state.succeeded) {
     return (
-      <ContainerSucces>
-        <h3>Thank you for getting in touch!</h3>
-        <button
+      <ContainerSuccess>
+        <h3>{formData.success}</h3>
+        <SuccessButton
           onClick={() => {
-            window.scrollTo({ top: 0, behavior: 'smooth' })
+            window.scrollTo({ top: 0, behavior: "smooth" });
           }}
         >
-          Back to top
-        </button>
+          {formData.back}
+        </SuccessButton>
         <ToastContainer />
-      </ContainerSucces>
-    )
+      </ContainerSuccess>
+    );
   }
 
   return (
     <Container>
-      <h2>Use the form below to get in touch</h2>
-      <form>
-        <input
-          placeholder="Email"
+      <StyledForm onSubmit={handleSubmit}>
+        <StyledInput
+          placeholder={formData.emailPlaceholder}
           id="email"
           type="email"
           name="email"
           onChange={(e) => {
-            verifyEmail(e.target.value)
+            verifyEmail(e.target.value);
           }}
           required
         />
-        <textarea
+        <ValidationError prefix="Email" field="email" errors={state.errors} />
+        <StyledArea
           required
-          placeholder="Type here your message"
+          placeholder={formData.typePlaceholder}
           id="message"
           name="message"
           onChange={(e) => {
-            setMessage(e.target.value)
+            setMessage(e.target.value);
           }}
         />
-        
-        <button 
+        <ValidationError
+          prefix="Message"
+          field="message"
+          errors={state.errors}
+        />
+        <ReCAPTCHA
+          sitekey="6LcAu-IdAAAAAJOTI5E_eRltZNQCvukIl2-f1glQ"
+          onChange={(e) => {
+            setIsHuman(true);
+          }}
+        ></ReCAPTCHA>
+
+        <SubmitButton
           type="submit"
-          onClick={() => {setState({succeeded: true})}}
-          disabled={ !validEmail || !message }
+          disabled={disabled}
         >
-          <a type='submit' href = "mailto: angel.canela@kurtgeiger.com">
-          Send
-          </a>
-        </button>
-        
-      </form>
+          {formData.send}
+        </SubmitButton>
+      </StyledForm>
       <ToastContainer />
     </Container>
-  )
-}
+  );
+};

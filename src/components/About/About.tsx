@@ -10,7 +10,7 @@ import reduxIcon from "../../assets/redux.svg";
 import typescriptIcon from "../../assets/typescript-icon.svg";
 import bootstrapIcon from "../../assets/bootstrap-icon.svg";
 import ScrollAnimation from "react-animate-on-scroll";
-import image from "../../assets/angel_square.jpg"
+import image from "../../assets/angelnew.jpg"
 import { FC } from "react";
 import { aboutData } from "../../data/aboutData";
 
