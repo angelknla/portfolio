@@ -1,16 +1,16 @@
+import ukFlag from "../assets/UK.png";
+import spainFlag from "../assets/Spain.png";
+import japanFlag from "../assets/japan.png";
 
-import ukFlag from '../assets/UK.png'
-import spainFlag from '../assets/Spain.png'
-import japanFlag from '../assets/japan.png'
+export type AvailableLanguages = "english" | "spanish" | "japanese";
 
-export const flagsData: Array<string> = [
-    ukFlag, 
-    spainFlag, 
-    japanFlag, 
-];
+export type LanguageData = {
+    language: AvailableLanguages;
+    flag: string;
+};
 
-export const staticflagsData: Array<string> = [
-    ukFlag, 
-    spainFlag, 
-    japanFlag, 
+export const languageData: LanguageData[] = [
+    { language: "english", flag: ukFlag },
+    { language: "spanish", flag: spainFlag },
+    { language: "japanese", flag: japanFlag },
 ];

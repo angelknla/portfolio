@@ -1,34 +1,34 @@
 import { Contacts, Container, Header } from "./styles";
 import emailIcon from "../../assets/email-icon.svg";
-import phoneIcon from "../../assets/phone-icon.svg"
-import { FC } from "react";
-import { contactData as data } from "../../data/contactData";
+import phoneIcon from "../../assets/phone-icon.svg";
+import { contactData } from "../../data/contactData";
 import { Form } from "../Form/Form";
+import { useLanguage } from "../../contexts/Language";
 
-interface ContactProps {
-  setData: (data: any) => any;
-}
+export const Contact = () => {
+  const { translations } = useLanguage(contactData);
+  if (!translations) return null;
+  const { title, message } = translations;
 
-export const Contact:FC<ContactProps> = ({setData}) => {
-
-  const contactData = setData(data)
-  return(
+  return (
     <Container id="contact">
       <Header>
-        <h2>{contactData.title}</h2>
-        <p>{contactData.message}</p>
+        <h2>{title}</h2>
+        <p>{message}</p>
       </Header>
-      <Form setData={setData}/>
+      <Form />
       <Contacts>
         <div>
           <img src={emailIcon} alt="Email" />
-          <a href="mailto:angelknela5@hotmail.co.uk">angelknela5@hotmail.co.uk</a>
+          <a href="mailto:angelknela5@hotmail.co.uk">
+            angelknela5@hotmail.co.uk
+          </a>
         </div>
         <div>
           <img src={phoneIcon} alt="Email" />
           <a href="tel:+447580199079"> (+44) 07580199079</a>
-        </div>  
+        </div>
       </Contacts>
     </Container>
-  )
-}
+  );
+};

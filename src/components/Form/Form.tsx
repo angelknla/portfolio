@@ -7,19 +7,16 @@ import {
   SubmitButton,
   SuccessButton,
 } from "./styles";
-import { formData as data } from "../../data/formData";
+import { formData } from "../../data/formData";
 import { useForm, ValidationError } from "@formspree/react";
 import { toast, ToastContainer } from "react-toastify";
 import ReCAPTCHA from "react-google-recaptcha";
 import { useEffect, useState } from "react";
 import validator from "validator";
+import { useLanguage } from "../../contexts/Language";
 
-interface FormProps {
-  setData: (data: any) => any;
-}
-
-export const Form = ({setData}: FormProps) => {
-  const formData = setData(data);
+export const Form = () => {
+  const { translations } = useLanguage(formData);
   const [state, handleSubmit] = useForm("mgejjdoq");
   const [isHuman, setIsHuman] = useState(false);
   const [validEmail, setValidEmail] = useState(false);
@@ -35,7 +32,7 @@ export const Form = ({setData}: FormProps) => {
 
   useEffect(() => {
     if (state.succeeded) {
-      toast.success(`${formData.toastSuccess}`, {
+      toast.success(`${translations?.toastSuccess}`, {
         position: toast.POSITION.BOTTOM_LEFT,
         pauseOnFocusLoss: false,
         closeOnClick: true,
@@ -43,20 +40,20 @@ export const Form = ({setData}: FormProps) => {
         toastId: "succeeded",
       });
     }
-  }, [formData.toastSuccess, state]);
+  }, [translations?.toastSuccess, state]);
 
   const disabled = state.submitting || !validEmail || !message || !isHuman;
 
   if (state.succeeded) {
     return (
       <ContainerSuccess>
-        <h3>{formData.success}</h3>
+        <h3>{translations?.success}</h3>
         <SuccessButton
           onClick={() => {
             window.scrollTo({ top: 0, behavior: "smooth" });
           }}
         >
-          {formData.back}
+          {translations?.back}
         </SuccessButton>
         <ToastContainer />
       </ContainerSuccess>
@@ -67,7 +64,7 @@ export const Form = ({setData}: FormProps) => {
     <Container>
       <StyledForm onSubmit={handleSubmit}>
         <StyledInput
-          placeholder={formData.emailPlaceholder}
+          placeholder={translations?.emailPlaceholder}
           id="email"
           type="email"
           name="email"
@@ -79,7 +76,7 @@ export const Form = ({setData}: FormProps) => {
         <ValidationError prefix="Email" field="email" errors={state.errors} />
         <StyledArea
           required
-          placeholder={formData.typePlaceholder}
+          placeholder={translations?.typePlaceholder}
           id="message"
           name="message"
           onChange={(e) => {
@@ -98,11 +95,8 @@ export const Form = ({setData}: FormProps) => {
           }}
         ></ReCAPTCHA>
 
-        <SubmitButton
-          type="submit"
-          disabled={disabled}
-        >
-          {formData.send}
+        <SubmitButton type="submit" disabled={disabled}>
+          {translations?.send}
         </SubmitButton>
       </StyledForm>
       <ToastContainer />

@@ -1,18 +1,18 @@
-import { Container } from './styles'
+import { Container } from "./styles";
 
-import linkedinIcon from '../../assets/linkedin.png'
-import githubIcon from '../../assets/github.png'
-import instagramIcon from '../../assets/instagram.png'
-import { FC } from 'react'
-import { footerData } from '../../data/footerData'
+import linkedinIcon from "../../assets/linkedin.png";
+import githubIcon from "../../assets/github.png";
+import instagramIcon from "../../assets/instagram.png";
+import { footerData } from "../../data/footerData";
+import { useLanguage } from "../../contexts/Language";
 
-interface FooterProps {
-  setData: (data: any) => any;
-}
+export const Footer = () => {
+  const { translations } = useLanguage(footerData);
 
-export const Footer: FC<FooterProps> = ({setData}) => {
+  if (!translations) return null;
 
-  const data = setData(footerData)
+  const { message } = translations;
+
   return (
     <Container className="footer">
       <a href="/" className="logo">
@@ -20,9 +20,7 @@ export const Footer: FC<FooterProps> = ({setData}) => {
         <span> Canela</span>
       </a>
       <div>
-        <p>
-          {data.message}
-        </p>
+        <p>{message}</p>
       </div>
 
       <div className="social-media">
@@ -34,22 +32,14 @@ export const Footer: FC<FooterProps> = ({setData}) => {
           <img src={linkedinIcon} alt="Linkedin" />
         </a>
 
-        <a
-          href="https://github.com/angelknla"
-          target="_blank"
-          rel="noreferrer"
-        >
+        <a href="https://github.com/angelknla" target="_blank" rel="noreferrer">
           <img src={githubIcon} alt="GitHub" />
         </a>
 
-        <a
-          href="b"
-          target="_blank"
-          rel="noreferrer"
-        >
+        <a href="b" target="_blank" rel="noreferrer">
           <img src={instagramIcon} alt="Instagram" />
         </a>
       </div>
     </Container>
-  )
-}
+  );
+};

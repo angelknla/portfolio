@@ -1,24 +1,19 @@
 import { StyledContainer, StyledProjectsWrapper, StyledTitle } from "./styles";
 import ProjectCard, { ProjectCardProps } from "./ProjectCard";
-import { data } from "../../data/portfolioData";
-import { FC } from "react";
+import { data as portfolioData } from "../../data/portfolioData";
+import { useLanguage } from "../../contexts/Language";
 
-interface PortfolioProps {
-  setData: (data: any) => any;
-}
+export const Portfolio = () => {
+  const { translations } = useLanguage(portfolioData);
 
-export const Portfolio: FC<PortfolioProps> = ({setData}) => {
-
-  const portfolioData = setData(data)
-  
-  return(
+  return (
     <StyledContainer id="portfolio">
-      <StyledTitle>{portfolioData.title}</StyledTitle>
+      <StyledTitle>{translations?.title}</StyledTitle>
       <StyledProjectsWrapper className="projects">
-      {portfolioData.cards?.map((cardInfo: ProjectCardProps, i: number) => 
-      <ProjectCard key={i} {...cardInfo}/> 
-      )}
+        {translations?.cards?.map((cardInfo: ProjectCardProps, i: number) => (
+          <ProjectCard key={i} {...cardInfo} />
+        ))}
       </StyledProjectsWrapper>
     </StyledContainer>
   );
-}
+};
