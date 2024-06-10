@@ -18,13 +18,13 @@ export const Contact = () => {
       </Header>
       <Form />
       <Contacts>
-        <div>
+        <div className="contactButton">
           <img src={emailIcon} alt="Email" />
           <a href="mailto:angelknela5@hotmail.co.uk">
             angelknela5@hotmail.co.uk
           </a>
         </div>
-        <div>
+        <div className="contactButton">
           <img src={phoneIcon} alt="Email" />
           <a href="tel:+447580199079"> (+44) 07580199079</a>
         </div>

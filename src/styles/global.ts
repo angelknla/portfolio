@@ -1,9 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 
-
-
 export const GlobalStyle = createGlobalStyle`
-
   :root{
     --pink: #E31F71;
     --black: #212121;
@@ -12,7 +9,6 @@ export const GlobalStyle = createGlobalStyle`
     scroll-padding-top: 10rem;
 
     &.dark {
-
       body{
         transition: 0.5s;
         background-color: var(--black);
@@ -31,6 +27,28 @@ export const GlobalStyle = createGlobalStyle`
         }
         h3 {
           color: #ebe534
+        }
+      }
+      .project {
+        svg {
+          stroke: #ebe534;
+        }
+        &:hover {
+          svg {
+            stroke: #016fb9;
+          }
+        }
+      }
+      .contactButton {
+        background-color: #ebe534;
+        a {
+          color: var(--black);
+        }
+        &:hover{
+          background-color: #016fb9;
+          a {
+            color: var(--black);
+          }
         }
       }
       .contacts {
@@ -54,6 +72,7 @@ export const GlobalStyle = createGlobalStyle`
         p {
           color: #ebe534;
         }
+
       }
       .hero-text {
         p, h1{
@@ -198,4 +217,4 @@ export const GlobalStyle = createGlobalStyle`
   }
   
 
-`
+`;
