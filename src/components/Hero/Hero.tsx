@@ -9,14 +9,18 @@ import { useLanguage } from "../../contexts/Language";
 export const Hero = () => {
   const { language, translations } = useLanguage(heroData);
 
+  if (!translations) return null;
+
+  const { greeting, name, job, intro, contact } = translations;
+
   return (
     <Container id="home">
       <div className="hero-text">
         <ScrollAnimation animateIn="fadeInLeft">
-          <p>{translations?.greeting}</p>
+          <p>{greeting}</p>
         </ScrollAnimation>
         <ScrollAnimation animateIn="fadeInUp" delay={0.2 * 1000}>
-          <h1>{translations?.name}</h1>
+          <h1>{name}</h1>
         </ScrollAnimation>
         {language.language === "japanese" && (
           <ScrollAnimation animateIn="fadeInLeft">
@@ -24,16 +28,16 @@ export const Hero = () => {
           </ScrollAnimation>
         )}
         <ScrollAnimation animateIn="fadeInUp" delay={0.3 * 1000}>
-          <h3>{translations?.job}</h3>
+          <h3>{job}</h3>
         </ScrollAnimation>
         <ScrollAnimation animateIn="fadeInUp" delay={0.4 * 1000}>
-          <p className="small-resume">{translations?.intro}</p>
+          <p className="small-resume">{intro}</p>
         </ScrollAnimation>
 
         <ScrollAnimation animateIn="fadeInUp" delay={0.5 * 1000}>
           <BrowserRouter>
             <NavHashLink smooth to="#contact" className="button">
-              {translations?.contact}
+              {contact}
             </NavHashLink>
           </BrowserRouter>
         </ScrollAnimation>
