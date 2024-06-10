@@ -17,15 +17,15 @@ export const Dropdown = ({ handleClickSwitcher }: DropdownProps) => {
 
   const updateFlagsData = (arr: Array<LanguageData>, a: number, b: number) => {
     [arr[a], arr[b]] = [arr[b], arr[a]];
+    setFinalFlags([...arr]);
   };
 
   useEffect(() => {
     const newIndex = languageData.findIndex(
       (item) => item.language === language.language
     );
-    updateFlagsData(languageData, 0, newIndex);
-    setFinalFlags(languageData);
-  }, [language]);
+    updateFlagsData(finalFlags, 0, newIndex);
+  }, [finalFlags, language]);
 
   const handleClick = (data: LanguageData) => {
     setLanguage(data);
