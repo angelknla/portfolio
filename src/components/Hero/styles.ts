@@ -1,19 +1,20 @@
 import styled from "styled-components";
 
 export const Container = styled.section`
-  padding-top: 13%;
+  padding-top: 10%;
   display: flex;
   justify-content: space-between;
   gap: 8rem;
-  background: rgba(0,0,0,0);
+  background: rgba(0, 0, 0, 0);
+
   .hero-text {
     p {
       color: var(--black);
     }
-    & > p{
+    & > p {
       font-size: 1.8rem;
     }
-    h1{
+    h1 {
       font-size: 7rem;
       color: var(--black);
     }
@@ -28,7 +29,7 @@ export const Container = styled.section`
       width: 44rem;
       color: var(--black);
     }
-    
+
     p.small-resume {
       margin-bottom: 5rem;
       color: var(--black);
@@ -42,36 +43,35 @@ export const Container = styled.section`
   }
 
   .hero-image {
+    margin-right: 15rem;
     img {
       max-width: 500px;
     }
   }
 
-
-  @media(max-width: 960px){
+  @media (max-width: 960px) {
     display: block;
     margin-top: 15%;
-    .hero-text{
 
-      h1{
+    .hero-text {
+      h1 {
         font-size: 5rem;
       }
     }
+      
     .japanese {
       width: 31rem !important;
     }
-    
-    .hero-image{
+
+    .hero-image {
       display: none;
     }
-
-    
   }
 
-  @media(max-width: 600px){
+  @media (max-width: 600px) {
     margin-top: 20%;
   }
-  @media(max-width: 480px){
+  @media (max-width: 480px) {
     margin-top: 30%;
 
     .hero-text {
@@ -83,4 +83,4 @@ export const Container = styled.section`
       padding: 1.2rem 4rem;
     }
   }
-`
+`;

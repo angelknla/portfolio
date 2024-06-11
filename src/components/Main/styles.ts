@@ -1,25 +1,14 @@
 import styled from "styled-components";
 
-
 export const Container = styled.main`
-  position: relative;
-  z-index: 0;
-  padding: 0 17rem;
+  padding: 0 20rem;
   overflow-x: hidden;
-  #tsparticles {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -5;
-  }
 
-  @media (max-width: 960px){
+  @media (max-width: 960px) {
     padding: 0 2rem;
   }
 
-  @media(max-width: 360px){
+  @media (max-width: 360px) {
     padding: 0 2rem;
   }
-`
+`;

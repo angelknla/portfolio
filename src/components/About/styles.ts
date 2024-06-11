@@ -2,13 +2,13 @@ import styled from "styled-components";
 
 export const Container = styled.section`
   margin-top: 12rem;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
   gap: 2rem;
 
   .about-text {
     font-weight: 200;
-    color: var(--black)
+    flex: 1;
+    color: var(--black);
   }
 
   .hard-skills {
@@ -23,7 +23,7 @@ export const Container = styled.section`
     flex-direction: column;
     align-items: center;
 
-    img{
+    img {
       width: 3.4rem;
     }
   }
@@ -44,8 +44,6 @@ export const Container = styled.section`
     letter-spacing: 0.1rem;
     font-weight: 500;
   }
-  
-  
 
   .about-image {
     text-align: center;
@@ -58,11 +56,13 @@ export const Container = styled.section`
       border-radius: 5%;
       filter: grayscale(0);
       transition: filter 0.5s;
-      &:hover{
+      &:hover {
         filter: grayscale(1);
-     }
-   }
+      }
+    }
   }
+
+  
 
   @media only screen and (max-width: 480px) {
     margin-top: 9rem;
@@ -79,15 +79,15 @@ export const Container = styled.section`
     }
   }
 
-  @media (max-width: 960px){
+  @media (max-width: 960px) {
     display: block;
     text-align: center;
-    
-    .about-image{
+
+    .about-image {
       display: flex;
     }
-    .hard-skills{
+    .hard-skills {
       justify-content: center;
     }
   }
-`
+`;

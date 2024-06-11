@@ -76,6 +76,7 @@ export const StyledProjectsWrapper = styled.div`
 
 export const StyledContainer = styled.section`
   margin-top: 10rem;
+  margin: 0 auto;
 
   @media (max-width: 960px){
     ${StyledProjectsWrapper} {
