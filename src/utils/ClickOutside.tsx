@@ -1,28 +1,38 @@
-import { FC, ReactNode, useEffect, useRef } from "react";
+import { FC, ReactNode, useCallback, useEffect, useRef } from "react";
 
 interface ClickOutsideProps {
   onClickOutside: () => void;
-  children: ReactNode
+  children: ReactNode;
 }
-export const CheckClickOutside: FC<ClickOutsideProps> = ({onClickOutside, children}) => {
+export const CheckClickOutside: FC<ClickOutsideProps> = ({
+  onClickOutside,
+  children,
+}) => {
+  const ref = useRef<HTMLDivElement>(null);
 
-  const ref = useRef<HTMLDivElement>(null);  
+  // Handle click outside of the component
+  const handleClickOutside = useCallback(
+    (e: MouseEvent) => {
+      if (ref.current && !ref.current.contains(e.target as Node)) {
+        onClickOutside();
+      }
+    },
+    [onClickOutside]
+  );
 
-   const handleClickOutside = (e: { target: any; }) => {
-   if (ref.current && !ref.current.contains(e.target)) {
-     onClickOutside();
-   }
-
-  };  
   useEffect(() => {
-    document.addEventListener('click', handleClickOutside,true);
+    document.addEventListener("mousedown", handleClickOutside);
     return () => {
-      document.removeEventListener('click', handleClickOutside,true);
-    }
-  });
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [handleClickOutside]);
 
   if (!children) {
     return null;
   }
-  return <div draggable={true} ref={ref}>{children}</div> 
-}
+  return (
+    <div draggable={true} ref={ref}>
+      {children}
+    </div>
+  );
+};

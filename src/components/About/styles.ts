@@ -7,7 +7,8 @@ export const Container = styled.section`
 
   .about-text {
     font-weight: 200;
-    flex: 1;
+    flex: 1.5;
+    line-height: 1.6;
     color: var(--black);
   }
 
@@ -49,6 +50,7 @@ export const Container = styled.section`
     text-align: center;
     place-self: center;
     margin-left: 12rem;
+    flex: 1;
 
     img {
       max-width: 80%;
@@ -61,8 +63,6 @@ export const Container = styled.section`
       }
     }
   }
-
-  
 
   @media only screen and (max-width: 480px) {
     margin-top: 9rem;

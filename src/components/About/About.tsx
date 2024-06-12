@@ -22,47 +22,30 @@ export const About = () => {
   return (
     <Container id="about">
       <div className="about-text">
-        <ScrollAnimation animateIn="fadeInLeft">
-          <h2>{title}</h2>
-        </ScrollAnimation>
-
-        <ScrollAnimation animateIn="fadeInLeft" delay={0.2 * 1000}>
-          <p>{p1}</p>
-        </ScrollAnimation>
-
         <ScrollAnimation
           animateIn="fadeInLeft"
           delay={0.3 * 1000}
-          style={{ marginTop: "2rem", marginBottom: "2rem" }}
+          style={{
+            marginTop: "2rem",
+            marginBottom: "2rem",
+          }}
         >
+          <h2>{title}</h2>
+          <p>{p1}</p>
+          <br></br>
           <p>{p2}</p>
-        </ScrollAnimation>
-
-        <ScrollAnimation
-          animateIn="fadeInLeft"
-          delay={0.4 * 1000}
-          style={{ marginTop: "2rem", marginBottom: "2rem" }}
-        >
+          <br></br>
           <p>{p3}</p>
-        </ScrollAnimation>
-
-        <ScrollAnimation animateIn="fadeInLeft" delay={0.5 * 1000}>
+          <br></br>
           <p>
             {p4.title}
             <br></br>
             {p4.content}
           </p>
-        </ScrollAnimation>
-
-        <ScrollAnimation animateIn="fadeInLeft" delay={0.6 * 1000}>
           <br></br>
           <p>{p5}</p>
-        </ScrollAnimation>
-
-        <ScrollAnimation animateIn="fadeInLeft" delay={0.7 * 1000}>
           <h3>{h3}</h3>
         </ScrollAnimation>
-
         <div className="hard-skills">
           <div className="hability">
             <ScrollAnimation animateIn="fadeInUp" delay={0.1 * 1000}>

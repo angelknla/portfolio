@@ -3,11 +3,11 @@ import styled from "styled-components";
 export const Container = styled.section`
   padding-top: 10%;
   display: flex;
-  justify-content: space-between;
   gap: 8rem;
   background: rgba(0, 0, 0, 0);
 
   .hero-text {
+    flex: 1;
     p {
       color: var(--black);
     }
@@ -43,9 +43,11 @@ export const Container = styled.section`
   }
 
   .hero-image {
-    margin-right: 15rem;
+    display: flex;
+    justify-content: flex-end;
+    flex: 1;
     img {
-      max-width: 500px;
+      max-width: 450px;
     }
   }
 
@@ -58,7 +60,7 @@ export const Container = styled.section`
         font-size: 5rem;
       }
     }
-      
+
     .japanese {
       width: 31rem !important;
     }

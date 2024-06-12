@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.main`
-  padding: 0 20rem;
+  padding: 0 15rem;
   overflow-x: hidden;
 
   @media (max-width: 960px) {
