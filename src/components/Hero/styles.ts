@@ -44,8 +44,8 @@ export const Container = styled.section`
 
   .hero-image {
     display: flex;
-    justify-content: flex-end;
-    flex: 1;
+    justify-content: center;
+    flex: 0.5;
     img {
       max-width: 450px;
     }
