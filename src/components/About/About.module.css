@@ -1,0 +1,181 @@
+.container {
+	display: flex;
+	gap: 2rem;
+}
+
+/* Animation keyframes */
+@keyframes fadeInLeft {
+	from {
+		opacity: 0;
+		transform: translateX(-30px);
+	}
+	to {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+@keyframes fadeInUp {
+	from {
+		opacity: 0;
+		transform: translateY(30px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes fadeInRight {
+	from {
+		opacity: 0;
+		transform: translateX(30px);
+	}
+	to {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+/* Animation classes */
+.fadeInLeft {
+	animation: fadeInLeft 0.8s ease-out forwards;
+	opacity: 0;
+}
+
+.fadeInUp {
+	animation: fadeInUp 0.8s ease-out forwards;
+	opacity: 0;
+}
+
+.fadeInRight {
+	animation: fadeInRight 0.8s ease-out forwards;
+	opacity: 0;
+}
+
+/* Delay classes */
+.delay100 {
+	animation-delay: 0.1s;
+}
+
+.delay200 {
+	animation-delay: 0.2s;
+}
+
+.delay300 {
+	animation-delay: 0.3s;
+}
+
+.delay400 {
+	animation-delay: 0.4s;
+}
+
+.delay500 {
+	animation-delay: 0.5s;
+}
+
+.delay600 {
+	animation-delay: 0.6s;
+}
+
+.delay700 {
+	animation-delay: 0.7s;
+}
+
+.delay800 {
+	animation-delay: 0.8s;
+}
+
+.delay900 {
+	animation-delay: 0.9s;
+}
+
+.aboutText {
+	font-weight: 200;
+	flex: 1.5;
+	line-height: 1.6;
+	color: var(--text-primary);
+}
+
+.hardSkills {
+	margin-top: 1.6rem;
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 1.8rem;
+}
+
+.hability {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.hability img {
+	width: 3.4rem;
+}
+
+.container h2 {
+	display: inline-block;
+	margin-bottom: 2rem;
+	border-bottom: 0.2rem solid var(--text-secondary);
+}
+
+.container h3 {
+	margin-top: 2rem;
+	color: var(--text-secondary);
+}
+
+.container p {
+	font-size: 1.8rem;
+	letter-spacing: 0.1rem;
+	font-weight: 500;
+}
+
+.aboutImage {
+	text-align: center;
+	place-self: center;
+	margin-left: 12rem;
+	flex: 1;
+}
+
+.aboutImage img {
+	max-width: 80%;
+	height: 80%;
+	border-radius: 5%;
+	filter: grayscale(0);
+	transition: filter 0.5s;
+}
+
+.aboutImage img:hover {
+	filter: grayscale(1);
+}
+
+@media only screen and (max-width: 480px) {
+	.aboutImage {
+		max-width: 100%;
+		margin-top: 4rem;
+		margin-left: 0rem;
+	}
+
+	.aboutImage img {
+		max-width: 100%;
+		width: 95%;
+		height: 95%;
+	}
+}
+
+@media (max-width: 960px) {
+	.container {
+		display: block;
+		text-align: center;
+	}
+
+	.aboutImage {
+		display: flex;
+	}
+
+	.hardSkills {
+		justify-content: center;
+	}
+}

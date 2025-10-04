@@ -1,0 +1,173 @@
+.container {
+	padding-top: 10%;
+	display: flex;
+	gap: 8rem;
+	background: rgba(0, 0, 0, 0);
+}
+
+/* Animation keyframes */
+@keyframes fadeInLeft {
+	from {
+		opacity: 0;
+		transform: translateX(-30px);
+	}
+	to {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+@keyframes fadeInUp {
+	from {
+		opacity: 0;
+		transform: translateY(30px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes fadeInRight {
+	from {
+		opacity: 0;
+		transform: translateX(30px);
+	}
+	to {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+/* Animation classes */
+.fadeInLeft {
+	animation: fadeInLeft 0.8s ease-out forwards;
+	opacity: 0;
+}
+
+.fadeInUp {
+	animation: fadeInUp 0.8s ease-out forwards;
+	opacity: 0;
+}
+
+.fadeInRight {
+	animation: fadeInRight 0.8s ease-out forwards;
+	opacity: 0;
+}
+
+/* Delay classes */
+.delay200 {
+	animation-delay: 0.2s;
+}
+
+.delay300 {
+	animation-delay: 0.3s;
+}
+
+.delay400 {
+	animation-delay: 0.4s;
+}
+
+.delay500 {
+	animation-delay: 0.5s;
+}
+
+.heroText {
+	flex: 1;
+}
+
+.heroText p {
+	color: var(--text-primary);
+}
+
+.heroText > p {
+	font-size: 1.8rem;
+}
+
+.heroText h1 {
+	font-size: 7rem;
+	color: var(--text-primary);
+}
+
+.heroText h3 {
+	color: var(--text-secondary);
+	margin: 1rem 0;
+}
+
+.japanese {
+	text-align: end;
+	width: 44rem;
+	color: var(--text-primary);
+}
+
+.smallResume {
+	margin-bottom: 5rem;
+	color: var(--text-primary);
+}
+
+.button {
+	margin-top: 5rem;
+	padding: 1.4rem 6rem;
+	color: #fff;
+	background-color: var(--text-secondary);
+	border-radius: 2rem;
+	font-weight: 500;
+	transition:
+		filter 0.25s,
+		background-color 0.5s;
+	text-decoration: none;
+	display: inline-block;
+}
+
+.button:hover {
+	filter: brightness(0.8);
+}
+
+.heroImage {
+	display: flex;
+	justify-content: center;
+	flex: 0.5;
+}
+
+.heroImage img {
+	max-width: 450px;
+}
+
+@media (max-width: 960px) {
+	.container {
+		display: block;
+		margin-top: 15%;
+	}
+
+	.heroText h1 {
+		font-size: 5rem;
+	}
+
+	.container .japanese {
+		width: 31rem;
+	}
+
+	.heroImage {
+		display: none;
+	}
+}
+
+@media (max-width: 600px) {
+	.container {
+		margin-top: 20%;
+	}
+}
+
+@media (max-width: 480px) {
+	.container {
+		margin-top: 30%;
+	}
+
+	.heroText .smallResume {
+		margin-bottom: 4rem;
+	}
+
+	.button {
+		padding: 1.2rem 4rem;
+	}
+}

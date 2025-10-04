@@ -1,0 +1,39 @@
+.container {
+	display: flex;
+	position: relative;
+	width: 4.6rem;
+	height: 4.6rem;
+}
+
+.button {
+	cursor: pointer;
+	border: none;
+	background: transparent;
+	padding: 0.5rem;
+	border-radius: 50%;
+	transition: background-color 0.25s;
+	width: 4.6rem;
+	height: 4.6rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.button:hover,
+.button:focus {
+	background-color: var(--bg-primary);
+	opacity: 0.2;
+	transition:
+		background-color 0.25s,
+		opacity 0.25s;
+}
+
+.button img {
+	width: 3rem;
+	border-radius: 50%;
+	display: block;
+}
+
+.button .arrow {
+	width: 1rem;
+}

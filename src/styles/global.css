@@ -1,0 +1,244 @@
+:root {
+	--pink: #e31f71;
+	--black: #212121;
+	--green: #23ce6b;
+	--blue: #016fb9;
+	scroll-padding-top: 10rem;
+
+	/* Light mode colors */
+	--text-primary: #212121;
+	--text-secondary: #016fb9;
+	--text-accent: #016fb9;
+	--bg-primary: #f5f5f5;
+	--bg-secondary: rgba(255, 255, 255, 0.8);
+}
+
+:root.dark {
+	/* Dark mode colors */
+	--text-primary: #fff;
+	--text-secondary: #ebe534;
+	--text-accent: #ebe534;
+	--bg-primary: #212121;
+	--bg-secondary: rgba(33, 33, 33, 0.314);
+}
+
+:root.dark body {
+	transition: 0.5s;
+	background-color: var(--black);
+	color: #fff;
+}
+
+:root.dark .logo {
+	color: #fff;
+}
+
+:root.dark .logo::first-letter {
+	color: #ebe534;
+}
+
+:root.dark .about-text {
+	color: #fff;
+}
+
+:root.dark .about-text h2 {
+	border-bottom: 0.2rem solid #ebe534;
+}
+
+:root.dark .about-text h3 {
+	color: #ebe534;
+}
+
+:root.dark .project svg {
+	stroke: #ebe534;
+}
+
+:root.dark .project:hover svg {
+	stroke: #016fb9;
+}
+
+:root.dark .contactButton {
+	background-color: #ebe534;
+}
+
+:root.dark .contactButton a {
+	color: var(--black);
+}
+
+:root.dark .contactButton:hover {
+	background-color: #016fb9;
+}
+
+:root.dark .contactButton:hover a {
+	color: var(--black);
+}
+
+:root.dark .contacts div {
+	background-color: #ebe534;
+}
+
+:root.dark .contacts div a {
+	color: var(--black);
+}
+
+:root.dark .contacts div:hover {
+	background-color: #016fb9;
+}
+
+:root.dark .contacts div:hover a {
+	color: var(--black);
+}
+
+:root.dark #contact h2 {
+	color: #fff;
+}
+
+:root.dark #contact p {
+	color: #ebe534;
+}
+
+:root.dark .contactButton,
+:root.dark form button,
+:root.dark header a.button {
+	background-color: #ebe534;
+}
+
+:root.dark .dropdown-button:hover,
+:root.dark .dropdown-button:focus {
+	background-color: #f7fbd8;
+}
+
+:root.dark #portfolio h2 {
+	color: #fff;
+}
+
+:root.dark header.header-fixed {
+	transition: 0.5s;
+	background-color: rgba(33, 33, 33, 0.314);
+}
+
+:root.dark header.header-fixed a.button {
+	color: var(--black);
+}
+
+:root.dark header.header-fixed label {
+	background: #ebe534;
+}
+
+:root.dark header.header-fixed a {
+	transition: 0.5s;
+	color: #fff;
+}
+
+:root.dark header.header-fixed .menu,
+:root.dark header.header-fixed .menu:before,
+:root.dark header.header-fixed .menu:after {
+	background-color: #f5f5f5;
+}
+
+:root.dark header.header-fixed .menu.active {
+	background-color: rgba(555, 555, 555, 0);
+}
+
+:root.dark footer.footer {
+	transition: 0.5s;
+	background-color: rgba(0, 0, 0, 0.1);
+}
+
+:root.dark footer.footer p {
+	color: #fff;
+}
+
+:root.dark form button a {
+	color: var(--black);
+}
+
+:root.dark form input,
+:root.dark form textarea {
+	transition: 0.5s;
+	border: solid 1px #fff;
+	color: #fff;
+}
+
+:root.dark form input::placeholder,
+:root.dark form textarea::placeholder {
+	transition: 0.5s;
+	color: grey;
+}
+
+@media (max-width: 960px) {
+	:root.dark nav {
+		background-color: var(--black);
+	}
+}
+
+ul,
+li {
+	text-decoration: none;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 62.5%;
+}
+
+body {
+	font-size: 1.6rem;
+	-webkit-font-smoothing: antialiased;
+	background-color: var(--bg-primary);
+	color: var(--text-primary);
+	transition:
+		background-color 0.5s,
+		color 0.5s;
+}
+
+body,
+input,
+textarea,
+button {
+	font-family: "Roboto Slab", sans-serif;
+	font-weight: 200;
+}
+
+a {
+	text-decoration: none;
+}
+
+button,
+.button {
+	border: none;
+	cursor: pointer;
+	background-color: #016fb9;
+	color: #ffff;
+	border-radius: 2rem;
+	font-weight: 500;
+	transition: filter 0.25s;
+}
+
+button:hover,
+.button:hover {
+	filter: brightness(0.8);
+}
+
+button:disabled,
+.button:disabled {
+	opacity: 0.6;
+	filter: brightness(1);
+	cursor: not-allowed;
+}
+
+.logo {
+	font-size: 3rem;
+	color: #ffff;
+}
+
+.logo::first-letter {
+	color: #016fb9;
+}

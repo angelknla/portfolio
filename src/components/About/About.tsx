@@ -1,110 +1,107 @@
-import { Container } from "./styles";
-
+import image from "../../assets/angelnew.jpg";
+import bootstrapIcon from "../../assets/bootstrap-icon.svg";
 import cssIcon from "../../assets/css-icon.svg";
 import htmlIcon from "../../assets/html-icon.svg";
 import jsIcon from "../../assets/js-icon.svg";
-import nodeIcon from "../../assets/node-icon.svg";
 import nextIcon from "../../assets/nextjs-icon.svg";
+import nodeIcon from "../../assets/node-icon.svg";
 import reactIcon from "../../assets/react-icon.svg";
 import reduxIcon from "../../assets/redux.svg";
 import typescriptIcon from "../../assets/typescript-icon.svg";
-import bootstrapIcon from "../../assets/bootstrap-icon.svg";
-import ScrollAnimation from "react-animate-on-scroll";
-import image from "../../assets/angelnew.jpg";
-import { aboutData } from "../../data/aboutData";
 import { useLanguage } from "../../contexts/Language";
+import { aboutData } from "../../data/aboutData";
+import styles from "./About.module.css";
 
 export const About = () => {
-  const { translations } = useLanguage(aboutData);
-  if (!translations) return null;
-  const { title, p1, p2, p3, p4, p5, h3 } = translations;
+	const { translations } = useLanguage(aboutData);
+	if (!translations) return null;
+	const { title, p1, p2, p3, p4, p5, h3 } = translations;
 
-  return (
-    <Container id="about">
-      <div className="about-text">
-        <ScrollAnimation
-          animateIn="fadeInLeft"
-          delay={0.3 * 1000}
-          style={{
-            marginTop: "2rem",
-            marginBottom: "2rem",
-          }}
-        >
-          <h2>{title}</h2>
-          <p>{p1}</p>
-          <br></br>
-          <p>{p2}</p>
-          <br></br>
-          <p>{p3}</p>
-          <br></br>
-          <p>
-            {p4.title}
-            <br></br>
-            {p4.content}
-          </p>
-          <br></br>
-          <p>{p5}</p>
-          <h3>{h3}</h3>
-        </ScrollAnimation>
-        <div className="hard-skills">
-          <div className="hability">
-            <ScrollAnimation animateIn="fadeInUp" delay={0.1 * 1000}>
-              <img src={reactIcon} alt="React" />
-            </ScrollAnimation>
-          </div>
+	return (
+		<section className={styles.container} id="about">
+			<div className={styles.aboutText}>
+				<div
+					className={`${styles.fadeInLeft} ${styles.delay300}`}
+					style={{
+						marginTop: "2rem",
+						marginBottom: "2rem",
+					}}
+				>
+					<h2>{title}</h2>
+					<p>{p1}</p>
+					<br></br>
+					<p>{p2}</p>
+					<br></br>
+					<p>{p3}</p>
+					<br></br>
+					<p>
+						{p4.title}
+						<br></br>
+						{p4.content}
+					</p>
+					<br></br>
+					<p>{p5}</p>
+					<h3>{h3}</h3>
+				</div>
+				<div className={styles.hardSkills}>
+					<div className={styles.hability}>
+						<div className={`${styles.fadeInUp} ${styles.delay100}`}>
+							<img src={reactIcon} alt="React" />
+						</div>
+					</div>
 
-          <div className="hability">
-            <ScrollAnimation animateIn="fadeInUp" delay={0.2 * 1000}>
-              <img src={reduxIcon} alt="Redux" />
-            </ScrollAnimation>
-          </div>
+					<div className={styles.hability}>
+						<div className={`${styles.fadeInUp} ${styles.delay200}`}>
+							<img src={reduxIcon} alt="Redux" />
+						</div>
+					</div>
 
-          <div className="hability">
-            <ScrollAnimation animateIn="fadeInUp" delay={0.3 * 1000}>
-              <img src={bootstrapIcon} alt="Vue" />
-            </ScrollAnimation>
-          </div>
+					<div className={styles.hability}>
+						<div className={`${styles.fadeInUp} ${styles.delay300}`}>
+							<img src={bootstrapIcon} alt="Vue" />
+						</div>
+					</div>
 
-          <div className="hability">
-            <ScrollAnimation animateIn="fadeInUp" delay={0.4 * 1000}>
-              <img src={jsIcon} alt="JavaScript" />
-            </ScrollAnimation>
-          </div>
+					<div className={styles.hability}>
+						<div className={`${styles.fadeInUp} ${styles.delay400}`}>
+							<img src={jsIcon} alt="JavaScript" />
+						</div>
+					</div>
 
-          <div className="hability">
-            <ScrollAnimation animateIn="fadeInUp" delay={0.5 * 1000}>
-              <img src={typescriptIcon} alt="Typescript" />
-            </ScrollAnimation>
-          </div>
+					<div className={styles.hability}>
+						<div className={`${styles.fadeInUp} ${styles.delay500}`}>
+							<img src={typescriptIcon} alt="Typescript" />
+						</div>
+					</div>
 
-          <div className="hability">
-            <ScrollAnimation animateIn="fadeInUp" delay={0.6 * 1000}>
-              <img src={htmlIcon} alt="Html" />
-            </ScrollAnimation>
-          </div>
+					<div className={styles.hability}>
+						<div className={`${styles.fadeInUp} ${styles.delay600}`}>
+							<img src={htmlIcon} alt="Html" />
+						</div>
+					</div>
 
-          <div className="hability">
-            <ScrollAnimation animateIn="fadeInUp" delay={0.7 * 1000}>
-              <img src={cssIcon} alt="Css" />
-            </ScrollAnimation>
-          </div>
-          <div className="hability">
-            <ScrollAnimation animateIn="fadeInUp" delay={0.8 * 1000}>
-              <img src={nodeIcon} alt="Node" />
-            </ScrollAnimation>
-          </div>
-          <div className="hability">
-            <ScrollAnimation animateIn="fadeInUp" delay={0.9 * 1000}>
-              <img src={nextIcon} alt="Node" />
-            </ScrollAnimation>
-          </div>
-        </div>
-      </div>
-      <div className="about-image">
-        <ScrollAnimation animateIn="fadeInRight" delay={0.5 * 1000}>
-          <img src={image} height="600px" alt="Profile pic" />
-        </ScrollAnimation>
-      </div>
-    </Container>
-  );
+					<div className={styles.hability}>
+						<div className={`${styles.fadeInUp} ${styles.delay700}`}>
+							<img src={cssIcon} alt="Css" />
+						</div>
+					</div>
+					<div className={styles.hability}>
+						<div className={`${styles.fadeInUp} ${styles.delay800}`}>
+							<img src={nodeIcon} alt="Node" />
+						</div>
+					</div>
+					<div className={styles.hability}>
+						<div className={`${styles.fadeInUp} ${styles.delay900}`}>
+							<img src={nextIcon} alt="Node" />
+						</div>
+					</div>
+				</div>
+			</div>
+			<div className={styles.aboutImage}>
+				<div className={`${styles.fadeInRight} ${styles.delay500}`}>
+					<img src={image} height="600px" alt="Profile pic" />
+				</div>
+			</div>
+		</section>
+	);
 };

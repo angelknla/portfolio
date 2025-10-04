@@ -1,0 +1,33 @@
+.container {
+	margin-top: 10rem;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.title {
+	text-align: center;
+	font-size: 4rem;
+	margin-bottom: 10rem;
+	color: var(--text-primary);
+}
+
+.projectsWrapper {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: auto;
+	gap: 2rem;
+	padding: 1rem;
+	overflow: hidden;
+}
+
+@media (max-width: 960px) {
+	.projectsWrapper {
+		grid-template-columns: 1fr 1fr;
+	}
+}
+
+@media (max-width: 740px) {
+	.projectsWrapper {
+		grid-template-columns: 1fr;
+	}
+}

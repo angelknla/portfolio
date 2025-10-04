@@ -1,0 +1,102 @@
+.container {
+	margin-top: 5rem;
+	display: grid;
+	place-items: center;
+}
+
+.container h2 {
+	text-align: center;
+	margin-bottom: 2rem;
+	color: var(--text-primary);
+}
+
+.form {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	align-items: center;
+	gap: 1rem;
+	width: 100%;
+}
+
+.input {
+	width: 60rem;
+	padding: 1rem 2rem;
+	border-radius: 0.6rem;
+	outline: none;
+	background: none;
+	border: 1px solid var(--text-primary);
+	color: var(--text-primary);
+	font-weight: 600;
+	transition:
+		border-color 0.5s,
+		color 0.5s;
+}
+
+.input::placeholder {
+	color: grey;
+	transition: color 0.5s;
+}
+
+.textarea {
+	width: 60rem;
+	padding: 1rem 2rem;
+	border-radius: 0.6rem;
+	outline: none;
+	background: none;
+	border: 1px solid var(--text-primary);
+	color: var(--text-primary);
+	font-weight: 600;
+	height: 20rem;
+	overflow-y: auto;
+	resize: none;
+	transition:
+		border-color 0.5s,
+		color 0.5s;
+}
+
+.textarea::placeholder {
+	color: grey;
+	transition: color 0.5s;
+}
+
+.submitButton {
+	padding: 1rem 6rem;
+	text-transform: uppercase;
+}
+
+.submitButton a {
+	background-color: transparent;
+	color: #fff;
+}
+
+.containerSuccess {
+	margin-top: 4rem;
+	text-align: center;
+}
+
+.containerSuccess h3 {
+	text-align: center;
+	margin-bottom: 2rem;
+	color: var(--text-primary);
+}
+
+.successButton {
+	border-radius: 0.6rem;
+	padding: 1rem;
+	margin-top: 0.8rem;
+	text-transform: uppercase;
+	text-align: center;
+	color: #fbfbfb;
+}
+
+@media (max-width: 740px) {
+	.input,
+	.textarea {
+		width: 100%;
+	}
+
+	.form {
+		width: 100%;
+	}
+}
