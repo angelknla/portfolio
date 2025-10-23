@@ -1,6 +1,8 @@
 .container {
 	padding: 0 10%;
 	overflow-x: hidden;
+	max-width: 200rem;
+	margin: 0 auto;
 }
 
 @media (max-width: 960px) {
