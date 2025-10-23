@@ -1,7 +1,7 @@
 import { useId, useState } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import { HashLink, NavHashLink } from "react-router-hash-link";
-import CV from "../../assets/Angel_CV_2022New.pdf";
+import CV from "../../assets/Angel_Canela_Software_Engineer_CV.pdf";
 import linkedinIcon from "../../assets/linkedin.png";
 import { useLanguage } from "../../contexts/Language";
 import { headerData } from "../../data/headerData";
