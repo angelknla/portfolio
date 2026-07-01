@@ -1,294 +1,294 @@
+/* ================================================================
+   HEADER — fixed, glass-blur navigation
+   ================================================================ */
 .container {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	padding: 1.8rem 17rem;
-	background-color: var(--bg-secondary);
-	backdrop-filter: blur(6px);
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100vw;
-	z-index: 1000;
-	transition: background-color 0.5s;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 8rem;
+  background-color: var(--bg-secondary);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  z-index: 1000;
+  transition:
+    background-color 0.3s,
+    border-color 0.3s;
 }
 
+/* Inner wrapper — mirrors Main's max-width so content lines up */
+.inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 10%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ---- Logo ---- */
 .logo {
-	color: var(--text-primary);
-	transition: color 0.5s;
+  font-family: "Inter", sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--text);
+  flex-shrink: 0;
+  transition: color 0.2s;
 }
 
+.logo span:first-child {
+  color: var(--accent);
+}
+
+/* ---- Nav ---- */
 .nav {
-	display: flex;
-	align-items: center;
-	gap: 1.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
 }
 
-.nav a {
-	color: var(--text-primary);
-	padding: 0.6rem;
-	font-family: "Roboto Slab", sans-serif;
-	font-weight: 300;
-	text-transform: uppercase;
-	transition:
-		filter 0.25s,
-		color 0.5s;
+.nav > a {
+  color: var(--text-muted);
+  padding: 0.5rem 0.9rem;
+  font-size: 1.4rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  border-radius: 0.5rem;
+  transition:
+    color 0.2s,
+    background-color 0.2s;
 }
 
-.nav a.button {
-	padding: 0.8rem 2.5rem;
-	color: #fff;
-	background-color: var(--text-secondary);
-	border-radius: 2.5rem;
-	font-weight: 600;
-	text-decoration: none;
-	display: inline-block;
-	transition:
-		all 0.3s ease,
-		background-color 0.5s;
-	border: 2px solid var(--text-secondary);
-	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-	text-transform: uppercase;
-	letter-spacing: 0.5px;
+.nav > a:hover {
+  color: var(--text);
+  background-color: var(--accent-dim);
 }
 
-.nav a.button:hover {
-	background-color: transparent;
-	color: var(--text-secondary);
-	transform: translateY(-3px);
-	box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-}
-
-.nav a:hover {
-	filter: brightness(0.6);
-}
-
-.menuContainer {
-	cursor: pointer;
-	padding: 0.6rem 0;
-}
-
-.menu {
-	width: 2rem;
-	height: 0.2rem;
-	background: var(--text-primary);
-	position: relative;
-	cursor: pointer;
-	display: none;
-	transition: background-color 0.5s;
-}
-
-.menu:before {
-	bottom: 0.5rem;
-}
-
-.menu:after {
-	top: 0.5rem;
-}
-
-.menu.active:before {
-	bottom: 0;
-	transform: rotate(45deg);
-}
-
-.menu.active:after {
-	top: 0;
-	transform: rotate(135deg);
-}
-
-.menu.active {
-	background-color: rgba(0, 0, 0, 0);
-}
-
-.menu:before,
-.menu:after {
-	content: "";
-	display: block;
-	position: absolute;
-	width: 100%;
-	height: 0.2rem;
-	background: var(--text-primary);
-	cursor: pointer;
-	transition:
-		0.6s,
-		background-color 0.5s;
-}
-
-.container input[type="checkbox"] {
-	height: 0;
-	width: 0;
-	visibility: hidden;
-	outline: none;
-}
-
-.container label {
-	cursor: pointer;
-	text-indent: -9999px;
-	width: 55px;
-	height: 30px;
-	background: var(--blue);
-	display: block;
-	justify-content: center;
-	align-items: center;
-	border-radius: 100px;
-	position: relative;
-	margin-left: auto;
-	right: 10px;
-}
-
-.container label:after {
-	content: "";
-	background: #fff;
-	width: 20px;
-	height: 20px;
-	border-radius: 50%;
-	position: absolute;
-	top: 5px;
-	left: 4px;
-	transition: cubic-bezier(0.68, -0.55, 0.27, 01.55) 320ms;
-}
-
-.container input:checked + label {
-	background: #016fb9;
-}
-
-.container input:checked + label:after {
-	left: calc(100% - 5px);
-	transform: translateX(-100%);
-}
-
+/* ---- CV button ---- */
 .button {
-	padding: 0.8rem 2.5rem;
-	color: #fff;
-	background-color: var(--text-secondary);
-	border-radius: 2.5rem;
-	font-weight: 600;
-	text-decoration: none;
-	display: inline-block;
-	transition:
-		all 0.3s ease,
-		background-color 0.5s;
-	border: 2px solid var(--text-secondary);
-	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-	text-transform: uppercase;
-	letter-spacing: 0.5px;
+  flex-shrink: 0;
+  margin-left: 0.6rem;
+  padding: 0.55rem 1.6rem !important;
+  background: var(--accent) !important;
+  color: #fff !important;
+  border-radius: 0.5rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  border: 1.5px solid var(--accent);
+  transition: all 0.2s ease !important;
 }
 
 .button:hover {
-	background-color: transparent;
-	color: var(--text-secondary);
-	transform: translateY(-3px);
-	box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  background: var(--accent-hover) !important;
+  border-color: var(--accent-hover) !important;
+  color: #fff !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px var(--accent-dim);
+}
+
+/* ---- LinkedIn icon ---- */
+.styledLinkedIn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.4rem;
 }
 
 .styledLinkedIn img {
-	width: 25px;
+  width: 2rem;
+  height: auto;
+  opacity: 0.85;
+  transition: opacity 0.2s;
 }
 
-@media only screen and (max-width: 800px) {
-	.container label {
-		position: relative;
-		margin-right: 0.5rem;
-	}
+.styledLinkedIn:hover img {
+  opacity: 1;
 }
 
-@media (max-width: 360px) {
-	.container {
-		padding: 1.8rem 2rem;
-	}
+/* ---- Theme toggle (lives inside .nav) ---- */
+.nav input[type="checkbox"] {
+  position: absolute;
+  height: 0;
+  width: 0;
+  visibility: hidden;
+  outline: none;
+}
+
+.nav label {
+  cursor: pointer;
+  text-indent: -9999px;
+  width: 4.2rem;
+  height: 2.2rem;
+  background: var(--bg-card);
+  border: 1.5px solid var(--border);
+  display: block;
+  border-radius: 10rem;
+  position: relative;
+  flex-shrink: 0;
+  margin-left: 0.8rem;
+  transition:
+    background-color 0.25s,
+    border-color 0.25s;
+}
+
+.nav label::after {
+  content: "";
+  background: var(--text-muted);
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 2px;
+  transform: translateY(-50%);
+  transition:
+    left 0.25s ease,
+    background-color 0.25s;
+}
+
+.nav input[type="checkbox"]:checked + label {
+  background: var(--accent-dim);
+  border-color: var(--accent);
+}
+
+.nav input[type="checkbox"]:checked + label::after {
+  left: calc(100% - 2px);
+  transform: translate(-100%, -50%);
+  background: var(--accent);
+}
+
+/* ---- Hamburger button — desktop: hidden, mobile: visible ---- */
+.menu {
+  display: none;
+  width: 2.2rem;
+  height: 0.2rem;
+  background: var(--text);
+  position: relative;
+  cursor: pointer;
+  border: none;
+  padding: 0;
+  flex-shrink: 0;
+  transition: background-color 0.3s;
+}
+
+.menu::before,
+.menu::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 0.2rem;
+  background: var(--text);
+  transition:
+    0.35s,
+    background-color 0.3s;
+}
+
+.menu::before {
+  bottom: 0.6rem;
+}
+.menu::after {
+  top: 0.6rem;
+}
+
+.menu.active {
+  background-color: transparent;
+}
+.menu.active::before {
+  bottom: 0;
+  transform: rotate(45deg);
+}
+.menu.active::after {
+  top: 0;
+  transform: rotate(135deg);
+}
+
+/* ================================================================
+   RESPONSIVE
+   ================================================================ */
+@media (max-width: 1100px) {
+  .inner {
+    padding: 0 4%;
+  }
 }
 
 @media (max-width: 960px) {
-	.container {
-		padding: 1.8rem 2rem;
-	}
+  /* Show hamburger */
+  .menu {
+    display: block;
+  }
 
-	.menu {
-		display: block;
-	}
+  /* Full-height mobile overlay */
+  .nav {
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.6rem;
+    position: fixed;
+    top: 8rem;
+    left: 0;
+    width: 100vw;
+    height: calc(100vh - 8rem);
+    background-color: var(--bg-surface);
+    border-top: 1px solid var(--border);
+    padding: 3rem 0;
+    overflow-y: auto;
+    transform: translateY(-0.6rem);
+    transition:
+      opacity 0.22s ease,
+      visibility 0.22s ease,
+      transform 0.22s ease;
+  }
 
-	.menu,
-	.menu:before,
-	.menu:after {
-		background-color: var(--black);
-	}
+  .nav > a {
+    font-size: 2rem;
+    padding: 1.2rem 2rem;
+    width: 28rem;
+    text-align: center;
+  }
 
-	.menu.active {
-		background-color: #fff;
-	}
+  .button {
+    width: 28rem !important;
+    margin: 0.4rem 0 0 0 !important;
+    padding: 1.2rem 0 !important;
+    font-size: 2rem !important;
+    text-align: center;
+  }
 
-	.nav {
-		-ms-overflow-style: none;
-		scrollbar-width: none;
-		overflow: hidden;
-		opacity: 0;
-		font-size: 14px;
-		visibility: hidden;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		position: fixed;
-		width: 100vw;
-		background: #ebe534;
-		top: 0;
-		left: 0;
-		transition: opacity 0.25s;
-		background-color: #fff;
-		box-shadow: 1px 1px 20px 0px rgba(0, 0, 0, 0.2);
-		border-radius: 0px 0px 15px 15px;
-	}
+  .styledLinkedIn {
+    width: 28rem;
+    justify-content: center;
+    padding: 1.2rem 2rem;
+  }
 
-	.button {
-		background-color: var(--text-secondary);
-		margin: 1rem 0;
-		padding: 1rem 2.5rem;
-		border-radius: 2.5rem;
-		font-weight: 600;
-		text-transform: uppercase;
-		letter-spacing: 0.5px;
-		box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-		border: 2px solid var(--text-secondary);
-	}
+  .nav label {
+    margin: 0.8rem 0 0 0;
+  }
 
-	.nav a.button {
-		background-color: var(--text-secondary);
-		margin: 1rem 0;
-		padding: 1rem 2.5rem;
-		border-radius: 2.5rem;
-		font-weight: 600;
-		text-transform: uppercase;
-		letter-spacing: 0.5px;
-		box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-		border: 2px solid var(--text-secondary);
-	}
+  .nav.active {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
 
-	@keyframes expandDown {
-		from {
-			height: 10vw;
-		}
-		to {
-			height: 80vh;
-		}
-	}
+  .nav.inactive {
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-0.6rem);
+  }
+}
 
-	@keyframes expandUp {
-		from {
-			height: 80vh;
-		}
-		to {
-			height: 0vh;
-		}
-	}
-
-	.nav.active {
-		opacity: 1;
-		visibility: visible;
-		animation: expandDown 0.4s ease-in-out forwards;
-	}
-
-	.nav.inactive {
-		opacity: 1;
-		visibility: visible;
-		animation: expandUp 0.4s ease-in-out forwards;
-	}
+@media (max-width: 480px) {
+  .inner {
+    padding: 0 1.6rem;
+  }
 }

@@ -1,18 +1,30 @@
+/* ================================================================
+   MAIN — page layout wrapper
+   ================================================================ */
 .container {
-	padding: 0 10%;
-	overflow-x: hidden;
-	max-width: 200rem;
-	margin: 0 auto;
+  padding: 0 10%;
+  overflow-x: hidden;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
-@media (max-width: 960px) {
-	.container {
-		padding: 0 2rem;
-	}
+/* Section spacing — all direct children except the hero */
+.container > *:not(:first-child) {
+  margin-top: 8rem;
 }
 
-@media (max-width: 360px) {
-	.container {
-		padding: 0 2rem;
-	}
+@media (max-width: 1100px) {
+  .container {
+    padding: 0 5%;
+  }
+}
+
+@media (max-width: 640px) {
+  .container {
+    padding: 0 2rem;
+  }
+
+  .container > *:not(:first-child) {
+    margin-top: 6rem;
+  }
 }

@@ -1,107 +1,65 @@
-import image from "../../assets/angelnew.jpg";
-import bootstrapIcon from "../../assets/bootstrap-icon.svg";
-import cssIcon from "../../assets/css-icon.svg";
-import htmlIcon from "../../assets/html-icon.svg";
-import jsIcon from "../../assets/js-icon.svg";
-import nextIcon from "../../assets/nextjs-icon.svg";
-import nodeIcon from "../../assets/node-icon.svg";
-import reactIcon from "../../assets/react-icon.svg";
-import reduxIcon from "../../assets/redux.svg";
-import typescriptIcon from "../../assets/typescript-icon.svg";
-import { useLanguage } from "../../contexts/Language";
-import { aboutData } from "../../data/aboutData";
-import styles from "./About.module.css";
+import Image from 'next/image';
+
+import { useLanguage } from '../../contexts/Language';
+import { aboutData } from '../../data/aboutData';
+
+import styles from './About.module.css';
+
+const SKILLS = [
+  { src: '/assets/react-icon.svg', alt: 'React' },
+  { src: '/assets/typescript-icon.svg', alt: 'TypeScript' },
+  { src: '/assets/nextjs-icon.svg', alt: 'Next.js' },
+  { src: '/assets/js-icon.svg', alt: 'JavaScript' },
+  { src: '/assets/node-icon.svg', alt: 'Node.js' },
+  { src: '/assets/redux.svg', alt: 'Redux' },
+  { src: '/assets/html-icon.svg', alt: 'HTML5' },
+  { src: '/assets/css-icon.svg', alt: 'CSS' },
+  { src: '/assets/bootstrap-icon.svg', alt: 'Bootstrap' },
+];
 
 export const About = () => {
-	const { translations } = useLanguage(aboutData);
-	if (!translations) return null;
-	const { title, p1, p2, p3, p4, p5, h3 } = translations;
+  const { translations } = useLanguage(aboutData);
+  if (!translations) return null;
+  const { title, p1, p2, p3, h3 } = translations;
 
-	return (
-		<section className={styles.container} id="about">
-			<div className={styles.aboutText}>
-				<div
-					className={`${styles.fadeInLeft} ${styles.delay300}`}
-					style={{
-						marginTop: "2rem",
-						marginBottom: "2rem",
-					}}
-				>
-					<h2>{title}</h2>
-					<p>{p1}</p>
-					<br></br>
-					<p>{p2}</p>
-					<br></br>
-					<p>{p3}</p>
-					<br></br>
-					<p>
-						{p4.title}
-						<br></br>
-						{p4.content}
-					</p>
-					<br></br>
-					<p>{p5}</p>
-					<h3>{h3}</h3>
-				</div>
-				<div className={styles.hardSkills}>
-					<div className={styles.hability}>
-						<div className={`${styles.fadeInUp} ${styles.delay100}`}>
-							<img src={reactIcon} alt="React" />
-						</div>
-					</div>
+  return (
+    <section className={styles.container} id='about'>
+      <div className={styles.textCol}>
+        <h2 className={styles.heading}>{title}</h2>
+        <div className={styles.body}>
+          <p>{p1}</p>
+          <p>{p2}</p>
+          <p>{p3}</p>
+        </div>
+        <div className={styles.skillsSection}>
+          <p className={styles.skillsLabel}>{h3}</p>
+          <div className={styles.skillGrid}>
+            {SKILLS.map(({ src, alt }, i) => (
+              <div
+                key={alt}
+                className={styles.skillBadge}
+                style={{ animationDelay: `${i * 0.05}s` }}
+              >
+                <img src={src} alt={alt} />
+                <span>{alt}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
 
-					<div className={styles.hability}>
-						<div className={`${styles.fadeInUp} ${styles.delay200}`}>
-							<img src={reduxIcon} alt="Redux" />
-						</div>
-					</div>
-
-					<div className={styles.hability}>
-						<div className={`${styles.fadeInUp} ${styles.delay300}`}>
-							<img src={bootstrapIcon} alt="Vue" />
-						</div>
-					</div>
-
-					<div className={styles.hability}>
-						<div className={`${styles.fadeInUp} ${styles.delay400}`}>
-							<img src={jsIcon} alt="JavaScript" />
-						</div>
-					</div>
-
-					<div className={styles.hability}>
-						<div className={`${styles.fadeInUp} ${styles.delay500}`}>
-							<img src={typescriptIcon} alt="Typescript" />
-						</div>
-					</div>
-
-					<div className={styles.hability}>
-						<div className={`${styles.fadeInUp} ${styles.delay600}`}>
-							<img src={htmlIcon} alt="Html" />
-						</div>
-					</div>
-
-					<div className={styles.hability}>
-						<div className={`${styles.fadeInUp} ${styles.delay700}`}>
-							<img src={cssIcon} alt="Css" />
-						</div>
-					</div>
-					<div className={styles.hability}>
-						<div className={`${styles.fadeInUp} ${styles.delay800}`}>
-							<img src={nodeIcon} alt="Node" />
-						</div>
-					</div>
-					<div className={styles.hability}>
-						<div className={`${styles.fadeInUp} ${styles.delay900}`}>
-							<img src={nextIcon} alt="Node" />
-						</div>
-					</div>
-				</div>
-			</div>
-			<div className={styles.aboutImage}>
-				<div className={`${styles.fadeInRight} ${styles.delay500}`}>
-					<img src={image} height="600px" alt="Profile pic" />
-				</div>
-			</div>
-		</section>
-	);
+      <div className={styles.imageCol}>
+        <div className={styles.imageWrapper}>
+          <Image
+            src='/assets/angelnew.jpg'
+            alt='Angel Canela'
+            fill
+            sizes='(max-width: 960px) 90vw, 33vw'
+            style={{ objectFit: 'cover', objectPosition: 'top' }}
+            priority
+          />
+        </div>
+      </div>
+    </section>
+  );
 };

@@ -1,33 +1,35 @@
+/* ================================================================
+   PORTFOLIO — project grid section
+   ================================================================ */
 .container {
-	margin-top: 10rem;
-	margin-left: auto;
-	margin-right: auto;
+  padding-top: 2rem;
 }
 
 .title {
-	text-align: center;
-	font-size: 4rem;
-	margin-bottom: 10rem;
-	color: var(--text-primary);
+  font-size: 3.2rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin-bottom: 4rem;
+  padding-bottom: 1.6rem;
+  border-bottom: 2px solid var(--accent);
+  display: inline-block;
 }
 
 .projectsWrapper {
-	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	grid-template-rows: auto;
-	gap: 2rem;
-	padding: 1rem;
-	overflow: hidden;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
 }
 
 @media (max-width: 960px) {
-	.projectsWrapper {
-		grid-template-columns: 1fr 1fr;
-	}
+  .projectsWrapper {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
-@media (max-width: 740px) {
-	.projectsWrapper {
-		grid-template-columns: 1fr;
-	}
+@media (max-width: 640px) {
+  .projectsWrapper {
+    grid-template-columns: 1fr;
+  }
 }

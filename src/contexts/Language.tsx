@@ -1,9 +1,9 @@
-import { createContext, ReactNode, useContext, useState } from "react";
+import { createContext, ReactNode, useContext, useState } from 'react';
 import {
   AvailableLanguages,
   languageData,
   LanguageData,
-} from "../data/dropdownData";
+} from '../data/dropdownData';
 
 type LanguageContextShape = {
   language: LanguageData;
@@ -45,7 +45,7 @@ const useLanguage = (
   const translations = data ? data[language] : {};
 
   if (context === undefined) {
-    throw new Error("useLanguage must be used within a LanguageProvider");
+    throw new Error('useLanguage must be used within a LanguageProvider');
   }
 
   return { ...context, translations };

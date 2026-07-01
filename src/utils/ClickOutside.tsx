@@ -1,4 +1,4 @@
-import { FC, ReactNode, useCallback, useEffect, useRef } from "react";
+import { type FC, type ReactNode, useCallback, useEffect, useRef } from 'react';
 
 interface ClickOutsideProps {
   onClickOutside: () => void;
@@ -21,9 +21,9 @@ export const CheckClickOutside: FC<ClickOutsideProps> = ({
   );
 
   useEffect(() => {
-    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener('mousedown', handleClickOutside);
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener('mousedown', handleClickOutside);
     };
   }, [handleClickOutside]);
 

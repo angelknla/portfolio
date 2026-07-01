@@ -1,43 +1,43 @@
-import type { AvailableLanguages } from "./dropdownData";
+import type { AvailableLanguages } from './dropdownData';
 
 export const aboutData: Record<AvailableLanguages, Record<string, any>> = {
-	english: {
-		title: "About me",
-		p1: "Software Engineer with 4+ years of experience who loves building great products. At The LEGO Group, I work full-stack with a frontend focus — using React, TypeScript, and Next.js to create fast, accessible experiences for millions of users.",
-		p2: "I care about quality: performance, clean code, and accessibility. I'm big on using the right tools to work smarter. — AI tools like Claude Sonnet have been game-changers for learning faster and shipping better code.",
-		p3: "My strengths lie in interpersonal, written communication, outstanding problem-solving skills, and creativity. I also have solid backend experience with Node.js and AWS, and a track record of shipping features that boost conversion rates and revenue.",
-		p4: {
-			title: "TECHNICAL SKILLS",
-			content:
-				" - Front-end technologies, such as JavaScript, TypeScript, React JS, Redux,  mark-up/styling languages such as HTML5, XML and CSS.",
-		},
-		p5: "- Frameworks, such as Next JS, Node JS, Express JS, Jest and Cypress testing, database technologies such as MySQL or MongoDB.",
-		h3: "These are my main skills:",
-	},
-	spanish: {
-		title: "Sobre mi",
-		p1: "Soy un solucionador de problemas innovador al que le gusta probar y experimentar con análisis y evaluar exhaustivamente, confirmando ideas y creando planes paso a paso.",
-		p2: "Muy bien familiarizado con formas ágiles de trabajo como Scrum y Kanban, experiencia trabajando con sistemas informáticos, estructuras de datos, análisis de requisitos del sistema y desarrollo de aplicaciones web.",
-		p3: "Mis fortalezas radican en la comunicación interpersonal y escrita, excelentes habilidades para resolver problemas y creatividad. Tengo habilidades superiores de organización y experiencia trabajando bajo presión como parte de un equipo.",
-		p4: {
-			title: "HABILIDADES TECNICAS",
-			content:
-				"- Tecnologías front-end, como JavaScript, TypeScript, React JS, Redux, lenguajes de marcado/estilo como HTML5, XML y CSS.",
-		},
-		p5: "- Frameworks, como Next JS, Node JS, Express JS, Jest y Cypress testing, tecnologías de bases de datos como MySQL o MongoDB.",
-		h3: "Estas son mis habilidades principales:",
-	},
-	japanese: {
-		title: "私について",
-		p1: "私は革新的な問題解決者であり、徹底的な分析と評価をテストして実験し、アイデアを確認し、段階的な計画を作成するのが好きです.",
-		p2: "スクラムやかんばんなどのアジャイルな作業方法に精通していること、コンピューター システム、データ構造、システム要件の分析、Web ベースのアプリケーションの開発に関する経験がある.",
-		p3: "私の強みは、対人関係、書面によるコミュニケーション、優れた問題解決能力、および創造性にあります。私はチームの一員としてプレッシャーの下で働いた優れた組織力と経験を持っています.",
-		p4: {
-			title: "技術的なスキル",
-			content:
-				"- JavaScript、TypeScript、React JS、Redux などのフロントエンド技術、HTML5、XML、CSS などのマークアップ/スタイリング言語.",
-		},
-		p5: "- Next JS、Node JS、Express JS、Jest、Cypress テストなどの rameworks、MySQL や MongoDB などのデータベース技術.",
-		h3: "これらは私のメインスキルです:",
-	},
+  english: {
+    title: 'About me',
+    p1: 'Full Stack Software Engineer specializing in React, Next.js, TypeScript, and cloud-native architectures, with experience building scalable, high-quality web products that deliver measurable business value.',
+    p2: 'Currently at The LEGO Group, developing customer-facing experiences that combine pixel-perfect UI with accessibility, performance, and maintainability.',
+    p3: "I'm passionate about modern software engineering practices, including AI-assisted development, agentic workflows, automated testing, and CI/CD. I actively leverage LLMs and agentic approaches to accelerate implementation, automate repetitive engineering tasks, improve developer productivity, and enhance software quality while keeping human oversight central to technical decision-making.",
+    p4: {
+      title: 'TECHNICAL SKILLS',
+      content:
+        ' - Front-end technologies, such as JavaScript, TypeScript, React JS, Redux,  mark-up/styling languages such as HTML5, XML and CSS.',
+    },
+    p5: '- Frameworks, such as Next JS, Node JS, Express JS, Jest and Cypress testing, database technologies such as MySQL or MongoDB.',
+    h3: 'These are my main skills:',
+  },
+  spanish: {
+    title: 'Sobre mi',
+    p1: 'Ingeniero de Software Full Stack especializado en React, Next.js, TypeScript y arquitecturas cloud-native, con experiencia construyendo productos web escalables y de alta calidad que generan valor de negocio medible.',
+    p2: 'Actualmente en The LEGO Group, desarrollando experiencias orientadas al cliente que combinan una interfaz de usuario perfecta al píxel con accesibilidad, rendimiento y mantenibilidad.',
+    p3: 'Me apasionan las prácticas modernas de ingeniería de software, incluyendo el desarrollo asistido por IA, los flujos de trabajo agénticos, las pruebas automatizadas y CI/CD. Aprovecho activamente los LLMs y enfoques agénticos para acelerar la implementación, automatizar tareas de ingeniería repetitivas, mejorar la productividad del desarrollador y elevar la calidad del software, manteniendo la supervisión humana como eje central de la toma de decisiones técnicas.',
+    p4: {
+      title: 'HABILIDADES TECNICAS',
+      content:
+        '- Tecnologías front-end, como JavaScript, TypeScript, React JS, Redux, lenguajes de marcado/estilo como HTML5, XML y CSS.',
+    },
+    p5: '- Frameworks, como Next JS, Node JS, Express JS, Jest y Cypress testing, tecnologías de bases de datos como MySQL o MongoDB.',
+    h3: 'Estas son mis habilidades principales:',
+  },
+  japanese: {
+    title: '私について',
+    p1: 'React、Next.js、TypeScript、クラウドネイティブアーキテクチャを専門とするフルスタックソフトウェアエンジニアです。測定可能なビジネス価値をもたらす、スケーラブルで高品質なウェブ製品の構築経験を持ちます。',
+    p2: '現在はThe LEGO Groupに在籍し、ピクセルパーフェクトなUIとアクセシビリティ、パフォーマンス、保守性を兼ね備えた顧客向けエクスペリエンスを開発しています。',
+    p3: 'AIを活用した開発、エージェント型ワークフロー、自動テスト、CI/CDなど、モダンなソフトウェアエンジニアリングの実践に情熱を持っています。LLMやエージェント的アプローチを積極的に活用して実装を加速し、反復的なエンジニアリングタスクを自動化し、開発者の生産性を向上させ、ソフトウェアの品質を高めながら、技術的意思決定において人間の監督を中心に据えています。',
+    p4: {
+      title: '技術的なスキル',
+      content:
+        '- JavaScript、TypeScript、React JS、Redux などのフロントエンド技術、HTML5、XML、CSS などのマークアップ/スタイリング言語.',
+    },
+    p5: '- Next JS、Node JS、Express JS、Jest、Cypress テストなどの rameworks、MySQL や MongoDB などのデータベース技術.',
+    h3: 'これらは私のメインスキルです:',
+  },
 };

@@ -1,24 +1,24 @@
-import reactIcon from "../assets/react-icon.svg";
-import { AvailableLanguages } from "./dropdownData";
+import type { AvailableLanguages } from './dropdownData';
 
 const ReactIcon = (message: string) => (
-  <p>
-    {message} <img src={reactIcon} alt="React" />
-  </p>
+  <span>
+    {message} <img src='/assets/react-icon.svg' alt='React' />
+  </span>
 );
 
 const ReactIconJapanese = () => (
-  <p>
-    このサイトは <img src={reactIcon} alt="React" /> を使用して作成されました
-  </p>
+  <span>
+    このサイトは <img src='/assets/react-icon.svg' alt='React' />{' '}
+    を使用して作成されました
+  </span>
 );
 
 export const footerData: Record<AvailableLanguages, Record<string, any>> = {
   english: {
-    message: ReactIcon("This site was created using"),
+    message: ReactIcon('This site was created using'),
   },
   spanish: {
-    message: ReactIcon("Este sitio ha sido creado con"),
+    message: ReactIcon('Este sitio ha sido creado con'),
   },
   japanese: {
     message: ReactIconJapanese(),

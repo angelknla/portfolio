@@ -1,244 +1,172 @@
-:root {
-	--pink: #e31f71;
-	--black: #212121;
-	--green: #23ce6b;
-	--blue: #016fb9;
-	scroll-padding-top: 10rem;
+/* ================================================================
+   DESIGN TOKENS
+   ================================================================ */
 
-	/* Light mode colors */
-	--text-primary: #212121;
-	--text-secondary: #016fb9;
-	--text-accent: #016fb9;
-	--bg-primary: #f5f5f5;
-	--bg-secondary: rgba(255, 255, 255, 0.8);
+/* Screen-reader only utility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+:root {
+  /* Accent – indigo */
+  --accent: #4f46e5;
+  --accent-subtle: #6366f1;
+  --accent-dim: rgba(79, 70, 229, 0.1);
+  --accent-hover: #4338ca;
+
+  /* Light mode surfaces */
+  --bg: #f8fafc;
+  --bg-surface: #ffffff;
+  --bg-card: #f1f5f9;
+  --text: #0f172a;
+  --text-muted: #64748b;
+  --border: rgba(15, 23, 42, 0.08);
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 8px 24px rgba(0, 0, 0, 0.04);
+
+  /* Legacy tokens */
+  --bg-secondary: rgba(255, 255, 255, 0.9);
+  --blue: #4f46e5;
+
+  scroll-padding-top: 8rem;
 }
 
 :root.dark {
-	/* Dark mode colors */
-	--text-primary: #fff;
-	--text-secondary: #ebe534;
-	--text-accent: #ebe534;
-	--bg-primary: #212121;
-	--bg-secondary: rgba(33, 33, 33, 0.314);
+  --accent: #fbbf24;
+  --accent-subtle: #fcd34d;
+  --accent-dim: rgba(251, 191, 36, 0.1);
+  --accent-hover: #f59e0b;
+
+  --bg: #09090b;
+  --bg-surface: #0f0f13;
+  --bg-card: #18181b;
+  --text: #f1f5f9;
+  --text-muted: #94a3b8;
+  --border: rgba(255, 255, 255, 0.07);
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.4), 0 8px 24px rgba(0, 0, 0, 0.3);
+
+  /* Legacy tokens */
+  --bg-secondary: rgba(15, 15, 19, 0.92);
+  --blue: #fbbf24;
 }
 
-:root.dark body {
-	transition: 0.5s;
-	background-color: var(--black);
-	color: #fff;
-}
+/* ================================================================
+   DARK MODE – COMPONENT OVERRIDES
+   ================================================================ */
 
-:root.dark .logo {
-	color: #fff;
-}
-
-:root.dark .logo::first-letter {
-	color: #ebe534;
-}
-
-:root.dark .about-text {
-	color: #fff;
-}
-
-:root.dark .about-text h2 {
-	border-bottom: 0.2rem solid #ebe534;
-}
-
-:root.dark .about-text h3 {
-	color: #ebe534;
-}
-
-:root.dark .project svg {
-	stroke: #ebe534;
-}
-
-:root.dark .project:hover svg {
-	stroke: #016fb9;
-}
-
+/* Contact buttons use a slightly darker surface in dark mode */
 :root.dark .contactButton {
-	background-color: #ebe534;
+  background-color: var(--bg-card);
 }
 
-:root.dark .contactButton a {
-	color: var(--black);
-}
-
-:root.dark .contactButton:hover {
-	background-color: #016fb9;
-}
-
-:root.dark .contactButton:hover a {
-	color: var(--black);
-}
-
-:root.dark .contacts div {
-	background-color: #ebe534;
-}
-
-:root.dark .contacts div a {
-	color: var(--black);
-}
-
-:root.dark .contacts div:hover {
-	background-color: #016fb9;
-}
-
-:root.dark .contacts div:hover a {
-	color: var(--black);
-}
-
-:root.dark #contact h2 {
-	color: #fff;
-}
-
-:root.dark #contact p {
-	color: #ebe534;
-}
-
-:root.dark .contactButton,
-:root.dark form button,
-:root.dark header a.button {
-	background-color: #ebe534;
-}
-
-:root.dark .dropdown-button:hover,
-:root.dark .dropdown-button:focus {
-	background-color: #f7fbd8;
-}
-
-:root.dark #portfolio h2 {
-	color: #fff;
-}
-
-:root.dark header.header-fixed {
-	transition: 0.5s;
-	background-color: rgba(33, 33, 33, 0.314);
-}
-
-:root.dark header.header-fixed a.button {
-	color: var(--black);
-}
-
-:root.dark header.header-fixed label {
-	background: #ebe534;
-}
-
+/* Force full-contrast header links in dark mode */
 :root.dark header.header-fixed a {
-	transition: 0.5s;
-	color: #fff;
+  color: var(--text);
 }
 
-:root.dark header.header-fixed .menu,
-:root.dark header.header-fixed .menu:before,
-:root.dark header.header-fixed .menu:after {
-	background-color: #f5f5f5;
-}
-
-:root.dark header.header-fixed .menu.active {
-	background-color: rgba(555, 555, 555, 0);
-}
-
-:root.dark footer.footer {
-	transition: 0.5s;
-	background-color: rgba(0, 0, 0, 0.1);
-}
-
-:root.dark footer.footer p {
-	color: #fff;
-}
-
-:root.dark form button a {
-	color: var(--black);
-}
-
-:root.dark form input,
-:root.dark form textarea {
-	transition: 0.5s;
-	border: solid 1px #fff;
-	color: #fff;
-}
-
-:root.dark form input::placeholder,
-:root.dark form textarea::placeholder {
-	transition: 0.5s;
-	color: grey;
-}
-
-@media (max-width: 960px) {
-	:root.dark nav {
-		background-color: var(--black);
-	}
+/* ================================================================
+   RESET
+   ================================================================ */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 ul,
 li {
-	text-decoration: none;
-	list-style: none;
-	margin: 0;
-	padding: 0;
-}
-
-* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-}
-
-html {
-	font-size: 62.5%;
-}
-
-body {
-	font-size: 1.6rem;
-	-webkit-font-smoothing: antialiased;
-	background-color: var(--bg-primary);
-	color: var(--text-primary);
-	transition:
-		background-color 0.5s,
-		color 0.5s;
-}
-
-body,
-input,
-textarea,
-button {
-	font-family: "Roboto Slab", sans-serif;
-	font-weight: 200;
+  list-style: none;
 }
 
 a {
-	text-decoration: none;
+  text-decoration: none;
+  color: inherit;
 }
 
-button,
-.button {
-	border: none;
-	cursor: pointer;
-	background-color: #016fb9;
-	color: #ffff;
-	border-radius: 2rem;
-	font-weight: 500;
-	transition: filter 0.25s;
+img {
+  max-width: 100%;
+  display: block;
 }
 
-button:hover,
-.button:hover {
-	filter: brightness(0.8);
+/* ================================================================
+   BASE
+   ================================================================ */
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
 }
 
-button:disabled,
-.button:disabled {
-	opacity: 0.6;
-	filter: brightness(1);
-	cursor: not-allowed;
+body {
+  font-family:
+    "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 1.6rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--bg);
+  color: var(--text);
+  transition:
+    background-color 0.3s,
+    color 0.3s;
 }
 
-.logo {
-	font-size: 3rem;
-	color: #ffff;
+/* ================================================================
+   CONTACT BUTTONS (global class)
+   ================================================================ */
+.contactButton {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  padding: 1.4rem 2.4rem;
+  border-radius: 0.8rem;
+  border: 1px solid var(--border);
+  background-color: var(--bg-surface);
+  transition: all 0.2s ease;
+  cursor: pointer;
 }
 
-.logo::first-letter {
-	color: #016fb9;
+.contactButton img {
+  width: 2.2rem;
+  flex-shrink: 0;
+  opacity: 0.7;
+}
+
+.contactButton a {
+  color: var(--text);
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+
+.contactButton:hover {
+  border-color: var(--accent);
+  background-color: var(--accent-dim);
+}
+
+.contactButton:hover a {
+  color: var(--accent);
+}
+
+/* ================================================================
+   BASE BUTTON RESET
+   ================================================================ */
+button {
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  background: none;
+  padding: 0;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }

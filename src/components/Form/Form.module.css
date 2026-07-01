@@ -1,102 +1,104 @@
+/* ================================================================
+   FORM — clean contact form
+   ================================================================ */
 .container {
-	margin-top: 5rem;
-	display: grid;
-	place-items: center;
-}
-
-.container h2 {
-	text-align: center;
-	margin-bottom: 2rem;
-	color: var(--text-primary);
+  max-width: 62rem;
+  margin: 0 auto;
 }
 
 .form {
-	display: flex;
-	flex-direction: column;
-	text-align: center;
-	align-items: center;
-	gap: 1rem;
-	width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
 }
 
-.input {
-	width: 60rem;
-	padding: 1rem 2rem;
-	border-radius: 0.6rem;
-	outline: none;
-	background: none;
-	border: 1px solid var(--text-primary);
-	color: var(--text-primary);
-	font-weight: 600;
-	transition:
-		border-color 0.5s,
-		color 0.5s;
+.input,
+.textarea {
+  width: 100%;
+  padding: 1.2rem 1.6rem;
+  border-radius: 0.6rem;
+  outline: none;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: "Inter", sans-serif;
+  font-size: 1.55rem;
+  font-weight: 400;
+  transition:
+    border-color 0.2s,
+    background-color 0.2s;
 }
 
-.input::placeholder {
-	color: grey;
-	transition: color 0.5s;
+.input::placeholder,
+.textarea::placeholder {
+  color: var(--text-muted);
+}
+
+.input:focus,
+.textarea:focus {
+  border-color: var(--accent);
+  background-color: var(--bg-surface);
 }
 
 .textarea {
-	width: 60rem;
-	padding: 1rem 2rem;
-	border-radius: 0.6rem;
-	outline: none;
-	background: none;
-	border: 1px solid var(--text-primary);
-	color: var(--text-primary);
-	font-weight: 600;
-	height: 20rem;
-	overflow-y: auto;
-	resize: none;
-	transition:
-		border-color 0.5s,
-		color 0.5s;
+  height: 18rem;
+  resize: vertical;
+  min-height: 12rem;
 }
 
-.textarea::placeholder {
-	color: grey;
-	transition: color 0.5s;
+/* ---- reCAPTCHA ---- */
+.recaptchaWrapper {
+  display: flex;
+  justify-content: center;
+}
+
+/* ---- Buttons ---- */
+.submitButton,
+.successButton {
+  padding: 1.2rem 3.2rem;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 0.6rem;
+  font-family: "Inter", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
 
 .submitButton {
-	padding: 1rem 6rem;
-	text-transform: uppercase;
+  align-self: center;
 }
 
-.submitButton a {
-	background-color: transparent;
-	color: #fff;
+.submitButton:hover:not(:disabled) {
+  background: var(--accent-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px var(--accent-dim);
 }
 
+.submitButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ---- Success state ---- */
 .containerSuccess {
-	margin-top: 4rem;
-	text-align: center;
+  max-width: 62rem;
+  text-align: center;
+  padding: 5rem 2rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
 }
 
 .containerSuccess h3 {
-	text-align: center;
-	margin-bottom: 2rem;
-	color: var(--text-primary);
+  font-size: 2.2rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 2rem;
 }
 
-.successButton {
-	border-radius: 0.6rem;
-	padding: 1rem;
-	margin-top: 0.8rem;
-	text-transform: uppercase;
-	text-align: center;
-	color: #fbfbfb;
-}
-
-@media (max-width: 740px) {
-	.input,
-	.textarea {
-		width: 100%;
-	}
-
-	.form {
-		width: 100%;
-	}
+.successButton:hover {
+  background: var(--accent-hover);
 }

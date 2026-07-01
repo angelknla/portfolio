@@ -1,4 +1,4 @@
-import { AvailableLanguages } from "./dropdownData";
+import { AvailableLanguages } from './dropdownData';
 
 export const formData: Record<AvailableLanguages, Record<string, any>> = {
   english: {
@@ -24,5 +24,5 @@ export const formData: Record<AvailableLanguages, Record<string, any>> = {
     toastSuccess: '送信に成功しました!',
     typePlaceholder: '"ここにメッセージを入力してください"',
     send: '送信',
-  }
+  },
 };

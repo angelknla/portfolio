@@ -1,22 +1,22 @@
-import { AvailableLanguages } from "./dropdownData";
+import { AvailableLanguages } from './dropdownData';
 
 export const headerData: Record<AvailableLanguages, Record<string, any>> = {
   english: {
     home: 'Home',
-    about: "About me",
+    about: 'About me',
     portfolio: 'Portfolio',
-    contact: "Contact",
+    contact: 'Contact',
   },
   spanish: {
     home: 'Inicio',
-    about: "Sobre mi",
+    about: 'Sobre mi',
     portfolio: 'Porfolio',
-    contact: "Contacto"
+    contact: 'Contacto',
   },
   japanese: {
     home: 'ホームページ',
-    about: "私について",
+    about: '私について',
     portfolio: 'ポートフォリオ',
-    contact: "連絡"
-  }
+    contact: '連絡',
+  },
 };

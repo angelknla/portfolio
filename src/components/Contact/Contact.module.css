@@ -1,73 +1,49 @@
+/* ================================================================
+   CONTACT — centered section with form + contact links
+   ================================================================ */
 .container {
-	margin-top: 7rem;
+  padding-top: 2rem;
+  padding-bottom: 4rem;
 }
 
 .header {
-	text-align: center;
+  max-width: 62rem;
+  margin: 0 auto 4rem;
+  text-align: center;
 }
 
 .header h2 {
-	text-align: center;
-	font-size: 4rem;
-	color: var(--text-primary);
+  font-size: 3.2rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin-bottom: 1.6rem;
+  padding-bottom: 1.6rem;
+  border-bottom: 2px solid var(--accent);
+  display: inline-block;
 }
 
 .header p {
-	margin-top: 1rem;
-	color: var(--text-secondary);
-	font-weight: 500;
+  font-size: 1.65rem;
+  color: var(--text-muted);
+  line-height: 1.75;
+  margin-top: 1.6rem;
 }
 
+/* ---- Contact info row ---- */
 .contacts {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	gap: 2rem;
-	margin-top: 7rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  margin-top: 4rem;
+  max-width: 62rem;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
 }
 
-.contacts div {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	width: 50%;
-	max-width: 40rem;
-	gap: 2rem;
-	background-color: #016fb9;
-	border-radius: 1.4rem;
-	padding: 1.6rem 2.8rem;
-	transition: background-color 0.25s;
-}
-
-.contacts div img {
-	width: 3.5rem;
-}
-
-.contacts div a {
-	color: #fff;
-	font-weight: 500;
-}
-
-.contacts div:hover {
-	background-color: #ebe534;
-}
-
-.contacts div:hover a {
-	color: #fff;
-}
-
-@media (max-width: 960px) {
-	.contacts {
-		flex-direction: column;
-	}
-
-	.contacts div {
-		width: 95%;
-		gap: 0.5rem;
-		flex-direction: column;
-	}
-
-	.contacts div img {
-		width: 3rem;
-	}
+@media (max-width: 640px) {
+  .contacts {
+    flex-direction: column;
+  }
 }

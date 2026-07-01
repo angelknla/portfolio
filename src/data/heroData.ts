@@ -1,25 +1,28 @@
-import { AvailableLanguages } from "./dropdownData";
+import type { AvailableLanguages } from './dropdownData';
 
 export const heroData: Record<AvailableLanguages, Record<string, any>> = {
   english: {
-    greeting: 'Hello, this is',
-    name: "Angel Canela",
-    job: 'Full-stack Software Engineer',
-    intro: "I am a high-level Software Engineer with experience designing, testing and implementing software applications.",
-    contact: "Contact",
+    greeting: "Hi, I'm",
+    name: 'Angel Canela',
+    job: 'Full Stack Software Engineer',
+    intro:
+      'Building scalable web products at The LEGO Group — specializing in React, Next.js & TypeScript.',
+    contact: 'Get in touch',
   },
   spanish: {
-    greeting: 'Hola, me llamo',
-    name: "Angel Canela",
-    job: 'Ingeniero de Software',
-    intro: "Soy Ingeniero de Software con experiencia en el desarrollo de sistemas web.",
-    contact: "Contacto"
+    greeting: 'Hola, soy',
+    name: 'Angel Canela',
+    job: 'Ingeniero de Software Full Stack',
+    intro:
+      'Construyendo productos web escalables en The LEGO Group — especializado en React, Next.js y TypeScript.',
+    contact: 'Contáctame',
   },
   japanese: {
-    greeting: 'こんにちは',
-    name: "Angel Canela",
-    job: 'ソフトウェアエンジニア',
-    intro: "私は、Web ベースのシステムの開発経験を持つソフトウェア エンジニアです.",
-    contact: "連絡"
-  }
+    greeting: 'こんにちは、私は',
+    name: 'Angel Canela',
+    job: 'フルスタックソフトウェアエンジニア',
+    intro:
+      'The LEGO Groupでスケーラブルなウェブ製品を構築 — React、Next.js、TypeScriptを専門とする。',
+    contact: '連絡する',
+  },
 };
