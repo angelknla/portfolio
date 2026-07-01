@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import '../styles/global.css';
 
 export const metadata: Metadata = {
+  icons: { icon: '/illustration.svg' },
   title: 'Angel Canela — Full Stack Software Engineer',
   description:
     'Full Stack Software Engineer specializing in React, Next.js, TypeScript, and cloud-native architectures. Currently building at The LEGO Group.',
