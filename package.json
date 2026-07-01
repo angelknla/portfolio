@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "engines": {
-    "node": ">=20.9.0"
+    "node": ">=26.4.0"
   },
   "dependencies": {
     "@formspree/react": "^3.0.0",
