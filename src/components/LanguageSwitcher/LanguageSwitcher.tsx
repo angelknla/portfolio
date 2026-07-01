@@ -8,9 +8,9 @@ import styles from './LanguageSwitcher.module.css';
 
 export const LanguageSwitcher = () => {
   const { language } = useLanguage();
-  var isMobile = navigator.userAgent.match(
-    /(iPad)|(iPhone)|(iPod)|(android)|(webOS)/i
-  );
+  const isMobile =
+    typeof navigator !== 'undefined' &&
+    navigator.userAgent.match(/(iPad)|(iPhone)|(iPod)|(android)|(webOS)/i);
 
   const [toggleDropdown, setToggleDropdown] = useState(false);
 
