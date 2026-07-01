@@ -27,6 +27,7 @@ export const Form = () => {
   const [isHuman, setIsHuman] = useState(false);
   const [validEmail, setValidEmail] = useState(false);
   const [message, setMessage] = useState('');
+  const [formFocused, setFormFocused] = useState(false);
   const emailId = useId();
   const messageId = useId();
 
@@ -72,7 +73,11 @@ export const Form = () => {
 
   return (
     <div className={styles.container}>
-      <form className={styles.form} onSubmit={handleSubmit}>
+      <form
+        className={styles.form}
+        onSubmit={handleSubmit}
+        onFocus={() => setFormFocused(true)}
+      >
         <input
           className={styles.input}
           placeholder={translations?.emailPlaceholder}
@@ -100,14 +105,16 @@ export const Form = () => {
           field='message'
           errors={state.errors}
         />
-        <div className={styles.recaptchaWrapper}>
-          <ReCAPTCHA
-            sitekey='6Lf_2SIpAAAAAOJBFOnaBw9aaaGNJ5UbOGE9BTIu'
-            onChange={(token: string | null) => {
-              setIsHuman(!!token);
-            }}
-          />
-        </div>
+        {formFocused && (
+          <div className={styles.recaptchaWrapper}>
+            <ReCAPTCHA
+              sitekey='6Lf_2SIpAAAAAOJBFOnaBw9aaaGNJ5UbOGE9BTIu'
+              onChange={(token: string | null) => {
+                setIsHuman(!!token);
+              }}
+            />
+          </div>
+        )}
 
         <button
           className={styles.submitButton}

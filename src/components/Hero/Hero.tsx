@@ -110,7 +110,7 @@ export const Hero = () => {
 
   if (!translations) return null;
 
-  const { greeting, name, job, intro, contact } = translations;
+  const { greeting, name, job, intro, contact, cv } = translations;
 
   return (
     <section className={styles.wrapper} id='home'>
@@ -153,7 +153,7 @@ export const Hero = () => {
             download
             className={styles.btnSecondary}
           >
-            Download CV
+            {cv}
           </a>
         </div>
       </div>

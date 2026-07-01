@@ -26,7 +26,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
           crossOrigin=''
         />
         <link
-          href='https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap'
+          href='https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto:wght@400&family=Space+Mono:wght@400;700&display=swap'
           rel='stylesheet'
         />
       </head>

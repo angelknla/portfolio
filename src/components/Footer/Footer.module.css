@@ -66,6 +66,13 @@
   height: auto;
 }
 
+.message span {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.35rem;
+}
+
 @keyframes spinning {
   from {
     transform: rotate(0deg);

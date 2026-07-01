@@ -18,7 +18,7 @@ export const Footer = () => {
         <span>Angel</span>
         <span> Canela</span>
       </a>
-      <div>
+      <div className={styles.message}>
         <p>{message}</p>
       </div>
 
