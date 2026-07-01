@@ -6,7 +6,7 @@ export type LanguageData = {
 };
 
 export const languageData: LanguageData[] = [
-  { language: 'english', flag: '/assets/UK.png' },
-  { language: 'spanish', flag: '/assets/Spain.png' },
-  { language: 'japanese', flag: '/assets/japan.png' },
+  { language: 'english', flag: '/assets/UK.webp' },
+  { language: 'spanish', flag: '/assets/Spain.webp' },
+  { language: 'japanese', flag: '/assets/japan.webp' },
 ];

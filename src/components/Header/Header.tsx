@@ -74,7 +74,7 @@ export const Header = () => {
             className={styles.styledLinkedIn}
           >
             <Image
-              src='/assets/linkedin.png'
+              src='/assets/linkedin.webp'
               alt='Linkedin'
               width={24}
               height={24}

@@ -6,15 +6,15 @@ import { aboutData } from '../../data/aboutData';
 import styles from './About.module.css';
 
 const SKILLS = [
-  { src: '/assets/react-icon.svg', alt: 'React' },
-  { src: '/assets/typescript-icon.svg', alt: 'TypeScript' },
-  { src: '/assets/nextjs-icon.svg', alt: 'Next.js' },
-  { src: '/assets/js-icon.svg', alt: 'JavaScript' },
-  { src: '/assets/node-icon.svg', alt: 'Node.js' },
-  { src: '/assets/redux.svg', alt: 'Redux' },
-  { src: '/assets/html-icon.svg', alt: 'HTML5' },
-  { src: '/assets/css-icon.svg', alt: 'CSS' },
-  { src: '/assets/bootstrap-icon.svg', alt: 'Bootstrap' },
+  { src: '/assets/react-icon.webp', alt: 'React' },
+  { src: '/assets/typescript-icon.webp', alt: 'TypeScript' },
+  { src: '/assets/nextjs-icon.webp', alt: 'Next.js' },
+  { src: '/assets/js-icon.webp', alt: 'JavaScript' },
+  { src: '/assets/node-icon.webp', alt: 'Node.js' },
+  { src: '/assets/redux.webp', alt: 'Redux' },
+  { src: '/assets/html-icon.webp', alt: 'HTML5' },
+  { src: '/assets/css-icon.webp', alt: 'CSS' },
+  { src: '/assets/bootstrap-icon.webp', alt: 'Bootstrap' },
 ];
 
 export const About = () => {
@@ -51,7 +51,7 @@ export const About = () => {
       <div className={styles.imageCol}>
         <div className={styles.imageWrapper}>
           <Image
-            src='/assets/angelnew.jpg'
+            src='/assets/angelnew.webp'
             alt='Angel Canela'
             fill
             sizes='(max-width: 960px) 90vw, 33vw'

@@ -11,7 +11,7 @@ export interface ProjectCardProps {
 }
 
 const ProjectCard = ({
-  iconSvg = '/assets/github-icon.svg',
+  iconSvg = '/assets/github-icon.webp',
   iconAlt = 'Github',
   title,
   href,

@@ -19,7 +19,7 @@ export const Contact = () => {
       <div className={styles.contacts}>
         <div className='contactButton'>
           <img
-            src='/assets/email-icon.svg'
+            src='/assets/email-icon.webp'
             alt='Email'
             width={22}
             height={22}
@@ -30,7 +30,7 @@ export const Contact = () => {
         </div>
         <div className='contactButton'>
           <img
-            src='/assets/phone-icon.svg'
+            src='/assets/phone-icon.webp'
             alt='Phone'
             width={22}
             height={22}

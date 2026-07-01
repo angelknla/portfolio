@@ -1,5 +1,7 @@
-import { ClientApp } from '../components/ClientApp';
+import { HomePage } from './HomePage';
 
-export default function Home() {
-  return <ClientApp />;
-}
+export const Home = () => {
+  return <HomePage />;
+};
+
+export default Home;

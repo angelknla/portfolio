@@ -5,7 +5,7 @@ import styles from './Hero.module.css';
 
 const FLOATING_ICONS = [
   {
-    src: '/assets/react-icon.svg',
+    src: '/assets/react-icon.webp',
     top: '12%',
     left: '78%',
     size: '4.2rem',
@@ -14,7 +14,7 @@ const FLOATING_ICONS = [
     op: 0.45,
   },
   {
-    src: '/assets/typescript-icon.svg',
+    src: '/assets/typescript-icon.webp',
     top: '68%',
     left: '84%',
     size: '3.6rem',
@@ -23,7 +23,7 @@ const FLOATING_ICONS = [
     op: 0.38,
   },
   {
-    src: '/assets/nextjs-icon.svg',
+    src: '/assets/nextjs-icon.webp',
     top: '28%',
     left: '90%',
     size: '3rem',
@@ -32,7 +32,7 @@ const FLOATING_ICONS = [
     op: 0.35,
   },
   {
-    src: '/assets/js-icon.svg',
+    src: '/assets/js-icon.webp',
     top: '82%',
     left: '70%',
     size: '4.4rem',
@@ -41,7 +41,7 @@ const FLOATING_ICONS = [
     op: 0.4,
   },
   {
-    src: '/assets/node-icon.svg',
+    src: '/assets/node-icon.webp',
     top: '48%',
     left: '93%',
     size: '3rem',
@@ -50,7 +50,7 @@ const FLOATING_ICONS = [
     op: 0.33,
   },
   {
-    src: '/assets/css-icon.svg',
+    src: '/assets/css-icon.webp',
     top: '18%',
     left: '66%',
     size: '2.8rem',
@@ -59,7 +59,7 @@ const FLOATING_ICONS = [
     op: 0.32,
   },
   {
-    src: '/assets/html-icon.svg',
+    src: '/assets/html-icon.webp',
     top: '76%',
     left: '58%',
     size: '3.2rem',
@@ -68,7 +68,7 @@ const FLOATING_ICONS = [
     op: 0.36,
   },
   {
-    src: '/assets/redux.svg',
+    src: '/assets/redux.webp',
     top: '38%',
     left: '74%',
     size: '3rem',
@@ -77,7 +77,7 @@ const FLOATING_ICONS = [
     op: 0.32,
   },
   {
-    src: '/assets/bootstrap-icon.svg',
+    src: '/assets/bootstrap-icon.webp',
     top: '90%',
     left: '88%',
     size: '2.6rem',
@@ -86,7 +86,7 @@ const FLOATING_ICONS = [
     op: 0.3,
   },
   {
-    src: '/assets/vscode-icon.svg',
+    src: '/assets/vscode-icon.webp',
     top: '6%',
     left: '94%',
     size: '3.4rem',
@@ -95,7 +95,7 @@ const FLOATING_ICONS = [
     op: 0.34,
   },
   {
-    src: '/assets/mysql-icon.svg',
+    src: '/assets/mysql-icon.webp',
     top: '55%',
     left: '62%',
     size: '2.8rem',

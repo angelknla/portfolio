@@ -25,7 +25,7 @@ export const data: Record<AvailableLanguages, Record<string, any>> = {
         href: 'https://github.com/angelknla/DrumKit',
       },
       {
-        iconSvg: '/assets/external-link-icon.svg',
+        iconSvg: '/assets/external-link-icon.webp',
         iconAlt: 'Visit site',
         title: 'Portfolio',
         description:
@@ -73,7 +73,7 @@ export const data: Record<AvailableLanguages, Record<string, any>> = {
         href: 'https://github.com/angelknla/DrumKit',
       },
       {
-        iconSvg: '/assets/external-link-icon.svg',
+        iconSvg: '/assets/external-link-icon.webp',
         iconAlt: 'Visit site',
         title: 'Porfolio',
         description:
@@ -122,7 +122,7 @@ export const data: Record<AvailableLanguages, Record<string, any>> = {
         href: 'https://github.com/angelknla/DrumKit',
       },
       {
-        iconSvg: '/assets/external-link-icon.svg',
+        iconSvg: '/assets/external-link-icon.webp',
         iconAlt: 'Visit site',
         title: 'ポートフォリオ',
         description:

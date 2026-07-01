@@ -1,0 +1,41 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+/* ---- Trail icons ---- */
+.trailIcon {
+  position: absolute;
+  pointer-events: none;
+  object-fit: contain;
+  animation: trailFloat 2.8s ease-out forwards;
+}
+
+@keyframes trailFloat {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0) rotate(var(--rot));
+  }
+  12% {
+    opacity: 0.9;
+    transform: translate(-50%, -65%) scale(1.2) rotate(var(--rot));
+  }
+  55% {
+    opacity: 0.65;
+    transform: translate(-50%, -120%) scale(1.05) rotate(var(--rot));
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -210%) scale(0.45) rotate(var(--rot));
+  }
+}

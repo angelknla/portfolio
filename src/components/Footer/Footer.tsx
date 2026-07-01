@@ -29,7 +29,7 @@ export const Footer = () => {
           rel='noreferrer'
         >
           <Image
-            src='/assets/linkedin.png'
+            src='/assets/linkedin.webp'
             alt='Linkedin'
             width={24}
             height={24}
@@ -37,12 +37,17 @@ export const Footer = () => {
         </a>
 
         <a href='https://github.com/angelknla' target='_blank' rel='noreferrer'>
-          <Image src='/assets/github.png' alt='GitHub' width={24} height={24} />
+          <Image
+            src='/assets/github.webp'
+            alt='GitHub'
+            width={24}
+            height={24}
+          />
         </a>
 
         <a href='b' target='_blank' rel='noreferrer'>
           <Image
-            src='/assets/instagram.png'
+            src='/assets/instagram.webp'
             alt='Instagram'
             width={24}
             height={24}
