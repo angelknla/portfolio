@@ -1,14 +1,25 @@
-import React, { useEffect, useId, useState } from 'react';
-import ReCAPTCHA from 'react-google-recaptcha';
+import { useEffect, useId, useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 
 import { useForm, ValidationError } from '@formspree/react';
+import dynamic from 'next/dynamic';
 import validator from 'validator';
 
 import { useLanguage } from '../../contexts/Language';
 import { formData } from '../../data/formData';
 
 import styles from './Form.module.css';
+
+const ReCAPTCHA = dynamic(
+  () =>
+    import('react-google-recaptcha').then((mod) => ({
+      default: mod.default as any,
+    })),
+  { ssr: false }
+) as React.ComponentType<{
+  sitekey: string;
+  onChange: (token: string | null) => void;
+}>;
 
 export const Form = () => {
   const { translations } = useLanguage(formData);
@@ -90,18 +101,12 @@ export const Form = () => {
           errors={state.errors}
         />
         <div className={styles.recaptchaWrapper}>
-          {React.createElement(
-            ReCAPTCHA as React.ComponentType<{
-              sitekey: string;
-              onChange: (token: string | null) => void;
-            }>,
-            {
-              sitekey: '6Lf_2SIpAAAAAOJBFOnaBw9aaaGNJ5UbOGE9BTIu',
-              onChange: (token: string | null) => {
-                setIsHuman(!!token);
-              },
-            }
-          )}
+          <ReCAPTCHA
+            sitekey='6Lf_2SIpAAAAAOJBFOnaBw9aaaGNJ5UbOGE9BTIu'
+            onChange={(token: string | null) => {
+              setIsHuman(!!token);
+            }}
+          />
         </div>
 
         <button

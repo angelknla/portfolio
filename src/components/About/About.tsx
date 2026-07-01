@@ -40,7 +40,7 @@ export const About = () => {
                 className={styles.skillBadge}
                 style={{ animationDelay: `${i * 0.05}s` }}
               >
-                <img src={src} alt={alt} />
+                <img src={src} alt={alt} width={18} height={18} />
                 <span>{alt}</span>
               </div>
             ))}

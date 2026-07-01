@@ -38,7 +38,7 @@ const ProjectCard = ({
         </svg>
         <div className={styles.projectLinks}>
           <a href={href} target='_blank' rel='noreferrer'>
-            <img src={iconSvg} alt={iconAlt} />
+            <img src={iconSvg} alt={iconAlt} width={22} height={22} />
           </a>
         </div>
       </header>

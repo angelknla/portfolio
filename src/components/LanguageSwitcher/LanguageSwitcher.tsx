@@ -30,7 +30,7 @@ export const LanguageSwitcher = () => {
           onMouseEnter={() => !isMobile && handleClickSwitcher()}
           onClick={() => handleClickSwitcher()}
         >
-          <img src={language.flag} alt='language' />
+          <img src={language.flag} alt='language' width={30} height={30} />
         </button>
       )}
       {toggleDropdown && (

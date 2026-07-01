@@ -18,13 +18,23 @@ export const Contact = () => {
       <Form />
       <div className={styles.contacts}>
         <div className='contactButton'>
-          <img src='/assets/email-icon.svg' alt='Email' />
+          <img
+            src='/assets/email-icon.svg'
+            alt='Email'
+            width={22}
+            height={22}
+          />
           <a href='mailto:angelknela5@hotmail.co.uk'>
             angelknela5@hotmail.co.uk
           </a>
         </div>
         <div className='contactButton'>
-          <img src='/assets/phone-icon.svg' alt='Phone' />
+          <img
+            src='/assets/phone-icon.svg'
+            alt='Phone'
+            width={22}
+            height={22}
+          />
           <a href='tel:+447580199079'> (+44) 07580199079</a>
         </div>
       </div>
