@@ -85,6 +85,7 @@
 /* ---- Success state ---- */
 .containerSuccess {
   max-width: 62rem;
+  margin: 0 auto;
   text-align: center;
   padding: 5rem 2rem;
   background: var(--bg-card);

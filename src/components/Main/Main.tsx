@@ -1,10 +1,16 @@
 import dynamic from 'next/dynamic';
 
-import { About } from '../About/About';
 import { Hero } from '../Hero/Hero';
-import { Portfolio } from '../Portfolio/Portfolio';
 
 import styles from './Main.module.css';
+
+const About = dynamic(() =>
+  import('../About/About').then((m) => ({ default: m.About }))
+);
+
+const Portfolio = dynamic(() =>
+  import('../Portfolio/Portfolio').then((m) => ({ default: m.Portfolio }))
+);
 
 const Contact = dynamic(() =>
   import('../Contact/Contact').then((m) => ({ default: m.Contact }))

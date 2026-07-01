@@ -1,9 +1,7 @@
-import { useEffect, useId, useState } from 'react';
-import { ToastContainer, toast } from 'react-toastify';
+import { useId, useState } from 'react';
 
 import { useForm, ValidationError } from '@formspree/react';
 import dynamic from 'next/dynamic';
-import validator from 'validator';
 
 import { useLanguage } from '../../contexts/Language';
 import { formData } from '../../data/formData';
@@ -32,24 +30,8 @@ export const Form = () => {
   const messageId = useId();
 
   const verifyEmail = (email: string) => {
-    if (validator.isEmail(email)) {
-      setValidEmail(true);
-    } else {
-      setValidEmail(false);
-    }
+    setValidEmail(/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email));
   };
-
-  useEffect(() => {
-    if (state.succeeded) {
-      toast.success(`${translations?.toastSuccess}`, {
-        position: 'bottom-left',
-        pauseOnFocusLoss: false,
-        closeOnClick: true,
-        hideProgressBar: false,
-        toastId: 'succeeded',
-      });
-    }
-  }, [translations?.toastSuccess, state]);
 
   const disabled = state.submitting || !validEmail || !message || !isHuman;
 
@@ -66,7 +48,6 @@ export const Form = () => {
         >
           {translations?.back}
         </button>
-        <ToastContainer />
       </div>
     );
   }
@@ -124,7 +105,6 @@ export const Form = () => {
           {translations?.send}
         </button>
       </form>
-      <ToastContainer />
     </div>
   );
 };

@@ -157,7 +157,6 @@ export const Hero = () => {
           </a>
         </div>
       </div>
-
       <a href='#about' className={styles.scrollArrow} aria-label='Scroll down'>
         <span className='sr-only'>Scroll down</span>
         <svg
