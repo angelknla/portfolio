@@ -1,19 +1,71 @@
+'use client';
+
+import { useEffect, useState } from 'react';
+
 import { useLanguage } from '../../contexts/Language';
 import { data as portfolioData } from '../../data/portfolioData';
-import styles from './Portfolio.module.css';
 import type { ProjectCardProps } from './ProjectCard';
 import ProjectCard from './ProjectCard';
 
+import styles from './Portfolio.module.css';
+
+const GAME_COLORS: Record<string, string> = {
+  '/games/balloon': '#ec4899',
+  '/games/doroteyo': '#f59e0b',
+  '/games/mario': '#ef4444',
+  '/games/snake': '#22c55e',
+};
+
 export const Portfolio = () => {
   const { translations } = useLanguage(portfolioData);
+  const [activeTab, setActiveTab] = useState<'projects' | 'games'>('projects');
+
+  useEffect(() => {
+    const activateGamesTab = () => {
+      if (window.location.hash === '#portfolio-games') {
+        setActiveTab('games');
+        history.replaceState(null, '', '#portfolio');
+        document
+          .getElementById('portfolio')
+          ?.scrollIntoView({ behavior: 'smooth' });
+      }
+    };
+    activateGamesTab();
+    window.addEventListener('hashchange', activateGamesTab);
+    return () => window.removeEventListener('hashchange', activateGamesTab);
+  }, []);
 
   return (
     <section className={styles.container} id='portfolio'>
       <h2 className={styles.title}>{translations?.title}</h2>
+      <div className={styles.tabs}>
+        <button
+          type='button'
+          className={`${styles.tab} ${activeTab === 'projects' ? styles.tabActive : ''}`}
+          onClick={() => setActiveTab('projects')}
+        >
+          {translations?.tabs?.projects ?? 'Projects'}
+        </button>
+        <button
+          type='button'
+          className={`${styles.tab} ${activeTab === 'games' ? styles.tabActive : ''}`}
+          onClick={() => setActiveTab('games')}
+        >
+          {translations?.tabs?.games ?? 'Games'}
+        </button>
+      </div>
       <div className={`${styles.projectsWrapper} projects`}>
-        {translations?.cards?.map((cardInfo: ProjectCardProps) => (
-          <ProjectCard key={cardInfo.title} {...cardInfo} />
-        ))}
+        {activeTab === 'projects'
+          ? translations?.cards?.map((cardInfo: ProjectCardProps) => (
+              <ProjectCard key={cardInfo.title} {...cardInfo} />
+            ))
+          : translations?.games?.map((cardInfo: ProjectCardProps) => (
+              <ProjectCard
+                key={cardInfo.title}
+                {...cardInfo}
+                accentColor={GAME_COLORS[cardInfo.href]}
+              />
+            ))}
       </div>
     </section>
   );

@@ -13,6 +13,12 @@ export const aboutData: Record<AvailableLanguages, Record<string, any>> = {
     },
     p5: '- Frameworks, such as Next JS, Node JS, Express JS, Jest and Cypress testing, database technologies such as MySQL or MongoDB.',
     h3: 'These are my main skills:',
+    pGames: {
+      before:
+        "I'm a big fan of videogames and enjoy coding them in my spare time. I've built four basic classic-inspired games that were a fun way to flex my coding, game design, and problem-solving skills — you can try them out in the portfolio ",
+      link: 'section below',
+      after: '.',
+    },
   },
   spanish: {
     title: 'Sobre mi',
@@ -26,6 +32,12 @@ export const aboutData: Record<AvailableLanguages, Record<string, any>> = {
     },
     p5: '- Frameworks, como Next JS, Node JS, Express JS, Jest y Cypress testing, tecnologías de bases de datos como MySQL o MongoDB.',
     h3: 'Estas son mis habilidades principales:',
+    pGames: {
+      before:
+        'Soy un gran fan de los videojuegos y disfruto codiándolos en mi tiempo libre. He creado cuatro juegos básicos de inspiración clásica, una forma divertida de practicar mis habilidades de coding, diseño de juegos y resolución de problemas — puedes probarlos en la ',
+      link: 'sección de portfolio más abajo',
+      after: '.',
+    },
   },
   japanese: {
     title: '私について',
@@ -39,5 +51,11 @@ export const aboutData: Record<AvailableLanguages, Record<string, any>> = {
     },
     p5: '- Next JS、Node JS、Express JS、Jest、Cypress テストなどの rameworks、MySQL や MongoDB などのデータベース技術.',
     h3: 'これらは私のメインスキルです:',
+    pGames: {
+      before:
+        'ビデオゲームが大好きで、趣味でコーディングを楽しんでいます。coding、ゲームデザイン、問題解決のスキルを幅広く活かす楽しい方法として、クラシック風のシンプルな小ゲームを4つ制作しました。これらは',
+      link: '以下のポートフォリオセクション',
+      after: 'でお試しいただけます。',
+    },
   },
 };

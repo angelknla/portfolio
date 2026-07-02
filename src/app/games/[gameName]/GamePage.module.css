@@ -1,0 +1,64 @@
+/* ================================================================
+   GAME PAGE — full-screen game wrapper
+   ================================================================ */
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg);
+}
+
+.nav {
+  padding: 1.6rem 3.2rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.backLink {
+  font-family: "Space Mono", monospace;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--accent);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.8rem 1.6rem;
+  border: 1px solid var(--border);
+  border-radius: 0.8rem;
+  background: var(--bg-card);
+  transition:
+    background 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.backLink:hover {
+  background: var(--accent-dim);
+  box-shadow:
+    var(--shadow),
+    0 0 0 1px var(--accent);
+  transform: translateX(-2px);
+}
+
+.main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3.2rem;
+}
+
+.notFound {
+  color: var(--text-muted);
+  font-size: 1.6rem;
+}
+
+@media (max-width: 640px) {
+  .nav {
+    padding: 1.2rem 1.6rem;
+  }
+
+  .main {
+    padding: 1.6rem;
+  }
+}

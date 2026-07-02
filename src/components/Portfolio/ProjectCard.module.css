@@ -7,7 +7,7 @@
   padding: 2.4rem;
   background-color: var(--bg-card);
   border: 1px solid var(--border);
-  border-top: 2px solid var(--accent);
+  border-top: 2px solid var(--card-accent, var(--accent));
   border-radius: 0.8rem;
   transition:
     transform 0.2s ease,
@@ -15,14 +15,17 @@
     border-color 0.2s ease;
   height: 100%;
   cursor: pointer;
+  text-decoration: none;
+  color: inherit;
 }
 
 .project:hover {
   transform: translateY(-4px);
+  background-color: var(--card-accent-bg, var(--bg-card));
   box-shadow:
     var(--shadow),
-    0 0 0 1px var(--accent);
-  border-top-color: var(--accent-subtle);
+    0 0 0 1px var(--card-accent, var(--accent));
+  border-top-color: var(--card-accent, var(--accent));
 }
 
 /* ---- Header row: folder icon + external link ---- */

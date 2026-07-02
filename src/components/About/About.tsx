@@ -15,12 +15,22 @@ const SKILLS = [
   { src: '/assets/html-icon.webp', alt: 'HTML5' },
   { src: '/assets/css-icon.webp', alt: 'CSS' },
   { src: '/assets/bootstrap-icon.webp', alt: 'Bootstrap' },
+  { src: '/assets/jest-icon.webp', alt: 'Jest' },
+  { src: '/assets/vitest-icon.webp', alt: 'Vitest' },
+  { src: '/assets/playwright-icon.webp', alt: 'Playwright' },
+  { src: '/assets/cypress-icon.webp', alt: 'Cypress' },
+  { src: '/assets/storybook-icon.webp', alt: 'Storybook' },
+  { src: '/assets/tanstack-icon.webp', alt: 'TanStack' },
+  { src: '/assets/msw-icon.webp', alt: 'MSW' },
+  { src: '/assets/aws-icon.webp', alt: 'AWS' },
+  { src: '/assets/graphql-icon.webp', alt: 'GraphQL' },
+  { src: '/assets/apollo-icon.webp', alt: 'Apollo' },
 ];
 
 export const About = () => {
   const { translations } = useLanguage(aboutData);
   if (!translations) return null;
-  const { title, p1, p2, p3, h3 } = translations;
+  const { title, p1, p2, p3, h3, pGames } = translations;
 
   return (
     <section className={styles.container} id='about'>
@@ -30,6 +40,15 @@ export const About = () => {
           <p>{p1}</p>
           <p>{p2}</p>
           <p>{p3}</p>
+          {pGames && (
+            <p>
+              {pGames.before}
+              <a href='/#portfolio-games' className={styles.inlineLink}>
+                {pGames.link}
+              </a>
+              {pGames.after}
+            </p>
+          )}
         </div>
         <div className={styles.skillsSection}>
           <p className={styles.skillsLabel}>{h3}</p>

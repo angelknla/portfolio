@@ -29,6 +29,18 @@ export const Header = () => {
     document.body.style.overflow = '';
   };
 
+  const scrollTo = (id: string) => (e: React.MouseEvent) => {
+    e.preventDefault();
+    closeMenu();
+    // Clear the hash first so re-clicking the same link always fires
+    history.replaceState(null, '', ' ');
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+      history.replaceState(null, '', `#${id}`);
+    }
+  };
+
   const handleClick = () => {
     const next = !active;
     setActive(next);
@@ -39,7 +51,12 @@ export const Header = () => {
   return (
     <header className={`${styles.container} header-fixed`}>
       <div className={styles.inner}>
-        <Link id='headerName' href='#home' className={styles.logo}>
+        <Link
+          id='headerName'
+          href='#home'
+          onClick={scrollTo('home')}
+          className={styles.logo}
+        >
           <span>Angel</span>
           <span> Canela</span>
         </Link>
@@ -48,16 +65,16 @@ export const Header = () => {
           id='main-navigation'
           className={`${styles.nav} ${active ? styles.active : open ? styles.inactive : ''}`}
         >
-          <Link href='#home' onClick={closeMenu}>
+          <Link href='#home' onClick={scrollTo('home')}>
             {home}
           </Link>
-          <Link href='#about' onClick={closeMenu}>
+          <Link href='#about' onClick={scrollTo('about')}>
             {about}
           </Link>
-          <Link href='#portfolio' onClick={closeMenu}>
+          <Link href='#portfolio' onClick={scrollTo('portfolio')}>
             {portfolio}
           </Link>
-          <Link href='#contact' onClick={closeMenu}>
+          <Link href='#contact' onClick={scrollTo('contact')}>
             {contact}
           </Link>
           <a

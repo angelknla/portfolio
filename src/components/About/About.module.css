@@ -29,6 +29,17 @@
   margin-bottom: 3.6rem;
 }
 
+.inlineLink {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s;
+}
+
+.inlineLink:hover {
+  color: var(--accent-hover);
+}
+
 .body p {
   font-size: 1.65rem;
   line-height: 1.8;

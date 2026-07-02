@@ -3,6 +3,45 @@ import type { AvailableLanguages } from './dropdownData';
 export const data: Record<AvailableLanguages, Record<string, any>> = {
   english: {
     title: 'My Portfolio',
+    tabs: { projects: 'Projects', games: 'Games' },
+    games: [
+      {
+        title: 'Balloon Game',
+        description:
+          'Navigate your balloon through obstacles without touching the walls. Hold to rise, release to fall.',
+        techStack: ['React', 'TypeScript', 'Canvas'],
+        href: '/games/balloon',
+        iconSvg: '/assets/external-link-icon.webp',
+        iconAlt: 'Play',
+      },
+      {
+        title: 'Doroteyo',
+        description:
+          'Space shooter — destroy incoming planets by splitting them into smaller pieces before they reach the ground.',
+        techStack: ['React', 'TypeScript', 'Canvas'],
+        href: '/games/doroteyo',
+        iconSvg: '/assets/external-link-icon.webp',
+        iconAlt: 'Play',
+      },
+      {
+        title: 'Mario Game',
+        description:
+          'Classic platformer — jump between platforms and collect all the coins to advance to the next level.',
+        techStack: ['React', 'TypeScript', 'Canvas'],
+        href: '/games/mario',
+        iconSvg: '/assets/external-link-icon.webp',
+        iconAlt: 'Play',
+      },
+      {
+        title: 'Snake',
+        description:
+          'The timeless classic — eat the food, grow your snake, and avoid hitting the walls or yourself.',
+        techStack: ['React', 'TypeScript', 'Canvas'],
+        href: '/games/snake',
+        iconSvg: '/assets/external-link-icon.webp',
+        iconAlt: 'Play',
+      },
+    ],
     cards: [
       {
         title: 'Kizuna',
@@ -50,6 +89,45 @@ export const data: Record<AvailableLanguages, Record<string, any>> = {
   },
   spanish: {
     title: 'Mi Porfolio',
+    tabs: { projects: 'Proyectos', games: 'Juegos' },
+    games: [
+      {
+        title: 'Juego del Globo',
+        description:
+          'Navega tu globo entre obstáculos sin tocar las paredes. Mantén pulsado para subir, suelta para bajar.',
+        techStack: ['React', 'TypeScript', 'Canvas'],
+        href: '/games/balloon',
+        iconSvg: '/assets/external-link-icon.webp',
+        iconAlt: 'Jugar',
+      },
+      {
+        title: 'Doroteyo',
+        description:
+          'Juego de disparos espaciales — destruye los planetas que se aproximan dividiéndolos en piezas más pequeñas.',
+        techStack: ['React', 'TypeScript', 'Canvas'],
+        href: '/games/doroteyo',
+        iconSvg: '/assets/external-link-icon.webp',
+        iconAlt: 'Jugar',
+      },
+      {
+        title: 'Juego de Mario',
+        description:
+          'Plataformas clásicas — salta entre plataformas y recoge todas las monedas para avanzar al siguiente nivel.',
+        techStack: ['React', 'TypeScript', 'Canvas'],
+        href: '/games/mario',
+        iconSvg: '/assets/external-link-icon.webp',
+        iconAlt: 'Jugar',
+      },
+      {
+        title: 'Snake',
+        description:
+          'El clásico atemporal — come la comida, haz crecer tu serpiente y evita chocar con las paredes o contigo mismo.',
+        techStack: ['React', 'TypeScript', 'Canvas'],
+        href: '/games/snake',
+        iconSvg: '/assets/external-link-icon.webp',
+        iconAlt: 'Jugar',
+      },
+    ],
     cards: [
       {
         title: 'Kizuna',
@@ -99,6 +177,45 @@ export const data: Record<AvailableLanguages, Record<string, any>> = {
   },
   japanese: {
     title: 'ポートフォリオ',
+    tabs: { projects: 'プロジェクト', games: 'ゲーム' },
+    games: [
+      {
+        title: 'バルーンゲーム',
+        description:
+          '壁に触れずに障害物の間を風船で進もう。長押しで上昇、離すと下降。',
+        techStack: ['React', 'TypeScript', 'Canvas'],
+        href: '/games/balloon',
+        iconSvg: '/assets/external-link-icon.webp',
+        iconAlt: 'プレイ',
+      },
+      {
+        title: 'ドロテヨ',
+        description:
+          'スペースシューター — 近づいてくる惑星を小さな破片に分割して破壊しよう。',
+        techStack: ['React', 'TypeScript', 'Canvas'],
+        href: '/games/doroteyo',
+        iconSvg: '/assets/external-link-icon.webp',
+        iconAlt: 'プレイ',
+      },
+      {
+        title: 'マリオゲーム',
+        description:
+          'クラシックなプラットフォーマー — プラットフォームを飛び回ってコインを集め、次のレベルへ進もう。',
+        techStack: ['React', 'TypeScript', 'Canvas'],
+        href: '/games/mario',
+        iconSvg: '/assets/external-link-icon.webp',
+        iconAlt: 'プレイ',
+      },
+      {
+        title: 'スネーク',
+        description:
+          '不朽の名作 — 食べ物を食べてスネークを成長させ、壁や自分自身にぶつからないようにしよう。',
+        techStack: ['React', 'TypeScript', 'Canvas'],
+        href: '/games/snake',
+        iconSvg: '/assets/external-link-icon.webp',
+        iconAlt: 'プレイ',
+      },
+    ],
     cards: [
       {
         title: 'Kizuna',
