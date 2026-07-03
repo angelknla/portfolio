@@ -1,3 +1,5 @@
+import { Suspense } from 'react';
+
 import dynamic from 'next/dynamic';
 
 import { Hero } from '../Hero/Hero';
@@ -21,7 +23,9 @@ export const Main = () => {
     <main className={styles.container}>
       <Hero />
       <About />
-      <Portfolio />
+      <Suspense>
+        <Portfolio />
+      </Suspense>
       <Contact />
     </main>
   );

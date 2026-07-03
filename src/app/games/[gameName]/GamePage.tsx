@@ -2,6 +2,8 @@
 
 import { use } from 'react';
 
+import { useLanguage } from '../../../contexts/Language';
+import { gamesData } from '../../../data/gamesData';
 import BalloonGame from '../../../games/BalloonGame/BalloonGame';
 import DoroteyoGame from '../../../games/DoroteyoGame/DoroteyoGame';
 import MarioGame from '../../../games/MarioGame/MarioGame';
@@ -23,13 +25,16 @@ interface GamePageProps {
 export const GamePage = ({ params }: GamePageProps) => {
   const { gameName } = use(params);
   const GameComponent = GAME_MAP[gameName];
+  const { translations } = useLanguage(gamesData);
 
   return (
     <main className={styles.page}>
       {GameComponent ? (
         <GameComponent />
       ) : (
-        <p className={styles.notFound}>Game not found.</p>
+        <p className={styles.notFound}>
+          {translations?.common?.notFound ?? 'Game not found.'}
+        </p>
       )}
     </main>
   );

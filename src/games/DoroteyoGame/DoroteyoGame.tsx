@@ -2,6 +2,8 @@
 
 import { useCallback, useEffect, useRef, useState } from 'react';
 
+import { useLanguage } from '../../contexts/Language';
+import { gamesData } from '../../data/gamesData';
 import {
   CANVAS_HEIGHT,
   CANVAS_WIDTH,
@@ -102,6 +104,9 @@ const LEVELS = [
 ];
 
 export default function DoroteyoGame() {
+  const { translations } = useLanguage(gamesData);
+  const common = translations?.common;
+  const t = translations?.doroteyo;
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [gameStarted, setGameStarted] = useState(false);
   const [gameOver, setGameOver] = useState(false);
@@ -1162,16 +1167,18 @@ export default function DoroteyoGame() {
 
   return (
     <GameLayout
-      title='⭐ Doroteyo'
+      title={t?.title ?? '⭐ Doroteyo'}
       gameColor='#f59e0b'
       scoreBoard={
         <>
           <div className={layoutStyles.scoreItem}>
-            Level: {currentLevel + 1}/2
+            {common?.level}: {currentLevel + 1}/2
           </div>
-          <div className={layoutStyles.scoreItem}>Score: {score}</div>
           <div className={layoutStyles.scoreItem}>
-            Planets: {planetsRef.current.length}
+            {common?.score}: {score}
+          </div>
+          <div className={layoutStyles.scoreItem}>
+            {t?.planets}: {planetsRef.current.length}
           </div>
           <div
             className={`${styles.health} ${playerRef.current.isPoweredUp ? styles.healthPoweredUp : ''}`}
@@ -1188,7 +1195,7 @@ export default function DoroteyoGame() {
         <>
           <div className={layoutStyles.controls}>
             <div className={layoutStyles.controlsTitle}>
-              {isMobile ? 'Touch Controls' : 'Keyboard Controls'}
+              {isMobile ? common?.touchControls : common?.keyboardControls}
             </div>
             <div className={styles.controlInfo}>
               <button
@@ -1199,7 +1206,7 @@ export default function DoroteyoGame() {
                 onMouseDown={() => keysRef.current.add('ArrowLeft')}
                 onMouseUp={() => keysRef.current.delete('ArrowLeft')}
                 onMouseLeave={() => keysRef.current.delete('ArrowLeft')}
-                aria-label='Move Left'
+                aria-label={t?.moveLeftAria}
               >
                 <span className={styles.key}>←</span>
               </button>
@@ -1211,7 +1218,7 @@ export default function DoroteyoGame() {
                 onMouseDown={() => keysRef.current.add('ArrowRight')}
                 onMouseUp={() => keysRef.current.delete('ArrowRight')}
                 onMouseLeave={() => keysRef.current.delete('ArrowRight')}
-                aria-label='Move Right'
+                aria-label={t?.moveRightAria}
               >
                 <span className={styles.key}>→</span>
               </button>
@@ -1220,67 +1227,58 @@ export default function DoroteyoGame() {
                 className={layoutStyles.controlItem}
                 onTouchStart={shoot}
                 onClick={shoot}
-                aria-label='Shoot'
+                aria-label={t?.shootAria}
               >
-                <span className={styles.key}>⭐ SHOOT</span>
+                <span className={styles.key}>{t?.shootButton}</span>
               </button>
             </div>
           </div>
 
           <div className={layoutStyles.instructionsPanel}>
-            <h2 className={layoutStyles.instructionsTitle}>📋 How to Play</h2>
+            <h2 className={layoutStyles.instructionsTitle}>
+              {common?.howToPlay}
+            </h2>
             <div className={layoutStyles.instructionsList}>
               <div className={layoutStyles.instructionItem}>
                 <span className={layoutStyles.instructionIcon}>🎯</span>
                 <div>
-                  <strong>Objective</strong>
-                  <p>Destroy all planets to complete each level</p>
+                  <strong>{t?.instructions?.objective?.title}</strong>
+                  <p>{t?.instructions?.objective?.text}</p>
                 </div>
               </div>
               <div className={layoutStyles.instructionItem}>
                 <span className={layoutStyles.instructionIcon}>⭐</span>
                 <div>
-                  <strong>Shooting</strong>
-                  <p>Fire stars at planets to make them split apart</p>
+                  <strong>{t?.instructions?.shooting?.title}</strong>
+                  <p>{t?.instructions?.shooting?.text}</p>
                 </div>
               </div>
               <div className={layoutStyles.instructionItem}>
                 <span className={layoutStyles.instructionIcon}>🪐</span>
                 <div>
-                  <strong>Planet Splitting</strong>
-                  <p>
-                    Large planets split into 2 medium, medium into 2 small, then
-                    destroyed
-                  </p>
+                  <strong>{t?.instructions?.splitting?.title}</strong>
+                  <p>{t?.instructions?.splitting?.text}</p>
                 </div>
               </div>
               <div className={layoutStyles.instructionItem}>
                 <span className={layoutStyles.instructionIcon}>⚡</span>
                 <div>
-                  <strong>Power-Up</strong>
-                  <p>
-                    When you destroy a small planet, transform into a powered-up
-                    girl for 5 seconds with faster, stronger shots
-                  </p>
+                  <strong>{t?.instructions?.powerUp?.title}</strong>
+                  <p>{t?.instructions?.powerUp?.text}</p>
                 </div>
               </div>
               <div className={layoutStyles.instructionItem}>
                 <span className={layoutStyles.instructionIcon}>❤️</span>
                 <div>
-                  <strong>Health</strong>
-                  <p>
-                    You have 3 lives. Avoid getting hit by bouncing planets!
-                  </p>
+                  <strong>{t?.instructions?.health?.title}</strong>
+                  <p>{t?.instructions?.health?.text}</p>
                 </div>
               </div>
               <div className={layoutStyles.instructionItem}>
                 <span className={layoutStyles.instructionIcon}>🎮</span>
                 <div>
-                  <strong>Levels</strong>
-                  <p>
-                    Complete Level 1 to unlock Level 2. Your health is restored
-                    between levels!
-                  </p>
+                  <strong>{t?.instructions?.levels?.title}</strong>
+                  <p>{t?.instructions?.levels?.text}</p>
                 </div>
               </div>
             </div>
@@ -1307,12 +1305,10 @@ export default function DoroteyoGame() {
               onClick={resetGame}
               className={layoutStyles.startButton}
             >
-              Start Game
+              {common?.startGame}
             </button>
             <p className={layoutStyles.instructions}>
-              {isMobile
-                ? 'Use buttons to move and shoot stars at planets!'
-                : 'Arrow keys to move, SPACE to shoot stars at planets!'}
+              {isMobile ? t?.startTextMobile : t?.startTextDesktop}
             </p>
           </div>
         )}
@@ -1320,8 +1316,8 @@ export default function DoroteyoGame() {
         {showLevelTransition && (
           <div className={styles.overlay}>
             <div className={styles.levelTransition}>
-              <div className={styles.levelNumber}>Level 2</div>
-              <div className={styles.levelSubtext}>Get Ready!</div>
+              <div className={styles.levelNumber}>{t?.levelTwoLabel}</div>
+              <div className={styles.levelSubtext}>{t?.getReady}</div>
             </div>
           </div>
         )}
@@ -1329,28 +1325,26 @@ export default function DoroteyoGame() {
         {gameOver && (
           <div className={styles.overlay}>
             <div className={layoutStyles.gameOverText}>
-              {isVictory ? '🎉 Victory!' : 'Game Over!'}
+              {isVictory ? t?.victoryTitle : common?.gameOver}
             </div>
             <div className={layoutStyles.finalScore}>
-              {isVictory ? 'All planets destroyed!' : `Final Score: ${score}`}
+              {isVictory ? t?.victoryText : `${common?.finalScore}: ${score}`}
             </div>
             <button
               type='button'
               onClick={resetGame}
               className={layoutStyles.restartButton}
             >
-              Play Again
+              {common?.playAgain}
             </button>
             <p className={layoutStyles.instructions}>
-              {isMobile ? 'Tap to restart' : 'Press SPACE or click to restart'}
+              {isMobile ? common?.tapToRestart : common?.pressToRestart}
             </p>
           </div>
         )}
       </div>
 
-      {isMobile && (
-        <p className={styles.tapHint}>💡 Tip: Tap the play area to shoot!</p>
-      )}
+      {isMobile && <p className={styles.tapHint}>{t?.tapHint}</p>}
     </GameLayout>
   );
 }

@@ -2,6 +2,8 @@
 
 import { useCallback, useEffect, useRef, useState } from 'react';
 
+import { useLanguage } from '../../contexts/Language';
+import { gamesData } from '../../data/gamesData';
 import {
   CANVAS_HEIGHT,
   CANVAS_WIDTH,
@@ -68,6 +70,9 @@ const LEVELS = [
 ];
 
 export default function MarioGame() {
+  const { translations } = useLanguage(gamesData);
+  const common = translations?.common;
+  const t = translations?.mario;
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [gameStarted, setGameStarted] = useState(false);
   const [gameOver, setGameOver] = useState(false);
@@ -408,16 +413,18 @@ export default function MarioGame() {
 
   return (
     <GameLayout
-      title='🍄 Super Mario Platform'
+      title={t?.title ?? '🍄 Super Mario Platform'}
       gameColor='#ef4444'
       scoreBoard={
         <>
           <div className={layoutStyles.scoreItem}>
-            Level: {currentLevel + 1}/{LEVELS.length}
+            {common?.level}: {currentLevel + 1}/{LEVELS.length}
           </div>
-          <div className={layoutStyles.scoreItem}>Score: {score}</div>
           <div className={layoutStyles.scoreItem}>
-            Coins: {coinsRef.current.filter((c) => c.collected).length}/
+            {common?.score}: {score}
+          </div>
+          <div className={layoutStyles.scoreItem}>
+            {t?.coins}: {coinsRef.current.filter((c) => c.collected).length}/
             {coinsRef.current.length}
           </div>
         </>
@@ -426,7 +433,7 @@ export default function MarioGame() {
         <>
           <div className={layoutStyles.controls}>
             <div className={layoutStyles.controlsTitle}>
-              {isMobile ? 'Touch Controls' : 'Keyboard Controls'}
+              {isMobile ? common?.touchControls : common?.keyboardControls}
             </div>
             <div className={styles.controlInfo}>
               <button
@@ -437,7 +444,7 @@ export default function MarioGame() {
                 onMouseDown={() => keysRef.current.add('ArrowLeft')}
                 onMouseUp={() => keysRef.current.delete('ArrowLeft')}
                 onMouseLeave={() => keysRef.current.delete('ArrowLeft')}
-                aria-label='Move Left'
+                aria-label={t?.moveLeftAria}
               >
                 <span className={styles.key}>←</span>
               </button>
@@ -449,7 +456,7 @@ export default function MarioGame() {
                 onMouseDown={() => keysRef.current.add('ArrowRight')}
                 onMouseUp={() => keysRef.current.delete('ArrowRight')}
                 onMouseLeave={() => keysRef.current.delete('ArrowRight')}
-                aria-label='Move Right'
+                aria-label={t?.moveRightAria}
               >
                 <span className={styles.key}>→</span>
               </button>
@@ -464,7 +471,7 @@ export default function MarioGame() {
                   keysRef.current.add('ArrowUp');
                   setTimeout(() => keysRef.current.delete('ArrowUp'), 100);
                 }}
-                aria-label='Jump'
+                aria-label={t?.jumpAria}
               >
                 <span className={styles.key}>↑</span>
               </button>
@@ -472,44 +479,46 @@ export default function MarioGame() {
           </div>
 
           <div className={layoutStyles.instructionsPanel}>
-            <h2 className={layoutStyles.instructionsTitle}>📋 How to Play</h2>
+            <h2 className={layoutStyles.instructionsTitle}>
+              {common?.howToPlay}
+            </h2>
             <div className={layoutStyles.instructionsList}>
               <div className={layoutStyles.instructionItem}>
                 <span className={layoutStyles.instructionIcon}>
                   {isMobile ? '👆' : '⌨️'}
                 </span>
                 <div>
-                  <strong>Move</strong>
+                  <strong>{t?.instructions?.move?.title}</strong>
                   <p>
                     {isMobile
-                      ? 'Tap ← → to run left and right'
-                      : 'Arrow keys ← → to run left and right'}
+                      ? t?.instructions?.move?.textMobile
+                      : t?.instructions?.move?.textDesktop}
                   </p>
                 </div>
               </div>
               <div className={layoutStyles.instructionItem}>
                 <span className={layoutStyles.instructionIcon}>🦘</span>
                 <div>
-                  <strong>Jump</strong>
+                  <strong>{t?.instructions?.jump?.title}</strong>
                   <p>
                     {isMobile
-                      ? 'Tap ↑ to jump onto platforms'
-                      : 'Arrow key ↑ or SPACE to jump onto platforms'}
+                      ? t?.instructions?.jump?.textMobile
+                      : t?.instructions?.jump?.textDesktop}
                   </p>
                 </div>
               </div>
               <div className={layoutStyles.instructionItem}>
                 <span className={layoutStyles.instructionIcon}>🪙</span>
                 <div>
-                  <strong>Coins</strong>
-                  <p>Collect all coins to complete the level</p>
+                  <strong>{t?.instructions?.coins?.title}</strong>
+                  <p>{t?.instructions?.coins?.text}</p>
                 </div>
               </div>
               <div className={layoutStyles.instructionItem}>
                 <span className={layoutStyles.instructionIcon}>🏆</span>
                 <div>
-                  <strong>Levels</strong>
-                  <p>Clear both levels to win the game</p>
+                  <strong>{t?.instructions?.levels?.title}</strong>
+                  <p>{t?.instructions?.levels?.text}</p>
                 </div>
               </div>
             </div>
@@ -532,12 +541,10 @@ export default function MarioGame() {
               onClick={resetGame}
               className={layoutStyles.startButton}
             >
-              Start Game
+              {common?.startGame}
             </button>
             <p className={layoutStyles.instructions}>
-              {isMobile
-                ? 'Use the buttons below to move and jump'
-                : 'Use arrow keys to move and jump (or SPACE to jump)'}
+              {isMobile ? t?.startTextMobile : t?.startTextDesktop}
             </p>
           </div>
         )}
@@ -545,20 +552,20 @@ export default function MarioGame() {
         {gameOver && (
           <div className={layoutStyles.overlay}>
             <div className={layoutStyles.gameOverText}>
-              {isVictory ? '🎉 You Win!' : 'Game Over!'}
+              {isVictory ? t?.victoryTitle : common?.gameOver}
             </div>
             <div className={layoutStyles.finalScore}>
-              {isVictory ? 'All coins collected!' : `Final Score: ${score}`}
+              {isVictory ? t?.victoryText : `${common?.finalScore}: ${score}`}
             </div>
             <button
               type='button'
               onClick={resetGame}
               className={layoutStyles.restartButton}
             >
-              Play Again
+              {common?.playAgain}
             </button>
             <p className={layoutStyles.instructions}>
-              {isMobile ? 'Tap to restart' : 'Press SPACE or click to restart'}
+              {isMobile ? common?.tapToRestart : common?.pressToRestart}
             </p>
           </div>
         )}

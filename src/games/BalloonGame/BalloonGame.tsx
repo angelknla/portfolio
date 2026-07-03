@@ -2,6 +2,8 @@
 
 import { useCallback, useEffect, useRef, useState } from 'react';
 
+import { useLanguage } from '../../contexts/Language';
+import { gamesData } from '../../data/gamesData';
 import { CANVAS_HEIGHT, CANVAS_WIDTH } from '../constants';
 import GameLayout from '../GameLayout/GameLayout';
 
@@ -53,6 +55,9 @@ const LEVELS = [
 ];
 
 export default function BalloonGame() {
+  const { translations } = useLanguage(gamesData);
+  const common = translations?.common;
+  const t = translations?.balloon;
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [gameStarted, setGameStarted] = useState(false);
   const [gameOver, setGameOver] = useState(false);
@@ -386,21 +391,23 @@ export default function BalloonGame() {
 
   return (
     <GameLayout
-      title='🎈 Balloon Flight'
+      title={t?.title ?? '🎈 Balloon Flight'}
       gameColor='#ec4899'
       scoreBoard={
         <>
           <div className={layoutStyles.scoreItem}>
-            Level {currentLevel + 1}/2
+            {common?.level} {currentLevel + 1}/2
           </div>
-          <div className={layoutStyles.scoreItem}>Distance: {score}m</div>
+          <div className={layoutStyles.scoreItem}>
+            {t?.distance}: {score}m
+          </div>
         </>
       }
       sidePanel={
         <>
           <div className={layoutStyles.controls}>
             <div className={layoutStyles.controlsTitle}>
-              {isMobile ? 'Touch Control' : 'Keyboard Control'}
+              {isMobile ? common?.touchControl : common?.keyboardControl}
             </div>
             <div className={styles.controlInfo}>
               <button
@@ -421,48 +428,50 @@ export default function BalloonGame() {
                 onMouseLeave={() => {
                   isBlowingRef.current = false;
                 }}
-                aria-label='Blow balloon'
+                aria-label={t?.blowAriaLabel}
               >
-                <span className={styles.key}>💨 BLOW</span>
+                <span className={styles.key}>{t?.blowButton}</span>
               </button>
             </div>
           </div>
 
           <div className={layoutStyles.instructionsPanel}>
-            <h2 className={layoutStyles.instructionsTitle}>📋 How to Play</h2>
+            <h2 className={layoutStyles.instructionsTitle}>
+              {common?.howToPlay}
+            </h2>
             <div className={layoutStyles.instructionsList}>
               <div className={layoutStyles.instructionItem}>
                 <span className={layoutStyles.instructionIcon}>
                   {isMobile ? '👆' : '⌨️'}
                 </span>
                 <div>
-                  <strong>Controls</strong>
+                  <strong>{t?.instructions?.controls?.title}</strong>
                   <p>
                     {isMobile
-                      ? 'Hold the button to blow the balloon up'
-                      : 'Hold SPACE to blow the balloon up'}
+                      ? t?.instructions?.controls?.textMobile
+                      : t?.instructions?.controls?.textDesktop}
                   </p>
                 </div>
               </div>
               <div className={layoutStyles.instructionItem}>
                 <span className={layoutStyles.instructionIcon}>🎈</span>
                 <div>
-                  <strong>Physics</strong>
-                  <p>Release to let gravity pull the balloon down</p>
+                  <strong>{t?.instructions?.physics?.title}</strong>
+                  <p>{t?.instructions?.physics?.text}</p>
                 </div>
               </div>
               <div className={layoutStyles.instructionItem}>
                 <span className={layoutStyles.instructionIcon}>⚠️</span>
                 <div>
-                  <strong>Avoid</strong>
-                  <p>Don't touch the walls or the brown obstacles</p>
+                  <strong>{t?.instructions?.avoid?.title}</strong>
+                  <p>{t?.instructions?.avoid?.text}</p>
                 </div>
               </div>
               <div className={layoutStyles.instructionItem}>
                 <span className={layoutStyles.instructionIcon}>🚩</span>
                 <div>
-                  <strong>Goal</strong>
-                  <p>Reach the flag at the end of each level to advance</p>
+                  <strong>{t?.instructions?.goal?.title}</strong>
+                  <p>{t?.instructions?.goal?.text}</p>
                 </div>
               </div>
             </div>
@@ -504,12 +513,10 @@ export default function BalloonGame() {
               onClick={resetGame}
               className={layoutStyles.startButton}
             >
-              Start Game
+              {common?.startGame}
             </button>
             <p className={layoutStyles.instructions}>
-              {isMobile
-                ? 'Hold the button below to blow the balloon up'
-                : 'Hold SPACE to blow the balloon up'}
+              {isMobile ? t?.startTextMobile : t?.startTextDesktop}
             </p>
           </div>
         )}
@@ -517,20 +524,20 @@ export default function BalloonGame() {
         {gameOver && (
           <div className={layoutStyles.overlay}>
             <div className={layoutStyles.gameOverText}>
-              {isVictory ? '🎉 You Win!' : 'Game Over!'}
+              {isVictory ? t?.victoryTitle : common?.gameOver}
             </div>
             <div className={layoutStyles.finalScore}>
-              {isVictory ? 'You reached the goal!' : `Distance: ${score}m`}
+              {isVictory ? t?.victoryText : `${t?.distance}: ${score}m`}
             </div>
             <button
               type='button'
               onClick={resetGame}
               className={layoutStyles.restartButton}
             >
-              Play Again
+              {common?.playAgain}
             </button>
             <p className={layoutStyles.instructions}>
-              {isMobile ? 'Tap to restart' : 'Press SPACE or click to restart'}
+              {isMobile ? common?.tapToRestart : common?.pressToRestart}
             </p>
           </div>
         )}

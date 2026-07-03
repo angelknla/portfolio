@@ -2,6 +2,8 @@
 
 import { useCallback, useEffect, useRef, useState } from 'react';
 
+import { useLanguage } from '../../contexts/Language';
+import { gamesData } from '../../data/gamesData';
 import GameLayout from '../GameLayout/GameLayout';
 
 import layoutStyles from '../GameLayout/GameLayout.module.css';
@@ -18,6 +20,9 @@ const INITIAL_DIRECTION: Direction = 'RIGHT';
 const GAME_SPEED = 150;
 
 export default function SnakeGame() {
+  const { translations } = useLanguage(gamesData);
+  const common = translations?.common;
+  const t = translations?.snake;
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [snake, setSnake] = useState<Position[]>(INITIAL_SNAKE);
   const [food, setFood] = useState<Position>({ x: 15, y: 15 });
@@ -290,19 +295,23 @@ export default function SnakeGame() {
 
   return (
     <GameLayout
-      title='🐍 Snake Game'
+      title={t?.title ?? '🐍 Snake Game'}
       gameColor='#22c55e'
       scoreBoard={
         <>
-          <div className={layoutStyles.scoreItem}>Score: {score}</div>
-          <div className={layoutStyles.scoreItem}>Length: {snake.length}</div>
+          <div className={layoutStyles.scoreItem}>
+            {common?.score}: {score}
+          </div>
+          <div className={layoutStyles.scoreItem}>
+            {t?.length}: {snake.length}
+          </div>
         </>
       }
       sidePanel={
         <>
           <div className={layoutStyles.controls}>
             <div className={layoutStyles.controlsTitle}>
-              {isMobile ? 'Touch Controls' : 'Keyboard Controls'}
+              {isMobile ? common?.touchControls : common?.keyboardControls}
             </div>
             <div className={styles.controlGrid}>
               <div />
@@ -311,7 +320,7 @@ export default function SnakeGame() {
                 className={styles.controlButton}
                 onClick={() => handleDirectionChange('UP')}
                 onTouchStart={() => handleDirectionChange('UP')}
-                aria-label='Move up'
+                aria-label={t?.moveUpAria}
               >
                 ↑
               </button>
@@ -321,7 +330,7 @@ export default function SnakeGame() {
                 className={styles.controlButton}
                 onClick={() => handleDirectionChange('LEFT')}
                 onTouchStart={() => handleDirectionChange('LEFT')}
-                aria-label='Move left'
+                aria-label={t?.moveLeftAria}
               >
                 ←
               </button>
@@ -330,7 +339,7 @@ export default function SnakeGame() {
                 className={styles.controlButton}
                 onClick={() => handleDirectionChange('DOWN')}
                 onTouchStart={() => handleDirectionChange('DOWN')}
-                aria-label='Move down'
+                aria-label={t?.moveDownAria}
               >
                 ↓
               </button>
@@ -339,7 +348,7 @@ export default function SnakeGame() {
                 className={styles.controlButton}
                 onClick={() => handleDirectionChange('RIGHT')}
                 onTouchStart={() => handleDirectionChange('RIGHT')}
-                aria-label='Move right'
+                aria-label={t?.moveRightAria}
               >
                 →
               </button>
@@ -347,51 +356,49 @@ export default function SnakeGame() {
           </div>
 
           <div className={layoutStyles.instructionsPanel}>
-            <h2 className={layoutStyles.instructionsTitle}>📋 How to Play</h2>
+            <h2 className={layoutStyles.instructionsTitle}>
+              {common?.howToPlay}
+            </h2>
             <div className={layoutStyles.instructionsList}>
               <div className={layoutStyles.instructionItem}>
                 <span className={layoutStyles.instructionIcon}>
                   {isMobile ? '👆' : '⌨️'}
                 </span>
                 <div>
-                  <strong>Controls</strong>
+                  <strong>{t?.instructions?.controls?.title}</strong>
                   <p>
                     {isMobile
-                      ? 'Tap the arrow buttons below to move the snake in any direction'
-                      : 'Use arrow keys (↑ ↓ ← →) to move the snake in any direction'}
+                      ? t?.instructions?.controls?.textMobile
+                      : t?.instructions?.controls?.textDesktop}
                   </p>
                 </div>
               </div>
               <div className={layoutStyles.instructionItem}>
                 <span className={layoutStyles.instructionIcon}>🎯</span>
                 <div>
-                  <strong>Objective</strong>
-                  <p>Eat the red food to grow longer and increase your score</p>
+                  <strong>{t?.instructions?.objective?.title}</strong>
+                  <p>{t?.instructions?.objective?.text}</p>
                 </div>
               </div>
               <div className={layoutStyles.instructionItem}>
                 <span className={layoutStyles.instructionIcon}>⚠️</span>
                 <div>
-                  <strong>Avoid</strong>
-                  <p>Don't hit the walls or run into yourself!</p>
+                  <strong>{t?.instructions?.avoid?.title}</strong>
+                  <p>{t?.instructions?.avoid?.text}</p>
                 </div>
               </div>
               <div className={layoutStyles.instructionItem}>
                 <span className={layoutStyles.instructionIcon}>🏆</span>
                 <div>
-                  <strong>Scoring</strong>
-                  <p>
-                    Each food gives you +10 points. How long can you survive?
-                  </p>
+                  <strong>{t?.instructions?.scoring?.title}</strong>
+                  <p>{t?.instructions?.scoring?.text}</p>
                 </div>
               </div>
               <div className={layoutStyles.instructionItem}>
                 <span className={layoutStyles.instructionIcon}>💡</span>
                 <div>
-                  <strong>Pro Tip</strong>
-                  <p>
-                    Plan your moves ahead! The snake speeds up as you get longer
-                  </p>
+                  <strong>{t?.instructions?.proTip?.title}</strong>
+                  <p>{t?.instructions?.proTip?.text}</p>
                 </div>
               </div>
             </div>
@@ -414,29 +421,29 @@ export default function SnakeGame() {
               onClick={resetGame}
               className={layoutStyles.startButton}
             >
-              Start Game
+              {common?.startGame}
             </button>
             <p className={layoutStyles.instructions}>
-              {isMobile
-                ? 'Tap the buttons below to control the snake'
-                : 'Use arrow keys to control the snake'}
+              {isMobile ? t?.startTextMobile : t?.startTextDesktop}
             </p>
           </div>
         )}
 
         {gameOver && (
           <div className={layoutStyles.overlay}>
-            <div className={layoutStyles.gameOverText}>Game Over!</div>
-            <div className={layoutStyles.finalScore}>Final Score: {score}</div>
+            <div className={layoutStyles.gameOverText}>{common?.gameOver}</div>
+            <div className={layoutStyles.finalScore}>
+              {common?.finalScore}: {score}
+            </div>
             <button
               type='button'
               onClick={resetGame}
               className={layoutStyles.restartButton}
             >
-              Play Again
+              {common?.playAgain}
             </button>
             <p className={layoutStyles.instructions}>
-              {isMobile ? 'Tap to restart' : 'Press SPACE or click to restart'}
+              {isMobile ? common?.tapToRestart : common?.pressToRestart}
             </p>
           </div>
         )}

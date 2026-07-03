@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 import { useLanguage } from '../../contexts/Language';
+import { gamesData } from '../../data/gamesData';
 import { headerData } from '../../data/headerData';
 import { LanguageSwitcher } from '../LanguageSwitcher/LanguageSwitcher';
 
@@ -17,6 +18,7 @@ export const toggleTheme = () => {
 
 export const Header = () => {
   const { translations } = useLanguage(headerData);
+  const { translations: gamesTranslations } = useLanguage(gamesData);
   const [active, setActive] = useState(false);
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
@@ -65,7 +67,7 @@ export const Header = () => {
       <div className={styles.inner}>
         {isGame && (
           <Link href='/?games=1#portfolio' className={styles.backLink}>
-            ← Back to games
+            {gamesTranslations?.common?.backToGames ?? '← Back to games'}
           </Link>
         )}
         <Link
