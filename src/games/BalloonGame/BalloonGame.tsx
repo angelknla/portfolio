@@ -2,6 +2,10 @@
 
 import { useCallback, useEffect, useRef, useState } from 'react';
 
+import { CANVAS_HEIGHT, CANVAS_WIDTH } from '../constants';
+import GameLayout from '../GameLayout/GameLayout';
+
+import layoutStyles from '../GameLayout/GameLayout.module.css';
 import styles from './BalloonGame.module.css';
 
 type Obstacle = {
@@ -12,8 +16,6 @@ type Obstacle = {
   isTop: boolean;
 };
 
-const CANVAS_WIDTH = 800;
-const CANVAS_HEIGHT = 600;
 const BALLOON_SIZE = 40;
 const GRAVITY = 0.1;
 const BLOW_FORCE = -0.3;
@@ -383,33 +385,35 @@ export default function BalloonGame() {
   }, []);
 
   return (
-    <div className={styles.container}>
-      <div className={styles.gameWrapper}>
-        <h1 className={styles.title}>🎈 Balloon Flight</h1>
-
-        <div className={styles.scoreBoard}>
-          <div className={styles.score}>Level {currentLevel + 1}/2</div>
-          <div className={styles.score}>Distance: {score}m</div>
-        </div>
-
-        <p className={styles.playAreaInstruction}>
-          {isMobile
-            ? 'Tap play area or button to blow'
-            : 'Click play area or press SPACE to blow'}
-        </p>
-
-        <div className={styles.gameLayout}>
-          <div className={styles.gameColumn}>
-            <div className={styles.canvasWrapper}>
-              <canvas
-                ref={canvasRef}
-                width={CANVAS_WIDTH}
-                height={CANVAS_HEIGHT}
-                className={styles.canvas}
+    <GameLayout
+      title='🎈 Balloon Flight'
+      gameColor='#ec4899'
+      scoreBoard={
+        <>
+          <div className={layoutStyles.scoreItem}>
+            Level {currentLevel + 1}/2
+          </div>
+          <div className={layoutStyles.scoreItem}>Distance: {score}m</div>
+        </>
+      }
+      sidePanel={
+        <>
+          <div className={layoutStyles.controls}>
+            <div className={layoutStyles.controlsTitle}>
+              {isMobile ? 'Touch Control' : 'Keyboard Control'}
+            </div>
+            <div className={styles.controlInfo}>
+              <button
+                type='button'
+                className={layoutStyles.controlItem}
+                onTouchStart={() => {
+                  isBlowingRef.current = true;
+                }}
+                onTouchEnd={() => {
+                  isBlowingRef.current = false;
+                }}
                 onMouseDown={() => {
-                  if (gameStarted && !gameOver) {
-                    isBlowingRef.current = true;
-                  }
+                  isBlowingRef.current = true;
                 }}
                 onMouseUp={() => {
                   isBlowingRef.current = false;
@@ -417,133 +421,120 @@ export default function BalloonGame() {
                 onMouseLeave={() => {
                   isBlowingRef.current = false;
                 }}
-                onTouchStart={() => {
-                  if (gameStarted && !gameOver) {
-                    isBlowingRef.current = true;
-                  }
-                }}
-                onTouchEnd={() => {
-                  isBlowingRef.current = false;
-                }}
-              />
+                aria-label='Blow balloon'
+              >
+                <span className={styles.key}>💨 BLOW</span>
+              </button>
+            </div>
+          </div>
 
-              {!gameStarted && !gameOver && (
-                <div className={styles.overlay}>
-                  <button
-                    type='button'
-                    onClick={resetGame}
-                    className={styles.startButton}
-                  >
-                    Start Game
-                  </button>
-                  <p className={styles.instructions}>
+          <div className={layoutStyles.instructionsPanel}>
+            <h2 className={layoutStyles.instructionsTitle}>📋 How to Play</h2>
+            <div className={layoutStyles.instructionsList}>
+              <div className={layoutStyles.instructionItem}>
+                <span className={layoutStyles.instructionIcon}>
+                  {isMobile ? '👆' : '⌨️'}
+                </span>
+                <div>
+                  <strong>Controls</strong>
+                  <p>
                     {isMobile
-                      ? 'Hold the button below to blow the balloon up'
+                      ? 'Hold the button to blow the balloon up'
                       : 'Hold SPACE to blow the balloon up'}
                   </p>
                 </div>
-              )}
-
-              {gameOver && (
-                <div className={styles.overlay}>
-                  <div className={styles.gameOverText}>
-                    {isVictory ? '🎉 You Win!' : 'Game Over!'}
-                  </div>
-                  <div className={styles.finalScore}>
-                    {isVictory
-                      ? 'You reached the goal!'
-                      : `Distance: ${score}m`}
-                  </div>
-                  <button
-                    type='button'
-                    onClick={resetGame}
-                    className={styles.restartButton}
-                  >
-                    Play Again
-                  </button>
-                  <p className={styles.instructions}>
-                    {isMobile
-                      ? 'Tap to restart'
-                      : 'Press SPACE or click to restart'}
-                  </p>
-                </div>
-              )}
-            </div>
-          </div>
-
-          <div className={styles.sidePanel}>
-            <div className={styles.controls}>
-              <div className={styles.controlsTitle}>
-                {isMobile ? 'Touch Control' : 'Keyboard Control'}
               </div>
-              <div className={styles.controlInfo}>
-                <button
-                  type='button'
-                  className={styles.controlItem}
-                  onTouchStart={() => {
-                    isBlowingRef.current = true;
-                  }}
-                  onTouchEnd={() => {
-                    isBlowingRef.current = false;
-                  }}
-                  onMouseDown={() => {
-                    isBlowingRef.current = true;
-                  }}
-                  onMouseUp={() => {
-                    isBlowingRef.current = false;
-                  }}
-                  onMouseLeave={() => {
-                    isBlowingRef.current = false;
-                  }}
-                  aria-label='Blow balloon'
-                >
-                  <span className={styles.key}>💨 BLOW</span>
-                </button>
+              <div className={layoutStyles.instructionItem}>
+                <span className={layoutStyles.instructionIcon}>🎈</span>
+                <div>
+                  <strong>Physics</strong>
+                  <p>Release to let gravity pull the balloon down</p>
+                </div>
               </div>
-            </div>
-
-            <div className={styles.instructionsPanel}>
-              <h2 className={styles.instructionsTitle}>📋 How to Play</h2>
-              <div className={styles.instructionsList}>
-                <div className={styles.instructionItem}>
-                  <span className={styles.instructionIcon}>
-                    {isMobile ? '👆' : '⌨️'}
-                  </span>
-                  <div>
-                    <strong>Controls</strong>
-                    <p>
-                      {isMobile
-                        ? 'Hold the button to blow the balloon up'
-                        : 'Hold SPACE to blow the balloon up'}
-                    </p>
-                  </div>
+              <div className={layoutStyles.instructionItem}>
+                <span className={layoutStyles.instructionIcon}>⚠️</span>
+                <div>
+                  <strong>Avoid</strong>
+                  <p>Don't touch the walls or the brown obstacles</p>
                 </div>
-                <div className={styles.instructionItem}>
-                  <span className={styles.instructionIcon}>🎈</span>
-                  <div>
-                    <strong>Physics</strong>
-                    <p>Release to let gravity pull the balloon down</p>
-                  </div>
-                </div>
-                <div className={styles.instructionItem}>
-                  <span className={styles.instructionIcon}>⚠️</span>
-                  <div>
-                    <strong>Avoid</strong>
-                    <p>Don't touch the walls or the brown obstacles</p>
-                  </div>
-                </div>
-                <div className={styles.instructionItem}>
-                  <span className={styles.instructionIcon}>🚩</span>
-                  <div>
-                    <strong>Goal</strong>
-                    <p>Reach the flag at the end of each level to advance</p>
-                  </div>
+              </div>
+              <div className={layoutStyles.instructionItem}>
+                <span className={layoutStyles.instructionIcon}>🚩</span>
+                <div>
+                  <strong>Goal</strong>
+                  <p>Reach the flag at the end of each level to advance</p>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        </>
+      }
+    >
+      <div className={layoutStyles.canvasWrapper}>
+        <canvas
+          ref={canvasRef}
+          width={CANVAS_WIDTH}
+          height={CANVAS_HEIGHT}
+          className={layoutStyles.canvas}
+          onMouseDown={() => {
+            if (gameStarted && !gameOver) {
+              isBlowingRef.current = true;
+            }
+          }}
+          onMouseUp={() => {
+            isBlowingRef.current = false;
+          }}
+          onMouseLeave={() => {
+            isBlowingRef.current = false;
+          }}
+          onTouchStart={() => {
+            if (gameStarted && !gameOver) {
+              isBlowingRef.current = true;
+            }
+          }}
+          onTouchEnd={() => {
+            isBlowingRef.current = false;
+          }}
+        />
+
+        {!gameStarted && !gameOver && (
+          <div className={layoutStyles.overlay}>
+            <button
+              type='button'
+              onClick={resetGame}
+              className={layoutStyles.startButton}
+            >
+              Start Game
+            </button>
+            <p className={layoutStyles.instructions}>
+              {isMobile
+                ? 'Hold the button below to blow the balloon up'
+                : 'Hold SPACE to blow the balloon up'}
+            </p>
+          </div>
+        )}
+
+        {gameOver && (
+          <div className={layoutStyles.overlay}>
+            <div className={layoutStyles.gameOverText}>
+              {isVictory ? '🎉 You Win!' : 'Game Over!'}
+            </div>
+            <div className={layoutStyles.finalScore}>
+              {isVictory ? 'You reached the goal!' : `Distance: ${score}m`}
+            </div>
+            <button
+              type='button'
+              onClick={resetGame}
+              className={layoutStyles.restartButton}
+            >
+              Play Again
+            </button>
+            <p className={layoutStyles.instructions}>
+              {isMobile ? 'Tap to restart' : 'Press SPACE or click to restart'}
+            </p>
+          </div>
+        )}
       </div>
-    </div>
+    </GameLayout>
   );
 }

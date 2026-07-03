@@ -2,89 +2,7 @@
    DOROTEYO GAME — portfolio design-system skin
    ================================================================ */
 
-/* ---- Layout ---- */
-.container {
-  --game-color: #f59e0b;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--bg);
-  padding: 2rem;
-}
-
-.gameWrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 2.4rem;
-  max-width: 1400px;
-  width: 100%;
-}
-
-/* ---- Side-by-side layout ---- */
-.gameLayout {
-  display: grid;
-  grid-template-columns: 4fr 1fr;
-  gap: 2.4rem;
-  align-items: start;
-  width: 100%;
-}
-
-.gameColumn {
-  display: flex;
-  flex-direction: column;
-  gap: 1.6rem;
-  min-width: 0;
-  align-self: start;
-}
-
-.sidePanel {
-  display: flex;
-  flex-direction: column;
-  gap: 1.6rem;
-  min-width: 0;
-  align-self: start;
-}
-
-/* ---- Title ---- */
-.title {
-  font-family: "Space Mono", monospace;
-  font-size: 3.2rem;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  color: var(--game-color);
-  margin: 0;
-  text-align: center;
-  width: 100%;
-}
-
-/* ---- Scoreboard ---- */
-.scoreBoard {
-  display: flex;
-  gap: 1.2rem;
-  justify-content: center;
-  align-items: stretch;
-  flex-wrap: wrap;
-  width: 100%;
-}
-
-.score {
-  font-family: "Space Mono", monospace;
-  font-size: 1.35rem;
-  padding: 0.8rem 1.6rem;
-  background-color: var(--bg-card);
-  border: 1px solid var(--border);
-  border-top: 2px solid var(--game-color);
-  border-radius: 0.8rem;
-  color: var(--text);
-  min-width: 14rem;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: var(--shadow);
-}
-
+/* ---- Health chip (unique) ---- */
 .health {
   font-family: "Space Mono", monospace;
   display: flex;
@@ -117,20 +35,10 @@
   transform: scale(1.2);
 }
 
-/* ---- Canvas ---- */
+/* ---- Canvas (unique flash-on-hit effect) ---- */
 .canvasWrapper {
-  position: relative;
-  border: 1px solid var(--border);
-  border-top: 2px solid var(--game-color);
-  border-radius: 0.8rem;
-  overflow: hidden;
-  box-shadow:
-    var(--shadow),
-    0 0 28px -6px var(--game-color);
+  composes: canvasWrapper from "../GameLayout/GameLayout.module.css";
   transition: box-shadow 0.1s ease;
-  line-height: 0;
-  font-size: 0;
-  width: 100%;
 }
 
 .flash {
@@ -149,76 +57,20 @@
   }
 }
 
-.canvas {
-  display: block;
-  max-width: 100%;
-  height: auto;
-  width: 100%;
-}
-
-/* ---- Overlay ---- */
+/* ---- Overlay (needs reset from canvasWrapper's font-size:0/line-height:0) ---- */
 .overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(241, 245, 249, 0.96);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 1.6rem;
-  backdrop-filter: blur(8px);
+  composes: overlay from "../GameLayout/GameLayout.module.css";
   padding: 2rem;
   line-height: normal;
   font-size: 1rem;
 }
 
-:global(:root.dark) .overlay {
-  background: rgba(24, 24, 27, 0.96);
-}
-
-/* ---- Buttons ---- */
-.startButton,
-.restartButton {
-  font-family: "Space Mono", monospace;
-  font-size: 1.35rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: #ffffff;
-  background: var(--accent);
-  border: none;
-  border-radius: 0.8rem;
-  padding: 1rem 3.2rem;
-  cursor: pointer;
-  transition:
-    background 0.2s ease,
-    transform 0.2s ease,
-    box-shadow 0.2s ease;
-  box-shadow: var(--shadow);
-}
-
-.startButton:hover,
-.restartButton:hover {
-  background: var(--accent-hover);
-  transform: translateY(-2px);
-  box-shadow:
-    var(--shadow),
-    0 0 0 1px var(--accent);
-}
-
-.startButton:active,
-.restartButton:active {
-  transform: translateY(0);
-}
-
-/* ---- Overlay text ---- */
-.gameOverText {
-  font-family: "Space Mono", monospace;
-  font-size: 2.4rem;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  color: var(--game-color);
-  margin: 0 0 0.4rem 0;
+/* ---- Level transition screen (unique) ---- */
+.levelTransition {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
   animation: fadeInScale 0.4s ease-out;
 }
 
@@ -231,14 +83,6 @@
     opacity: 1;
     transform: scale(1);
   }
-}
-
-.levelTransition {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.8rem;
-  animation: fadeInScale 0.4s ease-out;
 }
 
 .levelNumber {
@@ -256,25 +100,7 @@
   color: var(--text-muted);
 }
 
-.finalScore {
-  font-family: "Space Mono", monospace;
-  font-size: 1.6rem;
-  color: var(--game-color);
-  font-weight: 700;
-  margin: 0;
-}
-
-.instructions {
-  font-family: "Inter", sans-serif;
-  font-size: 1.4rem;
-  color: var(--text-muted);
-  margin: 0;
-  text-align: center;
-  max-width: 36rem;
-  line-height: 1.6;
-}
-
-/* ---- Tap hint ---- */
+/* ---- Tap hint (unique) ---- */
 .tapHint {
   font-family: "Inter", sans-serif;
   font-size: 1.35rem;
@@ -289,30 +115,7 @@
   width: 100%;
 }
 
-/* ---- Controls panel ---- */
-.controls {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1.6rem;
-  padding: 2rem 2.4rem;
-  background-color: var(--bg-card);
-  border: 1px solid var(--border);
-  border-top: 2px solid var(--game-color);
-  border-radius: 0.8rem;
-  width: 100%;
-  box-shadow: var(--shadow);
-}
-
-.controlsTitle {
-  font-family: "Space Mono", monospace;
-  font-size: 1.35rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: var(--game-color);
-}
-
+/* ---- Controls layout (3 buttons: left/right/shoot) ---- */
 .controlInfo {
   display: flex;
   gap: 1.2rem;
@@ -320,140 +123,15 @@
   justify-content: center;
 }
 
-.controlItem {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  transition: transform 0.15s ease;
-  padding: 0;
-  border-radius: 0.8rem;
-  user-select: none;
-}
-
-.controlItem:hover {
-  transform: translateY(-2px);
-}
-
-.controlItem:active {
-  transform: scale(0.95) translateY(0);
-}
-
 .key {
-  font-family: "Space Mono", monospace;
+  composes: key from "../GameLayout/GameLayout.module.css";
   font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--accent);
-  background-color: var(--bg-card);
-  border: 1px solid var(--border);
-  border-top: 2px solid var(--game-color);
-  border-radius: 0.8rem;
   padding: 1rem 1.6rem;
   min-width: 10rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  box-shadow: var(--shadow);
-  transition:
-    box-shadow 0.2s ease,
-    border-color 0.2s ease;
-}
-
-.controlItem:hover .key {
-  box-shadow:
-    var(--shadow),
-    0 0 0 1px var(--accent);
-  border-top-color: var(--accent-subtle);
-}
-
-/* ---- Game instructions panel ---- */
-.gameInstructions {
-  padding: 2rem 2.4rem;
-  background-color: var(--bg-card);
-  border: 1px solid var(--border);
-  border-top: 2px solid var(--game-color);
-  border-radius: 0.8rem;
-  width: 100%;
-  box-shadow: var(--shadow);
-}
-
-.instructionsTitle {
-  font-family: "Space Mono", monospace;
-  font-size: 1.6rem;
-  font-weight: 700;
-  letter-spacing: -0.01em;
-  color: var(--text);
-  margin: 0 0 1.4rem 0;
-}
-
-.instructionsList {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
-}
-
-.instructionsList li {
-  font-family: "Inter", sans-serif;
-  font-size: 1.4rem;
-  color: var(--text-muted);
-  line-height: 1.6;
-  padding-left: 1.2rem;
-  border-left: 2px solid var(--accent-dim);
-}
-
-.instructionsList strong {
-  color: var(--text);
-  font-weight: 600;
 }
 
 /* ---- Responsive ---- */
-@media (max-width: 960px) {
-  .gameLayout {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 900px) {
-  .canvas {
-    max-width: 100%;
-    height: auto;
-  }
-
-  .canvasWrapper {
-    width: 100%;
-  }
-}
-
 @media (max-width: 640px) {
-  .container {
-    padding: 1.2rem;
-  }
-
-  .gameWrapper {
-    gap: 1.6rem;
-  }
-
-  .title {
-    font-size: 2.4rem;
-  }
-
-  .scoreBoard {
-    gap: 0.8rem;
-  }
-
-  .score {
-    min-width: 0;
-    flex: 1;
-    padding: 0.7rem 1rem;
-    font-size: 1.2rem;
-  }
-
   .health {
     padding: 0.7rem 1rem;
   }
@@ -462,22 +140,8 @@
     font-size: 1.5rem;
   }
 
-  .gameOverText {
-    font-size: 2rem;
-  }
-
   .levelNumber {
     font-size: 3rem;
-  }
-
-  .startButton,
-  .restartButton {
-    font-size: 1.2rem;
-    padding: 0.9rem 2.4rem;
-  }
-
-  .controls {
-    padding: 1.4rem 1.6rem;
   }
 
   .key {

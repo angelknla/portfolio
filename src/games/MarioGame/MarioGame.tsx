@@ -2,18 +2,23 @@
 
 import { useCallback, useEffect, useRef, useState } from 'react';
 
+import {
+  CANVAS_HEIGHT,
+  CANVAS_WIDTH,
+  MOVE_SPEED,
+  PLAYER_HEIGHT,
+  PLAYER_WIDTH,
+} from '../constants';
+import GameLayout from '../GameLayout/GameLayout';
+
+import layoutStyles from '../GameLayout/GameLayout.module.css';
 import styles from './MarioGame.module.css';
 
 type Platform = { x: number; y: number; width: number; height: number };
 type Coin = { x: number; y: number; collected: boolean };
 
-const CANVAS_WIDTH = 800;
-const CANVAS_HEIGHT = 600;
-const PLAYER_WIDTH = 40;
-const PLAYER_HEIGHT = 50;
 const GRAVITY = 0.6;
 const JUMP_FORCE = -12;
-const MOVE_SPEED = 5;
 const GROUND_Y = CANVAS_HEIGHT - 50;
 
 const LEVELS = [
@@ -402,169 +407,162 @@ export default function MarioGame() {
   }, [currentLevel]);
 
   return (
-    <div className={styles.container}>
-      <div className={styles.gameWrapper}>
-        <h1 className={styles.title}>🍄 Super Mario Platform</h1>
-
-        <div className={styles.scoreBoard}>
-          <div className={styles.level}>
+    <GameLayout
+      title='🍄 Super Mario Platform'
+      gameColor='#ef4444'
+      scoreBoard={
+        <>
+          <div className={layoutStyles.scoreItem}>
             Level: {currentLevel + 1}/{LEVELS.length}
           </div>
-          <div className={styles.score}>Score: {score}</div>
-          <div className={styles.coins}>
+          <div className={layoutStyles.scoreItem}>Score: {score}</div>
+          <div className={layoutStyles.scoreItem}>
             Coins: {coinsRef.current.filter((c) => c.collected).length}/
             {coinsRef.current.length}
           </div>
-        </div>
-
-        <div className={styles.gameLayout}>
-          <div className={styles.gameColumn}>
-            <div className={styles.canvasWrapper}>
-              <canvas
-                ref={canvasRef}
-                width={CANVAS_WIDTH}
-                height={CANVAS_HEIGHT}
-                className={styles.canvas}
-              />
-
-              {!gameStarted && !gameOver && (
-                <div className={styles.overlay}>
-                  <button
-                    type='button'
-                    onClick={resetGame}
-                    className={styles.startButton}
-                  >
-                    Start Game
-                  </button>
-                  <p className={styles.instructions}>
-                    {isMobile
-                      ? 'Use the buttons below to move and jump'
-                      : 'Use arrow keys to move and jump (or SPACE to jump)'}
-                  </p>
-                </div>
-              )}
-
-              {gameOver && (
-                <div className={styles.overlay}>
-                  <div className={styles.gameOverText}>
-                    {isVictory ? '🎉 You Win!' : 'Game Over!'}
-                  </div>
-                  <div className={styles.finalScore}>
-                    {isVictory
-                      ? 'All coins collected!'
-                      : `Final Score: ${score}`}
-                  </div>
-                  <button
-                    type='button'
-                    onClick={resetGame}
-                    className={styles.restartButton}
-                  >
-                    Play Again
-                  </button>
-                  <p className={styles.instructions}>
-                    {isMobile
-                      ? 'Tap to restart'
-                      : 'Press SPACE or click to restart'}
-                  </p>
-                </div>
-              )}
+        </>
+      }
+      sidePanel={
+        <>
+          <div className={layoutStyles.controls}>
+            <div className={layoutStyles.controlsTitle}>
+              {isMobile ? 'Touch Controls' : 'Keyboard Controls'}
+            </div>
+            <div className={styles.controlInfo}>
+              <button
+                type='button'
+                className={layoutStyles.controlItem}
+                onTouchStart={() => keysRef.current.add('ArrowLeft')}
+                onTouchEnd={() => keysRef.current.delete('ArrowLeft')}
+                onMouseDown={() => keysRef.current.add('ArrowLeft')}
+                onMouseUp={() => keysRef.current.delete('ArrowLeft')}
+                onMouseLeave={() => keysRef.current.delete('ArrowLeft')}
+                aria-label='Move Left'
+              >
+                <span className={styles.key}>←</span>
+              </button>
+              <button
+                type='button'
+                className={layoutStyles.controlItem}
+                onTouchStart={() => keysRef.current.add('ArrowRight')}
+                onTouchEnd={() => keysRef.current.delete('ArrowRight')}
+                onMouseDown={() => keysRef.current.add('ArrowRight')}
+                onMouseUp={() => keysRef.current.delete('ArrowRight')}
+                onMouseLeave={() => keysRef.current.delete('ArrowRight')}
+                aria-label='Move Right'
+              >
+                <span className={styles.key}>→</span>
+              </button>
+              <button
+                type='button'
+                className={layoutStyles.controlItem}
+                onTouchStart={() => {
+                  keysRef.current.add('ArrowUp');
+                  setTimeout(() => keysRef.current.delete('ArrowUp'), 100);
+                }}
+                onClick={() => {
+                  keysRef.current.add('ArrowUp');
+                  setTimeout(() => keysRef.current.delete('ArrowUp'), 100);
+                }}
+                aria-label='Jump'
+              >
+                <span className={styles.key}>↑</span>
+              </button>
             </div>
           </div>
 
-          <div className={styles.sidePanel}>
-            <div className={styles.controls}>
-              <div className={styles.controlsTitle}>
-                {isMobile ? 'Touch Controls' : 'Keyboard Controls'}
+          <div className={layoutStyles.instructionsPanel}>
+            <h2 className={layoutStyles.instructionsTitle}>📋 How to Play</h2>
+            <div className={layoutStyles.instructionsList}>
+              <div className={layoutStyles.instructionItem}>
+                <span className={layoutStyles.instructionIcon}>
+                  {isMobile ? '👆' : '⌨️'}
+                </span>
+                <div>
+                  <strong>Move</strong>
+                  <p>
+                    {isMobile
+                      ? 'Tap ← → to run left and right'
+                      : 'Arrow keys ← → to run left and right'}
+                  </p>
+                </div>
               </div>
-              <div className={styles.controlInfo}>
-                <button
-                  type='button'
-                  className={styles.controlItem}
-                  onTouchStart={() => keysRef.current.add('ArrowLeft')}
-                  onTouchEnd={() => keysRef.current.delete('ArrowLeft')}
-                  onMouseDown={() => keysRef.current.add('ArrowLeft')}
-                  onMouseUp={() => keysRef.current.delete('ArrowLeft')}
-                  onMouseLeave={() => keysRef.current.delete('ArrowLeft')}
-                  aria-label='Move Left'
-                >
-                  <span className={styles.key}>←</span>
-                </button>
-                <button
-                  type='button'
-                  className={styles.controlItem}
-                  onTouchStart={() => keysRef.current.add('ArrowRight')}
-                  onTouchEnd={() => keysRef.current.delete('ArrowRight')}
-                  onMouseDown={() => keysRef.current.add('ArrowRight')}
-                  onMouseUp={() => keysRef.current.delete('ArrowRight')}
-                  onMouseLeave={() => keysRef.current.delete('ArrowRight')}
-                  aria-label='Move Right'
-                >
-                  <span className={styles.key}>→</span>
-                </button>
-                <button
-                  type='button'
-                  className={styles.controlItem}
-                  onTouchStart={() => {
-                    keysRef.current.add('ArrowUp');
-                    setTimeout(() => keysRef.current.delete('ArrowUp'), 100);
-                  }}
-                  onClick={() => {
-                    keysRef.current.add('ArrowUp');
-                    setTimeout(() => keysRef.current.delete('ArrowUp'), 100);
-                  }}
-                  aria-label='Jump'
-                >
-                  <span className={styles.key}>↑</span>
-                </button>
+              <div className={layoutStyles.instructionItem}>
+                <span className={layoutStyles.instructionIcon}>🦘</span>
+                <div>
+                  <strong>Jump</strong>
+                  <p>
+                    {isMobile
+                      ? 'Tap ↑ to jump onto platforms'
+                      : 'Arrow key ↑ or SPACE to jump onto platforms'}
+                  </p>
+                </div>
               </div>
-            </div>
-
-            <div className={styles.instructionsPanel}>
-              <h2 className={styles.instructionsTitle}>📋 How to Play</h2>
-              <div className={styles.instructionsList}>
-                <div className={styles.instructionItem}>
-                  <span className={styles.instructionIcon}>
-                    {isMobile ? '👆' : '⌨️'}
-                  </span>
-                  <div>
-                    <strong>Move</strong>
-                    <p>
-                      {isMobile
-                        ? 'Tap ← → to run left and right'
-                        : 'Arrow keys ← → to run left and right'}
-                    </p>
-                  </div>
+              <div className={layoutStyles.instructionItem}>
+                <span className={layoutStyles.instructionIcon}>🪙</span>
+                <div>
+                  <strong>Coins</strong>
+                  <p>Collect all coins to complete the level</p>
                 </div>
-                <div className={styles.instructionItem}>
-                  <span className={styles.instructionIcon}>🦘</span>
-                  <div>
-                    <strong>Jump</strong>
-                    <p>
-                      {isMobile
-                        ? 'Tap ↑ to jump onto platforms'
-                        : 'Arrow key ↑ or SPACE to jump onto platforms'}
-                    </p>
-                  </div>
-                </div>
-                <div className={styles.instructionItem}>
-                  <span className={styles.instructionIcon}>🪙</span>
-                  <div>
-                    <strong>Coins</strong>
-                    <p>Collect all coins to complete the level</p>
-                  </div>
-                </div>
-                <div className={styles.instructionItem}>
-                  <span className={styles.instructionIcon}>🏆</span>
-                  <div>
-                    <strong>Levels</strong>
-                    <p>Clear both levels to win the game</p>
-                  </div>
+              </div>
+              <div className={layoutStyles.instructionItem}>
+                <span className={layoutStyles.instructionIcon}>🏆</span>
+                <div>
+                  <strong>Levels</strong>
+                  <p>Clear both levels to win the game</p>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        </>
+      }
+    >
+      <div className={layoutStyles.canvasWrapper}>
+        <canvas
+          ref={canvasRef}
+          width={CANVAS_WIDTH}
+          height={CANVAS_HEIGHT}
+          className={layoutStyles.canvas}
+        />
+
+        {!gameStarted && !gameOver && (
+          <div className={layoutStyles.overlay}>
+            <button
+              type='button'
+              onClick={resetGame}
+              className={layoutStyles.startButton}
+            >
+              Start Game
+            </button>
+            <p className={layoutStyles.instructions}>
+              {isMobile
+                ? 'Use the buttons below to move and jump'
+                : 'Use arrow keys to move and jump (or SPACE to jump)'}
+            </p>
+          </div>
+        )}
+
+        {gameOver && (
+          <div className={layoutStyles.overlay}>
+            <div className={layoutStyles.gameOverText}>
+              {isVictory ? '🎉 You Win!' : 'Game Over!'}
+            </div>
+            <div className={layoutStyles.finalScore}>
+              {isVictory ? 'All coins collected!' : `Final Score: ${score}`}
+            </div>
+            <button
+              type='button'
+              onClick={resetGame}
+              className={layoutStyles.restartButton}
+            >
+              Play Again
+            </button>
+            <p className={layoutStyles.instructions}>
+              {isMobile ? 'Tap to restart' : 'Press SPACE or click to restart'}
+            </p>
+          </div>
+        )}
       </div>
-    </div>
+    </GameLayout>
   );
 }

@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from 'react';
 
+import { useRouter, useSearchParams } from 'next/navigation';
+
 import { useLanguage } from '../../contexts/Language';
 import { data as portfolioData } from '../../data/portfolioData';
 import type { ProjectCardProps } from './ProjectCard';
@@ -19,7 +21,21 @@ const GAME_COLORS: Record<string, string> = {
 export const Portfolio = () => {
   const { translations } = useLanguage(portfolioData);
   const [activeTab, setActiveTab] = useState<'projects' | 'games'>('projects');
+  const searchParams = useSearchParams();
+  const router = useRouter();
 
+  // Activated via query param from cross-route navigation (e.g. game pages)
+  useEffect(() => {
+    if (searchParams.get('games') === '1') {
+      setActiveTab('games');
+      router.replace('/#portfolio', { scroll: false });
+      document
+        .getElementById('portfolio')
+        ?.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [searchParams, router]);
+
+  // Activated via hash change on the same page (e.g. About section link)
   useEffect(() => {
     const activateGamesTab = () => {
       if (window.location.hash === '#portfolio-games') {

@@ -28,6 +28,27 @@
   justify-content: space-between;
 }
 
+/* ---- Back link (game routes only) ---- */
+.backLink {
+  font-family: "Inter", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: var(--text-muted);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  position: absolute;
+  left: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: color 0.2s ease;
+}
+
+.backLink:hover {
+  color: var(--accent);
+}
+
 /* ---- Logo ---- */
 .logo {
   font-family: "Inter", sans-serif;
@@ -220,6 +241,15 @@
   /* Show hamburger */
   .menu {
     display: block;
+  }
+
+  /* Move below the logo so they don't overlap on narrow headers */
+  .backLink {
+    top: auto;
+    bottom: 0.6rem;
+    left: 1.6rem;
+    transform: none;
+    font-size: 1.1rem;
   }
 
   /* Full-height mobile overlay */

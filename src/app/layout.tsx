@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 
 import '../styles/global.css';
+import { AppLayout } from './AppLayout';
 
 export const metadata: Metadata = {
   icons: { icon: '/illustration.svg' },
@@ -31,7 +32,9 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
           rel='stylesheet'
         />
       </head>
-      <body>{children}</body>
+      <body>
+        <AppLayout>{children}</AppLayout>
+      </body>
     </html>
   );
 };

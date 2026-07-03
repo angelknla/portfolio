@@ -11,7 +11,7 @@ const FLOATING_ICONS = [
     size: '4.2rem',
     delay: '0s',
     dur: '9s',
-    op: 0.45,
+    op: 0.65,
   },
   {
     src: '/assets/typescript-icon.webp',
@@ -20,7 +20,7 @@ const FLOATING_ICONS = [
     size: '3.6rem',
     delay: '1.2s',
     dur: '11s',
-    op: 0.38,
+    op: 0.48,
   },
   {
     src: '/assets/nextjs-icon.webp',
@@ -29,7 +29,7 @@ const FLOATING_ICONS = [
     size: '3rem',
     delay: '2s',
     dur: '8s',
-    op: 0.35,
+    op: 0.45,
   },
   {
     src: '/assets/js-icon.webp',
@@ -38,7 +38,7 @@ const FLOATING_ICONS = [
     size: '4.4rem',
     delay: '0.6s',
     dur: '12s',
-    op: 0.4,
+    op: 0.6,
   },
   {
     src: '/assets/node-icon.webp',
@@ -47,7 +47,7 @@ const FLOATING_ICONS = [
     size: '3rem',
     delay: '3s',
     dur: '10s',
-    op: 0.33,
+    op: 0.43,
   },
   {
     src: '/assets/css-icon.webp',
@@ -56,7 +56,7 @@ const FLOATING_ICONS = [
     size: '2.8rem',
     delay: '1.6s',
     dur: '7s',
-    op: 0.32,
+    op: 0.52,
   },
   {
     src: '/assets/html-icon.webp',
@@ -65,7 +65,7 @@ const FLOATING_ICONS = [
     size: '3.2rem',
     delay: '2.4s',
     dur: '13s',
-    op: 0.36,
+    op: 0.6,
   },
   {
     src: '/assets/redux.webp',
@@ -74,7 +74,7 @@ const FLOATING_ICONS = [
     size: '3rem',
     delay: '4s',
     dur: '9s',
-    op: 0.32,
+    op: 0.52,
   },
   {
     src: '/assets/bootstrap-icon.webp',
@@ -83,7 +83,7 @@ const FLOATING_ICONS = [
     size: '2.6rem',
     delay: '0.9s',
     dur: '11s',
-    op: 0.3,
+    op: 0.6,
   },
   {
     src: '/assets/vscode-icon.webp',
@@ -92,7 +92,7 @@ const FLOATING_ICONS = [
     size: '3.4rem',
     delay: '3.4s',
     dur: '8.5s',
-    op: 0.34,
+    op: 0.64,
   },
   {
     src: '/assets/mysql-icon.webp',
@@ -101,7 +101,7 @@ const FLOATING_ICONS = [
     size: '2.8rem',
     delay: '2s',
     dur: '14s',
-    op: 0.3,
+    op: 0.6,
   },
   {
     src: '/assets/jest-icon.webp',
@@ -110,7 +110,7 @@ const FLOATING_ICONS = [
     size: '3rem',
     delay: '1.1s',
     dur: '10s',
-    op: 0.32,
+    op: 0.65,
   },
   {
     src: '/assets/vitest-icon.webp',
@@ -119,7 +119,7 @@ const FLOATING_ICONS = [
     size: '2.8rem',
     delay: '3.2s',
     dur: '11.5s',
-    op: 0.3,
+    op: 0.56,
   },
   {
     src: '/assets/playwright-icon.webp',
@@ -128,7 +128,7 @@ const FLOATING_ICONS = [
     size: '3rem',
     delay: '0.4s',
     dur: '9.5s',
-    op: 0.33,
+    op: 0.53,
   },
   {
     src: '/assets/cypress-icon.webp',
@@ -137,7 +137,7 @@ const FLOATING_ICONS = [
     size: '2.8rem',
     delay: '2.8s',
     dur: '12s',
-    op: 0.3,
+    op: 0.6,
   },
   {
     src: '/assets/storybook-icon.webp',
@@ -146,7 +146,7 @@ const FLOATING_ICONS = [
     size: '2.6rem',
     delay: '4.5s',
     dur: '8s',
-    op: 0.3,
+    op: 0.53,
   },
   {
     src: '/assets/tanstack-icon.webp',
@@ -155,7 +155,7 @@ const FLOATING_ICONS = [
     size: '2.8rem',
     delay: '1.8s',
     dur: '13s',
-    op: 0.3,
+    op: 0.6,
   },
   {
     src: '/assets/msw-icon.webp',
@@ -164,7 +164,7 @@ const FLOATING_ICONS = [
     size: '2.6rem',
     delay: '3.7s',
     dur: '10.5s',
-    op: 0.28,
+    op: 0.6,
   },
   {
     src: '/assets/aws-icon.webp',
@@ -173,7 +173,7 @@ const FLOATING_ICONS = [
     size: '3.2rem',
     delay: '0.7s',
     dur: '9s',
-    op: 0.3,
+    op: 0.56,
   },
   {
     src: '/assets/graphql-icon.webp',
@@ -182,7 +182,7 @@ const FLOATING_ICONS = [
     size: '3rem',
     delay: '2.3s',
     dur: '10s',
-    op: 0.32,
+    op: 0.62,
   },
   {
     src: '/assets/apollo-icon.webp',
@@ -191,7 +191,7 @@ const FLOATING_ICONS = [
     size: '2.8rem',
     delay: '5s',
     dur: '11s',
-    op: 0.3,
+    op: 0.67,
   },
 ];
 

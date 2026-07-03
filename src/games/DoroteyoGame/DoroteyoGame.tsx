@@ -2,6 +2,16 @@
 
 import { useCallback, useEffect, useRef, useState } from 'react';
 
+import {
+  CANVAS_HEIGHT,
+  CANVAS_WIDTH,
+  MOVE_SPEED,
+  PLAYER_HEIGHT,
+  PLAYER_WIDTH,
+} from '../constants';
+import GameLayout from '../GameLayout/GameLayout';
+
+import layoutStyles from '../GameLayout/GameLayout.module.css';
 import styles from './DoroteyoGame.module.css';
 
 type Planet = {
@@ -21,11 +31,6 @@ type Shot = {
   trail: { x: number; y: number; alpha: number }[];
 };
 
-const CANVAS_WIDTH = 800;
-const CANVAS_HEIGHT = 600;
-const PLAYER_WIDTH = 40;
-const PLAYER_HEIGHT = 50;
-const MOVE_SPEED = 5;
 const GRAVITY = 0.3;
 const PLANET_COLORS = [
   '#FF6B9D',
@@ -1156,14 +1161,16 @@ export default function DoroteyoGame() {
   }, [currentLevel]);
 
   return (
-    <div className={styles.container}>
-      <div className={styles.gameWrapper}>
-        <h1 className={styles.title}>⭐ Doroteyo</h1>
-
-        <div className={styles.scoreBoard}>
-          <div className={styles.score}>Level: {currentLevel + 1}/2</div>
-          <div className={styles.score}>Score: {score}</div>
-          <div className={styles.score}>
+    <GameLayout
+      title='⭐ Doroteyo'
+      gameColor='#f59e0b'
+      scoreBoard={
+        <>
+          <div className={layoutStyles.scoreItem}>
+            Level: {currentLevel + 1}/2
+          </div>
+          <div className={layoutStyles.scoreItem}>Score: {score}</div>
+          <div className={layoutStyles.scoreItem}>
             Planets: {planetsRef.current.length}
           </div>
           <div
@@ -1175,156 +1182,175 @@ export default function DoroteyoGame() {
               </span>
             ))}
           </div>
-        </div>
+        </>
+      }
+      sidePanel={
+        <>
+          <div className={layoutStyles.controls}>
+            <div className={layoutStyles.controlsTitle}>
+              {isMobile ? 'Touch Controls' : 'Keyboard Controls'}
+            </div>
+            <div className={styles.controlInfo}>
+              <button
+                type='button'
+                className={layoutStyles.controlItem}
+                onTouchStart={() => keysRef.current.add('ArrowLeft')}
+                onTouchEnd={() => keysRef.current.delete('ArrowLeft')}
+                onMouseDown={() => keysRef.current.add('ArrowLeft')}
+                onMouseUp={() => keysRef.current.delete('ArrowLeft')}
+                onMouseLeave={() => keysRef.current.delete('ArrowLeft')}
+                aria-label='Move Left'
+              >
+                <span className={styles.key}>←</span>
+              </button>
+              <button
+                type='button'
+                className={layoutStyles.controlItem}
+                onTouchStart={() => keysRef.current.add('ArrowRight')}
+                onTouchEnd={() => keysRef.current.delete('ArrowRight')}
+                onMouseDown={() => keysRef.current.add('ArrowRight')}
+                onMouseUp={() => keysRef.current.delete('ArrowRight')}
+                onMouseLeave={() => keysRef.current.delete('ArrowRight')}
+                aria-label='Move Right'
+              >
+                <span className={styles.key}>→</span>
+              </button>
+              <button
+                type='button'
+                className={layoutStyles.controlItem}
+                onTouchStart={shoot}
+                onClick={shoot}
+                aria-label='Shoot'
+              >
+                <span className={styles.key}>⭐ SHOOT</span>
+              </button>
+            </div>
+          </div>
 
-        <div className={styles.gameLayout}>
-          <div className={styles.gameColumn}>
-            <div
-              className={`${styles.canvasWrapper} ${isFlashing ? styles.flash : ''}`}
+          <div className={layoutStyles.instructionsPanel}>
+            <h2 className={layoutStyles.instructionsTitle}>📋 How to Play</h2>
+            <div className={layoutStyles.instructionsList}>
+              <div className={layoutStyles.instructionItem}>
+                <span className={layoutStyles.instructionIcon}>🎯</span>
+                <div>
+                  <strong>Objective</strong>
+                  <p>Destroy all planets to complete each level</p>
+                </div>
+              </div>
+              <div className={layoutStyles.instructionItem}>
+                <span className={layoutStyles.instructionIcon}>⭐</span>
+                <div>
+                  <strong>Shooting</strong>
+                  <p>Fire stars at planets to make them split apart</p>
+                </div>
+              </div>
+              <div className={layoutStyles.instructionItem}>
+                <span className={layoutStyles.instructionIcon}>🪐</span>
+                <div>
+                  <strong>Planet Splitting</strong>
+                  <p>
+                    Large planets split into 2 medium, medium into 2 small, then
+                    destroyed
+                  </p>
+                </div>
+              </div>
+              <div className={layoutStyles.instructionItem}>
+                <span className={layoutStyles.instructionIcon}>⚡</span>
+                <div>
+                  <strong>Power-Up</strong>
+                  <p>
+                    When you destroy a small planet, transform into a powered-up
+                    girl for 5 seconds with faster, stronger shots
+                  </p>
+                </div>
+              </div>
+              <div className={layoutStyles.instructionItem}>
+                <span className={layoutStyles.instructionIcon}>❤️</span>
+                <div>
+                  <strong>Health</strong>
+                  <p>
+                    You have 3 lives. Avoid getting hit by bouncing planets!
+                  </p>
+                </div>
+              </div>
+              <div className={layoutStyles.instructionItem}>
+                <span className={layoutStyles.instructionIcon}>🎮</span>
+                <div>
+                  <strong>Levels</strong>
+                  <p>
+                    Complete Level 1 to unlock Level 2. Your health is restored
+                    between levels!
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </>
+      }
+    >
+      <div
+        className={`${styles.canvasWrapper} ${isFlashing ? styles.flash : ''}`}
+      >
+        <canvas
+          ref={canvasRef}
+          width={CANVAS_WIDTH}
+          height={CANVAS_HEIGHT}
+          className={layoutStyles.canvas}
+          onTouchStart={isMobile && gameStarted ? shoot : undefined}
+          onPointerDown={isMobile && gameStarted ? shoot : undefined}
+        />
+
+        {!gameStarted && !gameOver && !showLevelTransition && (
+          <div className={styles.overlay}>
+            <button
+              type='button'
+              onClick={resetGame}
+              className={layoutStyles.startButton}
             >
-              <canvas
-                ref={canvasRef}
-                width={CANVAS_WIDTH}
-                height={CANVAS_HEIGHT}
-                className={styles.canvas}
-                onTouchStart={isMobile && gameStarted ? shoot : undefined}
-                onPointerDown={isMobile && gameStarted ? shoot : undefined}
-              />
-
-              {!gameStarted && !gameOver && !showLevelTransition && (
-                <div className={styles.overlay}>
-                  <button
-                    type='button'
-                    onClick={resetGame}
-                    className={styles.startButton}
-                  >
-                    Start Game
-                  </button>
-                  <p className={styles.instructions}>
-                    {isMobile
-                      ? 'Use buttons to move and shoot stars at planets!'
-                      : 'Arrow keys to move, SPACE to shoot stars at planets!'}
-                  </p>
-                </div>
-              )}
-
-              {showLevelTransition && (
-                <div className={styles.overlay}>
-                  <div className={styles.levelTransition}>
-                    <div className={styles.levelNumber}>Level 2</div>
-                    <div className={styles.levelSubtext}>Get Ready!</div>
-                  </div>
-                </div>
-              )}
-
-              {gameOver && (
-                <div className={styles.overlay}>
-                  <div className={styles.gameOverText}>
-                    {isVictory ? '🎉 Victory!' : 'Game Over!'}
-                  </div>
-                  <div className={styles.finalScore}>
-                    {isVictory
-                      ? 'All planets destroyed!'
-                      : `Final Score: ${score}`}
-                  </div>
-                  <button
-                    type='button'
-                    onClick={resetGame}
-                    className={styles.restartButton}
-                  >
-                    Play Again
-                  </button>
-                  <p className={styles.instructions}>
-                    {isMobile
-                      ? 'Tap to restart'
-                      : 'Press SPACE or click to restart'}
-                  </p>
-                </div>
-              )}
-            </div>
-
-            {isMobile && (
-              <p className={styles.tapHint}>
-                💡 Tip: Tap the play area to shoot!
-              </p>
-            )}
+              Start Game
+            </button>
+            <p className={layoutStyles.instructions}>
+              {isMobile
+                ? 'Use buttons to move and shoot stars at planets!'
+                : 'Arrow keys to move, SPACE to shoot stars at planets!'}
+            </p>
           </div>
+        )}
 
-          <div className={styles.sidePanel}>
-            <div className={styles.controls}>
-              <div className={styles.controlsTitle}>
-                {isMobile ? 'Touch Controls' : 'Keyboard Controls'}
-              </div>
-              <div className={styles.controlInfo}>
-                <button
-                  type='button'
-                  className={styles.controlItem}
-                  onTouchStart={() => keysRef.current.add('ArrowLeft')}
-                  onTouchEnd={() => keysRef.current.delete('ArrowLeft')}
-                  onMouseDown={() => keysRef.current.add('ArrowLeft')}
-                  onMouseUp={() => keysRef.current.delete('ArrowLeft')}
-                  onMouseLeave={() => keysRef.current.delete('ArrowLeft')}
-                  aria-label='Move Left'
-                >
-                  <span className={styles.key}>←</span>
-                </button>
-                <button
-                  type='button'
-                  className={styles.controlItem}
-                  onTouchStart={() => keysRef.current.add('ArrowRight')}
-                  onTouchEnd={() => keysRef.current.delete('ArrowRight')}
-                  onMouseDown={() => keysRef.current.add('ArrowRight')}
-                  onMouseUp={() => keysRef.current.delete('ArrowRight')}
-                  onMouseLeave={() => keysRef.current.delete('ArrowRight')}
-                  aria-label='Move Right'
-                >
-                  <span className={styles.key}>→</span>
-                </button>
-                <button
-                  type='button'
-                  className={styles.controlItem}
-                  onTouchStart={shoot}
-                  onClick={shoot}
-                  aria-label='Shoot'
-                >
-                  <span className={styles.key}>⭐ SHOOT</span>
-                </button>
-              </div>
-            </div>
-
-            <div className={styles.gameInstructions}>
-              <h3 className={styles.instructionsTitle}>How to Play</h3>
-              <ul className={styles.instructionsList}>
-                <li>
-                  🎯 <strong>Objective:</strong> Destroy all planets to complete
-                  each level
-                </li>
-                <li>
-                  ⭐ <strong>Shooting:</strong> Fire stars at planets to make
-                  them split apart
-                </li>
-                <li>
-                  🪐 <strong>Planet Splitting:</strong> Large planets split into
-                  2 medium, medium into 2 small, then destroyed
-                </li>
-                <li>
-                  ⚡ <strong>Power-Up:</strong> When you destroy a small planet,
-                  transform into a powered-up girl for 5 seconds with faster,
-                  stronger shots
-                </li>
-                <li>
-                  ❤️ <strong>Health:</strong> You have 3 lives. Avoid getting hit
-                  by bouncing planets!
-                </li>
-                <li>
-                  🎮 <strong>Levels:</strong> Complete Level 1 to unlock Level
-                  2. Your health is restored between levels!
-                </li>
-              </ul>
+        {showLevelTransition && (
+          <div className={styles.overlay}>
+            <div className={styles.levelTransition}>
+              <div className={styles.levelNumber}>Level 2</div>
+              <div className={styles.levelSubtext}>Get Ready!</div>
             </div>
           </div>
-        </div>
+        )}
+
+        {gameOver && (
+          <div className={styles.overlay}>
+            <div className={layoutStyles.gameOverText}>
+              {isVictory ? '🎉 Victory!' : 'Game Over!'}
+            </div>
+            <div className={layoutStyles.finalScore}>
+              {isVictory ? 'All planets destroyed!' : `Final Score: ${score}`}
+            </div>
+            <button
+              type='button'
+              onClick={resetGame}
+              className={layoutStyles.restartButton}
+            >
+              Play Again
+            </button>
+            <p className={layoutStyles.instructions}>
+              {isMobile ? 'Tap to restart' : 'Press SPACE or click to restart'}
+            </p>
+          </div>
+        )}
       </div>
-    </div>
+
+      {isMobile && (
+        <p className={styles.tapHint}>💡 Tip: Tap the play area to shoot!</p>
+      )}
+    </GameLayout>
   );
 }

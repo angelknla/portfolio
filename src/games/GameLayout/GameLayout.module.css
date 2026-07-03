@@ -1,0 +1,376 @@
+/* ================================================================
+   GAME LAYOUT — shared structural layout for all mini-games
+   ================================================================ */
+
+.container {
+  min-height: calc(100vh - var(--header-height));
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  background-color: var(--bg);
+  padding: 2rem;
+}
+
+.gameWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+  max-width: 1400px;
+  width: 100%;
+}
+
+/* ---- Title ---- */
+.title {
+  font-family: "Space Mono", monospace;
+  font-size: 3.2rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--game-color);
+  margin: 0;
+  text-align: center;
+  width: 100%;
+}
+
+/* ---- Scoreboard wrapper ---- */
+.scoreBoard {
+  display: flex;
+  gap: 1.2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+/* ---- Side-by-side layout ---- */
+.gameLayout {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 2.4rem;
+  align-items: start;
+  width: 100%;
+}
+
+.gameColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  align-self: start;
+}
+
+.sidePanel {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  align-self: start;
+}
+
+/* ---- Score chip ---- */
+.scoreItem {
+  font-family: "Space Mono", monospace;
+  font-size: 1.35rem;
+  padding: 0.8rem 1.6rem;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border);
+  border-top: 2px solid var(--game-color);
+  border-radius: 0.8rem;
+  color: var(--text);
+  flex: 1;
+  max-width: 20rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow);
+}
+
+/* ---- Canvas ---- */
+.canvasWrapper {
+  position: relative;
+  border: 1px solid var(--border);
+  border-top: 2px solid var(--game-color);
+  border-radius: 0.8rem;
+  overflow: hidden;
+  box-shadow:
+    var(--shadow),
+    0 0 28px -6px var(--game-color);
+  line-height: 0;
+  font-size: 0;
+  width: 100%;
+}
+
+.canvas {
+  display: block;
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+}
+
+/* ---- Overlay ---- */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(241, 245, 249, 0.96);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.6rem;
+  backdrop-filter: blur(8px);
+}
+
+:global(:root.dark) .overlay {
+  background: rgba(24, 24, 27, 0.96);
+}
+
+/* ---- Buttons ---- */
+.startButton,
+.restartButton {
+  font-family: "Space Mono", monospace;
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #ffffff;
+  background: var(--accent);
+  border: none;
+  border-radius: 0.8rem;
+  padding: 1rem 3.2rem;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+  box-shadow: var(--shadow);
+}
+
+.startButton:hover,
+.restartButton:hover {
+  background: var(--accent-hover);
+  transform: translateY(-2px);
+  box-shadow:
+    var(--shadow),
+    0 0 0 1px var(--accent);
+}
+
+.startButton:active,
+.restartButton:active {
+  transform: translateY(0);
+}
+
+/* ---- Overlay text ---- */
+.gameOverText {
+  font-family: "Space Mono", monospace;
+  font-size: 2.4rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--game-color);
+  margin: 0 0 0.4rem 0;
+  animation: fadeInScale 0.4s ease-out;
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.finalScore {
+  font-family: "Space Mono", monospace;
+  font-size: 1.6rem;
+  color: var(--game-color);
+  font-weight: 700;
+  margin: 0;
+}
+
+.instructions {
+  font-family: "Inter", sans-serif;
+  font-size: 1.4rem;
+  color: var(--text-muted);
+  margin: 0;
+  text-align: center;
+  max-width: 36rem;
+  line-height: 1.6;
+}
+
+/* ---- Controls panel ---- */
+.controls {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.6rem;
+  padding: 2rem 2.4rem;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border);
+  border-top: 2px solid var(--game-color);
+  border-radius: 0.8rem;
+  width: 100%;
+  box-shadow: var(--shadow);
+}
+
+.controlsTitle {
+  font-family: "Space Mono", monospace;
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--game-color);
+}
+
+.controlItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+  padding: 0;
+  border-radius: 0.8rem;
+}
+
+.controlItem:hover {
+  transform: translateY(-2px);
+}
+
+.controlItem:active {
+  transform: scale(0.95) translateY(0);
+}
+
+.key {
+  font-family: "Space Mono", monospace;
+  font-weight: 700;
+  color: var(--accent);
+  background-color: var(--bg-card);
+  border: 1px solid var(--border);
+  border-top: 2px solid var(--game-color);
+  border-radius: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-shadow: var(--shadow);
+  transition:
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.controlItem:hover .key {
+  box-shadow:
+    var(--shadow),
+    0 0 0 1px var(--accent);
+  border-top-color: var(--accent-subtle);
+}
+
+/* ---- Instructions panel ---- */
+.instructionsPanel {
+  padding: 2rem 2.4rem;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border);
+  border-top: 2px solid var(--game-color);
+  border-radius: 0.8rem;
+  width: 100%;
+  box-shadow: var(--shadow);
+}
+
+.instructionsTitle {
+  font-family: "Space Mono", monospace;
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  margin: 0 0 1.4rem 0;
+}
+
+.instructionsList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.instructionItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.2rem;
+}
+
+.instructionIcon {
+  font-size: 2rem;
+  flex-shrink: 0;
+  line-height: 1.4;
+}
+
+.instructionItem strong {
+  display: block;
+  font-family: "Space Mono", monospace;
+  font-size: 1.2rem;
+  color: var(--text);
+  margin-bottom: 0.3rem;
+}
+
+.instructionItem p {
+  font-family: "Inter", sans-serif;
+  font-size: 1.3rem;
+  color: var(--text-muted);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 900px) {
+  .gameLayout {
+    grid-template-columns: 1fr;
+  }
+
+  .canvas {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .canvasWrapper {
+    width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .container {
+    padding: 1.2rem;
+  }
+
+  .gameWrapper {
+    gap: 1.6rem;
+  }
+
+  .title {
+    font-size: 2.4rem;
+  }
+
+  .scoreBoard {
+    gap: 0.8rem;
+  }
+
+  .scoreItem {
+    max-width: none;
+    flex: 1;
+    padding: 0.7rem 1rem;
+    font-size: 1.2rem;
+  }
+
+  .gameOverText {
+    font-size: 2rem;
+  }
+
+  .startButton,
+  .restartButton {
+    font-size: 1.2rem;
+    padding: 0.9rem 2.4rem;
+  }
+
+  .controls {
+    display: flex;
+    padding: 1.4rem 1.6rem;
+  }
+}

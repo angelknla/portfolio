@@ -2,6 +2,7 @@ import { useId, useState } from 'react';
 
 import Image from 'next/image';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 import { useLanguage } from '../../contexts/Language';
 import { headerData } from '../../data/headerData';
@@ -18,6 +19,9 @@ export const Header = () => {
   const { translations } = useLanguage(headerData);
   const [active, setActive] = useState(false);
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+  const isHome = pathname === '/';
+  const isGame = pathname.startsWith('/games/');
   const switchId = useId();
 
   if (!translations) return null;
@@ -41,6 +45,14 @@ export const Header = () => {
     }
   };
 
+  const handleNavClick = (id: string) => (e: React.MouseEvent) => {
+    if (isHome) {
+      scrollTo(id)(e);
+    } else {
+      closeMenu();
+    }
+  };
+
   const handleClick = () => {
     const next = !active;
     setActive(next);
@@ -51,10 +63,15 @@ export const Header = () => {
   return (
     <header className={`${styles.container} header-fixed`}>
       <div className={styles.inner}>
+        {isGame && (
+          <Link href='/?games=1#portfolio' className={styles.backLink}>
+            ← Back to games
+          </Link>
+        )}
         <Link
           id='headerName'
-          href='#home'
-          onClick={scrollTo('home')}
+          href={isHome ? '#home' : '/#home'}
+          onClick={handleNavClick('home')}
           className={styles.logo}
         >
           <span>Angel</span>
@@ -65,16 +82,28 @@ export const Header = () => {
           id='main-navigation'
           className={`${styles.nav} ${active ? styles.active : open ? styles.inactive : ''}`}
         >
-          <Link href='#home' onClick={scrollTo('home')}>
+          <Link
+            href={isHome ? '#home' : '/#home'}
+            onClick={handleNavClick('home')}
+          >
             {home}
           </Link>
-          <Link href='#about' onClick={scrollTo('about')}>
+          <Link
+            href={isHome ? '#about' : '/#about'}
+            onClick={handleNavClick('about')}
+          >
             {about}
           </Link>
-          <Link href='#portfolio' onClick={scrollTo('portfolio')}>
+          <Link
+            href={isHome ? '#portfolio' : '/#portfolio'}
+            onClick={handleNavClick('portfolio')}
+          >
             {portfolio}
           </Link>
-          <Link href='#contact' onClick={scrollTo('contact')}>
+          <Link
+            href={isHome ? '#contact' : '/#contact'}
+            onClick={handleNavClick('contact')}
+          >
             {contact}
           </Link>
           <a

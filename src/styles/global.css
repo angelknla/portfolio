@@ -36,6 +36,7 @@
   --blue: #4f46e5;
 
   scroll-padding-top: 8rem;
+  --header-height: 8rem;
 }
 
 :root.dark {

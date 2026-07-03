@@ -2,8 +2,6 @@
 
 import { use } from 'react';
 
-import Link from 'next/link';
-
 import BalloonGame from '../../../games/BalloonGame/BalloonGame';
 import DoroteyoGame from '../../../games/DoroteyoGame/DoroteyoGame';
 import MarioGame from '../../../games/MarioGame/MarioGame';
@@ -27,19 +25,12 @@ export const GamePage = ({ params }: GamePageProps) => {
   const GameComponent = GAME_MAP[gameName];
 
   return (
-    <div className={styles.page}>
-      <nav className={styles.nav}>
-        <Link href='/#portfolio-games' className={styles.backLink}>
-          ← Back to Portfolio
-        </Link>
-      </nav>
-      <main className={styles.main}>
-        {GameComponent ? (
-          <GameComponent />
-        ) : (
-          <p className={styles.notFound}>Game not found.</p>
-        )}
-      </main>
-    </div>
+    <main className={styles.page}>
+      {GameComponent ? (
+        <GameComponent />
+      ) : (
+        <p className={styles.notFound}>Game not found.</p>
+      )}
+    </main>
   );
 };
