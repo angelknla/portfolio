@@ -1,4 +1,4 @@
-import { AvailableLanguages } from './dropdownData';
+import type { AvailableLanguages } from './dropdownData';
 
 export const headerData: Record<AvailableLanguages, Record<string, any>> = {
   english: {

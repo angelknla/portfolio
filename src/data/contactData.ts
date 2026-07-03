@@ -1,4 +1,4 @@
-import { AvailableLanguages } from './dropdownData';
+import type { AvailableLanguages } from './dropdownData';
 
 export const contactData: Record<AvailableLanguages, Record<string, any>> = {
   english: {

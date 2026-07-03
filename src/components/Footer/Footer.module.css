@@ -32,20 +32,6 @@
   color: var(--accent);
 }
 
-.container p {
-  font-size: 1.35rem;
-  color: var(--text-muted);
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.container p img {
-  width: 1.6rem;
-  animation: spinning 6s infinite linear;
-  opacity: 0.6;
-}
-
 .socialMedia {
   display: flex;
   align-items: center;
@@ -64,6 +50,20 @@
 .socialMedia img {
   width: 2.2rem;
   height: auto;
+}
+
+.container p {
+  font-size: 1.35rem;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.container p img {
+  width: 1.6rem;
+  animation: spinning 6s infinite linear;
+  opacity: 0.6;
 }
 
 .message span {

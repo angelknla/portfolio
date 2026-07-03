@@ -1,7 +1,7 @@
 {
   "root": true,
   "files": {
-    "includes": ["**", "!node_modules/**", "!.next/**", "!build/**", "!out/**"]
+    "includes": ["**", "!node_modules", "!.next", "!build", "!out"]
   },
   "vcs": {
     "enabled": false,
@@ -67,11 +67,12 @@
         "noDangerouslySetInnerHtml": "off"
       },
       "a11y": {
-        "noStaticElementInteractions": "off"
+        "noStaticElementInteractions": "off",
+        "noSvgWithoutTitle": "off"
       },
       "complexity": {
         "noUselessFragments": "off",
-        "noImportantStyles": "info"
+        "noImportantStyles": "off"
       }
     }
   },

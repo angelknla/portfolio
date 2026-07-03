@@ -1,8 +1,8 @@
-import { createContext, ReactNode, useContext, useState } from 'react';
+import { createContext, type ReactNode, useContext, useState } from 'react';
 
 import {
-  AvailableLanguages,
-  LanguageData,
+  type AvailableLanguages,
+  type LanguageData,
   languageData,
 } from '@/data/dropdownData';
 

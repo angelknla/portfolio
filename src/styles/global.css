@@ -59,20 +59,6 @@
 }
 
 /* ================================================================
-   DARK MODE – COMPONENT OVERRIDES
-   ================================================================ */
-
-/* Contact buttons use a slightly darker surface in dark mode */
-:root.dark .contactButton {
-  background-color: var(--bg-card);
-}
-
-/* Force full-contrast header links in dark mode */
-:root.dark header.header-fixed a {
-  color: var(--text);
-}
-
-/* ================================================================
    RESET
    ================================================================ */
 *,
@@ -170,4 +156,18 @@ button {
 button:disabled {
   opacity: 0.5;
   cursor: not-allowed;
+}
+
+/* ================================================================
+   DARK MODE – COMPONENT OVERRIDES
+   ================================================================ */
+
+/* Contact buttons use a slightly darker surface in dark mode */
+:root.dark .contactButton {
+  background-color: var(--bg-card);
+}
+
+/* Force full-contrast header links in dark mode */
+:root.dark header.header-fixed a {
+  color: var(--text);
 }

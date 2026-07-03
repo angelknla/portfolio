@@ -1,4 +1,4 @@
-import { AvailableLanguages } from './dropdownData';
+import type { AvailableLanguages } from './dropdownData';
 
 export const formData: Record<AvailableLanguages, Record<string, any>> = {
   english: {
