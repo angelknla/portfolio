@@ -168,6 +168,8 @@
   gap: 1.6rem;
   backdrop-filter: blur(8px);
   padding: 2rem;
+  line-height: normal;
+  font-size: 1rem;
 }
 
 :global(:root.dark) .overlay {

@@ -119,10 +119,12 @@ export default function MarioGame() {
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === ' ' && gameOver) {
+      if (e.key === ' ') {
         e.preventDefault();
-        resetGame();
-        return;
+        if (gameOver) {
+          resetGame();
+          return;
+        }
       }
       keysRef.current.add(e.key);
     };
@@ -157,7 +159,10 @@ export default function MarioGame() {
       }
 
       // Handle jumping
-      if (keysRef.current.has('ArrowUp') && !player.isJumping) {
+      if (
+        (keysRef.current.has('ArrowUp') || keysRef.current.has(' ')) &&
+        !player.isJumping
+      ) {
         player.velocityY = JUMP_FORCE;
         player.isJumping = true;
       }
@@ -434,7 +439,7 @@ export default function MarioGame() {
                   <p className={styles.instructions}>
                     {isMobile
                       ? 'Use the buttons below to move and jump'
-                      : 'Use arrow keys to move and jump'}
+                      : 'Use arrow keys to move and jump (or SPACE to jump)'}
                   </p>
                 </div>
               )}
@@ -537,7 +542,7 @@ export default function MarioGame() {
                     <p>
                       {isMobile
                         ? 'Tap ↑ to jump onto platforms'
-                        : 'Arrow key ↑ to jump onto platforms'}
+                        : 'Arrow key ↑ or SPACE to jump onto platforms'}
                     </p>
                   </div>
                 </div>

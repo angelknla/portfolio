@@ -21,12 +21,12 @@ export const aboutData: Record<AvailableLanguages, Record<string, any>> = {
     },
   },
   spanish: {
-    title: 'Sobre mi',
+    title: 'Sobre mí',
     p1: 'Ingeniero de Software Full Stack especializado en React, Next.js, TypeScript y arquitecturas cloud-native, con experiencia construyendo productos web escalables y de alta calidad que generan valor de negocio medible.',
     p2: 'Actualmente en The LEGO Group, desarrollando experiencias orientadas al cliente que combinan una interfaz de usuario perfecta al píxel con accesibilidad, rendimiento y mantenibilidad.',
-    p3: 'Me apasionan las prácticas modernas de ingeniería de software, incluyendo el desarrollo asistido por IA, los flujos de trabajo agénticos, las pruebas automatizadas y CI/CD. Aprovecho activamente los LLMs y enfoques agénticos para acelerar la implementación, automatizar tareas de ingeniería repetitivas, mejorar la productividad del desarrollador y elevar la calidad del software, manteniendo la supervisión humana como eje central de la toma de decisiones técnicas.',
+    p3: 'Me apasionan las prácticas modernas de ingeniería de software, incluyendo el desarrollo asistido por IA, los flujos de trabajo con agentes autónomos, las pruebas automatizadas y CI/CD. Aprovecho activamente los LLMs y enfoques basados en agentes para acelerar la implementación, automatizar tareas de ingeniería repetitivas, mejorar la productividad del desarrollador y elevar la calidad del software, manteniendo la supervisión humana como eje central de la toma de decisiones técnicas.',
     p4: {
-      title: 'HABILIDADES TECNICAS',
+      title: 'HABILIDADES TÉCNICAS',
       content:
         '- Tecnologías front-end, como JavaScript, TypeScript, React JS, Redux, lenguajes de marcado/estilo como HTML5, XML y CSS.',
     },
@@ -34,7 +34,7 @@ export const aboutData: Record<AvailableLanguages, Record<string, any>> = {
     h3: 'Estas son mis habilidades principales:',
     pGames: {
       before:
-        'Soy un gran fan de los videojuegos y disfruto codiándolos en mi tiempo libre. He creado cuatro juegos básicos de inspiración clásica, una forma divertida de practicar mis habilidades de coding, diseño de juegos y resolución de problemas — puedes probarlos en la ',
+        'Soy un gran fan de los videojuegos y disfruto programándolos en mi tiempo libre. He creado cuatro juegos básicos de inspiración clásica, una forma divertida de practicar mis habilidades de programación, diseño de juegos y resolución de problemas — puedes probarlos en la ',
       link: 'sección de portfolio más abajo',
       after: '.',
     },
@@ -53,7 +53,7 @@ export const aboutData: Record<AvailableLanguages, Record<string, any>> = {
     h3: 'これらは私のメインスキルです:',
     pGames: {
       before:
-        'ビデオゲームが大好きで、趣味でコーディングを楽しんでいます。coding、ゲームデザイン、問題解決のスキルを幅広く活かす楽しい方法として、クラシック風のシンプルな小ゲームを4つ制作しました。これらは',
+        'ビデオゲームが大好きで、趣味でコーディングを楽しんでいます。コーディング、ゲームデザイン、問題解決のスキルを幅広く活かす楽しい方法として、クラシック風のシンプルな小ゲームを4つ制作しました。これらは',
       link: '以下のポートフォリオセクション',
       after: 'でお試しいただけます。',
     },
