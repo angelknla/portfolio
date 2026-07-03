@@ -2,18 +2,18 @@
 
 import { useCallback, useEffect, useRef, useState } from 'react';
 
-import { useLanguage } from '../../contexts/Language';
-import { gamesData } from '../../data/gamesData';
+import { useLanguage } from '@/contexts/Language';
+import { gamesData } from '@/data/gamesData';
 import {
   CANVAS_HEIGHT,
   CANVAS_WIDTH,
   MOVE_SPEED,
   PLAYER_HEIGHT,
   PLAYER_WIDTH,
-} from '../constants';
-import GameLayout from '../GameLayout/GameLayout';
+} from '@/games/constants';
+import GameLayout from '@/games/GameLayout/GameLayout';
+import layoutStyles from '@/games/GameLayout/GameLayout.module.css';
 
-import layoutStyles from '../GameLayout/GameLayout.module.css';
 import styles from './DoroteyoGame.module.css';
 
 type Planet = {
@@ -1309,6 +1309,7 @@ export default function DoroteyoGame() {
             </button>
             <p className={layoutStyles.instructions}>
               {isMobile ? t?.startTextMobile : t?.startTextDesktop}
+              {isMobile && ` ${t?.tapHint}`}
             </p>
           </div>
         )}
@@ -1343,8 +1344,6 @@ export default function DoroteyoGame() {
           </div>
         )}
       </div>
-
-      {isMobile && <p className={styles.tapHint}>{t?.tapHint}</p>}
     </GameLayout>
   );
 }

@@ -3,8 +3,8 @@ import { useId, useState } from 'react';
 import { useForm, ValidationError } from '@formspree/react';
 import dynamic from 'next/dynamic';
 
-import { useLanguage } from '../../contexts/Language';
-import { formData } from '../../data/formData';
+import { useLanguage } from '@/contexts/Language';
+import { formData } from '@/data/formData';
 
 import styles from './Form.module.css';
 

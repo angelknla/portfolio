@@ -1,7 +1,7 @@
 import Image from 'next/image';
 
-import { useLanguage } from '../../contexts/Language';
-import { footerData } from '../../data/footerData';
+import { useLanguage } from '@/contexts/Language';
+import { footerData } from '@/data/footerData';
 
 import styles from './Footer.module.css';
 

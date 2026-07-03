@@ -4,8 +4,9 @@ import { useEffect, useState } from 'react';
 
 import { useRouter, useSearchParams } from 'next/navigation';
 
-import { useLanguage } from '../../contexts/Language';
-import { data as portfolioData } from '../../data/portfolioData';
+import { useLanguage } from '@/contexts/Language';
+import { data as portfolioData } from '@/data/portfolioData';
+
 import type { ProjectCardProps } from './ProjectCard';
 import ProjectCard from './ProjectCard';
 

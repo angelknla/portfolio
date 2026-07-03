@@ -1,7 +1,7 @@
 import Image from 'next/image';
 
-import { useLanguage } from '../../contexts/Language';
-import { aboutData } from '../../data/aboutData';
+import { useLanguage } from '@/contexts/Language';
+import { aboutData } from '@/data/aboutData';
 
 import styles from './About.module.css';
 

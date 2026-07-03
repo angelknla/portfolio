@@ -2,11 +2,11 @@
 
 import { useCallback, useEffect, useRef, useState } from 'react';
 
-import { useLanguage } from '../../contexts/Language';
-import { gamesData } from '../../data/gamesData';
-import GameLayout from '../GameLayout/GameLayout';
+import { useLanguage } from '@/contexts/Language';
+import { gamesData } from '@/data/gamesData';
+import GameLayout from '@/games/GameLayout/GameLayout';
+import layoutStyles from '@/games/GameLayout/GameLayout.module.css';
 
-import layoutStyles from '../GameLayout/GameLayout.module.css';
 import styles from './SnakeGame.module.css';
 
 type Direction = 'UP' | 'DOWN' | 'LEFT' | 'RIGHT';

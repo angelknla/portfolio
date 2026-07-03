@@ -1,8 +1,8 @@
 import { useState } from 'react';
 
-import { useLanguage } from '../../contexts/Language';
-import { CheckClickOutside } from '../../utils/ClickOutside';
-import { Dropdown } from '../Dropdown/Dropdown';
+import { Dropdown } from '@/components/Dropdown/Dropdown';
+import { useLanguage } from '@/contexts/Language';
+import { CheckClickOutside } from '@/utils/ClickOutside';
 
 import styles from './LanguageSwitcher.module.css';
 

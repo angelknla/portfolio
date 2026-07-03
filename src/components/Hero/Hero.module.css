@@ -171,6 +171,23 @@
   }
 }
 
+/* Reduced vertical drift for mobile so icons stay within their band and
+   don't float over the text. */
+@keyframes floatIconMobile {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-30px) rotate(6deg);
+  }
+  75% {
+    transform: translateY(8px) rotate(-5deg);
+  }
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+}
+
 @keyframes fadeUp {
   from {
     opacity: 0;
@@ -200,6 +217,12 @@
 @media (max-width: 960px) {
   .container {
     max-width: 100%;
+  }
+
+  /* Smaller float range so icons stay within their top/bottom bands
+     instead of drifting behind the text on mobile. */
+  .floatingIcon {
+    animation-name: floatIconMobile;
   }
 
   /* Push icons into top band (1-6) and bottom band (7-11) */

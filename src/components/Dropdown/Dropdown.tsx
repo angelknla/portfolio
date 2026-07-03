@@ -2,9 +2,9 @@ import { useMemo } from 'react';
 
 import Image from 'next/image';
 
-import { useLanguage } from '../../contexts/Language';
-import type { LanguageData } from '../../data/dropdownData';
-import { languageData } from '../../data/dropdownData';
+import { useLanguage } from '@/contexts/Language';
+import type { LanguageData } from '@/data/dropdownData';
+import { languageData } from '@/data/dropdownData';
 
 import styles from './Dropdown.module.css';
 

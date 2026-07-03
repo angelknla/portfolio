@@ -1,9 +1,10 @@
 import { createContext, ReactNode, useContext, useState } from 'react';
+
 import {
   AvailableLanguages,
-  languageData,
   LanguageData,
-} from '../data/dropdownData';
+  languageData,
+} from '@/data/dropdownData';
 
 type LanguageContextShape = {
   language: LanguageData;

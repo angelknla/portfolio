@@ -2,16 +2,16 @@
 
 import { useCallback, useEffect, useRef, useState } from 'react';
 
-import { useLanguage } from '../../contexts/Language';
-import { gamesData } from '../../data/gamesData';
+import { useLanguage } from '@/contexts/Language';
+import { gamesData } from '@/data/gamesData';
 import {
   CANVAS_HEIGHT,
   CANVAS_WIDTH,
   MOVE_SPEED,
   PLAYER_HEIGHT,
   PLAYER_WIDTH,
-} from '../constants';
-import GameLayout from '../GameLayout/GameLayout';
+} from '@/games/constants';
+import GameLayout from '@/games/GameLayout/GameLayout';
 
 import layoutStyles from '../GameLayout/GameLayout.module.css';
 import styles from './MarioGame.module.css';

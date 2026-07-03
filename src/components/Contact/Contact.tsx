@@ -1,6 +1,6 @@
-import { useLanguage } from '../../contexts/Language';
-import { contactData } from '../../data/contactData';
-import { Form } from '../Form/Form';
+import { Form } from '@/components/Form/Form';
+import { useLanguage } from '@/contexts/Language';
+import { contactData } from '@/data/contactData';
 
 import styles from './Contact.module.css';
 

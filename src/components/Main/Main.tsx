@@ -2,12 +2,12 @@ import { Suspense } from 'react';
 
 import dynamic from 'next/dynamic';
 
-import { Hero } from '../Hero/Hero';
+import { Hero } from '@/components/Hero/Hero';
 
 import styles from './Main.module.css';
 
 const About = dynamic(() =>
-  import('../About/About').then((m) => ({ default: m.About }))
+  import('@/components/About/About').then((m) => ({ default: m.About }))
 );
 
 const Portfolio = dynamic(() =>

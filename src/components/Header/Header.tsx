@@ -4,10 +4,10 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-import { useLanguage } from '../../contexts/Language';
-import { gamesData } from '../../data/gamesData';
-import { headerData } from '../../data/headerData';
-import { LanguageSwitcher } from '../LanguageSwitcher/LanguageSwitcher';
+import { LanguageSwitcher } from '@/components/LanguageSwitcher/LanguageSwitcher';
+import { useLanguage } from '@/contexts/Language';
+import { gamesData } from '@/data/gamesData';
+import { headerData } from '@/data/headerData';
 
 import styles from './Header.module.css';
 

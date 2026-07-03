@@ -2,12 +2,12 @@
 
 import { useCallback, useEffect, useRef, useState } from 'react';
 
-import { useLanguage } from '../../contexts/Language';
-import { gamesData } from '../../data/gamesData';
-import { CANVAS_HEIGHT, CANVAS_WIDTH } from '../constants';
-import GameLayout from '../GameLayout/GameLayout';
+import { useLanguage } from '@/contexts/Language';
+import { gamesData } from '@/data/gamesData';
+import { CANVAS_HEIGHT, CANVAS_WIDTH } from '@/games/constants';
+import GameLayout from '@/games/GameLayout/GameLayout';
+import layoutStyles from '@/games/GameLayout/GameLayout.module.css';
 
-import layoutStyles from '../GameLayout/GameLayout.module.css';
 import styles from './BalloonGame.module.css';
 
 type Obstacle = {

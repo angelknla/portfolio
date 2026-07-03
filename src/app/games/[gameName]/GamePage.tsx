@@ -2,12 +2,12 @@
 
 import { use } from 'react';
 
-import { useLanguage } from '../../../contexts/Language';
-import { gamesData } from '../../../data/gamesData';
-import BalloonGame from '../../../games/BalloonGame/BalloonGame';
-import DoroteyoGame from '../../../games/DoroteyoGame/DoroteyoGame';
-import MarioGame from '../../../games/MarioGame/MarioGame';
-import SnakeGame from '../../../games/SnakeGame/SnakeGame';
+import { useLanguage } from '@/contexts/Language';
+import { gamesData } from '@/data/gamesData';
+import BalloonGame from '@/games/BalloonGame/BalloonGame';
+import DoroteyoGame from '@/games/DoroteyoGame/DoroteyoGame';
+import MarioGame from '@/games/MarioGame/MarioGame';
+import SnakeGame from '@/games/SnakeGame/SnakeGame';
 
 import styles from './GamePage.module.css';
 

@@ -1,5 +1,5 @@
-import { useLanguage } from '../../contexts/Language';
-import { heroData } from '../../data/heroData';
+import { useLanguage } from '@/contexts/Language';
+import { heroData } from '@/data/heroData';
 
 import styles from './Hero.module.css';
 
