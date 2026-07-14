@@ -19,9 +19,12 @@
 
 /* Inner wrapper — mirrors Main's max-width so content lines up */
 .inner {
-  max-width: 1600px;
+  max-width: 250rem;
   margin: 0 auto;
-  padding: 0 10%;
+  /* min() caps the percentage padding at the same point max-width caps
+     the box's own width (250rem * 10% = 25rem), so it never keeps
+     shrinking the content area on ultra-wide screens. */
+  padding: 0 min(10%, 25rem);
   height: 100%;
   display: flex;
   align-items: center;

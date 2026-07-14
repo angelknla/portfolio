@@ -2,10 +2,13 @@
    MAIN — page layout wrapper
    ================================================================ */
 .container {
-  padding: 0 10%;
+  /* min() caps the percentage padding at the same point max-width caps
+     the container's own width (250rem * 10% = 25rem), so the content
+     area never keeps shrinking on ultra-wide screens. */
+  padding: 0 min(10%, 25rem);
   overflow-x: hidden;
-  max-width: 1600px;
-  margin: 0 auto;
+  max-width: 250rem;
+  margin: auto;
 }
 
 /* Section spacing — all direct children except the hero */

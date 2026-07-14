@@ -4,15 +4,25 @@
 .container {
   background-color: var(--bg-surface);
   border-top: 1px solid var(--border);
-  padding: 0 10%;
   height: 8rem;
+  transition:
+    background-color 0.3s,
+    border-color 0.3s;
+}
+
+/* Inner wrapper — mirrors Main/Header's max-width so content lines up */
+.inner {
+  max-width: 250rem;
+  margin: 0 auto;
+  /* min() caps the percentage padding at the same point max-width caps
+     the box's own width (250rem * 10% = 25rem), avoiding a shrinking
+     content area on ultra-wide screens. */
+  padding: 0 min(10%, 25rem);
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 2rem;
-  transition:
-    background-color 0.3s,
-    border-color 0.3s;
 }
 
 .logo {
@@ -52,7 +62,7 @@
   height: auto;
 }
 
-.container p {
+.inner p {
   font-size: 1.35rem;
   color: var(--text-muted);
   display: flex;
@@ -60,7 +70,7 @@
   gap: 0.5rem;
 }
 
-.container p img {
+.inner p img {
   width: 1.6rem;
   animation: spinning 6s infinite linear;
   opacity: 0.6;
@@ -84,6 +94,10 @@
 
 @media (max-width: 768px) {
   .container {
+    height: auto;
+  }
+
+  .inner {
     flex-direction: column;
     height: auto;
     text-align: center;
