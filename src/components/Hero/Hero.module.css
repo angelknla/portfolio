@@ -53,7 +53,25 @@
   line-height: 1.06;
   letter-spacing: -0.03em;
   color: var(--text);
-  animation: fadeUp 0.55s 0.08s ease both;
+  white-space: nowrap;
+  padding-bottom: 0.4rem;
+}
+
+.typewriter {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+  animation: typing 1.2s steps(12, end) forwards;
+}
+
+.cursor {
+  display: inline-block;
+  width: 0.08em;
+  height: 0.78em;
+  margin-left: 0.08em;
+  background-color: var(--accent);
+  vertical-align: -0.02em;
+  animation: blink 1s step-end infinite;
 }
 
 .japanese {
@@ -62,6 +80,8 @@
   color: var(--text-muted);
   letter-spacing: 0;
   vertical-align: middle;
+  opacity: 0;
+  animation: fadeIn 0.2s ease-out forwards;
 }
 
 .role {
@@ -196,6 +216,32 @@
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  50.01%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
   }
 }
 
