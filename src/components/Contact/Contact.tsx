@@ -17,26 +17,24 @@ export const Contact = () => {
       </header>
       <Form />
       <div className={styles.contacts}>
-        <div className='contactButton'>
+        <a className='contactButton' href='mailto:angelknela5@hotmail.co.uk'>
           <img
             src='/assets/email-icon.webp'
             alt='Email'
             width={22}
             height={22}
           />
-          <a href='mailto:angelknela5@hotmail.co.uk'>
-            angelknela5@hotmail.co.uk
-          </a>
-        </div>
-        <div className='contactButton'>
+          angelknela5@hotmail.co.uk
+        </a>
+        <a className='contactButton' href='tel:+447580199079'>
           <img
             src='/assets/phone-icon.webp'
             alt='Phone'
             width={22}
             height={22}
           />
-          <a href='tel:+447580199079'> (+44) 07580199079</a>
-        </div>
+          (+44) 07580199079
+        </a>
       </div>
     </section>
   );
