@@ -4,7 +4,7 @@ export const aboutData: Record<AvailableLanguages, Record<string, any>> = {
   english: {
     title: 'About me',
     p1: 'Full Stack Software Engineer with 5+ years building high-scale digital products used by millions of customers, specializing in React, Next.js, TypeScript, and serverless AWS architectures.',
-    p2: 'Currently leading frontend initiatives at The LEGO Group — owning complex features from architecture through production, mentoring engineers, raising engineering standards, and driving technical decisions across squads.',
+    p2: 'Currently leading engineering initiatives at The LEGO Group — owning complex features from architecture through production, mentoring engineers, raising engineering standards, and driving technical decisions across squads.',
     p3: 'I combine strong technical execution with engineering leadership, with a bias toward clean architecture, event-driven systems, and software built to last. An advocate for modern engineering practices — AI-assisted development, agentic workflows, automated testing, and CI/CD — I actively leverage LLMs to accelerate delivery and elevate quality, while keeping human judgement central to technical decision-making.',
     p4: {
       title: 'TECHNICAL SKILLS',
@@ -23,7 +23,7 @@ export const aboutData: Record<AvailableLanguages, Record<string, any>> = {
   spanish: {
     title: 'Sobre mí',
     p1: 'Ingeniero de Software Full Stack con más de 5 años construyendo productos digitales de gran escala usados por millones de personas, especializado en React, Next.js, TypeScript y arquitecturas serverless en AWS.',
-    p2: 'Actualmente liderando iniciativas frontend en The LEGO Group — asumiendo la responsabilidad de features complejas desde la arquitectura hasta producción, mentoreando a otros ingenieros, elevando los estándares de ingeniería y guiando decisiones técnicas entre squads.',
+    p2: 'Actualmente liderando iniciativas de ingeniería en The LEGO Group — asumiendo la responsabilidad de features complejas desde la arquitectura hasta producción, mentoreando a otros ingenieros, elevando los estándares de ingeniería y guiando decisiones técnicas entre squads.',
     p3: 'Combino ejecución técnica sólida con liderazgo de ingeniería, con inclinación por la arquitectura limpia, los sistemas basados en eventos y el software construido para durar. Defensor de las prácticas modernas de ingeniería —desarrollo asistido por IA, flujos con agentes autónomos, pruebas automatizadas y CI/CD—, aprovecho activamente los LLMs para acelerar la entrega y elevar la calidad, manteniendo el criterio humano como eje central de la toma de decisiones técnicas.',
     p4: {
       title: 'HABILIDADES TÉCNICAS',
@@ -42,7 +42,7 @@ export const aboutData: Record<AvailableLanguages, Record<string, any>> = {
   japanese: {
     title: '私について',
     p1: '5年以上にわたり、数百万のユーザーが利用する大規模なデジタルプロダクトを構築してきたフルスタックソフトウェアエンジニアです。React、Next.js、TypeScript、およびサーバーレスAWSアーキテクチャを専門としています。',
-    p2: '現在はThe LEGO Groupでフロントエンド開発をリード — 複雑な機能をアーキテクチャから本番リリースまで一貫して担当し、エンジニアの育成、エンジニアリング水準の向上、そしてスクワッドを横断する技術的意思決定を主導しています。',
+    p2: '現在はThe LEGO Groupでエンジニアリングイニシアチブをリード — 複雑な機能をアーキテクチャから本番リリースまで一貫して担当し、エンジニアの育成、エンジニアリング水準の向上、そしてスクワッドを横断する技術的意思決定を主導しています。',
     p3: '強い技術的な実行力とエンジニアリングリーダーシップを兼ね備え、クリーンアーキテクチャ、イベント駆動型システム、長く使い続けられるソフトウェアを重視しています。AIを活用した開発、エージェント型ワークフロー、自動テスト、CI/CDといったモダンなエンジニアリングの実践を推進し、LLMを積極的に活用してデリバリーを加速し品質を高める一方で、技術的意思決定においては常に人間の判断を中心に据えています。',
     p4: {
       title: '技術的なスキル',
