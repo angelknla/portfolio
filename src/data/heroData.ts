@@ -6,7 +6,7 @@ export const heroData: Record<AvailableLanguages, Record<string, any>> = {
     name: 'Angel Canela',
     job: 'Software Engineer',
     intro:
-      'Building scalable web products at The LEGO Group — specializing in React, Next.js & TypeScript.',
+      'Leading engineering initiatives at The LEGO Group — architecting high-scale React, Next.js & TypeScript products on serverless AWS.',
     contact: 'Get in touch',
     cv: 'Download CV',
   },
@@ -15,7 +15,7 @@ export const heroData: Record<AvailableLanguages, Record<string, any>> = {
     name: 'Angel Canela',
     job: 'Ingeniero de Software',
     intro:
-      'Construyendo productos web escalables en The LEGO Group — especializado en React, Next.js y TypeScript.',
+      'Liderando iniciativas de ingeniería en The LEGO Group — diseñando productos de gran escala en React, Next.js y TypeScript sobre AWS serverless.',
     contact: 'Contáctame',
     cv: 'Descargar CV',
   },
@@ -24,7 +24,7 @@ export const heroData: Record<AvailableLanguages, Record<string, any>> = {
     name: 'Angel Canela',
     job: 'ソフトウェアエンジニア',
     intro:
-      'The LEGO Groupでスケーラブルなウェブ製品を構築 — React、Next.js、TypeScriptを専門とする。',
+      'The LEGO Groupでエンジニアリングをリード — サーバーレスAWS上でReact、Next.js、TypeScriptによる大規模プロダクトを設計・構築。',
     contact: '連絡する',
     cv: 'CVをダウンロード',
   },
