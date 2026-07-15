@@ -49,7 +49,7 @@ export const data: Record<AvailableLanguages, Record<string, any>> = {
         title: "Sora's Wanderlust",
         description:
           'My personal travel companion — part blog, part live trip journal. I plan itineraries, log day-by-day schedules, and upload photos on the fly as I explore new places.',
-        techStack: ['Travel', 'Itineraries', 'Photography'],
+        techStack: ['Next', 'React', 'TypeScript', 'Node', 'Cloudinary'],
         href: 'https://soraswanderlust.netlify.app/',
         accentColor: '#e11d48',
       },
@@ -145,7 +145,7 @@ export const data: Record<AvailableLanguages, Record<string, any>> = {
         title: "Sora's Wanderlust",
         description:
           'Mi compañero de viaje personal — mitad blog, mitad diario de viaje en vivo. Planifico itinerarios, registro los horarios día a día y subo fotos sobre la marcha mientras exploro nuevos lugares.',
-        techStack: ['Viajes', 'Itinerarios', 'Fotografía'],
+        techStack: ['Next', 'React', 'TypeScript', 'Node', 'Cloudinary'],
         href: 'https://soraswanderlust.netlify.app/',
         accentColor: '#e11d48',
       },
@@ -243,7 +243,7 @@ export const data: Record<AvailableLanguages, Record<string, any>> = {
         title: "Sora's Wanderlust",
         description:
           '個人的な旅の相棒 — ブログでありながら、リアルタイムの旅の記録帳でもあります。旅程を計画し、日ごとのスケジュールを記録し、訪れた場所からその場で写真をアップロードしています。',
-        techStack: ['旅行', '旅程', '写真'],
+        techStack: ['Next', 'React', 'TypeScript', 'Node', 'Cloudinary'],
         href: 'https://soraswanderlust.netlify.app/',
         accentColor: '#e11d48',
       },
