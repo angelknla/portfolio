@@ -58,19 +58,24 @@
 }
 
 .typewriter {
+  position: relative;
   display: inline-block;
   overflow: hidden;
   vertical-align: bottom;
+  width: max-content;
+  max-width: 100%;
   animation: typing 1.2s steps(12, end) forwards;
 }
 
-.cursor {
-  display: inline-block;
+.typewriter::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
   width: 0.08em;
   height: 0.78em;
-  margin-left: 0.08em;
   background-color: var(--accent);
-  vertical-align: -0.02em;
   animation: blink 1s step-end infinite;
 }
 

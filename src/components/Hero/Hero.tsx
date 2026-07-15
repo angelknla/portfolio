@@ -231,7 +231,6 @@ export const Hero = () => {
           {language.language === 'japanese' && (
             <span className={styles.japanese}>&nbsp;です</span>
           )}
-          <span className={styles.cursor} aria-hidden='true' />
         </h1>
         <h2 className={styles.role}>{job}</h2>
         <p className={styles.intro}>{intro}</p>

@@ -518,9 +518,8 @@ function _pwCheck(){
 <div class="item">
 <h3>Wish List / Win-Your-Wish-List campaign platform <span class="cot-tags"><span class="cot-tag cot-1">COT 1</span><span class="cot-tag idp-1">IDP 1</span><span class="cot-tag idp-2">IDP 2</span></span></h3>
 <ul>
-    <li>Delivered auto-created wish lists driven by campaign slug and URL params, with supporting production content types and micro-interactions.</li>
-    <li>Designed the full flow end-to-end — content model in Contentstack, GraphQL contract, proxy request-id preservation, and the front-end campaign entrypoint.</li>
-    <li>Polished shared-list interactions for public and campaign flows.</li>
+    <li>Delivered auto-created wish lists UI driven by campaign slug and URL params, with supporting production content types and micro-interactions.</li>
+    <li>Limit reached error messaging and Next.js request-id preservation.</li>
     <li>Ran a perf pass that made large lists usable at scale — a proactive optimization outside the OKR scope.</li>
 </ul>
 </div>
@@ -528,8 +527,7 @@ function _pwCheck(){
 <div class="item">
 <h3>Insiders at Confirmation <span class="cot-tags"><span class="cot-tag cot-1">COT 1</span><span class="cot-tag idp-1">IDP 1</span></span></h3>
 <ul>
-    <li>Shipped the rewards banner on the order confirmation page with GWP support.</li>
-    <li>Split the InsidersData query so the confirmation page only fetches what it renders — a payload/latency win that also isolated blast radius on unrelated schema changes.</li>
+    <li>Shipped the rewards carousel on the order confirmation page with GWP support.</li>
     <li>Partnered with product and analytics on funnel definitions upfront so post-launch measurement was ready on day one.</li>
 </ul>
 </div>
@@ -555,8 +553,7 @@ function _pwCheck(){
 <div class="item">
 <h3>Island footer in app-profile <span class="cot-tags"><span class="cot-tag cot-1">COT 1</span><span class="cot-tag cot-2">COT 2</span><span class="cot-tag idp-2">IDP 2</span></span></h3>
 <ul>
-    <li>Delivered the footer as an independently-rendered island, decoupled from the main app render cycle for improved responsiveness.</li>
-    <li>Chose the island architecture over an inline component after weighing render-cost and SSR trade-offs — an architecture-level decision, not a copy-paste.</li>
+    <li>Integrated the new footer as an independently-rendered island, decoupled from the main app render cycle for improved responsiveness.</li>
     <li>Documented the pattern so other slow-to-render surfaces in app-profile have a proven recipe to follow.</li>
 </ul>
 </div>
@@ -582,10 +579,11 @@ function _pwCheck(){
 <div class="item">
 <h3>Framework &amp; tooling modernization <span class="cot-tags"><span class="cot-tag cot-2">COT 2</span><span class="cot-tag cot-3">COT 3</span><span class="cot-tag idp-1">IDP 1</span><span class="cot-tag idp-2">IDP 2</span></span></h3>
 <ul>
-    <li>Shepherded the Next.js 16.1.7 → 16.2.7 upgrade end-to-end and enabled React strict mode (Next 13+ default) across app-profile.</li>
+    <li>Lead the Next.js 16+ upgrades end-to-end and enabled React strict mode across app-profile.</li>
     <li>Made two disciplined reverts when regressions surfaced rather than let the platform absorb the cost.</li>
-    <li>Migrated octan-auth to Node 22 with fresh package baselines and a proper types export map for consumers.</li>
+    <li>Migrated octan-auth to Node 24 with fresh package baselines and a proper types export map for consumers.</li>
     <li>Cleared Biome-flagged a11y / optimization debt and cleaned up noisy unit-test output.</li>
+    <li>Advocate for React 19 integration and adoption across the codebase, documenting best practices and benefits.</li>
 </ul>
 </div>
 
@@ -611,16 +609,16 @@ function _pwCheck(){
 <h3>Security &amp; vulnerability program <span class="cot-tags"><span class="cot-tag cot-3">COT 3</span><span class="cot-tag idp-1">IDP 1</span></span></h3>
 <ul>
     <li>Authored a reusable Vulnerabilities Skill, later extended for pnpm — turned an ad-hoc chore into an automatable process anyone on the team can run.</li>
-    <li>Drove 20+ dependency bumps across the Aquanauts service fleet.</li>
-    <li>Established a repeatable cadence for handling Dependabot findings, so the fleet stays green without becoming any one person's burden.</li>
+    <li>Drove 30+ dependency bumps across the Aquanauts service fleet.</li>
+    <li>Contributes to one of the core security initiatives for the team, ensuring best practices are followed and vulnerabilities are promptly addressed.</li>
 </ul>
 </div>
 
 <div class="item">
 <h3>CDK migration + service modernization <span class="cot-tags"><span class="cot-tag cot-3">COT 3</span><span class="cot-tag idp-1">IDP 1</span></span></h3>
 <ul>
-    <li>Created <strong>service-member-sync</strong> from scratch and migrated <strong>service-vip-sync</strong> to CDK with DynamoDB retention safety across environments — deliberately protecting production state before touching stack semantics.</li>
-    <li>Moved two services to pnpm and added VPC isolation to <strong>service-customer</strong>.</li>
+    <li>Created <strong>service-member-sync</strong> from scratch and migrated <strong>service-vip-sync</strong> and <strong>service-customer-sync</strong> to CDK with DynamoDB retention safety across environments — deliberately protecting production state before touching stack semantics.</li>
+    <li>Moved various services to pnpm and added VPC isolation to <strong>service-customer</strong>.</li>
     <li>Approached each migration as a risk-managed rollout — staged, reversible, and paired with retention safety rather than a bulk cutover.</li>
 </ul>
 </div>
