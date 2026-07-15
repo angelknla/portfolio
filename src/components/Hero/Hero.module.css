@@ -57,18 +57,38 @@
   padding-bottom: 0.4rem;
 }
 
+.nameJapanese {
+  white-space: normal;
+  word-break: break-word;
+}
+
+.nameJapanese::after {
+  display: none;
+}
+
+.inlineCursor {
+  display: inline-block;
+  width: 0.08em;
+  height: 0.78em;
+  background-color: var(--accent);
+  vertical-align: middle;
+  margin-left: 0.08em;
+  animation: blink 1s step-end infinite;
+}
+
 .typewriter {
   position: relative;
   display: inline-block;
   overflow: hidden;
   vertical-align: bottom;
   width: max-content;
-  max-width: 100%;
+  max-width: max-content;
+  padding-right: 0.12em;
   animation: typing 1.2s steps(12, end) forwards;
 }
 
 .typewriter::after {
-  content: "";
+  content: " ";
   position: absolute;
   right: 0;
   top: 50%;

@@ -226,10 +226,15 @@ export const Hero = () => {
 
       <div className={styles.container}>
         <span className={styles.greeting}>{greeting}</span>
-        <h1 className={`${styles.name} ${styles.typewriter}`}>
+        <h1
+          className={`${styles.name} ${styles.typewriter}${language.language === 'japanese' ? ` ${styles.nameJapanese}` : ''}`}
+        >
           {name}
           {language.language === 'japanese' && (
-            <span className={styles.japanese}>&nbsp;です</span>
+            <>
+              <span className={styles.japanese}>&nbsp;です</span>
+              <span className={styles.inlineCursor} aria-hidden='true' />
+            </>
           )}
         </h1>
         <h2 className={styles.role}>{job}</h2>
