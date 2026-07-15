@@ -44,6 +44,16 @@ export const data: Record<AvailableLanguages, Record<string, any>> = {
     ],
     cards: [
       {
+        iconSvg: '/assets/external-link-icon.webp',
+        iconAlt: 'Visit site',
+        title: "Sora's Wanderlust",
+        description:
+          'My personal travel companion — part blog, part live trip journal. I plan itineraries, log day-by-day schedules, and upload photos on the fly as I explore new places.',
+        techStack: ['Travel', 'Itineraries', 'Photography'],
+        href: 'https://soraswanderlust.netlify.app/',
+        accentColor: '#e11d48',
+      },
+      {
         title: 'Kizuna',
         description:
           'A motivational Remote Working Employee Support System. (End of degree project) This application offers feedback and gamification with a reward programme.',
@@ -129,6 +139,16 @@ export const data: Record<AvailableLanguages, Record<string, any>> = {
       },
     ],
     cards: [
+      {
+        iconSvg: '/assets/external-link-icon.webp',
+        iconAlt: 'Visitar sitio',
+        title: "Sora's Wanderlust",
+        description:
+          'Mi compañero de viaje personal — mitad blog, mitad diario de viaje en vivo. Planifico itinerarios, registro los horarios día a día y subo fotos sobre la marcha mientras exploro nuevos lugares.',
+        techStack: ['Viajes', 'Itinerarios', 'Fotografía'],
+        href: 'https://soraswanderlust.netlify.app/',
+        accentColor: '#e11d48',
+      },
       {
         title: 'Kizuna',
         description:
@@ -217,6 +237,16 @@ export const data: Record<AvailableLanguages, Record<string, any>> = {
       },
     ],
     cards: [
+      {
+        iconSvg: '/assets/external-link-icon.webp',
+        iconAlt: 'サイトを見る',
+        title: "Sora's Wanderlust",
+        description:
+          '個人的な旅の相棒 — ブログでありながら、リアルタイムの旅の記録帳でもあります。旅程を計画し、日ごとのスケジュールを記録し、訪れた場所からその場で写真をアップロードしています。',
+        techStack: ['旅行', '旅程', '写真'],
+        href: 'https://soraswanderlust.netlify.app/',
+        accentColor: '#e11d48',
+      },
       {
         title: 'Kizuna',
         description:
