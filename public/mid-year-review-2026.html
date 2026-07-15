@@ -221,6 +221,28 @@ header h1{
     color:#115e59;
 }
 
+.pillar-curious{
+    background:#fef9c3;
+    color:#854d0e;
+}
+
+.pillar-focused{
+    background:#e0e7ff;
+    color:#3730a3;
+}
+
+.pillar-brave{
+    background:#ffe4e6;
+    color:#9f1239;
+}
+
+.item li .cot-tag{
+    margin-left:8px;
+    vertical-align:baseline;
+    font-size:.62rem;
+    padding:1px 8px;
+}
+
 .cot-map{
     display:flex;
     flex-direction:column;
@@ -717,23 +739,24 @@ function _pwCheck(){
 
 <div class="section">
 <div class="section-title"><span class="section-number">05</span>Qualities Reviewers Should Notice</div>
+<div class="section-subtitle"><span>Bullets are tagged where they map to LEGO's three leadership pillars — <span class="cot-tag pillar-curious">Curious</span> <span class="cot-tag pillar-focused">Focused</span> <span class="cot-tag pillar-brave">Brave</span>.</span></div>
 
 <div class="content">
 
 <div class="item">
 <h3>End-to-end ownership</h3>
 <ul>
-    <li>Every major initiative taken from experiment or scaffold through rollout, monitoring, and eventual flag or experiment cleanup — the follow-through work was owned too.</li>
-    <li>Wrote automated tests and observability alongside the feature, not after — every launch has unit + e2e coverage and a New Relic dashboard behind it.</li>
-    <li>Treated "done" as "shipped, measured, and cleaned up," not "merged."</li>
+    <li>Every major initiative taken from experiment or scaffold through rollout, monitoring, and eventual flag or experiment cleanup — the follow-through work was owned too. <span class="cot-tag pillar-focused">Focused</span></li>
+    <li>Wrote automated tests and observability alongside the feature, not after — every launch has unit + e2e coverage and a New Relic dashboard behind it. <span class="cot-tag pillar-focused">Focused</span></li>
+    <li>Treated "done" as "shipped, measured, and cleaned up," not "merged." <span class="cot-tag pillar-focused">Focused</span></li>
 </ul>
 </div>
 
 <div class="item">
 <h3>Force multipliers</h3>
 <ul>
-    <li>Invested in reusable tooling — Vulnerabilities Skill, standalone dev mode, Baseplate docs, translations upload app — that accelerates the whole Aquanauts team and unblocks non-engineering partners.</li>
-    <li>Preferred solutions that remove future work from the critical path over one-off fixes.</li>
+    <li>Invested in reusable tooling — Vulnerabilities Skill, standalone dev mode, Baseplate docs, translations upload app — that accelerates the whole Aquanauts team and unblocks non-engineering partners. <span class="cot-tag pillar-curious">Curious</span> <span class="cot-tag pillar-brave">Brave</span></li>
+    <li>Preferred solutions that remove future work from the critical path over one-off fixes. <span class="cot-tag pillar-focused">Focused</span></li>
     <li>Measured impact by how much other people can do because of the work, not by how much I did.</li>
 </ul>
 </div>
@@ -741,27 +764,27 @@ function _pwCheck(){
 <div class="item">
 <h3>Cross-stack fluency</h3>
 <ul>
-    <li>Six months spanned frontend perf, GraphQL schema and resolver work, Kinesis event shape changes, DynamoDB retention, and CDK/Serverless infra.</li>
-    <li>Comfortable moving between browser, backend, and infra in the same week — and picking the right layer to solve a problem, not the most familiar one.</li>
-    <li>Reasoned about trade-offs across layers (e.g. query split vs frontend caching) instead of reflexively solving in the layer nearest to hand.</li>
+    <li>Six months spanned frontend perf, GraphQL schema and resolver work, Kinesis event shape changes, DynamoDB retention, and CDK/Serverless infra. <span class="cot-tag pillar-curious">Curious</span></li>
+    <li>Comfortable moving between browser, backend, and infra in the same week — and picking the right layer to solve a problem, not the most familiar one. <span class="cot-tag pillar-curious">Curious</span> <span class="cot-tag pillar-brave">Brave</span></li>
+    <li>Reasoned about trade-offs across layers (e.g. query split vs frontend caching) instead of reflexively solving in the layer nearest to hand. <span class="cot-tag pillar-focused">Focused</span></li>
 </ul>
 </div>
 
 <div class="item">
 <h3>Data-driven decision making</h3>
 <ul>
-    <li>Performance work was scoped from New Relic dashboards and Lighthouse audits, not intuition — every optimization had a target metric and a verified delta.</li>
-    <li>Adobe Analytics instrumentation shipped with each feature, so product decisions after launch are grounded in real user behaviour.</li>
-    <li>Diagnosed the Benefits Explainer bundle-size regression from measured data and closed it against an explicit target.</li>
+    <li>Performance work was scoped from New Relic dashboards and Lighthouse audits, not intuition — every optimization had a target metric and a verified delta. <span class="cot-tag pillar-focused">Focused</span></li>
+    <li>Adobe Analytics instrumentation shipped with each feature, so product decisions after launch are grounded in real user behaviour. <span class="cot-tag pillar-focused">Focused</span></li>
+    <li>Diagnosed the Benefits Explainer bundle-size regression from measured data and closed it against an explicit target. <span class="cot-tag pillar-curious">Curious</span></li>
 </ul>
 </div>
 
 <div class="item">
 <h3>Risk management &amp; safe rollouts</h3>
 <ul>
-    <li>Every user-facing change landed behind a feature flag or experiment with explicit rollout, monitoring, and cleanup phases.</li>
-    <li>Migrated <strong>service-vip-sync</strong> to CDK with DynamoDB retention safety across environments — deliberately protecting production state before touching stack semantics.</li>
-    <li>Treated "back out safely" as a first-class option, not a failure mode — reducing blast radius before it becomes an incident review.</li>
+    <li>Every user-facing change landed behind a feature flag or experiment with explicit rollout, monitoring, and cleanup phases. <span class="cot-tag pillar-focused">Focused</span></li>
+    <li>Migrated <strong>service-vip-sync</strong> to CDK with DynamoDB retention safety across environments — deliberately protecting production state before touching stack semantics. <span class="cot-tag pillar-focused">Focused</span> <span class="cot-tag pillar-brave">Brave</span></li>
+    <li>Treated "back out safely" as a first-class option, not a failure mode — reducing blast radius before it becomes an incident review. <span class="cot-tag pillar-brave">Brave</span></li>
 </ul>
 </div>
 
@@ -769,7 +792,7 @@ function _pwCheck(){
 <h3>Mentorship &amp; knowledge sharing</h3>
 <ul>
     <li>Authored Baseplate documentation for app-profile so the team has one authoritative reference for onboarding and patterns.</li>
-    <li>Built standalone dev mode and the Vulnerabilities Skill as reusable assets — teammates use them daily without needing me in the loop.</li>
+    <li>Built standalone dev mode and the Vulnerabilities Skill as reusable assets — teammates use them daily without needing me in the loop. <span class="cot-tag pillar-curious">Curious</span></li>
     <li>Framed PR reviews as teaching moments — explaining the "why" behind requested changes so patterns propagate, not just fixes.</li>
 </ul>
 </div>
@@ -778,7 +801,7 @@ function _pwCheck(){
 <h3>Stakeholder &amp; cross-functional collaboration</h3>
 <ul>
     <li>Partnered directly with design, content, product, and localization — clarifying acceptance criteria upfront and translating them into cross-package technical plans.</li>
-    <li>Built app-translations-upload on a couple fabulab session from actual team needs, not from a spec.</li>
+    <li>Built app-translations-upload on a couple fabulab session from actual team needs, not from a spec. <span class="cot-tag pillar-curious">Curious</span> <span class="cot-tag pillar-brave">Brave</span></li>
     <li>Translated technical trade-offs into terms non-engineering partners can act on, so the right call gets made together instead of alone.</li>
 </ul>
 </div>
@@ -786,9 +809,9 @@ function _pwCheck(){
 <div class="item">
 <h3>Delivery discipline &amp; consistent throughput</h3>
 <ul>
-    <li>235 PRs merged in six months at sustained quality — every merge through review, automated tests, and lint.</li>
+    <li>235 PRs merged in six months at sustained quality — every merge through review, automated tests, and lint. <span class="cot-tag pillar-focused">Focused</span></li>
     <li>Comfortable with both large architectural work and the small fixes and dependency bumps that keep the platform healthy — no work was "beneath" the role.</li>
-    <li>Kept scope tight per PR — one ticket, one merge — protecting reviewer time and keeping git history readable.</li>
+    <li>Kept scope tight per PR — one ticket, one merge — protecting reviewer time and keeping git history readable. <span class="cot-tag pillar-focused">Focused</span></li>
 </ul>
 </div>
 
