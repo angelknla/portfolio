@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Mid-Year Review — Details</title>
+
+<style>
+:root{
+    --accent:#0f172a;
+    --accent-soft:#334155;
+    --highlight:#2563eb;
+    --highlight-soft:#dbeafe;
+    --bg:#f4f5f7;
+    --card:#ffffff;
+    --text:#0f172a;
+    --text-muted:#475569;
+    --border:#e2e8f0;
+    --ticket-bg:#eef2ff;
+    --ticket-text:#4338ca;
+    --callout-bg:#fffbeb;
+    --callout-border:#f59e0b;
+    --callout-text:#78350f;
+    --shadow-sm:0 1px 2px rgba(15,23,42,.04);
+    --shadow-md:0 10px 30px rgba(15,23,42,.06);
+    --shadow-lg:0 20px 50px rgba(15,23,42,.08);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:-apple-system,BlinkMacSystemFont,"Inter","Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.6;
+    padding:60px 24px;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+}
+
+.container{
+    max-width:960px;
+    margin:auto;
+}
+
+header{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:20px;
+    padding:56px 56px 48px;
+    box-shadow:var(--shadow-lg);
+    margin-bottom:40px;
+    position:relative;
+    overflow:hidden;
+}
+
+header::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    height:5px;
+    background:linear-gradient(90deg,var(--highlight),#7c3aed);
+}
+
+.eyebrow{
+    font-size:.78rem;
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:.14em;
+    color:var(--highlight);
+    margin-bottom:16px;
+}
+
+header h1{
+    font-size:2.6rem;
+    font-weight:800;
+    letter-spacing:-.02em;
+    color:var(--accent);
+    margin-bottom:20px;
+    line-height:1.15;
+}
+
+.meta{
+    display:flex;
+    flex-wrap:wrap;
+    gap:24px;
+    padding-top:24px;
+    border-top:1px solid var(--border);
+}
+
+.meta-item{
+    display:flex;
+    flex-direction:column;
+    gap:4px;
+}
+
+.meta-label{
+    font-size:.72rem;
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:.1em;
+    color:var(--text-muted);
+}
+
+.meta-value{
+    font-size:1.05rem;
+    font-weight:600;
+    color:var(--accent);
+}
+
+.intro{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-left:4px solid var(--highlight);
+    border-radius:14px;
+    padding:24px 32px;
+    margin-bottom:32px;
+    box-shadow:var(--shadow-sm);
+    font-size:1rem;
+    color:var(--text-muted);
+}
+
+.intro strong{
+    color:var(--accent);
+    font-weight:700;
+}
+
+.section{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:20px;
+    margin-bottom:28px;
+    box-shadow:var(--shadow-md);
+    overflow:hidden;
+}
+
+.section-title{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    padding:26px 40px;
+    font-size:1.15rem;
+    font-weight:700;
+    color:var(--accent);
+    letter-spacing:-.01em;
+    border-bottom:1px solid var(--border);
+    background:linear-gradient(180deg,#fafbfc,#ffffff);
+}
+
+.section-number{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    min-width:34px;
+    height:30px;
+    padding:0 8px;
+    border-radius:8px;
+    background:var(--highlight-soft);
+    color:var(--highlight);
+    font-size:.85rem;
+    font-weight:700;
+}
+
+.content{
+    padding:28px 40px 32px;
+}
+
+.content > p{
+    color:var(--text-muted);
+    font-size:.98rem;
+    margin-bottom:20px;
+    padding-bottom:20px;
+    border-bottom:1px solid var(--border);
+}
+
+.content ul{
+    list-style:none;
+    padding:0;
+    margin:0;
+}
+
+.content li{
+    position:relative;
+    padding-left:22px;
+    margin-bottom:14px;
+    color:var(--text-muted);
+    font-size:.96rem;
+    line-height:1.6;
+}
+
+.content li:last-child{
+    margin-bottom:0;
+}
+
+.content li::before{
+    content:"";
+    position:absolute;
+    left:0;
+    top:.62em;
+    width:6px;
+    height:6px;
+    border-radius:50%;
+    background:var(--highlight);
+    opacity:.65;
+}
+
+.content li strong{
+    color:var(--accent);
+    font-weight:600;
+}
+
+.qa-note{
+    margin-top:20px;
+    padding:14px 18px;
+    background:#f1f5f9;
+    border-left:3px solid var(--highlight);
+    border-radius:8px;
+    font-size:.9rem;
+    color:var(--accent-soft);
+    line-height:1.55;
+}
+
+.qa-note strong{
+    color:var(--accent);
+    font-weight:700;
+}
+
+.tickets{
+    display:inline-flex;
+    flex-wrap:wrap;
+    gap:6px;
+    margin-left:6px;
+    vertical-align:middle;
+}
+
+.ticket{
+    display:inline-block;
+    background:var(--ticket-bg);
+    color:var(--ticket-text);
+    padding:2px 10px;
+    border-radius:999px;
+    font-size:.78rem;
+    font-weight:600;
+    font-family:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;
+    letter-spacing:.01em;
+}
+
+.highlight{
+    background:var(--callout-bg);
+    border:1px solid rgba(245,158,11,.35);
+    border-radius:20px;
+    margin-top:40px;
+    padding:0;
+    box-shadow:var(--shadow-md);
+    overflow:hidden;
+}
+
+.highlight-title{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    padding:26px 40px;
+    font-size:1.15rem;
+    font-weight:700;
+    color:var(--callout-text);
+    letter-spacing:-.01em;
+    border-bottom:1px solid rgba(245,158,11,.25);
+    background:linear-gradient(180deg,#fef3c7,#fffbeb);
+}
+
+.highlight-icon{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:30px;
+    height:30px;
+    border-radius:8px;
+    background:rgba(245,158,11,.2);
+    color:var(--callout-border);
+    font-size:1rem;
+    font-weight:700;
+}
+
+.highlight-content{
+    padding:28px 40px 32px;
+}
+
+.highlight-content ul{
+    list-style:none;
+    padding:0;
+    margin:0;
+}
+
+.highlight-content li{
+    position:relative;
+    padding-left:22px;
+    margin-bottom:14px;
+    color:var(--callout-text);
+    font-size:.96rem;
+    line-height:1.6;
+}
+
+.highlight-content li:last-child{
+    margin-bottom:0;
+}
+
+.highlight-content li::before{
+    content:"";
+    position:absolute;
+    left:0;
+    top:.62em;
+    width:6px;
+    height:6px;
+    border-radius:50%;
+    background:var(--callout-border);
+}
+
+.highlight-content li strong{
+    color:#78350f;
+    font-weight:700;
+}
+
+footer{
+    text-align:center;
+    color:var(--text-muted);
+    margin-top:50px;
+    font-size:.85rem;
+    letter-spacing:.02em;
+}
+
+@media(max-width:768px){
+
+body{
+    padding:24px 16px;
+}
+
+header{
+    padding:36px 28px 32px;
+}
+
+header h1{
+    font-size:1.9rem;
+}
+
+.meta{
+    gap:18px;
+}
+
+.section-title,.highlight-title{
+    padding:22px 24px;
+    font-size:1.05rem;
+}
+
+.content,.highlight-content{
+    padding:22px 24px 26px;
+}
+
+.intro{
+    padding:20px 24px;
+}
+
+}
+
+@media print{
+
+body{
+    background:white;
+    padding:0;
+}
+
+header,.section,.highlight,.intro{
+    box-shadow:none;
+    border:1px solid #ddd;
+    break-inside:avoid;
+}
+
+.content li,.highlight-content li{
+    break-inside:avoid;
+}
+
+}
+</style>
+
+</head>
+<body>
+
+<!-- PASSWORD GATE -->
+<div id="pw-overlay" style="position:fixed;inset:0;background:rgba(15,23,42,.88);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;z-index:9999;">
+  <div style="background:#fff;border-radius:14px;padding:2rem 2.25rem;width:min(320px,90vw);box-shadow:0 24px 60px rgba(0,0,0,.35);text-align:center;">
+    <div style="font-size:2rem;margin-bottom:.5rem;">🔒</div>
+    <h2 style="font-size:1.05rem;font-weight:700;color:#0f172a;margin-bottom:.3rem;">Protected Page</h2>
+    <p style="font-size:.82rem;color:#64748b;margin-bottom:1.25rem;">Enter the password to continue.</p>
+    <input id="pw-input" type="password" placeholder="Password" autocomplete="current-password"
+      style="width:100%;padding:.6rem .75rem;border:1.5px solid #e2e8f0;border-radius:8px;font-size:.93rem;outline:none;margin-bottom:.65rem;color:#0f172a;box-sizing:border-box;" />
+    <div id="pw-error" style="color:#ef4444;font-size:.8rem;margin-bottom:.65rem;display:none;">Incorrect password. Try again.</div>
+    <button type="button" onclick="_pwCheck()" style="width:100%;padding:.65rem;background:#2563eb;color:#fff;border:none;border-radius:8px;font-size:.93rem;font-weight:600;cursor:pointer;">Unlock</button>
+  </div>
+</div>
+<script>
+(()=>{
+  var KEY='myr2026_unlocked';
+  if(localStorage.getItem(KEY)==='true'){
+    document.getElementById('pw-overlay').style.display='none';
+  }
+  document.getElementById('pw-input').addEventListener('keydown',(e)=>{
+    if(e.key==='Enter') _pwCheck();
+  });
+})();
+function _pwCheck(){
+  var val=document.getElementById('pw-input').value;
+  if(val==='ar2026'){
+    localStorage.setItem('myr2026_unlocked','true');
+    document.getElementById('pw-overlay').style.display='none';
+  } else {
+    document.getElementById('pw-error').style.display='block';
+    document.getElementById('pw-input').value='';
+    document.getElementById('pw-input').focus();
+  }
+}
+</script>
+<!-- END PASSWORD GATE -->
+
+<div class="container">
+
+<header>
+    <div class="eyebrow">Details Version</div>
+    <h1>Mid-Year Review — Angel Canela</h1>
+    <div class="meta">
+        <div class="meta-item">
+            <span class="meta-label">Period</span>
+            <span class="meta-value">Jan 2026 – Jul 15, 2026</span>
+        </div>
+        <div class="meta-item">
+            <span class="meta-label">Output</span>
+            <span class="meta-value">235 PRs merged</span>
+        </div>
+        <div class="meta-item">
+            <span class="meta-label">Surfaces</span>
+            <span class="meta-value">4 apps · 3 shared packages · 6 services</span>
+        </div>
+    </div>
+</header>
+
+<div class="intro">
+    <strong>235 PRs merged</strong> across app-profile, member-components, shopper-components, and backend services — spanning feature delivery, performance work, framework upgrades, security cadence, and service modernization.
+</div>
+
+<div class="section">
+<div class="section-title"><span class="section-number">01</span>Visual Identity (VI) Redesign — Sign-in &amp; Membership</div>
+<div class="content">
+<p>Delivered the new Visual Identity across member-facing UI, coordinated across three consumers (app-profile, app-shop, shopper-components).</p>
+<ul>
+<li>New VI designs in member-components <span class="tickets"><span class="ticket">AQUA-4715</span><span class="ticket">AQUA-4716</span><span class="ticket">AQUA-4716.3-5</span><span class="ticket">AQUA-4718</span><span class="ticket">AQUA-4795</span></span></li>
+<li>SignInRegistrationModal work — guard against malformed locales, flicker fix on first open, null-render without GqlProvider <span class="tickets"><span class="ticket">AQUA-4719</span><span class="ticket">AQUA-4719.3-4</span></span></li>
+<li>GWP block in SignInModal <span class="tickets"><span class="ticket">AQUA-4732</span><span class="ticket">AQUA-4732.2</span></span></li>
+<li>Membership card modal redesign <span class="tickets"><span class="ticket">AQUA-4742</span></span></li>
+<li>ScanProductImage with VI flag <span class="tickets"><span class="ticket">AQUA-4743</span></span></li>
+<li>Localizing SignInRegistration <span class="tickets"><span class="ticket">AQUA-4549</span></span></li>
+<li>Insiders VI flag rollout — <strong>visual_identity_insiders_ui</strong> removal <span class="tickets"><span class="ticket">AQUA-4795</span></span></li>
+</ul>
+<div class="qa-note"><strong>Quality &amp; observability:</strong> unit tests across every consumer, Playwright e2e for sign-in and membership-card modal flows, Adobe Analytics instrumentation for CTA exposure and click events, and New Relic dashboards + alerts to monitor rollout health.</div>
+</div>
+</div>
+
+<div class="section">
+<div class="section-title"><span class="section-number">02</span>Benefits Explainer — Experiment through Full Rollout</div>
+<div class="content">
+<p>End-to-end feature ownership from experiment scaffolding through rollout and cleanup.</p>
+<ul>
+<li>Behind experiment and flag <span class="tickets"><span class="ticket">AQUA-4456</span><span class="ticket">AQUA-4507</span><span class="ticket">AQUA-4522</span><span class="ticket">AQUA-4526</span><span class="ticket">AQUA-4539</span></span></li>
+<li>Autoshow experiment on homepage <span class="tickets"><span class="ticket">AQUA-4621</span></span></li>
+<li>BenefitsExplainer in shopper-components <span class="tickets"><span class="ticket">AQUA-4538</span><span class="ticket">AQUA-4602</span><span class="ticket">AQUA-4619</span></span></li>
+<li>BenefitsExplainerModal / step redesign — skeleton and bundle-size fix <span class="tickets"><span class="ticket">AQUA-4535</span><span class="ticket">AQUA-4536</span><span class="ticket">AQUA-4537</span><span class="ticket">AQUA-4602</span></span></li>
+<li>Experiment cleanup and flag removal <span class="tickets"><span class="ticket">AQUA-4680</span></span></li>
+</ul>
+<div class="qa-note"><strong>Quality &amp; observability:</strong> unit-tested display logic and step transitions, Playwright e2e for the modal flow, Adobe Analytics exposure tracking to measure experiment lift, and New Relic monitoring on error and performance signals during the experiment window.</div>
+</div>
+</div>
+
+<div class="section">
+<div class="section-title"><span class="section-number">03</span>Wish List &amp; "Win Your Wish List" (WYWL)</div>
+<div class="content">
+<p>Ownership across UI, campaign assets, and analytics.</p>
+<ul>
+<li>Auto-create wish list from campaign slug / URL, plus micro-interactions and production content-type push <span class="tickets"><span class="ticket">AQUA-4749</span><span class="ticket">AQUA-4753</span><span class="ticket">AQUA-4750</span></span></li>
+<li>WYWL campaign updates and public privacy on submit <span class="tickets"><span class="ticket">AQUA-4587</span><span class="ticket">AQUA-4663</span></span></li>
+<li>Shared wish list polish — hide RemoveFromListButton, hide notifications, e2e fix <span class="tickets"><span class="ticket">AQUA-4226</span><span class="ticket">AQUA-4229</span><span class="ticket">AQUA-4328</span></span></li>
+<li>Perf on large lists <span class="tickets"><span class="ticket">AQUA-4515</span></span></li>
+<li>Create / edit error messages <span class="tickets"><span class="ticket">AQUA-4361</span></span></li>
+<li>Limit Reached repositioning <span class="tickets"><span class="ticket">AQUA-4784</span></span></li>
+<li>Wish list recommendations use visitor GUID <span class="tickets"><span class="ticket">AQUA-4853</span></span></li>
+<li>Preserve Next.js request-id in proxy <span class="tickets"><span class="ticket">AQUA-4783</span></span></li>
+</ul>
+<div class="qa-note"><strong>Quality &amp; observability:</strong> unit and e2e coverage on auto-create, shared-list, and error paths; Adobe Analytics for campaign conversion and CTA tracking; New Relic monitoring on proxy and gateway health with alerts for regression on the campaign endpoint.</div>
+</div>
+</div>
+
+<div class="section">
+<div class="section-title"><span class="section-number">04</span>My Collection / Collections Page</div>
+<div class="content">
+<p>Major feature area — new UI blocks, tracking, PLP interactions.</p>
+<ul>
+<li>HowItWorks Tray, Journey Starter, Manual Set Addition with ProductSearch <span class="tickets"><span class="ticket">AQUA-4253</span><span class="ticket">AQUA-4255</span><span class="ticket">AQUA-4187</span><span class="ticket">AQUA-4291</span><span class="ticket">AQUA-4566</span></span></li>
+<li>CollectionsBanner, NoCollections hero, MyCollectionSummary <span class="tickets"><span class="ticket">AQUA-4204</span><span class="ticket">AQUA-4208</span><span class="ticket">AQUA-4309</span><span class="ticket">AQUA-4309.2</span></span></li>
+<li>LatestWishList refactor, PointsBadge, clickable RecentProduct with click tracking <span class="tickets"><span class="ticket">AQUA-4325</span><span class="ticket">AQUA-4356</span></span></li>
+<li>Collections UI content update — loading state, Carousel, spacing, thumbnail refresh <span class="tickets"><span class="ticket">AQUA-4382</span><span class="ticket">AQUA-4444</span><span class="ticket">AQUA-4428</span><span class="ticket">AQUA-4447</span><span class="ticket">AQUA-4506</span></span></li>
+<li>Registration by product number — mutation, delete mutation, translations, camera scan flow <span class="tickets"><span class="ticket">AQUA-4185</span><span class="ticket">AQUA-4192</span><span class="ticket">AQUA-4524</span><span class="ticket">AQUA-4256</span></span></li>
+<li>Stats and tracking header <span class="tickets"><span class="ticket">AQUA-4265</span><span class="ticket">AQUA-4292.2</span></span></li>
+<li>PointsExplainer — autoshow PoC, hide on CollectionTray, and polish <span class="tickets"><span class="ticket">AQUA-4228</span><span class="ticket">AQUA-4293.2</span><span class="ticket">AQUA-4299</span><span class="ticket">AQUA-4387.2</span><span class="ticket">AQUA-4504</span></span></li>
+</ul>
+<div class="qa-note"><strong>Quality &amp; observability:</strong> unit and Playwright e2e coverage across the scan and manual set-addition flows; Adobe Analytics measures the registration funnel; New Relic monitors mutation error rate and camera-flow failures so any regression is caught before analytics data lands.</div>
+</div>
+</div>
+
+<div class="section">
+<div class="section-title"><span class="section-number">05</span>Insiders at Confirmation &amp; Rewards</div>
+<div class="content">
+<ul>
+<li>Insiders banner on confirmation page — feature plus reward card image fixes <span class="tickets"><span class="ticket">AQUA-4707</span></span></li>
+<li>Analytics on InsidersAtCheckoutBanner CTAs <span class="tickets"><span class="ticket">AQUA-4781</span><span class="ticket">AQUA-4781.2</span></span></li>
+<li>InsidersBanner &amp; GWP refactor <span class="tickets"><span class="ticket">AQUA-4124</span></span></li>
+<li>Split InsidersData query <span class="tickets"><span class="ticket">AQUA-4446</span></span></li>
+</ul>
+<div class="qa-note"><strong>Quality &amp; observability:</strong> unit and e2e coverage for banner render states and CTA behavior; Adobe Analytics tracks CTA impressions and clicks on the confirmation page; New Relic alerts on query-failure rate to catch payload regressions early.</div>
+</div>
+</div>
+
+<div class="section">
+<div class="section-title"><span class="section-number">06</span>For You Block</div>
+<div class="content">
+<ul>
+<li>ForYou component and display logic, styling, localization <span class="tickets"><span class="ticket">AQUA-4699</span><span class="ticket">AQUA-4688.2</span><span class="ticket">AQUA-4687</span></span></li>
+<li>Analytics, micro-interactions, and dismissable Preferences block <span class="tickets"><span class="ticket">AQUA-4690</span></span></li>
+</ul>
+<div class="qa-note"><strong>Quality &amp; observability:</strong> unit-tested display logic and dismiss state; Adobe Analytics tracks block impressions, CTA clicks, and dismissals for engagement measurement; New Relic monitors render errors after launch.</div>
+</div>
+</div>
+
+<div class="section">
+<div class="section-title"><span class="section-number">07</span>Performance / SSR / Core Web Vitals</div>
+<div class="content">
+<p>Sustained investment in app-profile perf.</p>
+<ul>
+<li>Suspense / SSR strategy cleanup, including SSR regression restore <span class="tickets"><span class="ticket">AQUA-4293</span><span class="ticket">AQUA-4348</span><span class="ticket">AQUA-4366</span><span class="ticket">AQUA-4422</span><span class="ticket">AQUA-4422.3</span><span class="ticket">AQUA-4313</span></span></li>
+<li>useSuspenseQuery adoption for CLS / TTI / INP <span class="tickets"><span class="ticket">AQUA-4125.1</span><span class="ticket">AQUA-4125.2</span></span></li>
+<li>Image optimization — webp, dynamic imports, Next 16.1.4 for NextImage <span class="tickets"><span class="ticket">AQUA-4123</span><span class="ticket">AQUA-4127</span><span class="ticket">AQUA-4128.2</span><span class="ticket">AQUA-4105.2</span></span></li>
+<li>CLS / LCP / TBT reduction <span class="tickets"><span class="ticket">AQUA-4273</span></span></li>
+<li>SVG optimization in member-components <span class="tickets"><span class="ticket">AQUA-4793</span><span class="ticket">AQUA-4793.3-4</span></span></li>
+<li>Preload / preconnect strategy <span class="tickets"><span class="ticket">AQUA-4133</span></span></li>
+<li>Caching strategy — useRegisteredSets <span class="tickets"><span class="ticket">AQUA-4210</span></span></li>
+<li>New Relic Browser Monitoring restored <span class="tickets"><span class="ticket">AQUA-4211</span></span></li>
+</ul>
+<div class="qa-note"><strong>Result:</strong> measurable Lighthouse score improvement across the board, tracked page-by-page in the New Relic performance dashboard — Core Web Vitals trends moved in the right direction on every audited route, and regressions from later feature work are now caught by the dashboard rather than user reports.</div>
+</div>
+</div>
+
+<div class="section">
+<div class="section-title"><span class="section-number">08</span>Backend Services &amp; CDK Migration</div>
+<div class="content">
+<ul>
+<li>Serverless → CDK migrations — service-vip-sync duplicate, service-member-sync, placeholder cleanup, VipSyncEventCache DynamoDB retention across envs <span class="tickets"><span class="ticket">AQUA-4448</span><span class="ticket">AQUA-4450</span><span class="ticket">AQUA-4450.2</span><span class="ticket">AQUA-4555</span></span></li>
+<li>Services to pnpm — service-customer-sync, service-vip-sync <span class="tickets"><span class="ticket">AQUA-4626</span><span class="ticket">AQUA-4627</span></span></li>
+<li>Consent-withdrawal cleanup — service-onboarding-data <span class="tickets"><span class="ticket">AQUA-4544</span></span></li>
+<li>service-lists Kinesis channel support <span class="tickets"><span class="ticket">AQUA-4760</span></span></li>
+<li>DeleteRegistration &amp; RegisterUsingProductNumber mutations <span class="tickets"><span class="ticket">AQUA-3652</span><span class="ticket">AQUA-4192</span><span class="ticket">AQUA-4185</span></span></li>
+<li>VPC on service-customer <span class="tickets"><span class="ticket">AQUA-4353</span></span></li>
+<li>Log cleanup — validation warns, CD update <span class="tickets"><span class="ticket">AQUA-4152</span><span class="ticket">AQUA-4251</span></span></li>
+<li>Site-wide maintenance page on 418 <span class="tickets"><span class="ticket">AQUA-4671</span></span></li>
+</ul>
+</div>
+</div>
+
+<div class="section">
+<div class="section-title"><span class="section-number">09</span>Security / Dependabot Vulnerabilities</div>
+<div class="content">
+<p>Cross-service vulnerability sweeps — became a recurring cadence.</p>
+<ul>
+<li>Multi-service bumps across octan-auth, service-customer, service-customer-sync, service-vip-sync, service-lists, service-id-redirect, service-uec-ingestion <span class="tickets"><span class="ticket">AQUA-4401</span><span class="ticket">AQUA-4498</span><span class="ticket">AQUA-4556</span><span class="ticket">AQUA-4473</span><span class="ticket">AQUA-4474</span></span></li>
+<li>Vulnerabilities Skill — created, later extended for pnpm support <span class="tickets"><span class="ticket">AQUA-4498</span><span class="ticket">AQUA-4644</span></span></li>
+<li>Dependabot grouping and config split <span class="tickets"><span class="ticket">AQUA-4295</span><span class="ticket">AQUA-3699</span></span></li>
+</ul>
+</div>
+</div>
+
+<div class="section">
+<div class="section-title"><span class="section-number">10</span>Framework / Tooling Upgrades</div>
+<div class="content">
+<ul>
+<li>Next.js bumps and strict mode — including two disciplined reverts and 16.1.7 → 16.2.7 upgrade <span class="tickets"><span class="ticket">AQUA-4276</span><span class="ticket">AQUA-4375</span><span class="ticket">AQUA-4398</span><span class="ticket">AQUA-4558</span><span class="ticket">AQUA-4558.2</span></span></li>
+<li>Node 22 migration and octan-auth package updates — types in exports map <span class="tickets"><span class="ticket">AQUA-4001</span><span class="ticket">AQUA-4498.10</span></span></li>
+<li>Biome fixes — a11y, exhaustive hook deps, unit-test output cleanup <span class="tickets"><span class="ticket">AQUA-3876</span><span class="ticket">AQUA-3876.2</span><span class="ticket">AQUA-3879</span></span></li>
+<li>Standalone dev mode plus local GraphQL proxy for app-profile <span class="tickets"><span class="ticket">AQUA-4181</span></span></li>
+</ul>
+</div>
+</div>
+
+<div class="section">
+<div class="section-title"><span class="section-number">11</span>Analytics &amp; Micro-Interactions</div>
+<div class="content">
+<ul>
+<li>Header analytics and dedupe of AnalyticsProvider <span class="tickets"><span class="ticket">AQUA-4265</span><span class="ticket">AQUA-4292.2</span><span class="ticket">AQUA-4374</span></span></li>
+<li>PageView for empty collections <span class="tickets"><span class="ticket">AQUA-4145</span></span></li>
+<li>Recent product click tracking <span class="tickets"><span class="ticket">AQUA-4356</span></span></li>
+<li>BenefitsExplainer exposure tracking <span class="tickets"><span class="ticket">AQUA-4522</span></span></li>
+<li>InsidersAtCheckoutBanner tracking <span class="tickets"><span class="ticket">AQUA-4781</span></span></li>
+</ul>
+</div>
+</div>
+
+<div class="section">
+<div class="section-title"><span class="section-number">12</span>New Apps / Infra Additions</div>
+<div class="content">
+<ul>
+<li>app-translations-upload — net-new Next.js tool integrating AI-generated translations for content and localization teams; replaces the previous flow where an editor had to log into Contentstack and hand-enter each localized string, one entry per locale at a time <span class="tickets"><span class="ticket">AQUA-4598</span></span></li>
+<li>Island footer in app-profile <span class="tickets"><span class="ticket">AQUA-4469</span></span></li>
+<li>Baseplate docs — authoritative onboarding and reference surface <span class="tickets"><span class="ticket">AQUA-4082 series</span></span></li>
+</ul>
+<div class="qa-note"><strong>Quality &amp; observability:</strong> Island footer is covered by unit tests and e2e navigation checks with New Relic monitoring on initial render errors after cutover; app-translations-upload ships with unit-tested Contentstack client logic and per-request logging that surfaces failures immediately to the operator.</div>
+</div>
+</div>
+
+<div class="section">
+<div class="section-title"><span class="section-number">13</span>Cross-cutting Bug Fixes</div>
+<div class="content">
+<ul>
+<li>Firefox avatar z-index <span class="tickets"><span class="ticket">AQUA-4777</span></span></li>
+<li>Cross-app relative Link fix <span class="tickets"><span class="ticket">AQUA-0001</span></span></li>
+<li>FAQs query fix <span class="tickets"><span class="ticket">AQUA-4705</span></span></li>
+<li>Consent flow <span class="tickets"><span class="ticket">AQUA-4544</span></span></li>
+<li>Typography <span class="tickets"><span class="ticket">AQUA-4119</span></span></li>
+<li>E2E stability across multiple flows <span class="tickets"><span class="ticket">AQUA-4079</span><span class="ticket">AQUA-4302</span><span class="ticket">AQUA-4636</span><span class="ticket">AQUA-4337</span></span></li>
+</ul>
+</div>
+</div>
+
+<div class="highlight">
+<div class="highlight-title"><span class="highlight-icon">★</span>Highlights for the Review Write-up</div>
+<div class="highlight-content">
+<ul>
+<li><strong>Cross-package feature ownership:</strong> Benefits Explainer, VI Sign-in refresh, and Insiders-at-Confirmation each spanned 4+ packages (member-components → app-profile → app-shop → shopper-components), coordinating version bumps and consumer updates.</li>
+<li><strong>Performance leadership on app-profile:</strong> 15+ commits directly targeting CLS / LCP / TBT / INP and SSR stability, plus restoring NewRelic browser monitoring.</li>
+<li><strong>Security cadence:</strong> authored a reusable Vulnerabilities skill and drove 20+ dependency bumps across the Aquanauts service fleet.</li>
+<li><strong>Backend / CDK migration work:</strong> net-new service (service-member-sync), CDK migration for service-vip-sync, and pnpm migrations for two more services.</li>
+<li><strong>New app:</strong> shipped app-translations-upload from scratch — removing engineering from the localization critical path.</li>
+</ul>
+</div>
+</div>
+
+<footer>
+Mid-Year Review — Details Version · Jan 2026 – Jul 15, 2026
+</footer>
+
+</div>
+
+</body>
+</html>

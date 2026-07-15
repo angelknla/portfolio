@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mid-Year Review — Summary</title>
+
+<style>
+:root{
+    --accent:#0f172a;
+    --accent-soft:#334155;
+    --highlight:#2563eb;
+    --highlight-soft:#dbeafe;
+    --bg:#f4f5f7;
+    --card:#ffffff;
+    --text:#0f172a;
+    --text-muted:#475569;
+    --border:#e2e8f0;
+    --shadow-sm:0 1px 2px rgba(15,23,42,.04);
+    --shadow-md:0 10px 30px rgba(15,23,42,.06);
+    --shadow-lg:0 20px 50px rgba(15,23,42,.08);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:-apple-system,BlinkMacSystemFont,"Inter","Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.6;
+    padding:60px 24px;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+}
+
+.container{
+    max-width:960px;
+    margin:auto;
+}
+
+header{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:20px;
+    padding:56px 56px 48px;
+    box-shadow:var(--shadow-lg);
+    margin-bottom:40px;
+    position:relative;
+    overflow:hidden;
+}
+
+header::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    height:5px;
+    background:linear-gradient(90deg,var(--highlight),#7c3aed);
+}
+
+.eyebrow{
+    font-size:.78rem;
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:.14em;
+    color:var(--highlight);
+    margin-bottom:16px;
+}
+
+header h1{
+    font-size:2.6rem;
+    font-weight:800;
+    letter-spacing:-.02em;
+    color:var(--accent);
+    margin-bottom:20px;
+    line-height:1.15;
+}
+
+.meta{
+    display:flex;
+    flex-wrap:wrap;
+    gap:24px;
+    padding-top:24px;
+    border-top:1px solid var(--border);
+}
+
+.meta-item{
+    display:flex;
+    flex-direction:column;
+    gap:4px;
+}
+
+.meta-label{
+    font-size:.72rem;
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:.1em;
+    color:var(--text-muted);
+}
+
+.meta-value{
+    font-size:1.05rem;
+    font-weight:600;
+    color:var(--accent);
+}
+
+.section{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:20px;
+    margin-bottom:28px;
+    box-shadow:var(--shadow-md);
+    overflow:hidden;
+}
+
+.section-title{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    padding:26px 40px;
+    font-size:1.15rem;
+    font-weight:700;
+    color:var(--accent);
+    letter-spacing:-.01em;
+    border-bottom:1px solid var(--border);
+    background:linear-gradient(180deg,#fafbfc,#ffffff);
+}
+
+.section-number{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:30px;
+    height:30px;
+    border-radius:8px;
+    background:var(--highlight-soft);
+    color:var(--highlight);
+    font-size:.85rem;
+    font-weight:700;
+}
+
+.section-subtitle{
+    padding:14px 40px 18px;
+    background:#f8fafc;
+    border-bottom:1px solid var(--border);
+    color:var(--text-muted);
+    font-size:.9rem;
+    line-height:1.5;
+    display:flex;
+    align-items:flex-start;
+    gap:10px;
+}
+
+.section-subtitle::before{
+    content:"→";
+    color:var(--highlight);
+    font-weight:700;
+    flex-shrink:0;
+}
+
+.section-subtitle strong{
+    color:var(--accent);
+    font-weight:600;
+}
+
+.cot-tags{
+    display:inline-flex;
+    flex-wrap:wrap;
+    gap:6px;
+    margin-left:10px;
+    vertical-align:middle;
+}
+
+.cot-tag{
+    display:inline-block;
+    padding:2px 10px;
+    border-radius:999px;
+    font-size:.7rem;
+    font-weight:700;
+    letter-spacing:.03em;
+    text-transform:uppercase;
+    font-family:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;
+}
+
+.cot-1{
+    background:#dbeafe;
+    color:#1e40af;
+}
+
+.cot-2{
+    background:#dcfce7;
+    color:#166534;
+}
+
+.cot-3{
+    background:#fef3c7;
+    color:#92400e;
+}
+
+.idp-1{
+    background:#ede9fe;
+    color:#5b21b6;
+}
+
+.idp-2{
+    background:#fce7f3;
+    color:#9d174d;
+}
+
+.idp-3{
+    background:#ccfbf1;
+    color:#115e59;
+}
+
+.cot-map{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+}
+
+.cot-row{
+    display:flex;
+    gap:18px;
+    padding:20px;
+    background:#fafbfc;
+    border:1px solid var(--border);
+    border-radius:14px;
+}
+
+.cot-marker{
+    flex-shrink:0;
+    width:80px;
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:6px;
+}
+
+.cot-marker .cot-tag{
+    font-size:.72rem;
+}
+
+.cot-body h4{
+    font-size:.98rem;
+    font-weight:700;
+    color:var(--accent);
+    margin-bottom:6px;
+    letter-spacing:-.005em;
+}
+
+.cot-body p{
+    font-size:.92rem;
+    color:var(--text-muted);
+    line-height:1.55;
+}
+
+.cot-body strong{
+    color:var(--accent);
+    font-weight:600;
+}
+
+.content{
+    padding:12px 40px 32px;
+}
+
+.item{
+    padding:26px 0;
+    border-bottom:1px solid var(--border);
+}
+
+.item:last-child{
+    border-bottom:none;
+    padding-bottom:8px;
+}
+
+.item:first-child{
+    padding-top:20px;
+}
+
+.item h3{
+    color:var(--accent);
+    font-size:1.05rem;
+    font-weight:700;
+    margin-bottom:14px;
+    letter-spacing:-.005em;
+}
+
+.item ul{
+    list-style:none;
+    padding:0;
+    margin:0;
+}
+
+.item li{
+    position:relative;
+    padding-left:22px;
+    margin-bottom:8px;
+    color:var(--text-muted);
+    font-size:.96rem;
+    line-height:1.6;
+}
+
+.item li:last-child{
+    margin-bottom:0;
+}
+
+.item li::before{
+    content:"";
+    position:absolute;
+    left:0;
+    top:.62em;
+    width:6px;
+    height:6px;
+    border-radius:50%;
+    background:var(--highlight);
+    opacity:.65;
+}
+
+.item li strong{
+    color:var(--accent);
+    font-weight:600;
+}
+
+.details-link{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    margin-top:20px;
+    font-size:.8rem;
+    font-weight:500;
+    color:var(--text-muted);
+    text-decoration:none;
+    letter-spacing:.01em;
+    transition:color .15s ease;
+}
+
+.details-link:hover{
+    color:var(--highlight);
+}
+
+.details-link::after{
+    content:"→";
+    transition:transform .15s ease;
+}
+
+.details-link:hover::after{
+    transform:translateX(2px);
+}
+
+footer{
+    text-align:center;
+    color:var(--text-muted);
+    margin-top:50px;
+    font-size:.85rem;
+    letter-spacing:.02em;
+}
+
+@media(max-width:768px){
+
+body{
+    padding:24px 16px;
+}
+
+header{
+    padding:36px 28px 32px;
+}
+
+header h1{
+    font-size:1.9rem;
+}
+
+.meta{
+    gap:18px;
+}
+
+.section-title{
+    padding:22px 24px;
+    font-size:1.05rem;
+}
+
+.content{
+    padding:8px 24px 24px;
+}
+
+.item{
+    padding:22px 0;
+}
+
+}
+
+@media print{
+
+body{
+    background:white;
+    padding:0;
+}
+
+header,.section{
+    box-shadow:none;
+    border:1px solid #ddd;
+    break-inside:avoid;
+}
+
+.item{
+    break-inside:avoid;
+}
+
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- PASSWORD GATE -->
+<div id="pw-overlay" style="position:fixed;inset:0;background:rgba(15,23,42,.88);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;z-index:9999;">
+  <div style="background:#fff;border-radius:14px;padding:2rem 2.25rem;width:min(320px,90vw);box-shadow:0 24px 60px rgba(0,0,0,.35);text-align:center;">
+    <div style="font-size:2rem;margin-bottom:.5rem;">🔒</div>
+    <h2 style="font-size:1.05rem;font-weight:700;color:#0f172a;margin-bottom:.3rem;">Protected Page</h2>
+    <p style="font-size:.82rem;color:#64748b;margin-bottom:1.25rem;">Enter the password to continue.</p>
+    <input id="pw-input" type="password" placeholder="Password" autocomplete="current-password"
+      style="width:100%;padding:.6rem .75rem;border:1.5px solid #e2e8f0;border-radius:8px;font-size:.93rem;outline:none;margin-bottom:.65rem;color:#0f172a;box-sizing:border-box;" />
+    <div id="pw-error" style="color:#ef4444;font-size:.8rem;margin-bottom:.65rem;display:none;">Incorrect password. Try again.</div>
+    <button type="button" onclick="_pwCheck()" style="width:100%;padding:.65rem;background:#2563eb;color:#fff;border:none;border-radius:8px;font-size:.93rem;font-weight:600;cursor:pointer;">Unlock</button>
+  </div>
+</div>
+<script>
+(()=>{
+  var KEY='myr2026_unlocked';
+  if(localStorage.getItem(KEY)==='true'){
+    document.getElementById('pw-overlay').style.display='none';
+  }
+  document.getElementById('pw-input').addEventListener('keydown',(e)=>{
+    if(e.key==='Enter') _pwCheck();
+  });
+})();
+function _pwCheck(){
+  var val=document.getElementById('pw-input').value;
+  if(val==='ar2026'){
+    localStorage.setItem('myr2026_unlocked','true');
+    document.getElementById('pw-overlay').style.display='none';
+  } else {
+    document.getElementById('pw-error').style.display='block';
+    document.getElementById('pw-input').value='';
+    document.getElementById('pw-input').focus();
+  }
+}
+</script>
+<!-- END PASSWORD GATE -->
+
+<div class="container">
+
+<header>
+    <div class="eyebrow">Summary Version</div>
+    <h1>Mid-Year Review — Angel Canela</h1>
+    <div class="meta">
+        <div class="meta-item">
+            <span class="meta-label">Period</span>
+            <span class="meta-value">Jan 2026 – Jul 2026</span>
+        </div>
+        <div class="meta-item">
+            <span class="meta-label">Output</span>
+            <span class="meta-value">235 PRs merged</span>
+        </div>
+        <div class="meta-item">
+            <span class="meta-label">Surfaces</span>
+            <span class="meta-value">4 apps · 3 shared packages · 6 services</span>
+        </div>
+    </div>
+    <a class="details-link" href="/Mid-Year-Review.Details.html">See the full ticket-by-ticket breakdown</a>
+</header>
+
+<div class="section">
+<div class="section-title"><span class="section-number">01</span>Feature Leadership</div>
+<div class="section-subtitle"><span>Every feature below is backed by <strong>unit + Playwright e2e tests</strong>, <strong>Adobe Analytics</strong> instrumentation for frontend behaviour, and <strong>New Relic</strong> dashboards and alerts for rollout health.</span></div>
+
+<div class="content">
+
+<div class="item">
+<h3>Visual Identity refresh across member surfaces <span class="cot-tags"><span class="cot-tag cot-1">COT 1</span><span class="cot-tag idp-3">IDP 3</span></span></h3>
+<ul>
+    <li>Led the VI rollout for sign-in, membership card, and Insiders UI, coordinating breaking changes across four consumers: <strong>member-components</strong>, <strong>app-profile</strong>, <strong>app-shop</strong>, <strong>shopper-components</strong>.</li>
+    <li>Owned modal redesigns, feature-flag rollout, and post-rollout cleanup.</li>
+    <li>Sequenced version bumps and communicated release order in writing so downstream teams weren't blocked by a mid-flight consumer.</li>
+</ul>
+</div>
+
+<div class="item">
+<h3>Benefits Explainer — experiment through full rollout <span class="cot-tags"><span class="cot-tag cot-1">COT 1</span><span class="cot-tag idp-2">IDP 2</span></span></h3>
+<ul>
+    <li>Scaffolded the experiment behind a feature flag and shipped implementation across three packages.</li>
+    <li>Diagnosed and resolved a bundle-size regression against a specific size target; tuned skeleton loading state; enabled autoshow behaviour on the homepage.</li>
+    <li>Owned the full lifecycle — removed experiment infrastructure and the flag once the feature graduated so tech debt didn't accumulate silently.</li>
+</ul>
+</div>
+
+<div class="item">
+<h3>Wish List / Win-Your-Wish-List campaign platform <span class="cot-tags"><span class="cot-tag cot-1">COT 1</span><span class="cot-tag idp-1">IDP 1</span><span class="cot-tag idp-2">IDP 2</span></span></h3>
+<ul>
+    <li>Delivered auto-created wish lists driven by campaign slug and URL params, with supporting production content types and micro-interactions.</li>
+    <li>Designed the full flow end-to-end — content model in Contentstack, GraphQL contract, proxy request-id preservation, and the front-end campaign entrypoint.</li>
+    <li>Polished shared-list interactions for public and campaign flows.</li>
+    <li>Ran a perf pass that made large lists usable at scale — a proactive optimization outside the OKR scope.</li>
+</ul>
+</div>
+
+<div class="item">
+<h3>Insiders at Confirmation <span class="cot-tags"><span class="cot-tag cot-1">COT 1</span><span class="cot-tag idp-1">IDP 1</span></span></h3>
+<ul>
+    <li>Shipped the rewards banner on the order confirmation page with GWP support.</li>
+    <li>Split the InsidersData query so the confirmation page only fetches what it renders — a payload/latency win that also isolated blast radius on unrelated schema changes.</li>
+    <li>Partnered with product and analytics on funnel definitions upfront so post-launch measurement was ready on day one.</li>
+</ul>
+</div>
+
+<div class="item">
+<h3>My Collection area <span class="cot-tags"><span class="cot-tag cot-1">COT 1</span><span class="cot-tag idp-1">IDP 1</span></span></h3>
+<ul>
+    <li>Delivered HowItWorks Tray, Journey Starter, and Manual Set Addition with product search; redesigned the Collection Summary block.</li>
+    <li>Rebuilt registration-by-product-number end-to-end — GraphQL mutation, camera scan flow, and translations — bridging backend, service integration, and the user-facing scan UI.</li>
+    <li>Introduced PointsExplainer autoshow behind an experiment and iterated on tracking/visibility rules based on data, not intuition.</li>
+</ul>
+</div>
+
+<div class="item">
+<h3>For You block <span class="cot-tags"><span class="cot-tag cot-1">COT 1</span></span></h3>
+<ul>
+    <li>Built the component from display logic through localization, with dismissable behaviour.</li>
+    <li>Made the block Preferences-aware so it responds to user intent rather than shipping a one-size-fits-all experience.</li>
+    <li>Coordinated with copy and design so localization arrived alongside implementation, not weeks later.</li>
+</ul>
+</div>
+
+<div class="item">
+<h3>Island footer in app-profile <span class="cot-tags"><span class="cot-tag cot-1">COT 1</span><span class="cot-tag cot-2">COT 2</span><span class="cot-tag idp-2">IDP 2</span></span></h3>
+<ul>
+    <li>Delivered the footer as an independently-rendered island, decoupled from the main app render cycle for improved responsiveness.</li>
+    <li>Chose the island architecture over an inline component after weighing render-cost and SSR trade-offs — an architecture-level decision, not a copy-paste.</li>
+    <li>Documented the pattern so other slow-to-render surfaces in app-profile have a proven recipe to follow.</li>
+</ul>
+</div>
+
+</div>
+</div>
+
+<div class="section">
+<div class="section-title"><span class="section-number">02</span>Epic Creation &amp; Architectural Investments</div>
+
+<div class="content">
+
+<div class="item">
+<h3>Performance program on app-profile <span class="cot-tags"><span class="cot-tag cot-2">COT 2</span><span class="cot-tag idp-2">IDP 2</span></span></h3>
+<ul>
+    <li>15+ targeted PRs across CLS, LCP, TBT, and INP — migrated to <strong>useSuspenseQuery</strong>, converted images to webp with dynamic imports, restructured Suspense boundaries, and added preload/preconnect.</li>
+    <li>Restored New Relic browser monitoring so the dashboard becomes the source of truth for future regressions across the team.</li>
+    <li>Every change scoped from New Relic dashboards and Lighthouse audits with an explicit target metric — data-driven rather than intuition-driven optimization.</li>
+    <li><strong>Result:</strong> measurable Lighthouse score improvement across the board, verified page-by-page in the New Relic performance dashboard.</li>
+</ul>
+</div>
+
+<div class="item">
+<h3>Framework &amp; tooling modernization <span class="cot-tags"><span class="cot-tag cot-2">COT 2</span><span class="cot-tag cot-3">COT 3</span><span class="cot-tag idp-1">IDP 1</span><span class="cot-tag idp-2">IDP 2</span></span></h3>
+<ul>
+    <li>Shepherded the Next.js 16.1.7 → 16.2.7 upgrade end-to-end and enabled React strict mode (Next 13+ default) across app-profile.</li>
+    <li>Made two disciplined reverts when regressions surfaced rather than let the platform absorb the cost.</li>
+    <li>Migrated octan-auth to Node 22 with fresh package baselines and a proper types export map for consumers.</li>
+    <li>Cleared Biome-flagged a11y / optimization debt and cleaned up noisy unit-test output.</li>
+</ul>
+</div>
+
+<div class="item">
+<h3>Developer experience — standalone dev mode with local GraphQL proxy <span class="cot-tags"><span class="cot-tag cot-2">COT 2</span><span class="cot-tag idp-1">IDP 1</span><span class="cot-tag idp-3">IDP 3</span></span></h3>
+<ul>
+    <li>Built a self-contained dev workflow for app-profile — contributors no longer need a full backend stack running locally.</li>
+    <li>Cut feedback loop time meaningfully for every frontend contributor, removing a recurring source of onboarding friction.</li>
+    <li>Recognized this as a leverage problem, not a personal-preference problem, and invested the time to make it a reusable team asset.</li>
+</ul>
+</div>
+
+<div class="item">
+<h3>Baseplate documentation <span class="cot-tags"><span class="cot-tag cot-1">COT 1</span><span class="cot-tag idp-3">IDP 3</span></span></h3>
+<ul>
+    <li>Authored and iterated the Baseplate documentation for app-profile.</li>
+    <li>Gave the team an authoritative onboarding and reference surface — a durable artifact that outlives any single ticket.</li>
+    <li>Codified the patterns we actually use in production so newcomers don't have to reverse-engineer them from the code.</li>
+</ul>
+</div>
+
+<div class="item">
+<h3>Security &amp; vulnerability program <span class="cot-tags"><span class="cot-tag cot-3">COT 3</span><span class="cot-tag idp-1">IDP 1</span></span></h3>
+<ul>
+    <li>Authored a reusable Vulnerabilities Skill, later extended for pnpm — turned an ad-hoc chore into an automatable process anyone on the team can run.</li>
+    <li>Drove 20+ dependency bumps across the Aquanauts service fleet.</li>
+    <li>Established a repeatable cadence for handling Dependabot findings, so the fleet stays green without becoming any one person's burden.</li>
+</ul>
+</div>
+
+<div class="item">
+<h3>CDK migration + service modernization <span class="cot-tags"><span class="cot-tag cot-3">COT 3</span><span class="cot-tag idp-1">IDP 1</span></span></h3>
+<ul>
+    <li>Created <strong>service-member-sync</strong> from scratch and migrated <strong>service-vip-sync</strong> to CDK with DynamoDB retention safety across environments — deliberately protecting production state before touching stack semantics.</li>
+    <li>Moved two services to pnpm and added VPC isolation to <strong>service-customer</strong>.</li>
+    <li>Approached each migration as a risk-managed rollout — staged, reversible, and paired with retention safety rather than a bulk cutover.</li>
+</ul>
+</div>
+
+<div class="item">
+<h3>New application — app-translations-upload <span class="cot-tags"><span class="cot-tag cot-1">COT 1</span><span class="cot-tag cot-3">COT 3</span><span class="cot-tag idp-1">IDP 1</span><span class="cot-tag idp-3">IDP 3</span></span></h3>
+<ul>
+    <li>Delivered a net-new Next.js tool that integrates AI-generated translations end-to-end: upload a spreadsheet → resolve entry UIDs → upsert entries in Contentstack → publish across every supported locale, all in one click.</li>
+    <li><strong>Before:</strong> a content editor had to log into Contentstack and hand-enter each localized string, one entry per locale at a time — a full translation batch could burn most of a working day per person.</li>
+    <li><strong>After:</strong> AI-produced translations flow from spreadsheet to published entries in minutes, self-serve, with no engineer or editor in the manual loop.</li>
+    <li>Removes engineering and manual content-entry from the critical path for every future localization drop, freeing team capacity for feature work.</li>
+</ul>
+</div>
+
+</div>
+</div>
+
+<div class="section">
+<div class="section-title"><span class="section-number">03</span>How This Work Maps to My COTs</div>
+
+<div class="content">
+
+<div class="item">
+<p style="color:var(--text-muted);font-size:.95rem;margin-bottom:20px;">Work items throughout this doc are tagged inline with <span class="cot-tag cot-1" style="font-size:.68rem;">COT 1</span> <span class="cot-tag cot-2" style="font-size:.68rem;">COT 2</span> <span class="cot-tag cot-3" style="font-size:.68rem;">COT 3</span> chips so impact traces back to the objective.</p>
+
+<div class="cot-map">
+
+<div class="cot-row">
+<div class="cot-marker"><span class="cot-tag cot-1">COT 1</span></div>
+<div class="cot-body">
+<h4>Lead the delivery of new features and capabilities that drive engagement with the Member Hub</h4>
+<p>Led <strong>seven</strong> major features end-to-end — VI refresh, Benefits Explainer, Win-Your-Wish-List, Insiders at Confirmation, My Collection, For You, and Island footer — designing with stakeholders, coordinating cross-package rollouts, and backing every launch with automated tests, analytics, and monitoring.</p>
+</div>
+</div>
+
+<div class="cot-row">
+<div class="cot-marker"><span class="cot-tag cot-2">COT 2</span></div>
+<div class="cot-body">
+<h4>Identify and deliver performance optimisations outside of OKR work for Aquanauts</h4>
+<p>Ran a sustained, data-driven perf program on app-profile — <strong>15+ targeted PRs</strong> across CLS, LCP, TBT, and INP. <strong>Result:</strong> measurable Lighthouse improvement across the board, verified in the New Relic dashboard. Also invested in team velocity via standalone dev mode and the Island footer refactor.</p>
+</div>
+</div>
+
+<div class="cot-row">
+<div class="cot-marker"><span class="cot-tag cot-3">COT 3</span></div>
+<div class="cot-body">
+<h4>Ensure backend modernisation</h4>
+<p>Moved the Aquanauts fleet forward: created <strong>service-member-sync</strong> on CDK, migrated <strong>service-vip-sync</strong> to CDK with retention safety, added VPC isolation to <strong>service-customer</strong>, moved two services to pnpm, and drove the Node 22 migration. Also authored a reusable Vulnerabilities Skill and ran <strong>20+</strong> dependency bumps.</p>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="section">
+<div class="section-title"><span class="section-number">04</span>How This Work Maps to My IDPs</div>
+
+<div class="content">
+
+<div class="item">
+<p style="color:var(--text-muted);font-size:.95rem;margin-bottom:20px;">Three development items agreed for Nov 2025 – Dec 2026, each anchored in the <strong>70/20/10</strong> model. Work items are also tagged with <span class="cot-tag idp-1" style="font-size:.68rem;">IDP 1</span> <span class="cot-tag idp-2" style="font-size:.68rem;">IDP 2</span> <span class="cot-tag idp-3" style="font-size:.68rem;">IDP 3</span> chips where they contributed.</p>
+
+<div class="cot-map">
+
+<div class="cot-row">
+<div class="cot-marker"><span class="cot-tag idp-1">IDP 1</span></div>
+<div class="cot-body">
+<h4>Backend Technology &amp; Full-Stack Knowledge</h4>
+<p>Stretched deep into backend: <strong>two CDK service migrations</strong>, a net-new CDK service, VPC isolation on service-customer, plus GraphQL schema/resolver work across three mutations. Full-stack ownership on Wish List, Insiders at Confirmation, and My Collection meant designing both the resolver and the UI — no more consuming APIs I didn't help shape.</p>
+</div>
+</div>
+
+<div class="cot-row">
+<div class="cot-marker"><span class="cot-tag idp-2">IDP 2</span></div>
+<div class="cot-body">
+<h4>Frontend Performance Optimization at Scale</h4>
+<p>Owned the app-profile perf program end-to-end — 15+ PRs across all four Core Web Vitals, plus a diagnosed bundle-size fix on Benefits Explainer. <strong>Result:</strong> measurable Lighthouse improvement across the board in the New Relic dashboard. Real production stretch, shaped by mentoring input from perf specialists on the team.</p>
+</div>
+</div>
+
+<div class="cot-row">
+<div class="cot-marker"><span class="cot-tag idp-3">IDP 3</span></div>
+<div class="cot-body">
+<h4>Leadership &amp; Communication</h4>
+<p>Led cross-package rollouts that required real stakeholder alignment — VI refresh across four consumers, Benefits Explainer experiment, Sign-in modal with design and content partners. Made <strong>two disciplined revert calls</strong> under pressure when regressions surfaced. Authored Baseplate docs and shipped app-translations-upload — communication that keeps paying off past the immediate task.</p>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="section">
+<div class="section-title"><span class="section-number">05</span>Qualities Reviewers Should Notice</div>
+
+<div class="content">
+
+<div class="item">
+<h3>End-to-end ownership</h3>
+<ul>
+    <li>Every major initiative taken from experiment or scaffold through rollout, monitoring, and eventual flag or experiment cleanup — the follow-through work was owned too.</li>
+    <li>Wrote automated tests and observability alongside the feature, not after — every launch has unit + e2e coverage and a New Relic dashboard behind it.</li>
+    <li>Treated "done" as "shipped, measured, and cleaned up," not "merged."</li>
+</ul>
+</div>
+
+<div class="item">
+<h3>Cross-package coordination</h3>
+<ul>
+    <li>Routinely coordinated changes touching 3–4 packages with dependent version bumps, sequenced to avoid breaking downstream consumers.</li>
+    <li>Communicated release order in writing to affected teams so nobody was surprised by a bump.</li>
+    <li>Held the mental model of the whole graph — apps, packages, services, and their versioning contracts — not just the change in front of me.</li>
+</ul>
+</div>
+
+<div class="item">
+<h3>Force multipliers</h3>
+<ul>
+    <li>Invested in reusable tooling — Vulnerabilities Skill, standalone dev mode, Baseplate docs, translations upload app — that accelerates the whole Aquanauts team and unblocks non-engineering partners.</li>
+    <li>Preferred solutions that remove future work from the critical path over one-off fixes.</li>
+    <li>Measured impact by how much other people can do because of the work, not by how much I did.</li>
+</ul>
+</div>
+
+<div class="item">
+<h3>Judgment under pressure</h3>
+<ul>
+    <li>Chose to revert Next.js bumps and Suspense changes when they regressed SSR performance, prioritizing platform health over defending a merge.</li>
+    <li>Distinguished "this is broken and needs to come out now" from "this needs iteration" — and acted without waiting for escalation.</li>
+    <li>Comfortable owning the call and its consequences instead of deferring to consensus when time was short.</li>
+</ul>
+</div>
+
+<div class="item">
+<h3>Cross-stack fluency</h3>
+<ul>
+    <li>Six months spanned frontend perf, GraphQL schema and resolver work, Kinesis event shape changes, DynamoDB retention, and CDK/Serverless infra.</li>
+    <li>Comfortable moving between browser, backend, and infra in the same week — and picking the right layer to solve a problem, not the most familiar one.</li>
+    <li>Reasoned about trade-offs across layers (e.g. query split vs frontend caching) instead of reflexively solving in the layer nearest to hand.</li>
+</ul>
+</div>
+
+<div class="item">
+<h3>Data-driven decision making</h3>
+<ul>
+    <li>Performance work was scoped from New Relic dashboards and Lighthouse audits, not intuition — every optimization had a target metric and a verified delta.</li>
+    <li>Adobe Analytics instrumentation shipped with each feature, so product decisions after launch are grounded in real user behaviour.</li>
+    <li>Diagnosed the Benefits Explainer bundle-size regression from measured data and closed it against an explicit target.</li>
+</ul>
+</div>
+
+<div class="item">
+<h3>Risk management &amp; safe rollouts</h3>
+<ul>
+    <li>Every user-facing change landed behind a feature flag or experiment with explicit rollout, monitoring, and cleanup phases.</li>
+    <li>Migrated <strong>service-vip-sync</strong> to CDK with DynamoDB retention safety across environments — deliberately protecting production state before touching stack semantics.</li>
+    <li>Treated "back out safely" as a first-class option, not a failure mode — reducing blast radius before it becomes an incident review.</li>
+</ul>
+</div>
+
+<div class="item">
+<h3>Mentorship &amp; knowledge sharing</h3>
+<ul>
+    <li>Authored Baseplate documentation for app-profile so the team has one authoritative reference for onboarding and patterns.</li>
+    <li>Built standalone dev mode and the Vulnerabilities Skill as reusable assets — teammates use them daily without needing me in the loop.</li>
+    <li>Framed PR reviews as teaching moments — explaining the "why" behind requested changes so patterns propagate, not just fixes.</li>
+</ul>
+</div>
+
+<div class="item">
+<h3>Stakeholder &amp; cross-functional collaboration</h3>
+<ul>
+    <li>Partnered directly with design, content, product, and localization — clarifying acceptance criteria upfront and translating them into cross-package technical plans.</li>
+    <li>Built app-translations-upload from a direct conversation with the localization team about their actual workflow, not from a spec.</li>
+    <li>Translated technical trade-offs into terms non-engineering partners can act on, so the right call gets made together instead of alone.</li>
+</ul>
+</div>
+
+<div class="item">
+<h3>Delivery discipline &amp; consistent throughput</h3>
+<ul>
+    <li>235 PRs merged in six months at sustained quality — every merge through review, automated tests, and lint.</li>
+    <li>Comfortable with both large architectural work and the small fixes and dependency bumps that keep the platform healthy — no work was "beneath" the role.</li>
+    <li>Kept scope tight per PR — one ticket, one merge — protecting reviewer time and keeping git history readable.</li>
+</ul>
+</div>
+
+</div>
+</div>
+
+<footer>
+Mid-Year Review — Summary Version · Jan 2026 – Jul 2026
+</footer>
+
+</div>
+
+</body>
+</html>
