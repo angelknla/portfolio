@@ -1,0 +1,1092 @@
+/* ================================================================
+   SPORTS BOOKING — three-step session booking wizard
+   ================================================================ */
+.booking {
+  --grad: linear-gradient(135deg, var(--accent), var(--accent-subtle));
+  --ring: 0 0 0 2px var(--accent);
+  --lift: 0 18px 40px -22px var(--accent);
+  width: 100%;
+  max-width: 110rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+
+/* ---- Progress rail ---- */
+.progress {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.progressItem {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 1.4rem;
+  color: var(--text-muted);
+}
+
+.progressItem + .progressItem::before {
+  content: "";
+  width: 2.8rem;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--border);
+  margin-right: 0.2rem;
+}
+
+.progressItem[data-state="current"] + .progressItem::before,
+.progressItem[data-state="done"]::before {
+  background: var(--grad);
+}
+
+.progressItem[data-state="current"],
+.progressItem[data-state="done"] {
+  color: var(--text);
+}
+
+.progressItem[data-state="current"] .progressLabel {
+  font-weight: 600;
+}
+
+.progressDot {
+  display: grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 1rem;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  font-family: "Space Mono", monospace;
+  font-size: 1.3rem;
+  font-weight: 700;
+  flex-shrink: 0;
+  transition: transform 0.25s ease;
+}
+
+.progressItem[data-state="current"] .progressDot {
+  background: var(--grad);
+  border-color: transparent;
+  color: #fff;
+  box-shadow: var(--lift);
+  transform: rotate(-4deg) scale(1.06);
+}
+
+.progressItem[data-state="done"] .progressDot {
+  background: var(--accent-dim);
+  border-color: var(--accent);
+  color: var(--accent);
+  font-size: 1.5rem;
+}
+
+/* ---- Layout ---- */
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 31rem;
+  gap: 2.4rem;
+  align-items: start;
+}
+
+.panel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+  padding: 3.2rem 2.8rem 2.4rem;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: 2rem;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+/* Gradient hairline along the top edge of the card */
+.panel::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 3px;
+  background: var(--grad);
+}
+
+.stepCount {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: "Space Mono", monospace;
+  font-size: 1.2rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+/* ---- Field groups ---- */
+.fieldset {
+  border: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  min-width: 0;
+}
+
+.legend {
+  font-size: 2.2rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  padding: 0;
+}
+
+.miniLegend {
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  padding: 0;
+}
+
+.legend:focus-visible,
+.miniLegend:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 0.5rem;
+  border-radius: 0.3rem;
+}
+
+.hint {
+  font-size: 1.4rem;
+  color: var(--text-muted);
+  margin-bottom: 1.4rem;
+}
+
+.empty {
+  font-size: 1.4rem;
+  color: var(--text-muted);
+  padding: 2rem;
+  background: var(--bg-card);
+  border: 1px dashed var(--border);
+  border-radius: 1rem;
+  text-align: center;
+}
+
+/* ---- Shared hidden input (stays focusable) ---- */
+.control {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  margin: 0;
+  pointer-events: none;
+}
+
+.control:focus-visible + .chipInner,
+.control:focus-visible + .sportCardInner,
+.control:focus-visible + .dateCardInner,
+.control:focus-visible + .slotCardInner,
+.control:focus-visible + .segmentInner {
+  outline: 2px solid var(--accent);
+  outline-offset: 0.3rem;
+}
+
+/* ---- Venue filter chips ---- */
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  padding: 0.5rem;
+  margin-top: 0.8rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  width: fit-content;
+  max-width: 100%;
+}
+
+.chip {
+  cursor: pointer;
+}
+
+.chipInner {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  min-height: 3.8rem;
+  padding: 0 1.8rem;
+  border-radius: 999px;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.chipInner svg {
+  font-size: 1.7rem;
+}
+
+.chip:hover .chipInner {
+  color: var(--text);
+}
+
+.control:checked + .chipInner {
+  background: var(--grad);
+  color: #fff;
+  box-shadow: var(--lift);
+}
+
+/* ---- Sport cards ---- */
+.sportGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  gap: 1.2rem;
+}
+
+.sportCard {
+  display: block;
+  cursor: pointer;
+}
+
+.sportCardInner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  height: 100%;
+  padding: 1.8rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 1.4rem;
+  overflow: hidden;
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+/* Soft accent wash that fades in behind the selected card */
+.sportCardInner::after {
+  content: "";
+  position: absolute;
+  inset: -40% -40% auto auto;
+  width: 18rem;
+  height: 18rem;
+  border-radius: 50%;
+  background: var(--grad);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  filter: blur(28px);
+  pointer-events: none;
+}
+
+.sportCard:hover .sportCardInner {
+  border-color: var(--accent);
+  transform: translateY(-3px);
+  box-shadow: var(--lift);
+}
+
+.control:checked + .sportCardInner {
+  border-color: transparent;
+  box-shadow: var(--ring), var(--lift);
+}
+
+.control:checked + .sportCardInner::after {
+  opacity: 0.18;
+}
+
+.sportTop {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.sportIcon {
+  display: grid;
+  place-items: center;
+  width: 4.8rem;
+  height: 4.8rem;
+  border-radius: 1.2rem;
+  font-size: 2.6rem;
+  color: var(--accent);
+  background: var(--accent-dim);
+  transition: transform 0.3s cubic-bezier(0.2, 1.4, 0.4, 1);
+}
+
+.sportCard:hover .sportIcon {
+  transform: rotate(-8deg) scale(1.08);
+}
+
+.control:checked + .sportCardInner .sportIcon {
+  background: var(--grad);
+  color: #fff;
+}
+
+.tick {
+  display: grid;
+  place-items: center;
+  width: 2.6rem;
+  height: 2.6rem;
+  border-radius: 50%;
+  font-size: 1.4rem;
+  color: #fff;
+  background: var(--accent);
+  opacity: 0;
+  transform: scale(0.4);
+  transition:
+    opacity 0.2s ease,
+    transform 0.3s cubic-bezier(0.2, 1.5, 0.4, 1);
+}
+
+.control:checked + .sportCardInner .tick {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.sportName {
+  margin-top: 0.8rem;
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--text);
+}
+
+.sportTagline {
+  font-size: 1.3rem;
+  color: var(--text-muted);
+  flex-grow: 1;
+}
+
+.sportMeta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 1.2rem;
+}
+
+.badge {
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+}
+
+.price {
+  margin-top: 0.8rem;
+  font-family: "Space Mono", monospace;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+/* ---- Date rail ---- */
+.dateRail {
+  display: flex;
+  gap: 0.8rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 0.4rem 0.4rem 1.4rem;
+  margin: -0.4rem;
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent) transparent;
+}
+
+.dateCard {
+  cursor: pointer;
+  scroll-snap-align: start;
+  flex: 0 0 auto;
+}
+
+.dateCardInner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.1rem;
+  min-width: 7.6rem;
+  padding: 1.2rem 1rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 1.2rem;
+  transition:
+    border-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.dateCard:hover .dateCardInner {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.control:checked + .dateCardInner {
+  background: var(--grad);
+  border-color: transparent;
+  box-shadow: var(--lift);
+}
+
+.control:checked + .dateCardInner .dateWeekday,
+.control:checked + .dateCardInner .dateNumber,
+.control:checked + .dateCardInner .dateMonth {
+  color: #fff;
+}
+
+.dateWeekday {
+  font-size: 1.15rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.dateNumber {
+  font-family: "Space Mono", monospace;
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.2;
+}
+
+.dateMonth {
+  font-size: 1.15rem;
+  color: var(--text-muted);
+}
+
+/* ---- Time slots ---- */
+.slotGroups {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+}
+
+.slotGroupLabel {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 0.9rem;
+}
+
+.slotGroupLabel::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+.slotGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(11.5rem, 1fr));
+  gap: 0.8rem;
+}
+
+.slotCard {
+  cursor: pointer;
+}
+
+.slotCardInner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.3rem;
+  min-height: 4.6rem;
+  padding: 1rem 1.3rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  transition:
+    border-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.slotCard:hover .slotCardInner {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.slotCard[data-state="full"],
+.slotCard[data-state="past"] {
+  cursor: not-allowed;
+}
+
+.slotCard[data-state="full"] .slotCardInner,
+.slotCard[data-state="past"] .slotCardInner {
+  opacity: 0.45;
+  border-style: dashed;
+}
+
+.slotCard[data-state="full"]:hover .slotCardInner,
+.slotCard[data-state="past"]:hover .slotCardInner {
+  border-color: var(--border);
+  transform: none;
+}
+
+.slotCard[data-state="full"] .slotTime,
+.slotCard[data-state="past"] .slotTime {
+  text-decoration: line-through;
+}
+
+.control:checked + .slotCardInner {
+  background: var(--grad);
+  border-color: transparent;
+  box-shadow: var(--lift);
+}
+
+.control:checked + .slotCardInner .slotTime,
+.control:checked + .slotCardInner .slotMeta {
+  color: #fff;
+}
+
+.slotTime {
+  font-family: "Space Mono", monospace;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.slotMeta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.15rem;
+  color: var(--text-muted);
+}
+
+.slotDot {
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 50%;
+  background: currentColor;
+  flex-shrink: 0;
+}
+
+.slotDot[data-level="high"] {
+  background: #22c55e;
+}
+
+.slotDot[data-level="mid"] {
+  background: #f59e0b;
+}
+
+.slotDot[data-level="low"] {
+  background: #ef4444;
+}
+
+/* ---- Segmented controls (venue, team size) ---- */
+.segmented {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.segment {
+  cursor: pointer;
+  flex: 1 1 13rem;
+}
+
+.segmentInner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  height: 100%;
+  padding: 1.6rem 1.2rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 1.2rem;
+  text-align: center;
+  transition:
+    border-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.segment:hover .segmentInner {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.control:checked + .segmentInner {
+  border-color: transparent;
+  background: var(--accent-dim);
+  box-shadow: var(--ring);
+}
+
+.segmentIcon {
+  font-size: 2.2rem;
+  color: var(--accent);
+  margin-bottom: 0.4rem;
+}
+
+.segmentTitle {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.segmentMeta {
+  font-size: 1.2rem;
+  color: var(--text-muted);
+}
+
+/* ---- Stepper ---- */
+.stepper {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-top: 0.4rem;
+}
+
+.stepperButton {
+  width: 4.6rem;
+  height: 4.6rem;
+  display: grid;
+  place-items: center;
+  font-size: 2rem;
+  border-radius: 1.2rem;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  color: var(--text);
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.stepperButton:hover:not(:disabled) {
+  border-color: var(--accent);
+  background: var(--accent-dim);
+  color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.stepperButton:focus-visible,
+.stepperInput:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 0.2rem;
+}
+
+.stepperInput {
+  width: 8rem;
+  height: 4.6rem;
+  text-align: center;
+  font-family: "Space Mono", monospace;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 1.2rem;
+}
+
+.stepperUnit {
+  font-size: 1.4rem;
+  color: var(--text-muted);
+}
+
+/* ---- Errors & actions ---- */
+.error {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: #b42318;
+  padding: 1.2rem 1.6rem;
+  border-radius: 1rem;
+  background: rgba(180, 35, 24, 0.08);
+  border: 1px solid rgba(180, 35, 24, 0.25);
+}
+
+:global(:root.dark) .error {
+  color: #fca5a5;
+  background: rgba(252, 165, 165, 0.1);
+  border-color: rgba(252, 165, 165, 0.25);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: flex-end;
+  padding-top: 1.6rem;
+  border-top: 1px solid var(--border);
+}
+
+.primaryAction,
+.secondaryAction {
+  min-height: 4.6rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  padding: 1.2rem 2.6rem;
+  border-radius: 1.2rem;
+  font-family: inherit;
+  font-size: 1.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.primaryAction svg,
+.secondaryAction svg {
+  font-size: 1.8rem;
+}
+
+.primaryAction {
+  background: var(--grad);
+  color: #fff;
+  border: none;
+}
+
+.primaryAction:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--lift);
+}
+
+.primaryAction:hover svg {
+  transform: translateX(2px);
+}
+
+.secondaryAction {
+  background: var(--bg-card);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+.secondaryAction:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.primaryAction:focus-visible,
+.secondaryAction:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 0.3rem;
+}
+
+/* ---- Summary: ticket stub ---- */
+.summary {
+  position: sticky;
+  top: calc(var(--header-height) + 2rem);
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+  padding: 2.4rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 1.6rem;
+  overflow: hidden;
+}
+
+.summary::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 3px;
+  background: var(--grad);
+}
+
+.summaryTitle {
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.summaryEmpty {
+  font-size: 1.4rem;
+  color: var(--text-muted);
+}
+
+.summaryHero {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.9rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--text);
+}
+
+.summaryHeroIcon {
+  display: grid;
+  place-items: center;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 1.1rem;
+  font-size: 2.2rem;
+  color: #fff;
+  background: var(--grad);
+  flex-shrink: 0;
+}
+
+.summaryList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.summaryRow {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.summaryRow dt {
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+}
+
+.summaryRow dd {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.summaryTotal {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1.2rem;
+  padding-top: 1.4rem;
+  border-top: 1px dashed var(--border);
+  font-size: 1.3rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+}
+
+.summaryTotal strong {
+  font-family: "Space Mono", monospace;
+  font-size: 2.4rem;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+
+.summaryNote {
+  font-size: 1.2rem;
+  color: var(--text-muted);
+}
+
+/* ---- Confirmation ---- */
+.confirmation {
+  position: relative;
+  width: 100%;
+  max-width: 58rem;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+  padding: 4.8rem 3.2rem;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: 2rem;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  animation: pop 0.45s cubic-bezier(0.2, 1.3, 0.4, 1) both;
+}
+
+.confirmation::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 4px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-subtle));
+}
+
+@keyframes pop {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+}
+
+.confirmationMark {
+  display: grid;
+  place-items: center;
+  width: 7.2rem;
+  height: 7.2rem;
+  border-radius: 2rem;
+  font-size: 3.6rem;
+  color: #fff;
+  background: linear-gradient(135deg, var(--accent), var(--accent-subtle));
+  box-shadow: 0 18px 40px -22px var(--accent);
+}
+
+.confirmationTitle {
+  font-size: 3rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+
+.confirmationTitle:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 0.5rem;
+  border-radius: 0.3rem;
+}
+
+.confirmationBody {
+  font-size: 1.6rem;
+  color: var(--text-muted);
+  max-width: 42rem;
+}
+
+.reference {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 1.4rem 2.8rem;
+  background: var(--accent-dim);
+  border: 1px dashed var(--accent);
+  border-radius: 1.2rem;
+}
+
+.referenceLabel {
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+}
+
+.referenceCode {
+  font-family: "Space Mono", monospace;
+  font-size: 2.2rem;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+}
+
+.confirmationTotal {
+  display: flex;
+  align-items: baseline;
+  gap: 0.8rem;
+  font-size: 1.3rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+}
+
+.confirmationTotal strong {
+  font-family: "Space Mono", monospace;
+  font-size: 2rem;
+  letter-spacing: normal;
+  color: var(--text);
+}
+
+.confirmationActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1.2rem;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .summary {
+    position: static;
+    order: -1;
+  }
+}
+
+@media (max-width: 640px) {
+  .panel {
+    padding: 2.4rem 1.6rem 2rem;
+    border-radius: 1.6rem;
+  }
+
+  .legend {
+    font-size: 1.9rem;
+  }
+
+  .chips {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .chipInner {
+    padding: 0 1.2rem;
+  }
+
+  .actions {
+    justify-content: stretch;
+  }
+
+  .actions .primaryAction,
+  .actions .secondaryAction {
+    flex: 1 1 13rem;
+  }
+
+  .progressItem .progressLabel {
+    font-size: 1.3rem;
+  }
+
+  .progressItem + .progressItem::before {
+    width: 1.6rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .booking *,
+  .confirmation {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .sportCard:hover .sportCardInner,
+  .sportCard:hover .sportIcon,
+  .dateCard:hover .dateCardInner,
+  .slotCard:hover .slotCardInner,
+  .segment:hover .segmentInner,
+  .stepperButton:hover:not(:disabled),
+  .primaryAction:hover,
+  .secondaryAction:hover {
+    transform: none;
+  }
+
+  .progressItem[data-state="current"] .progressDot {
+    transform: none;
+  }
+}
+
+@media (prefers-contrast: more) {
+  .sportCardInner,
+  .dateCardInner,
+  .slotCardInner,
+  .segmentInner,
+  .chips {
+    border-color: var(--text-muted);
+  }
+}
